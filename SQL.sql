@@ -5213,3 +5213,112 @@ dec jan
 10-12 IT
 
 13-23
+
+
+Find the largest single number. If there is no single number, report null.
+The result format is in the following example.
+ Example 1:
+Input: 
+MyNumbers table:
++-----+
+| num |
++-----+
+| 8   |
+| 8   |
+| 3   |
+| 3   |
+| 1   |
+| 4   |
+| 5   |
+| 6   |
+
+with x as
+(
+      select num,count(num) over (partition by num ) as cnt
+      from MyNumbers
+      order by num desc
+)
+,
+y as
+(
+      select
+      case when cnt = 1 then  num else Null end as result
+      from x
+)
+select
+distinct result as num from y
+order by result desc
+limit 1
+
+--easy solution
+
+
+select 
+    max(num) as num 
+from 
+   (select
+        num
+    from 
+        mynumbers
+    group by 
+        num
+    having 
+        count(num) = 1) as a;
+
+
+Write a solution to report the customer ids from the Customer table that bought all the products in the Product table.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input:
+Customer table:
++-------------+-------------+
+| customer_id | product_key |
++-------------+-------------+
+| 1           | 5           |
+| 2           | 6           |
+| 3           | 5           |
+| 3           | 6           |
+| 1           | 6           |
++-------------+-------------+
+Product table:
++-------------+
+| product_key |
++-------------+
+| 5           |
+| 6           |
++-------------+
+Output:
++-------------+
+| customer_id |
++-------------+
+| 1           |
+| 3           |
++-------------+
+Explanation:
+The customers who bought all the products (5 and 6) are customers with IDs 1 and 3.
+
+# all product -product distinct count from Product
+# count product by each customer_id
+# return customer id where count of all product = count product by each customer_id
+
+with x as
+(
+select *,count(distinct product_key) as cnt
+from Customer
+group by customer_id
+)
+select distinct customer_id
+from x
+where cnt in (
+ select count(distinct product_key) as Total_cnt from Product
+ )
+
+SELECT  customer_id FROM Customer GROUP BY customer_id
+HAVING COUNT(distinct product_key) = (SELECT COUNT(product_key) FROM Product)
