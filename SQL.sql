@@ -5174,3 +5174,42 @@ group by country
 --count(id) as trans_count,count(id) as approved_count --filter state = 'approved'
 --sum(amount) as trans_total_amount  , count(amount) as approved_total_amount --filter state = 'approved'
 --group by month , country 
+
+
+--R1 f
+
+with x as
+(select * , rank() over (partition by product_id order by year asc) as r_no
+from Sales)
+select
+product_id, year as first_year , quantity, price
+from x where r_no = 1;
+
+# Write your MySQL query statement below
+select product_id, year as first_year, quantity, price
+from
+(select * , rank() over (partition by product_id order by year asc) as r_no
+from Sales) as derv_table
+where r_no = 1
+
+GATE
+SAS DLD EMFT -june -sept
+NAS Control electronics -july -oct
+Communication Analog Maths -aug -nov
+
+IT
+IBM data science -june
+AWS SAA C03 2 months -june july
+leetcode hackerrank kaggle - SQL and PYTHON
+
+june july aug
+sept oct nov
+dec jan
+
+6-12
+6-7 exercise touch a grass
+7-9 GATE
+9-10 FOOD
+10-12 IT
+
+13-23
