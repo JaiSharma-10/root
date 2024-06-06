@@ -5322,3 +5322,80 @@ where cnt in (
 
 SELECT  customer_id FROM Customer GROUP BY customer_id
 HAVING COUNT(distinct product_key) = (SELECT COUNT(product_key) FROM Product)
+
+
+===============================================================================
+
+--manager reports_to null
+--compare within table --self join
+--count(reports_to) by name
+
+
+
+select * from Employees a
+join Employees b
+on a.employee_id = b.employee_id
+
+-- output
+employee_id | name    | reports_to | age | employee_id | name    | reports_to | age |
+| ----------- | ------- | ---------- | --- | ----------- | ------- | ---------- | --- |
+| 9           | Hercy   | null       | 43  | 9           | Hercy   | null       | 43  |
+| 6           | Alice   | 9          | 41  | 6           | Alice   | 9          | 41  |
+| 4           | Bob     | 9          | 36  | 4           | Bob     | 9          | 36  |
+| 2           | Winston | null       | 37  | 2           | Winston | null       | 37  |
+
+
+select * from Employees a
+join Employees b
+on a.employee_id = b.reports_to
+
+--output
+
+
+| employee_id | name  | reports_to | age | employee_id | name  | reports_to | age | employee_id | name  | reports_count | average_age |
+| ----------- | ----- | ---------- | --- | ----------- | ----- | ---------- | --- | ----------- | ----- | ------------- | ----------- |
+| 9           | Hercy | null       | 43  | 6           | Alice | 9          | 41  | 9           | Hercy | 2             | 41          |
+
+select 
+a.employee_id ,a.name  
+,count(b.employee_id) reports_count, round(avg(b.age)) as average_age
+from Employees a
+join Employees b
+on a.employee_id = b.reports_to
+group by a.employee_id 
+
+Employees table:
++-------------+---------+------------+-----+
+| employee_id | name    | reports_to | age |
++-------------+---------+------------+-----+
+| 9           | Hercy   | null       | 43  |
+| 6           | Alice   | 9          | 41  |
+| 4           | Bob     | 9          | 36  |
+| 2           | Winston | null       | 37  |
++-------------+---------+------------+-----+
+Output: 
++-------------+-------+---------------+-------------+
+| employee_id | name  | reports_count | average_age |
++-------------+-------+---------------+-------------+
+| 9           | Hercy | 2             | 39          |
++-------------+-------+---------------+-------------
+
+
+--with CTE
+WITH managers AS(
+    SELECT reports_to AS employee_id,
+            COUNT(reports_to) AS reports_count,
+            ROUND(AVG(age)) AS average_age
+    FROM Employees
+    WHERE reports_to IS NOT NULL
+    GROUP BY reports_to
+)
+
+SELECT employee_id,
+        name,
+        reports_count,
+        average_age
+FROM managers AS m
+INNER JOIN Employees AS e
+USING(employee_id)
+ORDER BY employee_id;
