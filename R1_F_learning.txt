@@ -1,0 +1,60 @@
+-- Create a procedure that takes one input parameter and returns one output parameter and a return code.
+CREATE PROCEDURE sp_dynamicQuery
+      @Server_para VARCHAR(250),
+      @database_para VARCHAR(250),
+      @Schema_para VARCHAR(250),
+      @table_para VARCHAR(250)
+     
+AS
+
+      set nocount = 0
+      declare @Sql NVARCHAR(max);
+      
+      set @Sql =
+      N'select fileDate -1,SUM(CAST(EncounterOpenBalance as money)) OpenBalance,count(PatientAccountNbr) Account
+      from ['+@Server_para+'].['+@database_para+'].['+@Schema_para + '].['+ @table_para ']
+      WHERE
+      ISNUMERIC(EncounterOpenBalance) = 1
+      and FacilityCode not in('TRAILER')
+      group by fileDate order by 1 desc
+      ;' ;
+
+      exec sp_executesql @sql;
+
+End;
+
+
+EXEC sp_dynamicQuery
+      @Server_para ='AHS-STAGE03',
+      @database_para ='accretivehealth',
+      @Schema_para ='local',
+      @table_para ='StageCCWI';
+
+
+
+=============== === --by declare only
+DECLARE
+      @Server_para VARCHAR(250),
+      @database_para VARCHAR(250),
+      @Schema_para VARCHAR(250),
+      @table_para VARCHAR(250);
+
+declare @Sql NVARCHAR(max);
+      
+      set @Sql =
+      N'select fileDate -1,SUM(CAST(EncounterOpenBalance as money)) OpenBalance,count(PatientAccountNbr) Account
+      from ['+@Server_para+'].['+@database_para+'].['+@Schema_para + '].['+ @table_para ']
+      WHERE
+      ISNUMERIC(EncounterOpenBalance) = 1
+      and FacilityCode not in('TRAILER')
+      group by fileDate order by 1 desc
+      ;' ;
+ 
+exec (@sql);
+
+===============
+select * from INFORMATION_SCHEMA.tables;
+==============
+SELECT *
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE table_name = 'Address'
