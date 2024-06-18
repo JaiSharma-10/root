@@ -5485,3 +5485,439 @@ employee_id , department_id from employee
 where primary_flag = 'Y' or employee_id in 
 (select employee_id from employee group by employee_id 
 having count(employee_id)=1);
+
+===============================================================================================
+Report for every three line segments whether they can form a triangle.
+use the Triangle Inequality Theorem, which states that the sum of two side lengths of a triangle is always greater than the third side.
+
+Input: 
+Triangle table:
++----+----+----+
+| x  | y  | z  |
++----+----+----+
+| 13 | 15 | 30 |
+| 10 | 20 | 15 |
++----+----+----+
+
+Output: 
++----+----+----+----------+
+| x  | y  | z  | triangle |
++----+----+----+----------+
+| 13 | 15 | 30 | No       |
+| 10 | 20 | 15 | Yes      |
++----+----+----+----------+
+
+-- for Triangle x+y>z and y+z>x and z+x>y
+select 
+* ,
+CASE WHEN
+	(x+y>z) and (y+z>x) and (z+x>y) then "Yes"
+	else "No" end as triangle	
+from Triangle
+
+--PASSED
+
+--Output
+| x  | y  | z  | triangle |
+| -- | -- | -- | -------- |
+| 13 | 15 | 30 | No       |
+| 10 | 20 | 15 | Yes      |
+
+--Expected
+| x  | y  | z  | triangle |
+| -- | -- | -- | -------- |
+| 13 | 15 | 30 | No       |
+| 10 | 20 | 15 | Yes      |
+
+--Alternate solutions
+select *, if (x+y>z and y+z>x and z+x >y ,'Yes','No') as triangle from triangle
+
+
+---------------------------------------------------------------
+Find all numbers that appear at least three times consecutively.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Logs table:
++----+-----+
+| id | num |
++----+-----+id-num	id-num+1	id-num+1-id		lag_difference
+| 1  | 1   |0		1			0				NULL
+| 2  | 1   |1		2			0				0
+| 3  | 1   |2		3			0				0
+| 4  | 2   |2		3			1				1
+| 5  | 1   |4		5			0				-1
+| 6  | 2   |4		5			1				1
+| 7  | 2   |5		6			1				0
++----+-----+
+Output: 
++-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+Explanation: 1 is the only number that appears consecutively for at least three times.
+
+--self join or subquery to compare different rows 
+--lag num then difference window
+
+| id | num |
++----+-----+id+num	id-num		id-num+2		lag_difference
+| 1  | 2   |3		-1			0				NULL
+| 2  | 2   |4		0			1				0
+| 3  | 2   |5		1			2				0
+| 4  | 1   |5		3			4				1
+| 5  | 1   |6		4			5				-1
+| 6  | 2   |4		4			5				1
+| 7  | 2   |5		5			6				0
+--id-num+2
+--id-id+num-2
+
+select 
+*, lead(num,1,"NA") over (PARTITION by id) as lead_num
+from Logs
+
+--output
+| id | num | lead_num |
+| -- | --- | -------- |
+| 1  | 1   | NA       |
+| 2  | 1   | NA       |
+| 3  | 1   | NA       |
+| 4  | 2   | NA       |
+| 5  | 1   | NA       |
+| 6  | 2   | NA       |
+| 7  | 2   | NA       |
+
+--this is wrong as PARTITION by id which is UNIQUE will not result in expected next num
+
+select 
+*, lead(num,1,"NA") over () as lead_num
+from Logs
+
+
+--output
+| id | num | lead_num |
+| -- | --- | -------- |
+| 1  | 1   | 1        |
+| 2  | 1   | 1        |
+| 3  | 1   | 2        |
+| 4  | 2   | 1        |
+| 5  | 1   | 2        |
+| 6  | 2   | 2        |
+| 7  | 2   | NA       |
+
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+
+--output
+| id | num | lead_num | lag_num |
+| -- | --- | -------- | ------- |
+| 1  | 1   | 1        | 0       |
+| 2  | 1   | 1        | 1       |
+| 3  | 1   | 2        | 1       |
+| 4  | 2   | 1        | 1       |
+| 5  | 1   | 2        | 2       |
+| 6  | 2   | 2        | 1       |
+| 7  | 2   | 0        | 2       |
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * 
+from y
+
+
+| id | num | lead_num | lag_num | diff_lead | diff_lag |
+| -- | --- | -------- | ------- | --------- | -------- |
+| 1  | 1   | 1        | 0       | 0         | 1        |
+| 2  | 1   | 1        | 1       | 0         | 0        |
+| 3  | 1   | 2        | 1       | -1        | 0        |
+| 4  | 2   | 1        | 1       | 1         | 1        |
+| 5  | 1   | 2        | 2       | -1        | -1       |
+| 6  | 2   | 2        | 1       | 0         | 1        |
+| 7  | 2   | 0        | 2       | 2         | 0        |
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * ,count(diff_lead)
+from y
+group by num
+
+--output
+| id | num | lead_num | lag_num | diff_lead | diff_lag | count(diff_lead) |
+| -- | --- | -------- | ------- | --------- | -------- | ---------------- |
+| 1  | 1   | 1        | 0       | 0         | 1        | 4                |
+| 4  | 2   | 1        | 1       | 1         | 1        | 3                |
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * ,count(diff_lead)
+from y
+
+
+
+| id | num | lead_num | lag_num | diff_lead | diff_lag | count(diff_lead) |
+| -- | --- | -------- | ------- | --------- | -------- | ---------------- |
+| 1  | 1   | 1        | 0       | 0         | 1        | 2                |
+| 3  | 1   | 2        | 1       | -1        | 0        | 2                |
+| 4  | 2   | 1        | 1       | 1         | 1        | 1                |
+| 6  | 2   | 2        | 1       | 0         | 1        | 1                |
+| 7  | 2   | 0        | 2       | 2         | 0        | 1                |
+
+
+| id | num | diff_lead | count(diff_lead) |
+| -- | --- | --------- | ---------------- |
+| 1  | 1   | 0         | 2                |
+| 3  | 1   | -1        | 2                |
+| 4  | 2   | 1         | 1                |
+| 6  | 2   | 0         | 1                |
+| 7  | 2   | 2         | 1                |...
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * ,count(diff_lead)
+from y
+where diff_lead = 0
+group by num,diff_lead
+having count(diff_lead)=2
+
+--output
+| id | num | lead_num | lag_num | diff_lead | diff_lag | count(diff_lead) |
+| -- | --- | -------- | ------- | --------- | -------- | ---------------- |
+| 1  | 1   | 1        | 0       | 0         | 1        | 2                |
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select num as ConsecutiveNums
+from y
+where diff_lead = 0
+group by num,diff_lead
+having count(diff_lead)=2
+
+
+--Wrong Answer
+--14 / 23 testcases passed
+
+--for test case
+Logs =
+| id | num |
+| -- | --- |
+| 1  | 1   |
+| 2  | 0   |
+| 3  | 0   |
+| 4  | 0   |
+
+| id | num | lead_num | lag_num | diff_lead | diff_lag |
+| -- | --- | -------- | ------- | --------- | -------- |
+| 1  | 1   | 0        | 0       | 1         | 1        |
+| 2  | 0   | 0        | 1       | 0         | -1       |
+| 3  | 0   | 0        | 0       | 0         | 0        |
+| 4  | 0   | 0        | 0       | 0         | 0        |
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select num as ConsecutiveNums
+from y
+where diff_lead = 0
+group by num,diff_lead
+having count(diff_lead)>=2
+
+
+--Wrong Answer
+--17 / 23 testcases passed
+
+Logs =
+| id | num |
+| -- | --- |
+| 0  | -9  |
+| 1  | -9  |
+| 2  | -9  |
+| 3  | 8   |
+| 4  | -7  |
+| 5  | 5   |
+| 6  | -5  |
+| 7  | 2   |
+| 8  | 9   |
+| 9  | -8  |
+| 10 | -2  |
+| 11 | 0   |
+| 12 | -8  |
+| 13 | -8  |
+| 14 | -9  |
+| 15 | -3  |
+| 16 | 5   |
+| 17 | -6  |
+| 18 | 7   |
+| 19 | 5   |
+| 20 | 10  |
+| 21 | -4  |
+| 22 | -9  |
+| 23 | -3  |
+| 24 | 0   |
+| 25 | 9   |
+| 26 | 5   |
+| 27 | -2  |
+| 28 | -4  |
+| 29 | -5  |
+| 30 | -6  |
+| 31 | -5  |
+| 32 | -10 |
+| 33 | 1   |
+| 34 | -7  |
+| 35 | -7  |
+| 36 | 4   |
+| 37 | -2  |
+| 38 | 6   |
+| 39 | 1   |
+| 40 | -9  |
+| 41 | 6   |
+| 42 | -2  |
+| 43 | 1   |
+| 44 | 5   |
+| 45 | 10  |
+| 46 | 2   |
+| 47 | -8  |
+| 48 | -8  |
+| 49 | -1  |
+| 50 | 5   |
+| 51 | 0   |
+| 52 | 2   |
+| 53 | -5  |
+| 54 | -2  |
+| 55 | 2   |
+| 56 | -5  |
+| 57 | 1   |
+| 58 | 9   |
+| 59 | -4  |
+| 60 | 2   |
+| 61 | 10  |
+| 62 | 4   |
+| 63 | -9  |
+| 64 | -8  |
+| 65 | 2   |
+| 66 | 3   |
+| 67 | 5   |
+| 68 | 3   |
+| 69 | 7   |
+| 70 | 8   |
+| 71 | -5  |
+| 72 | 2   |
+| 73 | 2   |
+| 74 | 2   |
+| 75 | -4  |
+| 76 | -4  |
+| 77 | -7  |
+| 78 | 10  |
+| 79 | 0   |
+| 80 | 2   |
+| 81 | 10  |
+| 82 | 0   |
+| 83 | 6   |
+| 84 | 2   |
+| 85 | 5   |
+| 86 | 10  |
+| 87 | -3  |
+| 88 | 10  |
+| 89 | 4   |
+| 90 | -5  |
+| 91 | -10 |
+| 92 | 1   |
+| 93 | 0   |
+| 94 | -1  |
+| 95 | 4   |
+| 96 | -7  |
+| 97 | -3  |
+| 98 | 5   |
+| 99 | 3   |
+
+--Output
+| ConsecutiveNums |
+| --------------- |
+| -9              |
+| -8              |
+| 2               |
+
+--Expected
+| ConsecutiveNums |
+| --------------- |
+| -9              |
+| 2               |
