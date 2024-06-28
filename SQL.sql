@@ -5921,3 +5921,422 @@ Logs =
 | --------------- |
 | -9              |
 | 2               |
+
+--self join or subquery to compare different rows 
+--lag num then difference window
+
+| id | num |
++----+-----+id+num	id-num		id-num+2		lag_difference
+| 1  | 2   |3		-1			0				NULL
+| 2  | 2   |4		0			1				0
+| 3  | 2   |5		1			2				0
+| 4  | 1   |5		3			4				1
+| 5  | 1   |6		4			5				-1
+| 6  | 2   |4		4			5				1
+| 7  | 2   |5		5			6				0
+--id-num+2
+--id-id+num-2
+
+select 
+*, lead(num,1,"NA") over (PARTITION by id) as lead_num
+from Logs
+
+--output
+| id | num | lead_num |
+| -- | --- | -------- |
+| 1  | 1   | NA       |
+| 2  | 1   | NA       |
+| 3  | 1   | NA       |
+| 4  | 2   | NA       |
+| 5  | 1   | NA       |
+| 6  | 2   | NA       |
+| 7  | 2   | NA       |
+
+--this is wrong as PARTITION by id which is UNIQUE will not result in expected next num
+
+select 
+*, lead(num,1,"NA") over () as lead_num
+from Logs
+
+
+--output
+| id | num | lead_num |
+| -- | --- | -------- |
+| 1  | 1   | 1        |
+| 2  | 1   | 1        |
+| 3  | 1   | 2        |
+| 4  | 2   | 1        |
+| 5  | 1   | 2        |
+| 6  | 2   | 2        |
+| 7  | 2   | NA       |
+
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+
+--output
+| id | num | lead_num | lag_num |
+| -- | --- | -------- | ------- |
+| 1  | 1   | 1        | 0       |
+| 2  | 1   | 1        | 1       |
+| 3  | 1   | 2        | 1       |
+| 4  | 2   | 1        | 1       |
+| 5  | 1   | 2        | 2       |
+| 6  | 2   | 2        | 1       |
+| 7  | 2   | 0        | 2       |
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * 
+from y
+
+
+| id | num | lead_num | lag_num | diff_lead | diff_lag |
+| -- | --- | -------- | ------- | --------- | -------- |
+| 1  | 1   | 1        | 0       | 0         | 1        |
+| 2  | 1   | 1        | 1       | 0         | 0        |
+| 3  | 1   | 2        | 1       | -1        | 0        |
+| 4  | 2   | 1        | 1       | 1         | 1        |
+| 5  | 1   | 2        | 2       | -1        | -1       |
+| 6  | 2   | 2        | 1       | 0         | 1        |
+| 7  | 2   | 0        | 2       | 2         | 0        |
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * ,count(diff_lead)
+from y
+group by num
+
+--output
+| id | num | lead_num | lag_num | diff_lead | diff_lag | count(diff_lead) |
+| -- | --- | -------- | ------- | --------- | -------- | ---------------- |
+| 1  | 1   | 1        | 0       | 0         | 1        | 4                |
+| 4  | 2   | 1        | 1       | 1         | 1        | 3                |
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * ,count(diff_lead)
+from y
+
+
+
+| id | num | lead_num | lag_num | diff_lead | diff_lag | count(diff_lead) |
+| -- | --- | -------- | ------- | --------- | -------- | ---------------- |
+| 1  | 1   | 1        | 0       | 0         | 1        | 2                |
+| 3  | 1   | 2        | 1       | -1        | 0        | 2                |
+| 4  | 2   | 1        | 1       | 1         | 1        | 1                |
+| 6  | 2   | 2        | 1       | 0         | 1        | 1                |
+| 7  | 2   | 0        | 2       | 2         | 0        | 1                |
+
+
+| id | num | diff_lead | count(diff_lead) |
+| -- | --- | --------- | ---------------- |
+| 1  | 1   | 0         | 2                |
+| 3  | 1   | -1        | 2                |
+| 4  | 2   | 1         | 1                |
+| 6  | 2   | 0         | 1                |
+| 7  | 2   | 2         | 1                |...
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select * ,count(diff_lead)
+from y
+where diff_lead = 0
+group by num,diff_lead
+having count(diff_lead)=2
+
+--output
+| id | num | lead_num | lag_num | diff_lead | diff_lag | count(diff_lead) |
+| -- | --- | -------- | ------- | --------- | -------- | ---------------- |
+| 1  | 1   | 1        | 0       | 0         | 1        | 2                |
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select num as ConsecutiveNums
+from y
+where diff_lead = 0
+group by num,diff_lead
+having count(diff_lead)=2
+
+
+--Wrong Answer
+--14 / 23 testcases passed
+
+--for test case
+Logs =
+| id | num |
+| -- | --- |
+| 1  | 1   |
+| 2  | 0   |
+| 3  | 0   |
+| 4  | 0   |
+
+| id | num | lead_num | lag_num | diff_lead | diff_lag |
+| -- | --- | -------- | ------- | --------- | -------- |
+| 1  | 1   | 0        | 0       | 1         | 1        |
+| 2  | 0   | 0        | 1       | 0         | -1       |
+| 3  | 0   | 0        | 0       | 0         | 0        |
+| 4  | 0   | 0        | 0       | 0         | 0        |
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select num as ConsecutiveNums
+from y
+where diff_lead = 0
+group by num,diff_lead
+having count(diff_lead)>=2
+
+
+--Wrong Answer
+--17 / 23 testcases passed
+
+
+--Output
+| ConsecutiveNums |
+| --------------- |
+| -9              |
+| -8              |
+| 2               |
+
+--Expected
+| ConsecutiveNums |
+| --------------- |
+| -9              |
+| 2               |
+
+=======================
+
+--working
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead 
+from x
+)
+select * from y
+where diff_lead = 0
+
+
+| id | num | lead_num | diff_lead |
+| -- | --- | -------- | --------- |
+| 0  | -9  | -9       | 0         |
+| 1  | -9  | -9       | 0         |
+| 12 | -8  | -8       | 0         |
+| 34 | -7  | -7       | 0         |
+| 47 | -8  | -8       | 0         |
+| 72 | 2   | 2        | 0         |
+| 73 | 2   | 2        | 0         |
+| 75 | -4  | -4       | 0         |...
+
+--this is the issue here -8 is also considered as ConsecutiveNums give count(diff_lead) >= 2 and diff_lead = 2 but it is not ConsecutiveNums
+
+--working
+--possible solution 1
+
+| id | num | lead_num | lag_num | diff_lead | diff_lag |
+| -- | --- | -------- | ------- | --------- | -------- |
+| 0  | -9  | -9       | 0       | 0         | -9       |
+| 1  | -9  | -9       | -9      | 0         | 0        |
+| 2  | -9  | 8        | -9      | -17       | 0        |
+| 9  | -8  | -2       | 9       | -6        | -17      |
+| 12 | -8  | -8       | 0       | 0         | -8       |
+| 13 | -8  | -9       | -8      | 1         | 0        |
+| 14 | -9  | -3       | -8      | -6        | -1       |
+| 22 | -9  | -3       | -4      | -6        | -5       |
+| 40 | -9  | 6        | 1       | -15       | -10      |
+| 47 | -8  | -8       | 2       | 0         | -10      |
+| 48 | -8  | -1       | -8      | -7        | 0        |
+| 63 | -9  | -8       | 4       | -1        | -13      |
+| 64 | -8  | 2        | -9      | -10       | 1        |...
+
+--OBSERVATION For ConsecutiveNums here -9 is  correct and it has diff_lead = diff_lag =0
+--but  -8 is NOT correct as it has two instances of zero but not ConsecutiveNums for three times this will be caught up in if we use both lead and lag
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+)
+select distinct num as ConsecutiveNums
+from y
+where diff_lead = 0 and diff_lag =0
+
+--use of group by count(*)>2 is wrong because it will not check continous ones but rather it will group by all available
+
+| id | num |
+| -- | --- |
+| 4  | 2   |
+| 5  | 1   |
+| 6  | 2   |
+| 1  | 1   |
+| 3  | 1   |
+| 7  | 2   |
+| 2  | 1   |
+
+--id can be out of ORDER
+--this question has become HIGH PRIORITY
+
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+order by id 
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+order by id
+)
+select distinct num as ConsecutiveNums
+from y
+where diff_lead = 0 and diff_lag =0
+
+
+--22 / 23 testcases passed
+--FAIL
+
+
+--CASE
+| id | num |
+| -- | --- |
+| 1  | 1   |
+| 2  | 1   |
+| 4  | 1   |
+| 5  | 1   |
+| 6  | 2   |
+| 7  | 1   |
+--here it seems that 1 is continuous but if you look at the ID 1,2,4 it is not ConsecutiveNums
+--create subquery alpha to put serial num and 
+
+with x as 
+(
+select 
+*
+,lead(num,1,0) over () as lead_num
+,lag(num,1,0) over () as lag_num
+from Logs
+order by id 
+)
+, y as 
+(
+select * , num - lead_num as diff_lead ,num -lag_num  as diff_lag
+from x
+order by id
+)
+select distinct num as ConsecutiveNums
+from y
+where diff_lead = 0 and diff_lag =0
+
+
+
+--SIMPLE SOULUTION
+=============
+with cte as (
+    select num,
+    lead(num,1) over() num1,
+    lead(num,2) over() num2
+    from logs
+
+)
+
+select distinct num ConsecutiveNums from cte where (num=num1) and (num=num2)
+
+--but failed for test case | id | num |
+| -- | --- |
+| 1  | 1   |
+| 2  | 1   |
+| 4  | 1   |
+| 5  | 1   |
+| 6  | 2   |
+| 7  | 1   |
