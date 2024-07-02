@@ -1,0 +1,37 @@
+AWS Cloud 
+--Dropbox
+--Airbnb
+--Netflix
+--NASA
+AWS Cloud use Cases
+--Aws help you to build scalable app
+--Enterprise IT,Backup & Storage, Big Data Anaytics
+--Website Hosting , Mobile & Social Apps
+--Gaming
+
+AWS Regions 
+--us-east-1,eu-west-3
+--Region is the cluster of data centers
+
+How to chosse an AWS Region?
+
+AWS Availability Zones
+--Each region has many AWS Availability Zones (usually 3 min max 6)
+--Each zone (AZ) is one or more discrete data centers with redundant power,network 
+--They are geo separated
+
+AWS Region
+Sydney : ap-southeast-2
+Zones
+--ap-southeast-2a (data center Alpha , data center Beta)
+--ap-southeast-2b (data center Alpha . data center Beta)
+--ap-southeast-2c (data center Alpha . data center Beta)
+
+
+Tour of AWS console
+
+AWS Global Services:
+--IAM Identity and Access Management
+--Route 53 (DNS services)
+--CloudFront
+--WAF(Web Application Firewall)
