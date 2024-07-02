@@ -1563,7 +1563,8 @@ print(new_string)
 
 #---------------------
 #split the substring to list:
-#
+# The split() method splits a string into a list.
+# You can specify the separator, default separator is any whitespace.
 
 
 
