@@ -1568,3 +1568,122 @@ print(new_string)
 
 
 
+#FIND()
+#The find() method finds the first occurrence of the specified value.
+
+#The find() method returns -1 if the value is not found.
+
+#The find() method is almost the same as the index() method, the only difference is that the index() method raises an exception if the value is not found. (See example below)
+
+#Syntax
+#string.find(value, start, end)
+
+#Parameter Values
+
+#Parameter	Description
+#value		Required. The value to search for
+#start		Optional. Where to start the search. Default is 0
+#			end	Optional. Where to end the search. Default is to the end of the string
+			
+#txt = "Hello, welcome to my world."
+
+#x = txt.find("e", 5, 10)
+
+#print(x)
+
+#--output
+#8
+#=======================LIST
+#OBJECTIVE
+#Perform list operations in Python, including indexing, list manipulation, and copy/clone list.
+ 
+#Extend vs append
+ 
+L = [ "Michael Jackson", 10.2]
+L.extend(['pop', 10])
+print(L)
+L = [ "Michael Jackson", 10.2]
+L.append(['pop', 10])
+print(L)
+#extend to add new elements to the list:
+#If we apply append instead of extend, we add one element to the list
+
+# Copy (copy by reference) the list A
+
+A = ["hard rock", 10, 1.2]
+B = A
+print('A:', A)
+print('B:', B)
+
+# When we set one variable B equal to A, both A and B are referencing the same list in memory:
+
+# Examine the copy by reference
+
+print('B[0]:', B[0])
+A[0] = "banana"
+print('B[0]:', B[0])
+
+# Clone (clone by value) the list A
+
+B = A[:]
+print(B)
+
+print('B[0]:', B[0])
+A[0] = "hard rock"
+print('B[0]:', B[0])
+
+# concatenate lists 
+
+A = [1, 'a'] 
+B = [2, 1, 'd']
+C= A+B 
+print(C)
+
+#=========================Tuple
+# Perform the basics tuple operations in Python, including indexing, slicing and sorting
+tuple = ("pop", "rock", "soul", "hard rock", "soft rock", "R&B", "progressive rock", "disco") 
+tuple.index("disco")
+print("disco".index("s"))
+print("disco".find('s'))
+
+C_tuple=(-5, 1, -3)
+sorted_C_tuple = sorted (C_tuple)
+print(sorted_C_tuple)
+
+# tuple is immutable
+# here new object is created which is ref by sorted_C_tuple
+
+# Dictionaries 
+# A dictionary consists of keys and values. It is helpful to compare a dictionary to a list. Instead of being indexed numerically like a list, dictionaries have keys. These keys are the keys that are used to access values within a dictionary.
+
+Dict = {"key1": 1, "key2": "2", "key3": [3, 3, 3], "key4": (4, 4, 4), ('key5'): 5, (0, 1): 6}
+print(Dict)
+# The keys can be strings
+# Keys can also be any immutable object such as a tuple
+
+# Get all the keys in dictionary
+# release_year_dict.keys() 
+
+# Get all the values in dictionary
+# release_year_dict.values() 
+
+# Verify the key is in the dictionary
+#'The Bodyguard' in release_year_dict
+
+
+# syntax to extract the KEYS OF A DICTIONARY AS A LIST
+#list(dict.keys())
+
+
+#=================SET
+# unordered 
+# unique ,no duplicate
+# set(list)
+# A.add("str")
+# set operations
+
+
+#syntax is helpful to CLONE LIST A and assign the result to list B
+# B=A[:]
+
+
