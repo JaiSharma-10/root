@@ -1418,7 +1418,7 @@ print(this_pun_is_for_you)
 
 print("###############################DATA SCIENCE IBM##################################################");
 
-String interpolation (f-strings)
+#STRING INTERPOLATION (F-STRINGS)
 
 name = "John"
 age = 30
@@ -1432,17 +1432,16 @@ name = "John"
 age = 50
 print("My name is {} and I am {} years old.".format(name, age))
 
-My name is John and I am 50 years old.
 
-% Operator
+
+# % Operator
 
 name = "Johnathan"
 age = 30
 print("My name is %s and I am %d years old." % (name, age))
 
-My name is Johnathan and I am 30 years old.
 
-Additional capabilities
+# ADDITIONAL CAPABILITIES
 
 F-strings are also able to evaluate expressions inside the curly braces
 
@@ -1450,69 +1449,69 @@ x = 10
 y = 20
 print(f"The sum of x and y is {x+y}.")
 
-Raw String (r’’)
-In Python, raw strings are a powerful tool for handling textual data, especially when dealing with escape characters. By prefixing a string literal with the letter ‘r’, Python treats the string as raw, meaning it interprets backslashes as literal characters rather than escape sequences
+#Raw String (r’’)
+#In Python, raw strings are a powerful tool for handling textual data, especially when dealing with escape characters. By prefixing a string literal with the letter ‘r’, Python treats the string as raw, meaning it interprets backslashes as literal characters rather than escape sequences
 
-Regular string:
+#Regular string:
 
 regular_string = "C:\new_folder\file.txt"
 print("Regular String:", regular_string)
 
---output
-Regular String:  C:
-ew_folderile.txt
+#output
+#Regular String:  C:
+#ew_folderile.txt
 
 raw_string = r"C:\new_folder\file.txt"
 print("Raw String:", raw_string)
 
---output
-Raw String: C:\new_folder\file.txt
+#output
+#Raw String: C:\new_folder\file.txt
 
-STRING MANIPULATION OPERATIONS
+#STRING MANIPULATION OPERATIONS
 
-Slice
-Stride -name[::2] --steps
-
+#Slice
+#Stride -name[::2] --steps
+#
 name = "Michael Jackson"
 name.find('el')
---output 5
---searching index of sub string in the string
+#output 5
+#searching index of sub string in the string
 
-g.replace("Mary","Bob")
+#g.replace("Mary","Bob")
 
 
-RegEx
+#RegEx
 
-In Python, RegEx (short for Regular Expression) is a tool for matching and handling strings.
-This RegEx module provides several functions for working with regular expressions, including search, split, findall, and sub.
-Python provides a built-in module called re, which allows you to work with regular expressions. First, import the re module
+#In Python, RegEx (short for Regular Expression) is a tool for matching and handling strings.
+#This RegEx module provides several functions for working with regular expressions, including search, split, findall, and sub.
+#Python provides a built-in module called re, which allows you to work with regular expressions. First, import the re module
 
 import re
 s1 = "Michael Jackson is the best"
 
-# Define the pattern to search for
+## Define the pattern to search for
 pattern = r"Jackson"
 
-# Use the search() function to search for the pattern in the string
+## Use the search() function to search for the pattern in the string
 result = re.search(pattern, s1)
-
-# Check if a match was found
+#
+## Check if a match was found
 if result:
     print("Match found!")
-else:
+#else:
     print("Match not found.")
 
 
 
-Special Sequence																Meaning	Example
-\d		Matches any digit character (0-9)										"123" matches "\d\d\d"
-\D		Matches any non-digit character											"hello" matches "\D\D\D\D\D"
-\w		Matches any word character (a-z, A-Z, 0-9, and _)						"hello_world" matches "\w\w\w\w\w\w\w\w\w\w\w"
-\W		Matches any non-word character											"@#$%" matches "\W\W\W\W"
-\s		Matches any whitespace character (space, tab, newline, etc.)			"hello world" matches "\w\w\w\w\w\s\w\w\w\w\w"
-\S		Matches any non-whitespace character									"hello_world" matches "\S\S\S\S\S\S\S\S\S"
-\b		Matches the boundary between a word character and a non-word character	"cat" matches "\bcat\b" in "The cat sat on the mat"
-\B		Matches any position that is not a word boundary						"cat" matches "\Bcat\B" in "category" but not in "The cat sat on the mat"
+#Special Sequence																Meaning	Example
+#\d		Matches any digit character (0-9)										"123" matches "\d\d\d"
+#\D		Matches any non-digit character											"hello" matches "\D\D\D\D\D"
+#\w		Matches any word character (a-z, A-Z, 0-9, and _)						"hello_world" matches "\w\w\w\w\w\w\w\w\w\w\w"
+#\W		Matches any non-word character											"@#$%" matches "\W\W\W\W"
+#\s		Matches any whitespace character (space, tab, newline, etc.)			"hello world" matches "\w\w\w\w\w\s\w\w\w\w\w"
+#\S		Matches any non-whitespace character									"hello_world" matches "\S\S\S\S\S\S\S\S\S"
+#\b		Matches the boundary between a word character and a non-word character	"cat" matches "\bcat\b" in "The cat sat on the mat"
+#\B		Matches any position that is not a word boundary						"cat" matches "\Bcat\B" in "category" but not in "The cat sat on the mat"
 
 import re
 pattern = r"\d\d\d\d\d\d\d\d\d\d"  # Matches any ten consecutive digits
@@ -1524,17 +1523,17 @@ if match:
 else:
     print("No match")
 	
---findall
-	
+#--findall
+#	
 pattern = r"\W"  # Matches any non-word character
 text = "Hello, world!"
 matches = re.findall(pattern, text)
 
 print("Matches:", matches)
 
---output
-Matches: [',', ' ', '!']
-
+#--output
+#Matches: [',', ' ', '!']
+#
 s2 = "Michael Jackson was a singer and known as the 'King of Pop'"
 
 
@@ -1559,10 +1558,12 @@ new_string = re.sub(pattern, replacement, s2, flags=re.IGNORECASE)
 # The new_string contains the original string with the pattern replaced by the replacement string
 print(new_string) 
 
-Michael Jackson was a singer and known as the 'legend'
+#Michael Jackson was a singer and known as the 'legend'
 
 
----------------------
-split the substring to list:
+#---------------------
+#split the substring to list:
+#
+
 
 
