@@ -6340,3 +6340,75 @@ select distinct num ConsecutiveNums from cte where (num=num1) and (num=num2)
 | 5  | 1   |
 | 6  | 2   |
 | 7  | 1   |
+
+========================================================
+--Approach 1 -Using Joins
+SELECT DISTINCT l1.num AS ConsecutiveNums
+FROM Logs l1
+JOIN Logs l2 ON l1.id = l2.id - 1
+JOIN Logs l3 ON l1.id = l3.id - 2
+WHERE l1.num = l2.num AND l2.num = l3.num;
+
+SELECT *
+FROM Logs l1
+JOIN Logs l2 ON l1.id = l2.id - 1
+JOIN Logs l3 ON l1.id = l3.id - 2
+---this will use ID 
+| id | num | id | num | id | num |
+| -- | --- | -- | --- | -- | --- |
+| 1  | 1   | 2  | 1   | 3  | 1   |
+| 2  | 1   | 3  | 1   | 4  | 2   |
+| 3  | 1   | 4  | 2   | 5  | 1   |
+| 4  | 2   | 5  | 1   | 6  | 2   |
+| 5  | 1   | 6  | 2   | 7  | 2   |
+
+--Approach 2-Using  LEAD and LAG
+SELECT DISTINCT num AS ConsecutiveNums
+FROM (
+    SELECT 
+        LAG(id) OVER (ORDER BY id) AS prev_id,
+        id,
+        LEAD(id) OVER (ORDER BY id) AS next_id,
+        LAG(num) OVER (ORDER BY id) AS prev_num,
+        num,
+        LEAD(num) OVER (ORDER BY id) AS next_num
+    FROM logs
+) subquery
+WHERE prev_num = num 
+  AND num = next_num
+  AND next_id - id = 1 
+  AND id - prev_id = 1;
+  
+ --for
+SELECT 
+        LAG(id) OVER (ORDER BY id) AS prev_id,
+        id,
+        LEAD(id) OVER (ORDER BY id) AS next_id,
+        LAG(num) OVER (ORDER BY id) AS prev_num,
+        num,
+        LEAD(num) OVER (ORDER BY id) AS next_num
+    FROM logs
+ --Output
+| prev_id | id | next_id | prev_num | num | next_num |
+| ------- | -- | ------- | -------- | --- | -------- |
+| null    | 1  | 2       | null     | 1   | 1        |
+| 1       | 2  | 3       | 1        | 1   | 1        |
+| 2       | 3  | 4       | 1        | 1   | 2        |
+| 3       | 4  | 5       | 1        | 2   | 1        |
+| 4       | 5  | 6       | 2        | 1   | 2        |
+| 5       | 6  | 7       | 1        | 2   | 2        |
+| 6       | 7  | null    | 2        | 2   | null     |
+
+--Approach 3-Using EXISTS and SUBQUERY 
+SELECT DISTINCT l1.num AS ConsecutiveNums
+FROM Logs l1
+WHERE EXISTS (
+    SELECT 1
+    FROM Logs l2
+    WHERE l2.id = l1.id + 1 AND l2.num = l1.num
+    AND EXISTS (
+        SELECT 1
+        FROM Logs l3
+        WHERE l3.id = l1.id + 2 AND l3.num = l1.num
+    )
+);
