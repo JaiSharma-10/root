@@ -1471,7 +1471,7 @@ print("Raw String:", raw_string)
 
 #Slice
 #Stride -name[::2] --steps
-#
+
 name = "Michael Jackson"
 name.find('el')
 #output 5
@@ -1494,7 +1494,7 @@ pattern = r"Jackson"
 
 ## Use the search() function to search for the pattern in the string
 result = re.search(pattern, s1)
-#
+
 ## Check if a match was found
 if result:
     print("Match found!")
@@ -1503,15 +1503,15 @@ if result:
 
 
 
-#Special Sequence																Meaning	Example
-#\d		Matches any digit character (0-9)										"123" matches "\d\d\d"
-#\D		Matches any non-digit character											"hello" matches "\D\D\D\D\D"
-#\w		Matches any word character (a-z, A-Z, 0-9, and _)						"hello_world" matches "\w\w\w\w\w\w\w\w\w\w\w"
-#\W		Matches any non-word character											"@#$%" matches "\W\W\W\W"
-#\s		Matches any whitespace character (space, tab, newline, etc.)			"hello world" matches "\w\w\w\w\w\s\w\w\w\w\w"
-#\S		Matches any non-whitespace character									"hello_world" matches "\S\S\S\S\S\S\S\S\S"
+#Special Sequence									Meaning	Example
+#\d		Matches any digit character (0-9)					"123" matches "\d\d\d"
+#\D		Matches any non-digit character						"hello" matches "\D\D\D\D\D"
+#\w		Matches any word character (a-z, A-Z, 0-9, and _)			"hello_world" matches "\w\w\w\w\w\w\w\w\w\w\w"
+#\W		Matches any non-word character						"@#$%" matches "\W\W\W\W"
+#\s		Matches any whitespace character (space, tab, newline, etc.)		"hello world" matches "\w\w\w\w\w\s\w\w\w\w\w"
+#\S		Matches any non-whitespace character					"hello_world" matches "\S\S\S\S\S\S\S\S\S"
 #\b		Matches the boundary between a word character and a non-word character	"cat" matches "\bcat\b" in "The cat sat on the mat"
-#\B		Matches any position that is not a word boundary						"cat" matches "\Bcat\B" in "category" but not in "The cat sat on the mat"
+#\B		Matches any position that is not a word boundary			"cat" matches "\Bcat\B" in "category" but not in "The cat sat on the mat"
 
 import re
 pattern = r"\d\d\d\d\d\d\d\d\d\d"  # Matches any ten consecutive digits
@@ -1524,7 +1524,7 @@ else:
     print("No match")
 	
 #--findall
-#	
+	
 pattern = r"\W"  # Matches any non-word character
 text = "Hello, world!"
 matches = re.findall(pattern, text)
