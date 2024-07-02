@@ -1424,7 +1424,7 @@ name = "John"
 age = 30
 print(f"My name is {name} and I am {age} years old.")
 
-My name is Johnathan and I am 30 years old.
+#My name is Johnathan and I am 30 years old.
 
 str.format()
 
