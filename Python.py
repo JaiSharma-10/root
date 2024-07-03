@@ -1748,3 +1748,86 @@ def printDictionary(**args):
         print(key + " : " + args[key])
 
 printDictionary(Country='Canada',Province='Ontario',City='Toronto')
+
+
+# SORT VS SORTED FUNCTION IN PYTHON
+# sort() will sort the list in-place, mutating its indexes and returning None , whereas sorted() will return a new sorted list leaving the original list unchanged
+
+
+# EXCEPTION HANDLING
+   
+# try:
+# except:
+# else:
+# finally:
+
+#Python tries to execute the code in the try block. In this case if there is any exception raised by the code in the try block, it will be caught and the code block in the except block will be executed. After that, the code that comes after the try except will be executed.
+
+print("")
+print("# EXCEPTION HANDLING")
+
+a = 1
+
+try:
+    b = int(input("Please enter a number to divide a "))
+    a = a/b
+    print("Success a=",a)
+except:
+    print("There was an error")
+        
+ # Try Except Specific Example
+a = 1
+
+print("")
+print("# EXCEPTION HANDLING WITH ERROR")
+try:
+    b = int(input("Please enter a number to divide a "))
+    a = a/b
+    print("Success a=",a)
+except ZeroDivisionError:
+    print("The number you provided cant divide 1 because it is 0")
+except ValueError:
+    print("You did not provide a number")
+except:
+    print("Something went wrong")
+    
+# if there is an error the value of a is always printed. Let's use the else and print the value of a only if there is no error.
+
+print("")
+print("# EXCEPTION HANDLING WITH ERROR AND ELSE")
+
+a = 1
+
+try:
+    b = int(input("Please enter a number to divide a "))
+    a = a/b
+except ZeroDivisionError:
+    print("The number you provided cant divide 1 because it is 0")
+except ValueError:
+    print("You did not provide a number")
+except:
+    print("Something went wrong")
+else:
+    print("success a=",a)
+    
+# finally
+
+print("")
+print("# EXCEPTION HANDLING WITH FINALLY")
+ 
+a = 1
+
+try:
+    b = int(input("Please enter a number to divide a "))
+    a = a/b
+except ZeroDivisionError:
+    print("The number you provided cant divide 1 because it is 0")
+except ValueError:
+    print("You did not provide a number")
+except:
+    print("Something went wrong")
+else:
+    print("success a=",a)
+finally:
+    print("Processing Complete")
+    
