@@ -1831,3 +1831,122 @@ else:
 finally:
     print("Processing Complete")
     
+
+
+ # class and objects
+ # functions and method
+ # attributes and objects
+ 
+print("")
+print("# CLASS AND OBJECTS")
+
+class circle (object):
+    
+    def __init__(self, radius, color):# specail method or constructor used to initalize some data attributes
+        self.radius = radius
+        self.color = color
+        
+redCircle = circle(10,"red")
+c1 = circle(10,'red')
+c1.radius # 10
+ 
+ # METHOD
+ 
+ # EXAMPLE
+ 
+class Car:
+    # Class attribute (shared by all instances)
+    max_speed = 120  # Maximum speed in km/h
+    # Constructor method (initialize instance attributes)
+    def __init__(self, make, model, color, speed=0):
+        self.make = make
+        self.model = model
+        self.color = color
+        self.speed = speed  # Initial speed is set to 0
+    # Method for accelerating the car
+    def accelerate(self, acceleration):
+        if self.speed + acceleration <= Car.max_speed:
+            self.speed += acceleration
+        else:
+            self.speed = Car.max_speed
+    # Method to get the current speed of the car
+    def get_speed(self):
+        return self.speed
+        
+
+# Create objects (instances) of the Car class
+car1 = Car("Toyota", "Camry", "Blue")
+car2 = Car("Honda", "Civic", "Red")
+
+# Accelerate the cars
+car1.accelerate(30)
+car2.accelerate(20)
+
+# Print the current speeds of the cars
+print(f"{car1.make} {car1.model} is currently at {car1.get_speed()} km/h.")
+print(f"{car2.make} {car2.model} is currently at {car2.get_speed()} km/h.")
+
+
+###########################################################################
+
+# PROGRAM TO CALCULATE FREQ OF WORDS IN STRING
+
+print("")
+#Press Shift+Enter to run the code
+givenString="Lorem ipsum dolor! diam amet, consetetur Lorem magna. sed diam nonumy eirmod tempor. diam et labore? et diam magna. et diam amet."
+
+fmtText = givenString.split() # spliting string into words 
+print(type(fmtText)) # split will return list
+
+listTemp = fmtText # copying main list to listTemp
+
+print("# PROGRAM TO CALCULATE FREQ OF WORDS IN STRING")
+dict = {}
+
+
+for i in listTemp:
+    count=0
+    for j in fmtText:
+        if(i==j):
+            count+=1
+    dict[i]=count # adding elements in dict
+
+print(dict)
+    
+    
+###########################################################################
+
+# CLASS AND METHOD TO CALCULATE FREQ OF ALL WORDS IN STRING
+
+print("")
+print("# CLASS AND METHOD TO CALCULATE FREQ OF ALL WORDS IN STRING")
+ 
+class TextAnalyzer(object):
+    
+    def __init__ (self, text):
+        newtext = text.replace(',','').replace('.','').replace('?','').replace('!','') # remove punctuation
+        newtext = newtext.lower()# make text lowercase
+        self.newtext  = newtext
+    
+    def freqAll(self):        
+        
+        fmtText = self.newtext.split()    # split text into words    
+        
+        listTemp = fmtText # copying main list to listTemp
+        
+        dict = {} # Create dictionary
+
+        for i in listTemp:
+            count=0
+            for j in fmtText:
+                if(i==j):
+                    count+=1
+            dict[i]=count # adding elements in dict
+        return dict
+    
+
+givenString="Lorem ipsum dolor! diam amet, consetetur Lorem magna. sed diam nonumy eirmod tempor. diam et labore? et diam magna. et diam amet."
+
+object1  =  TextAnalyzer(givenString)
+
+print(object1.freqAll())
