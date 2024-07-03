@@ -1691,3 +1691,60 @@ print(Dict)
 
 #syntax is helpful to CLONE LIST A and assign the result to list B
 # B=A[:]
+
+
+# LOOPING
+
+print("")
+print("# LOOPING")
+list = ["red","yellow","green"]
+for i, element in enumerate(list):
+	print(i,end = " ")
+	print(element)
+	
+# Loop through the list and iterate on both index and element value
+
+print("")
+print("Loop through the list")
+squares=['red', 'yellow', 'green', 'purple', 'blue']
+
+for i, square in enumerate(squares):
+    print(i, square)
+    
+ # FUNCTIONS
+ 
+ # Example of global variable
+
+print("")
+print("# FUNCTIONS")
+artist = "Michael Jackson"
+def printer1(artist):
+    internal_var1 = artist
+    print(artist, "is an artist")
+    
+printer1(artist)
+# try runningthe following code
+#printer1(internal_var1) 
+
+#COLLECTIONS AND FUNCTIONS
+#When the number of arguments are unknown for a function, They can all be packed into a tuple as shown:
+
+print("")
+print("#COLLECTIONS AND FUNCTIONS *args dynamic arguments")
+def printAll(*args): # All the arguments are 'packed' into args which can be treated like a tuple
+    print("No of arguments:", len(args)) 
+    for argument in args:
+        print(argument)
+#printAll with 3 arguments
+printAll('Horsefeather','Adonis','Bone')
+#printAll with 4 arguments
+printAll('Sidecar','Long Island','Mudslide','Carriage')
+
+
+print("")
+print("**args dict")
+def printDictionary(**args):
+    for key in args:
+        print(key + " : " + args[key])
+
+printDictionary(Country='Canada',Province='Ontario',City='Toronto')
