@@ -1950,3 +1950,17 @@ givenString="Lorem ipsum dolor! diam amet, consetetur Lorem magna. sed diam nonu
 object1  =  TextAnalyzer(givenString)
 
 print(object1.freqAll())
+
+print("")
+print("variable assignment in python class")
+class Points(object): 
+    def __init__(self, x, y): 
+        self.x = x 
+        self.y = y 
+    def print_point(self): 
+        print('x=', self.x, ' y=', self.y) 
+
+
+p2 = Points(1, 2) 
+p2.x = 'A' 
+p2.print_point()
