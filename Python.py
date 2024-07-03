@@ -1418,49 +1418,45 @@ print(this_pun_is_for_you)
 
 print("###############################DATA SCIENCE IBM##################################################");
 
+print("")
 #STRING INTERPOLATION (F-STRINGS)
-
+print("#STRING INTERPOLATION (F-STRINGS)")
 name = "John"
 age = 30
-print(f"My name is {name} and I am {age} years old.")
+print(f'My name is {name} and I am {age} years old.')
 
-#My name is Johnathan and I am 30 years old.
 
-str.format()
-
+print("")
+#str.format()
+print("#str.format()")
 name = "John"
 age = 50
 print("My name is {} and I am {} years old.".format(name, age))
 
 
-
-# % Operator
-
-name = "Johnathan"
-age = 30
-print("My name is %s and I am %d years old." % (name, age))
-
-
 # ADDITIONAL CAPABILITIES
 
-F-strings are also able to evaluate expressions inside the curly braces
-
+#F-strings are also able to evaluate expressions inside the curly braces
+print("")
+print("F-strings ")
 x = 10
 y = 20
-print(f"The sum of x and y is {x+y}.")
+print(f'The sum of x and y is {x+y}.')
 
 #Raw String (r’’)
 #In Python, raw strings are a powerful tool for handling textual data, especially when dealing with escape characters. By prefixing a string literal with the letter ‘r’, Python treats the string as raw, meaning it interprets backslashes as literal characters rather than escape sequences
 
 #Regular string:
-
+print("")
+print("#Regular string:")
 regular_string = "C:\new_folder\file.txt"
 print("Regular String:", regular_string)
 
 #output
 #Regular String:  C:
 #ew_folderile.txt
-
+print("")
+print("#raw_string")
 raw_string = r"C:\new_folder\file.txt"
 print("Raw String:", raw_string)
 
@@ -1469,9 +1465,10 @@ print("Raw String:", raw_string)
 
 #STRING MANIPULATION OPERATIONS
 
+
 #Slice
 #Stride -name[::2] --steps
-
+print("")
 name = "Michael Jackson"
 name.find('el')
 #output 5
@@ -1485,7 +1482,8 @@ name.find('el')
 #In Python, RegEx (short for Regular Expression) is a tool for matching and handling strings.
 #This RegEx module provides several functions for working with regular expressions, including search, split, findall, and sub.
 #Python provides a built-in module called re, which allows you to work with regular expressions. First, import the re module
-
+print("")
+print("#RegEx in python")
 import re
 s1 = "Michael Jackson is the best"
 
@@ -1501,18 +1499,8 @@ if result:
 #else:
     print("Match not found.")
 
-
-
-#Special Sequence									Meaning	Example
-#\d		Matches any digit character (0-9)					"123" matches "\d\d\d"
-#\D		Matches any non-digit character						"hello" matches "\D\D\D\D\D"
-#\w		Matches any word character (a-z, A-Z, 0-9, and _)			"hello_world" matches "\w\w\w\w\w\w\w\w\w\w\w"
-#\W		Matches any non-word character						"@#$%" matches "\W\W\W\W"
-#\s		Matches any whitespace character (space, tab, newline, etc.)		"hello world" matches "\w\w\w\w\w\s\w\w\w\w\w"
-#\S		Matches any non-whitespace character					"hello_world" matches "\S\S\S\S\S\S\S\S\S"
-#\b		Matches the boundary between a word character and a non-word character	"cat" matches "\bcat\b" in "The cat sat on the mat"
-#\B		Matches any position that is not a word boundary			"cat" matches "\Bcat\B" in "category" but not in "The cat sat on the mat"
-
+print("")
+print("# Matches any ten consecutive digits")
 import re
 pattern = r"\d\d\d\d\d\d\d\d\d\d"  # Matches any ten consecutive digits
 text = "My Phone number is 1234567890"
@@ -1523,8 +1511,10 @@ if match:
 else:
     print("No match")
 	
+
 #--findall
-	
+print("")
+print("#--findall")
 pattern = r"\W"  # Matches any non-word character
 text = "Hello, world!"
 matches = re.findall(pattern, text)
@@ -1540,12 +1530,11 @@ s2 = "Michael Jackson was a singer and known as the 'King of Pop'"
 # Use the findall() function to find all occurrences of the "as" in the string
 result = re.findall("as", s2)
 
+print("")
 # Print out the list of matched words
 print(result)
 
 
-
----------------
 # Define the regular expression pattern to search for
 pattern = r"King of Pop"
 
@@ -1555,6 +1544,7 @@ replacement = "legend"
 # Use the sub function to replace the pattern with the replacement string
 new_string = re.sub(pattern, replacement, s2, flags=re.IGNORECASE)
 
+print("")
 # The new_string contains the original string with the pattern replaced by the replacement string
 print(new_string) 
 
@@ -1566,8 +1556,7 @@ print(new_string)
 # The split() method splits a string into a list.
 # You can specify the separator, default separator is any whitespace.
 
-
-
+print("")
 #FIND()
 #The find() method finds the first occurrence of the specified value.
 
@@ -1583,7 +1572,7 @@ print(new_string)
 #Parameter	Description
 #value		Required. The value to search for
 #start		Optional. Where to start the search. Default is 0
-#			end	Optional. Where to end the search. Default is to the end of the string
+#		end Optional. Where to end the search. Default is to the end of the string
 			
 #txt = "Hello, welcome to my world."
 
@@ -1596,20 +1585,28 @@ print(new_string)
 #=======================LIST
 #OBJECTIVE
 #Perform list operations in Python, including indexing, list manipulation, and copy/clone list.
- 
+
+
 #Extend vs append
- 
+print("")
+print("#Extend vs append")
+
+print("")
 L = [ "Michael Jackson", 10.2]
 L.extend(['pop', 10])
 print(L)
+
+print("")
 L = [ "Michael Jackson", 10.2]
 L.append(['pop', 10])
 print(L)
+
 #extend to add new elements to the list:
 #If we apply append instead of extend, we add one element to the list
 
-# Copy (copy by reference) the list A
 
+# Copy (copy by reference) the list A
+print("")
 A = ["hard rock", 10, 1.2]
 B = A
 print('A:', A)
@@ -1619,21 +1616,27 @@ print('B:', B)
 
 # Examine the copy by reference
 
+print("")
+print("# Examine the copy by reference")
 print('B[0]:', B[0])
 A[0] = "banana"
 print('B[0]:', B[0])
 
 # Clone (clone by value) the list A
 
+print("")
+print("# Clone (clone by value) the list A")
 B = A[:]
 print(B)
 
+print("")
 print('B[0]:', B[0])
 A[0] = "hard rock"
 print('B[0]:', B[0])
 
 # concatenate lists 
-
+print("")
+print("# concatenate lists ")
 A = [1, 'a'] 
 B = [2, 1, 'd']
 C= A+B 
@@ -1641,11 +1644,13 @@ print(C)
 
 #=========================Tuple
 # Perform the basics tuple operations in Python, including indexing, slicing and sorting
+print("")
 tuple = ("pop", "rock", "soul", "hard rock", "soft rock", "R&B", "progressive rock", "disco") 
 tuple.index("disco")
 print("disco".index("s"))
 print("disco".find('s'))
 
+print("")
 C_tuple=(-5, 1, -3)
 sorted_C_tuple = sorted (C_tuple)
 print(sorted_C_tuple)
@@ -1656,6 +1661,7 @@ print(sorted_C_tuple)
 # Dictionaries 
 # A dictionary consists of keys and values. It is helpful to compare a dictionary to a list. Instead of being indexed numerically like a list, dictionaries have keys. These keys are the keys that are used to access values within a dictionary.
 
+print("")
 Dict = {"key1": 1, "key2": "2", "key3": [3, 3, 3], "key4": (4, 4, 4), ('key5'): 5, (0, 1): 6}
 print(Dict)
 # The keys can be strings
@@ -1685,5 +1691,3 @@ print(Dict)
 
 #syntax is helpful to CLONE LIST A and assign the result to list B
 # B=A[:]
-
-
