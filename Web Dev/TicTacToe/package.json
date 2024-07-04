@@ -1,0 +1,9 @@
+{
+  "name": "tic-tac-toe_javascript",
+  "version": "0.0.0",
+  "description": "TicTacToe_Javascript",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
