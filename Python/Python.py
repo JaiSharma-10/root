@@ -2032,3 +2032,67 @@ class TextAnalyzer(object):
                     count+=1
             dict[i]=count # adding elements in dict
         return dict
+# FILE HANDLING:
+
+# Copy file to another
+
+#with open('/Example2.txt','r') as readfile:
+#    with open('/Example3.txt','w') as writefile:
+#          for line in readfile:
+#                writefile.write(line)
+
+# PANDAS
+
+# Dataframe
+# one of the ways pandas deals with data is in DATAFRAME
+# other way is SERIES
+
+#import pandas as pd
+
+#Csv_path = "file.csv"
+#df = pd.read_csv(Csv_path)
+#df.head()
+
+#xlsx_path  = "file2.xlsx"
+#df = pd.read_excel(xlsx_path)
+#df.head()
+
+# data frame from dict
+
+import pandas as pd
+
+#Define a dictionary 'x'
+
+x = {'Name': ['Rose','John', 'Jane', 'Mary'], 'ID': [1, 2, 3, 4], 'Department': ['Architect Group', 'Software Group', 'Design Team', 'Infrastructure'], 
+      'Salary':[100000, 80000, 50000, 60000]}
+
+#casting the dictionary to a DataFrame
+df = pd.DataFrame(x)
+
+#display the result df
+print(df)
+
+
+#	Name	ID	Department	    Salary
+#0	Rose	1	Architect Group	100000
+#1	John	2	Software Group	80000
+#2	Jane	3	Design Team	    50000
+#3	Mary	4	Infrastructure	60000
+
+import pandas as pd
+dict = {'Student':['David','Samuel','Terry','Evan'], 'Age':['27','24','22','32'], 'Country' :['UK','Canada','China','USA'], 'Course':['Python','Data Structures','Machine learning','Web Development'], 'Marks':['85','72','89','76']}
+df = pd.DataFrame(dict)
+print(df)
+
+#-output
+#  Student Age Country            Course Marks
+#0   David  27      UK            Python    85
+#1  Samuel  24  Canada   Data Structures    72
+#2   Terry  22   China  Machine learning    89
+#3    Evan  32     USA   Web Development    76
+
+b = df[['Marks']]
+print(b)
+
+c = df[['Country','Course']]
+print(c)
