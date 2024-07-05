@@ -1977,3 +1977,58 @@ class Points(object):
 p2 = Points(1, 2) 
 p2.x = 'A' 
 p2.print_point()
+
+
+# PROGRAM TO CALCULATE FREQ OF WORDS IN STRING
+
+#Press Shift+Enter to run the code
+givenString="Lorem ipsum dolor! diam amet, consetetur Lorem magna. sed diam nonumy eirmod tempor. diam et labore? et diam magna. et diam amet."
+
+fmtText = givenString.split() # spliting string into words 
+print(type(fmtText)) # split will return list
+
+print(fmtText)
+
+listTemp = fmtText # copying main list to listTemp
+
+dict = {}
+
+
+for i in listTemp:
+    count=0
+    for j in fmtText:
+        if(i==j):
+            count+=1
+    dict[i]=count # adding elements in dict
+
+print(dict)
+    
+    
+ ===============================================================
+ 
+ #Press shift+Enter to run the code
+class TextAnalyzer(object):
+    
+    def __init__ (self, text):
+         # remove punctuation
+        newtext = text.replace(',','').replace('.','').replace('?','').replace('!','')
+        # make text lowercase
+        mewtext = newtext.lower()
+        self.newtext  = newtext
+        
+    def freqAll(self):        
+        # split text into words
+        fmttext = newtext.split()        
+        # Create dictionary
+        listTemp = fmtText 
+        
+        # copying main list to listTemp
+        
+        dict = {}
+        for i in listTemp:
+            count=0
+            for j in fmtText:
+                if(i==j):
+                    count+=1
+            dict[i]=count # adding elements in dict
+        return dict
