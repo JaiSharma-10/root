@@ -2096,3 +2096,66 @@ print(b)
 
 c = df[['Country','Course']]
 print(c)
+
+
+#PANDAS
+
+#loading web file csv into dataframe
+
+import pandas as pd
+
+filename = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%204/data/TopSellingAlbums.csv"
+
+df = pd.read_csv(filename)
+
+print(df)
+
+# Print first five rows of the dataframe
+
+first_5_rows = df.head()
+
+print(first_5_rows)
+
+y = df[['Artist','Length','Genre']]
+print(y)
+
+# Access the value on the first row and the first column
+
+print(df.iloc[0, 0])
+
+#df.ix[0,0]
+
+# Slicing the dataframe
+
+print(df.iloc[0:2, 0:3])
+
+
+
+#loading xlsx file to dataframe in pandas
+
+# Dependency needed to install file 
+
+# If running the notebook on your machine, else leave it commented
+
+# !pip install xlrd
+# !pip install openpyxl 
+# import piplite
+# await piplite.install(['xlrd','openpyxl'])
+
+
+# note for xlxs file loading we find XLRD and OPENPYXL and of course PANDAS
+
+
+#import pandas as pd
+
+#xlsx_path = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/jupyterlite/files/Module%205/data/TopSellingAlbums.xlsx'
+
+#df = pd.read_excel(xlsx_path)
+
+#print(df)
+
+
+# FOR READING SPECIFIC SHEETS
+# xls = pd.ExcelFile('path_to_file.xls')
+# df1 = pd.read_excel(xls, 'Sheet1')
+# df2 = pd.read_excel(xls, 'Sheet2')
