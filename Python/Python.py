@@ -138,7 +138,7 @@ print(all_numbers(0,5))  # Should be 0 1 2 3 4 5
 print(all_numbers(0,0))  # Should be 0
 ####################################################################################################
 
-# Sring in python are imutable
+# String in python are imutable
 # string starts with index 0
 # In Python, strings are immutable. This means that they can't be modified. So if we wanted to fix a typo in a string, 
 # we can't simply modify the wrong character. We would have to create a new string with the typo corrected. 
