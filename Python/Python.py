@@ -2159,3 +2159,126 @@ print(df.iloc[0:2, 0:3])
 # xls = pd.ExcelFile('path_to_file.xls')
 # df1 = pd.read_excel(xls, 'Sheet1')
 # df2 = pd.read_excel(xls, 'Sheet2')
+
+
+# NUMPY
+# Python library serves as a foundation for Pandas and is used for scientific computing?
+
+#Python and it is an open source project. The array object in NumPy is called ndarray, it provides a lot of supporting functions that make working with ndarray very easy.
+
+import numpy as np 
+
+a = np.array([0, 1, 2, 3, 4])
+
+print(a)
+
+# Print each element
+
+print("a[0]:", a[0])
+print("a[1]:", a[1])
+print("a[2]:", a[2])
+print("a[3]:", a[3])
+print("a[4]:", a[4])
+
+print(type(a))
+
+#numpy.ndarray
+
+
+#2_D Array
+
+import numpy as np
+
+# Create a list
+
+a = [[11, 12, 13], [21, 22, 23], [31, 32, 33]]
+
+print(a)
+
+# Convert list to Numpy Array
+# Every element is the same type
+
+A = np.array(a)
+print(A)
+ 
+# Show the numpy array dimensions
+# ndim to obtain the number of axes or dimensions, referred to as the rank
+
+print(A.ndim)
+
+# Show the numpy array shape
+# Attribute shape returns a tuple corresponding to the size or number of each dimension.
+
+print(A.shape)
+
+# Show the numpy array size
+# The total number of elements in the array is given by the attribute size.
+
+print(A.size)
+
+# ACCESSING DIFFERENT ELEMENTS OF A NUMPY ARRAY
+
+# Access the element on the second row and third column
+
+print('A[1, 2] ',A[1, 2])
+
+# Access the element on the second row and third column
+
+print('A[1][2] ',A[1][2])
+
+# Access the element on the first row and first column
+
+print('A[0][0]',A[0][0])
+
+# Access the element on the first row and first and second columns
+
+print(A[0][0:2])
+
+# Access the element on the first and second rows and third column
+
+print(A[0:2, 2])
+
+
+# Create a matrix A
+
+A = np.array([[0, 1, 1], [1, 0, 1]])
+print('A',A)
+
+# Create a matrix B
+
+B = np.array([[1, 1], [1, 1], [-1, 1]])
+print('B',B)
+
+# Calculate the dot product
+
+Z = np.dot(A,B)
+print('Dot product of A and B',Z)
+
+# Calculate the sine of Z
+
+print(np.sin(Z))
+
+# Create a matrix C
+# transposed
+
+C = np.array([[1,1],[2,2],[3,3]])
+print(C)
+print(C.T)
+
+
+#exercise
+
+import numpy as np
+
+X=np.array([[1,0,1],[2,2,2]]) 
+
+print(X)
+
+#[[1 0 1]
+# [2 2 2]]
+
+out=X[0:2,2]
+
+print(out)
+
+#[1 2]
