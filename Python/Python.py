@@ -2447,3 +2447,107 @@ print(id_warriors)
 #games = gamefinder.get_data_frames()[0]
 #print(games)
 #print(games.head())
+
+
+
+PRACTICE PROJECT: GDP DATA EXTRACTION AND PROCESSING
+
+Introduction
+In this practice project, you will put the skills acquired through the course to use. You will extract data from a website using webscraping and reqeust APIs process it using Pandas and Numpy libraries.
+
+Project Scenario:
+An international firm that is looking to expand its business in different countries across the world has recruited you. You have been hired as a junior Data Engineer and are tasked with creating a script that can extract the list of the top 10 largest economies of the world in descending order of their GDPs in Billion USD (rounded to 2 decimal places), as logged by the International Monetary Fund (IMF).
+
+The required data seems to be available on the URL mentioned below:
+
+URL: https://web.archive.org/web/20230902185326/https://en.wikipedia.org/wiki/List_of_countries_by_GDP_%28nominal%29
+
+
+After completing this lab you will be able to:
+
+Use Webscraping to extract required information from a website.
+Use Pandas to load and process the tabular data as a dataframe.
+Use Numpy to manipulate the information contatined in the dataframe.
+Load the updated dataframe to CSV file.
+
+
+URL : https://www.imdb.com/chart/top/
+
+Step 1: Choose the Website and Webpage URL
+
+Step 2: Inspect the website
+Note these elements' class names and ids as they will be used in the Python code.
+
+Step 3: Installing the important libraries
+
+requests - for making HTTP requests to the website
+BeautifulSoup - for parsing the HTML code
+pandas - for storing the scraped data in a data frame
+time - for adding a delay between requests to avoid overwhelming the website with requests
+
+pip install requests
+pip install BeautifulSoup
+pip install time
+pip install pandas
+pip install beautifulsoup4 #(error on this bs4) from bs4 import  BeautifulSoup
+
+Step 4: Write the Python code
+
+Now, it’s time to write the main python code. The code will perform the following steps:
+
+Using requests to send an HTTP GET request
+Using BeautifulSoup to parse the HTML code
+Extracting the required data from the HTML code
+Store the information in a pandas dataframe
+Add a delay between requests to avoid overwhelming the website with requests
+
+import requests
+
+from bs4 import BeautifulSoup
+import pandas as pd
+import time
+
+# URL of the website to scrape
+url = "https://www.imdb.com/chart/top"
+
+# Send an HTTP GET request to the website
+response = requests.get(url) # output <Response [403]> 
+# <class 'requests.models.Response'>
+# requests.get(url, params={key: value}, args)
+# requests.get(url, timeout=2.50)
+# The get() method sends a GET request to the specified url.
+
+# Parse the HTML code using BeautifulSoup
+soup = BeautifulSoup(response.content, 'html.parser')
+
+#output
+
+#<html>
+#<head><title>403 Forbidden</title></head>
+#<body>
+#<center><h1>403 Forbidden</h1></center>
+#</body>
+#</html>
+
+
+# Extract the relevant information from the HTML code
+movies = []
+for row in soup.select('tbody.lister-list tr'):
+    title = row.find('td', class_='titleColumn').find('a').get_text()
+    year = row.find('td', class_='titleColumn').find('span', class_='secondaryInfo').get_text()[1:-1]
+    rating = row.find('td', class_='ratingColumn imdbRating').find('strong').get_text()
+    movies.append([title, year, rating])
+
+# Store the information in a pandas dataframe
+df = pd.DataFrame(movies, columns=['Title', 'Year', 'Rating'])
+
+# Add a delay between requests to avoid overwhelming the website with requests
+time.sleep(1)
+
+print(df)
+
+# THIS DOES NOT WORKED
+
+#Empty DataFrame
+#Columns: [Title, Year, Rating]
+#Index: []
