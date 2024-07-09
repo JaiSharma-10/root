@@ -2282,3 +2282,168 @@ out=X[0:2,2]
 print(out)
 
 #[1 2]
+
+
+# API
+#An API lets two pieces of software talk to each other. Just like a function, you don't have to know how the API works, only its inputs and outputs. An essential type of API is a REST API that allows you to access resources via the internet.
+
+#API Libraries
+#REST API ->Request and Response
+#Rest APIs are another popular type if API; they allow you to communicate through the internet
+#This aloows you to take advantage of resources like storage , access more data , artificial intelligence algorithms
+
+#REST -> REpresentational State Transfer APIs
+
+#HTTP methods are a way of transmitting data over the internet.
+#HTTP
+#RequestJSON:like Dictionary
+
+# Pandas is an API
+
+#Pandas is actually set of software components , much of which is not even written in Python.
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dict_={'a':[11,21,31],'b':[12,22,32]}
+
+df=pd.DataFrame(dict_)
+type(df)
+
+# When you create a Pandas object with the dataframe constructor, in API lingo this is an "instance". The data in the dictionary is passed along to the pandas API. You then use the dataframe to communicate with the API.
+
+# REST APIs 
+# Rest APIs function by sending a request, the request is communicated via HTTP message. The HTTP message usually contains a JSON file. This contains instructions for what operation we would like the service or resource to perform. In a similar manner, API returns a response, via an HTTP message, this response is usually contained within a JSON.
+
+# USING APIs
+
+# first install APIs to use
+
+# example this NBA API by cmd
+
+# pip install nba_api
+
+# The method get_teams() returns a list of dictionaries.
+
+# nba_teams = teams.get_teams()
+
+# nba_teams is the list of Dictionary
+
+# print(nba_teams[0:3])
+
+# output #JSON
+# [{'id': 1610612737, 'full_name': 'Atlanta Hawks', 'abbreviation': 'ATL', 'nickname': 'Hawks', 'city': 'Atlanta', 'state': 'Georgia', 'year_founded': 1949}, {'id': 1610612738, 'full_name': 'Boston Celtics', 'abbreviation': 'BOS', 'nickname': 'Celtics', 'city': 'Boston', 'state': 'Massachusetts', 'year_founded': 1946}, {'id': 1610612739, 'full_name': 'Cleveland Cavaliers', 'abbreviation': 'CLE', 'nickname': 'Cavaliers', 'city': 'Cleveland', 'state': 'Ohio', 'year_founded': 1970}]
+
+# DICT COMPREHENSION
+# Using fromkeys() Method
+dic=dict.fromkeys(range(5), True)
+print(dic)
+
+# Using dictionary comprehension make dictionary
+# # creation using list comprehension
+myDict = {x: x**2 for x in [1,2,3,4,5]}
+print (myDict)
+
+sDict = {x.upper(): x*3 for x in 'coding '}
+print (sDict)
+
+
+
+# print("API DATA HANDLING IN PYTHON")
+
+from nba_api.stats.static import teams
+import matplotlib.pyplot as plt
+import pandas as pd
+
+nba_teams = teams.get_teams()
+
+def one_dict(list_dict):
+    
+    keys=list_dict[0].keys() # this is dict keys <class 'dict_keys'> 
+    # dict_keys(['id', 'full_name', 'abbreviation', 'nickname', 'city', 'state', 'year_founded'])
+    # this will store keys of first elemnet of nba_teams to keys and as all keys are common
+    
+    out_dict={key:[] for key in keys} 
+    
+    #out_dict = {'id': [], 'full_name': [], 'abbreviation': [], 'nickname': [], 'city': [], 'state': [], 'year_founded': []} 
+    
+    #DICTIONARY COMPREHENSION
+    # keys = ['a','b','c','d','e']
+    # values = [1,2,3,4,5]  
+    # myDict = { k:v for (k,v) in zip(keys, values)}  
+    # We can use below too
+    # myDict = dict(zip(keys, values))  
+    # print (myDict)
+    
+    # LIST COMPREHENSION  
+    # newlist = [expression for item in iterable if condition == True]
+    # example
+    # fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+    # newlist = [x for x in fruits if "a" in x]
+    # print(newlist)
+    
+    for dict_ in list_dict:
+        for key, value in dict_.items():
+            out_dict[key].append(value)
+    return out_dict
+    
+    # values are added to each keys
+    # output print(out_dict)
+    # {'id': [1610612737, 1610612738, 1610612739, 1610612740, 1610612741, 1610612742, 1610612743, 1610612744, 1610612745, 1610612746, 1610612747, 1610612748, 1610612749, 1610612750, 1610612751, 1610612752, 1610612753, 1610612754, 1610612755, 1610612756, 1610612757, 1610612758, 1610612759,    1610612760, 1610612761, 1610612762, 1610612763, 1610612764, 1610612765, 1610612766], 'full_name': ['Atlanta Hawks', 'Boston Celtics', 'Cleveland Cavaliers', 'New Orleans Pelicans', 'Chicago Bulls', 'Dallas Mavericks', 'Denver Nuggets', 'Golden State Warriors', 'Houston Rockets', 'Los Angeles Clippers', 'Los Angeles Lakers', 'Miami Heat', 'Milwaukee Bucks', 'Minnesota Timberwolves', 'Brooklyn Nets', 'New York Knicks', 'Orlando Magic', 'Indiana Pacers', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers', 'Sacramento Kings', 'San Antonio Spurs', 'Oklahoma City Thunder', 'Toronto Raptors', 'Utah Jazz', 'Memphis Grizzlies', 'Washington Wizards', 'Detroit Pistons', 'Charlotte Hornets'], 'abbreviation': ['ATL', 'BOS', 'CLE', 'NOP', 'CHI', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 'LAL', 'MIA', 'MIL', 'MIN', 'BKN', 'NYK', 'ORL', 'IND', 'PHI', 'PHX', 'POR', 'SAC', 'SAS', 'OKC', 'TOR', 'UTA', 'MEM', 'WAS', 'DET', 'CHA'], 'nickname': ['Hawks', 'Celtics', 'Cavaliers', 'Pelicans', 'Bulls', 'Mavericks', 'Nuggets', 'Warriors', 'Rockets', 'Clippers', 'Lakers', 'Heat', 'Bucks', 'Timberwolves', 'Nets', 'Knicks', 'Magic', 'Pacers', '76ers', 'Suns', 'Trail Blazers', 'Kings', 'Spurs', 'Thunder', 'Raptors', 'Jazz', 'Grizzlies', 'Wizards', 'Pistons', 'Hornets'], 'city': ['Atlanta', 'Boston', 'Cleveland', 'New Orleans', 'Chicago', 'Dallas', 'Denver', 'Golden State', 'Houston', 'Los Angeles', 'Los Angeles', 'Miami', 'Milwaukee', 'Minnesota', 'Brooklyn', 'New York', 'Orlando', 'Indiana', 'Philadelphia', 'Phoenix', 'Portland', 'Sacramento', 'San Antonio', 'Oklahoma City', 'Toronto', 'Utah', 'Memphis', 'Washington', 'Detroit', 'Charlotte'], 'state': ['Georgia', 'Massachusetts', 'Ohio', 'Louisiana', 'Illinois', 'Texas', 'Colorado', 'California', 'Texas', 'California', 'California', 'Florida', 'Wisconsin', 'Minnesota', 'New York', 'New York', 'Florida', 'Indiana', 'Pennsylvania', 'Arizona', 'Oregon', 'California', 'Texas', 'Oklahoma', 'Ontario', 'Utah', 'Tennessee', 'District of Columbia', 'Michigan', 'North Carolina'], 'year_founded': [1949, 1946, 1970, 2002, 1966, 1980, 1976, 1946, 1967, 1970, 1948, 1988, 1968, 1989, 1976, 1946, 1989, 1976, 1949, 1968, 1970, 1948, 1976, 1967, 1995, 1974, 1995, 1961, 1948, 1988]} 
+    
+dict_nba_team=one_dict(nba_teams)
+df_teams=pd.DataFrame(dict_nba_team) # THIS ABOVE dICT IS CONVERTED INTO DATAFRAME
+print(df_teams.head()) # 5 rows
+
+#       id             full_name     abbreviation   nickname         city          state  year_founded
+#0  1610612737         Atlanta Hawks          ATL      Hawks      Atlanta        Georgia          1949
+#1  1610612738        Boston Celtics          BOS    Celtics       Boston  Massachusetts          1946
+#2  1610612739   Cleveland Cavaliers          CLE  Cavaliers    Cleveland           Ohio          1970
+#3  1610612740  New Orleans Pelicans          NOP   Pelicans  New Orleans      Louisiana          2002
+#4  1610612741         Chicago Bulls          CHI      Bulls      Chicago       Illinois          1966
+
+
+df_warriors=df_teams[df_teams['nickname']=='Warriors']
+print(df_warriors)
+
+#        id              full_name abbreviation  nickname          city       state  year_founded
+#7  1610612744  Golden State Warriors          GSW  Warriors  Golden State  California          1946
+
+id_warriors=df_warriors[['id']].values[0][0]
+# we now have an integer that can be used to request the Warriors information 
+print(id_warriors)
+# 1610612744
+
+
+#The function "League Game Finder " will make an API call, it's in the module stats.endpoints.
+#The parameter team_id_nullable is the unique ID for the warriors. Under the hood, the NBA API is making a HTTP request.
+#The information requested is provided and is transmitted via an HTTP response this is assigned to the object game finder.
+
+
+# CAN NOT ABLE TO FIGURE IT OUT
+#from nba_api.stats.endpoints import leaguegamefinder
+#
+## Since https://stats.nba.com does not allow api calls from Cloud IPs and Skills Network Labs uses a Cloud IP.
+## The following code is commented out, you can run it on jupyter labs on your own computer.
+#
+#gamefinder = leaguegamefinder.LeagueGameFinder(team_id_nullable=id_warriors)
+#
+## Since https://stats.nba.com does not allow api calls from Cloud IPs and Skills Network Labs uses a Cloud IP.
+## The following code is commented out, you can run it on jupyter labs on your own computer.
+#
+#gamefinder.get_json()
+#
+#
+##WHAT DOES STATUS CODE 202 MEANS 
+#
+## example
+## from google.appengine.api import urlfetch
+## url = "http://www.google.com/"
+## result = urlfetch.fetch(url)
+## if result.status_code == 200:
+##     doSomethingWithResult(result.content)
+## It's a HTTP status code, it means "OK" (EG: The server successfully answered the http request)
+#
+#games = gamefinder.get_data_frames()[0]
+#print(games)
+#print(games.head())
