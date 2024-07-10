@@ -2551,3 +2551,26 @@ print(df)
 #Empty DataFrame
 #Columns: [Title, Year, Rating]
 #Index: []
+
+
+
+# CONNECTING SNOWFLAKE TO PYTHON WITH SSO AUTH / AZURE AD (without password)
+
+import snowflake.connector
+
+credentials = {
+    'account'    : 'mt59224.east-us-2.privatelink'
+    , 'user'     : 'JSHARMA10@R1RCM.COM'
+    , 'authenticator' : 'externalbrowser'
+    }
+
+with snowflake.connector.connect(**credentials) as cnx:
+    cur  = cnx.cursor()
+    cur.execute('SELECT CURRENT_USER()')
+    text = cur.fetchall()
+
+print(text)
+    
+    
+ # here account -> mt59224.east-us-2.privatelink if checked by link of SNOWFLAKE between https:// and .snowflakecomputing
+ ######################################################################
