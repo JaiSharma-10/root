@@ -2577,3 +2577,174 @@ print(id_warriors)
     
  # here account -> mt59224.east-us-2.privatelink if checked by link of SNOWFLAKE between https:// and .snowflakecomputing
  ######################################################################
+
+
+
+#########################################################################################
+#########################################################################################
+
+# THIS WORKS
+
+# BELOW EXAMPLE FOR WEB SCRAPPING
+
+# TAKING WEBSITE 
+
+# INSPECTING AND LOADING DATA ELEMENTS FROM TABLES TO DATAFRAME THEN EXCEL
+
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+import time
+
+url = "https://en.wikipedia.org/wiki/List_of_largest_companies_in_the_United_States_by_revenue"
+
+# after inspecting website and copying relevant table or element class name 
+#<table class="wikitable sortable static-row-numbers plainrowheaders srn-white-background jquery-tablesorter" border="1" style="text-align:right;">
+
+page = requests.get(url) 
+
+# output <Response [403]> 
+# <class 'requests.models.Response'>
+# requests.get(url, params={key: value}, args)
+# requests.get(url, timeout=2.50)
+# The get() method sends a GET request to the specified url.
+# Parse the HTML code using BeautifulSoup
+
+soup = BeautifulSoup(page.text, 'html')
+
+# output whole bunch of html code for the page
+
+# all_table = soup.find_all('table')[0]
+
+# ideally it should find out all table but there are some issues
+
+specified_table_by_class = soup.find('table', class_ = 'wikitable sortable')
+
+# here it should be class_
+
+world_titles = specified_table_by_class.find_all('th')
+
+#print(world_titles)
+
+# output table header
+#soup = BeautifulSoup(page.text, 'html')
+#[<th>Rank
+#</th>, <th>Name
+#</th>, <th>Industry
+#</th>, <th>Revenue <br/>(USD millions)
+#</th>, <th>Revenue growth
+#</th>, <th>Employees
+#</th>, <th>Headquarters
+#</th>, <th>Rank
+#</th>, <th>Name
+#</th>, <th>Industry
+#</th>, <th>Revenue <br/>(USD billions)
+#</th>, <th>Employees
+#</th>, <th>Headquarters
+#</th>, <th>Rank
+#</th>, <th>Name
+#</th>, <th>Industry
+#</th>, <th>Profits<br/>(USD millio
+
+
+# using list comprehension
+
+#print(type(world_titles))
+#print(world_titles[0])
+
+# output for above 
+# soup = BeautifulSoup(page.text, 'html')
+# <class 'bs4.element.ResultSet'>
+# <th>Rank
+# </th> 
+
+#print(world_titles[0].text)
+
+# output 
+# Rank
+
+#world_table_titles = [title.text for title in world_titles]
+
+#output 
+#['Rank\n', 'Name\n', 'Industry\n', 'Revenue (USD millions)\n', 'Revenue growth\n', 'Employees\n', 'Headquarters\n', 'Rank\n', 'Name\n', 'Industry\n', 'Revenue (USD billions)\n', 'Emp
+
+world_table_titles = [title.text.strip() for title in world_titles]
+
+# alt solution  world_table_titles = [title.text[:-1:] for title in world_titles]
+
+# world_titles = soup.find_all('th')
+# here we need to change as soup.fin_all include all table
+# instead use specified_table_by_class
+
+# print(world_table_titles)
+
+# output
+# ['Rank', 'Name', 'Industry', 'Revenue (USD millions)', 'Revenue growth', 'Employees', 'Headquarters']
+
+import pandas as pd
+
+df = pd.DataFrame(columns = world_table_titles)
+
+# print(df.columns)
+
+column_data  = specified_table_by_class.find_all('tr') # this will give all column data
+
+for row in column_data[1::]:
+    row_data = row.find_all('td') # this will result is all bunch of html coding including 'td'
+    # what we want to do is similar to world_table_titles
+    individual_row_data = [data.text.strip() for data in row_data]
+    
+# note here for row in column_data
+# we are getting first element blank
+#    []
+#['1\n', 'Walmart\n', 'Retail\n', '611,289\n', '  6.7%\n', '2,100,000\n', 'Bentonville, Arkansas\n']
+#['2\n', 'Amazon\n', 'Retail and cloud computing\n', '513,983\n', '  9.4%\n', '1,540,000\n', 'Seattle, Washington\n']
+#['3\n', 'ExxonMobil\n', 'Petroleum industry\n', '413,680\n', '  44.8%\n', '62,000\n', 'Spring, Texas\n']
+
+# so start with second element
+
+# DataFrame
+
+# Pandas DataFrame.loc attribute accesses a group of rows and columns by label(s) or a boolean array in the given Pandas DataFrame
+
+# The loc property gets, or sets, the value(s) of the specified labels
+# Specify both row and column with a label.
+
+# To access more than one row, use double brackets and specify the labels, separated by commas:
+ 
+# df.loc[["Sally", "John"]]
+ 
+# Specify columns by including their labels in another list:
+ 
+# df.loc[["Sally", "John"], ["age", "qualified"]]
+ 
+# You can also specify a slice of the DataFrame with from and to labels, separated by a colon:
+ 
+# df.loc["Sally": "John"]
+
+    length = len(df) # assign column no length
+    df.loc[length]  = individual_row_data
+    
+
+
+print(df)
+
+#output
+
+#   soup = BeautifulSoup(page.text, 'html')
+#    Rank                      Name                    Industry Revenue (USD millions) Revenue growth  Employees             Headquarters
+# 0     1                   Walmart                      Retail                611,289           6.7%  2,100,000    Bentonville, Arkansas
+# 1     2                    Amazon  Retail and cloud computing                513,983           9.4%  1,540,000      Seattle, Washington
+# 2     3                ExxonMobil          Petroleum industry                413,680          44.8%     62,000            Spring, Texas
+# 3     4                     Apple        Electronics industry                394,328           7.8%    164,000    Cupertino, California
+# 4     5        UnitedHealth Group                  Healthcare                324,162          12.7%    400,000    Minnetonka, Minnesota
+# ..  ...                       ...                         ...                    ...            ...        ...                      ...
+# 95   96                  Best Buy                      Retail                 46,298          10.6%     71,100     Richfield, Minnesota
+# 96   97      Bristol-Myers Squibb     Pharmaceutical industry                 46,159           0.5%     34,300  New York City, New York
+# 97   98           United Airlines                     Airline                 44,955          82.5%     92,795        Chicago, Illinois
+# 98   99  Thermo Fisher Scientific      Laboratory instruments                 44,915          14.5%    130,000   Waltham, Massachusetts
+# 99  100                  Qualcomm                  Technology                 44,200          31.7%     51,000    San Diego, California
+
+
+# Finally we can export our dataset to csv in local file using this 
+# df.to_csv(r'C:\Users\IN10033204\Documents\Python Sheets\WEB SCRAPPING EXAMPLE.csv', index = False)
