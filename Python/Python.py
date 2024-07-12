@@ -2722,7 +2722,7 @@ for row in column_data[1::]:
  
 # df.loc["Sally": "John"]
 
-    length = len(df) # assign column no length
+    length = len(df) # assign row count of df
     df.loc[length]  = individual_row_data
     
 
