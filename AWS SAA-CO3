@@ -35,3 +35,12 @@ AWS Global Services:
 --Route 53 (DNS services)
 --CloudFront
 --WAF(Web Application Firewall)
+
+IAM  groups
+--Identity and Access Management (Global Service)
+--Root User has been created by default
+
+IAM Permissions
+-User and groups can be assign JSON documents called policies
+
+IAM Policies Inheritance
