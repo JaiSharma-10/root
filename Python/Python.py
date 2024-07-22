@@ -2814,3 +2814,55 @@ print(df)
 ## here we are struck
 #STEP 2 – AUTHORIZE ACCOUNT
 #rsconnect::setAccountInfo(name='rootshinyapp',token='6BC11432EF820F52366A0D3748CC398C',secret='<SECRET>')
+
+# import graphics from turtle
+
+# make cool diagrams
+
+from turtle import Turtle, Screen
+
+tinny_the_turtle = Turtle() # object of Turtle class
+
+tinny_the_turtle.shape("turtle") # this is the shape of the cursor
+tinny_the_turtle.color("red")
+
+step = 175
+iteration = 91
+
+# for step 10 iteration = 10 and this will move turtle in circle  
+
+# so basically left will just changes direction of turtle by angle
+
+# step = 90 # square 
+
+# flower
+# step = 100
+# iteration = 21  
+
+# step =120 # trinangle
+
+# more detailed flower
+# step = 130
+# iteration = 51 
+
+# step = 170
+# iteration = 51
+
+# as we go from >90 to <180 circle of flower becomes smallers , at 170 it is smallest
+
+
+# cool shape @ 179 japanese fan
+
+# cool shape @ 
+# step = 175
+# iteration = 91
+
+
+for i in range(iteration): 
+    tinny_the_turtle.forward(step)
+    tinny_the_turtle.left(step) # here step means angle
+        
+
+
+screen = Screen()
+screen.exitonclick() # turtle graphics screen
