@@ -6412,3 +6412,15 @@ WHERE EXISTS (
         WHERE l3.id = l1.id + 2 AND l3.num = l1.num
     )
 );
+
+--Hackerrank
+--median of latitiude
+
+with x as 
+(select *,
+ROW_NUMBER ( )   OVER ( order by LAT_N desc)  as R_NO 
+from Station)
+select 
+case 
+    when count(R_NO) %2 =0 then "EVEN" else "ODD" end as R_NO
+from x;
