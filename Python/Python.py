@@ -2866,3 +2866,24 @@ for i in range(iteration):
 
 screen = Screen()
 screen.exitonclick() # turtle graphics screen
+
+
+
+#####################################################################################################################################################################
+#####################################################################################################################################################################
+
+# HACKERRANK PROBLEM SOLVING
+
+# working with array
+
+a=[[1,2,3],[2,4,6],[3,6,9]]
+
+count = 0
+
+for row in a: # row element will contain list 
+    count += 1
+
+for i in range(count):
+    for j in range(count):
+        print(a[i][j], end=" ")
+    print('')
