@@ -2886,7 +2886,11 @@ screen.exitonclick() # turtle graphics screen
 
 
 # draw triangle square pentagon hexagon heptagon octagon nonagon and decagon
-# 60 
+# 60 90 108 120 128.57
+
+# NOTE
+# A regular polygon of n sides has each exterior angle = 360/n
+# So, the angle between two sides, or the interior angle = 180 -360/n = (180n-360)/n = 180(n-2)/n.
 
 from turtle import Turtle , Screen
 
@@ -2896,9 +2900,11 @@ tin.color()
 
 side = 100
 
-tin.forward(side)
 
-tin.left(60)
+for i in range (3,10):
+	for j in range(i):
+		tin.forward(side)
+		tin.right(360/i)
 
 screen = Screen()
 screen.exitonclick()
