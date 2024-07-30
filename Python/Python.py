@@ -2893,6 +2893,7 @@ screen.exitonclick() # turtle graphics screen
 # So, the angle between two sides, or the interior angle = 180 -360/n = (180n-360)/n = 180(n-2)/n.
 
 from turtle import Turtle , Screen
+import random 
 
 tin = Turtle() # object
 
@@ -2900,9 +2901,11 @@ tin.color()
 
 side = 100
 
+color_list = ['crimson','dark violet', 'spring green', 'medium slate blue']
 
-for i in range (3,10):
-	for j in range(i):
+for i in range (3,10): # for the different shapes 
+	for j in range(i): # for drawing each shape
+		tin.color(random.choices(color_list))
 		tin.forward(side)
 		tin.right(360/i)
 
