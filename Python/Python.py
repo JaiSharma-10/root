@@ -2911,6 +2911,17 @@ for i in range (3,10): # for the different shapes
 
 screen = Screen()
 screen.exitonclick()
+
+# RANDOM WALK 
+
+# random walk, in probability theory, a process for determining the probable location of a point subject to random motions, 
+# given the probabilities (the same at each step) of moving some distance in some direction.
+
+# path traced by  the moleculues of liquid and gases
+
+# In psychology, random walks explain accurately the relation between the time needed to make a decision and the probability that a certain decision will be made
+
+# Brownian motion is the random motion of particles suspended in a medium (a liquid or a gas). The motion is caused by fast-moving atoms or molecules that hit the particles.
 #####################################################################################################################################################################
 #####################################################################################################################################################################
 
