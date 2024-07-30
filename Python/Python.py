@@ -2868,7 +2868,40 @@ screen = Screen()
 screen.exitonclick() # turtle graphics screen
 
 
+##########################################
+#penup() and pendown()
 
+from turtle import Turtle, Screen
+
+tin= Turtle() # object of Turtle class
+
+for i in range(16):
+    tin.forward(10)
+    tin.penup()
+    tin.forward(10)
+    tin.pendown()
+
+screen = Screen()
+screen.exitonclick() # turtle graphics screen
+
+
+# draw triangle square pentagon hexagon heptagon octagon nonagon and decagon
+# 60 
+
+from turtle import Turtle , Screen
+
+tin = Turtle() # object
+
+tin.color()
+
+side = 100
+
+tin.forward(side)
+
+tin.left(60)
+
+screen = Screen()
+screen.exitonclick()
 #####################################################################################################################################################################
 #####################################################################################################################################################################
 
