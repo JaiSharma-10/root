@@ -2924,11 +2924,19 @@ screen.exitonclick()
 # Brownian motion is the random motion of particles suspended in a medium (a liquid or a gas). The motion is caused by fast-moving atoms or molecules that hit the particles.
 
 from turtle import Turtle, Screen
+import turtle as t
 import random
 
 tin = Turtle() # object of Turtle class
 
-color_list = ['crimson','coral', 'magenta', 'orange red','tomato', 'light salmon','red','black','pink','green','orange','purple','blue']
+t.colormode(255)
+
+def randon_color_gen():
+    r = random.randint(0,255)
+    b = random.randint(0,255)
+    g = random.randint(0,255)
+    random_color = (r, b, g)
+    return random_color
 
 list_of_direction = [x for x in range(361) if x % 90 == 0]
 
@@ -2940,13 +2948,19 @@ tin.speed(1)
 
 for i in range(1001):
     
-    tin.color(random.choice(color_list))
+    tin.color(randon_color_gen()) # calling random color generator
     tin.forward(30)
     tin.setheading(random.choice(list_of_direction))
     
 
 screen = Screen()
 screen.exitonclick() # turtle graphics screen
+
+
+# MAKE a Spirograph
+
+
+
 #####################################################################################################################################################################
 #####################################################################################################################################################################
 
