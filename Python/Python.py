@@ -2959,6 +2959,37 @@ screen.exitonclick() # turtle graphics screen
 
 # MAKE a Spirograph
 
+# my method by circle and left
+
+from turtle import Turtle, Screen
+import turtle as t
+import random
+
+tin = Turtle() # object of Turtle class
+
+t.colormode(255)
+
+def randon_color_gen():
+    r = random.randint(0,255)
+    b = random.randint(0,255)
+    g = random.randint(0,255)
+    random_color = (r, b, g)
+    return random_color
+
+
+tin.speed("fastest")
+
+r = 100
+angle =10
+
+
+for i in range(1,51):
+    t.color(randon_color_gen())
+    t.circle(r) 
+    t.left(angle)
+  
+screen = Screen()
+screen.exitonclick() # turtle graphics screen
 
 
 #####################################################################################################################################################################
