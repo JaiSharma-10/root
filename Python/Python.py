@@ -2980,8 +2980,7 @@ def randon_color_gen():
 tin.speed("fastest")
 
 r = 100
-angle =10
-
+angle =5
 
 for i in range(1,51):
     t.color(randon_color_gen())
