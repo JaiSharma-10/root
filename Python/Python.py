@@ -3011,3 +3011,57 @@ for i in range(count):
     for j in range(count):
         print(a[i][j], end=" ")
     print('')
+
+# principle diagonal
+    
+for i in range(count):
+    for j in range(count):
+        if(i == j):
+            print(a[i][j], end=" ")
+        else :
+            print(" ",end=" ")
+    print('')
+
+# anti-diagonal
+
+for i in range(count):
+    for j in range(count):
+        if(i == count-1-j):
+            print(a[i][j], end=" ")
+        else :
+            print(" ",end=" ")
+    print('')
+
+
+
+def diagonal_difference(a):
+    
+    count_row = 0
+    for row in a: # row element will contain list 
+        count_row += 1
+
+
+    # principle diagonal
+    sum_principle=0
+
+    for i in range(count):
+        for j in range(count):
+            if(i == j):
+                sum_principle += a[i][j]
+            else :
+                pass
+
+    # anti-principle diagonal
+    sum_Anti_principle=0
+
+    for i in range(count):
+        for j in range(count):
+            if(i == count-1-j):
+                sum_Anti_principle += a[i][j]
+            else :
+                pass
+
+    return abs(sum_principle-sum_Anti_principle)
+
+print("Result")
+print(diagonal_difference(a))
