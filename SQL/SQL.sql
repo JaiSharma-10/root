@@ -6424,3 +6424,95 @@ select
 case 
     when count(R_NO) %2 =0 then "EVEN" else "ODD" end as R_NO
 from x;
+
+
+--Below is beautiful sql query used to get Recon (reconciliation) data provided by Jenifer 
+--this is SP which not only uses While loop , cursor , states but also proper comments and Performance tunning
+
+
+--AHV-SISDRCSTG01.accretivehealth.local
+
+----performance tuning concepts of SQL Server
+SET NOCOUNT ON
+
+
+DECLARE @DatabaseName NVARCHAR(128)
+DECLARE @SQL NVARCHAR(MAX) = ''
+
+DECLARE DatabaseCursor CURSOR FOR
+--there are more databases in Tran than you'll find data in R1BI for.  So I'm limiting the databases to what is loaded into R1BI
+SELECT name
+FROM sys.databases
+WHERE state = 0 -- Online databases only
+and right(name,3) = 'DRC'
+order by name
+
+
+
+OPEN DatabaseCursor
+FETCH NEXT FROM DatabaseCursor INTO @DatabaseName
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    -- Step 2: Build the union query
+    SET @SQL = @SQL + 'SELECT a.FAC_CODE, A.post_DATE, A.INSERT_DATE, A.TOT_CHRGS, A.TOT_PYMTS, A.TOT_AR, A.VALID_TOTAL_CHRGS, A.VALID_TOTAL_PMNTS, A.VALID_TOTAL_AR
+						FROM ' + QUOTENAME(@DatabaseName) + '.dbo.DATA_RECON a with (nolock)
+						UNION ALL '
+
+
+					
+    FETCH NEXT FROM DatabaseCursor INTO @DatabaseName
+END
+
+CLOSE DatabaseCursor
+DEALLOCATE DatabaseCursor
+
+-- Remove the last 'UNION ALL' from the query
+SET @SQL = LEFT(@SQL, LEN(@SQL) - LEN('UNION ALL '))
+
+-- Step 3: Execute the union query
+EXEC sp_executesql @SQL
+
+
+SET NOCOUNT OFF
+
+
+
+
+------performance tuning concepts of SQL Server
+--used in SP and SSIS
+SET NOCOUNT ON
+
+--Controls whether a message that shows the number of rows affected by a Transact-SQL statement or stored procedure is returned after the result set. 
+--This message is an extra result set
+
+--When SET NOCOUNT is ON, the count isn't returned. When SET NOCOUNT is OFF, the count is returned.
+--The @@ROWCOUNT function is updated even when SET NOCOUNT is ON.
+
+--SET NOCOUNT ON prevents the sending of DONEINPROC messages to the client for each statement in a stored procedure. 
+--For stored procedures that contain several statements that don't return much actual data, or for procedures that contain Transact-SQL loops, 
+--setting SET NOCOUNT to ON can provide a significant performance boost, because network traffic is greatly reduced.
+
+--The setting specified by SET NOCOUNT is in effect at execute or run time and not at parse time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
