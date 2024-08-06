@@ -3000,7 +3000,7 @@ screen.exitonclick() # turtle graphics screen
 
 # working with array
 
-# finding difference in sum of two digonals
+#1 finding difference in sum of two digonals
 
 a=[[1,2,3],[2,4,6],[3,6,9]]
 
@@ -3067,3 +3067,43 @@ def diagonal_difference(a):
 
 print("Result")
 print(diagonal_difference(a))
+
+
+################################################
+
+#2 find the ratio of the postive , negative and zero
+
+a=[-4,3,-9,0,4,1]
+
+count_positive = 0
+count_negative = 0
+count_zero = 0
+count_total = 0
+
+# Formatting expressions
+
+# floating point with that many decimals
+
+# this method will place certain number of decimal in division result despite of the result
+
+# '{:.2f}'.format(0.5) → '0.50'
+
+for i in a:
+    count_total +=1
+    if (i > 0 ):
+        count_positive +=1
+    elif (i<0):
+        count_negative +=1
+    else :
+        count_zero +=1
+
+print('{:.6F}'.format(count_positive/count_total))
+print('{:.6F}'.format(count_negative/count_total))
+print('{:.6f}'.format(count_zero/count_total))
+
+
+# output 
+
+# 0.500000
+# 0.333333
+# 0.166667
