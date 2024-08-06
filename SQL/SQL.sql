@@ -6427,7 +6427,7 @@ from x;
 
 
 --Below is beautiful sql query used to get Recon (reconciliation) data provided by Jenifer 
---this is SP which not only uses While loop , cursor , states but also proper comments and Performance tunning
+--this is SP which not only uses While loop , cursor , states but also, proper comments and have Performance tunning
 
 
 --AHV-SISDRCSTG01.accretivehealth.local
