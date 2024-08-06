@@ -3000,6 +3000,8 @@ screen.exitonclick() # turtle graphics screen
 
 # working with array
 
+# finding difference in sum of two digonals
+
 a=[[1,2,3],[2,4,6],[3,6,9]]
 
 count = 0
