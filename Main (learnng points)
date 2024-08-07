@@ -1,0 +1,20 @@
+IBM
+Data Engineer: Data Platforms (716696BR)
+
+Responsibilities include:
+1.Design, build, optimize and support new and existing data models and ETL processes based on our clients business requirements.
+2.Build, deploy and manage data infrastructure that can adequately handle the needs of a rapidly growing data driven organization.
+3.Coordinate data access and security to enable data scientists and analysts to easily access to data whenever they need too.
+
+Required Technical and Professional Expertise
+1.Big Data -Hadoop Spark -Scala ,Python
+2.Hbase, Hive Good to have Aws -S3,
+3.athena ,Dynomo DB, Lambda, Jenkins GIT
+4.Developed Python and pyspark programs for data analysis.. Good working experience with python to develop Custom Framework for generating of rules (just like rules engine).
+5.Developed Python code to gather the data from HBase and designs the solution to implement using Pyspark. Apache Spark DataFrames/RDD's were used to apply business transformations and
+  utilized Hive Context objects to perform read/write operations..
+
+Preferred Technical and Professional Experience
+1.Understanding of Devops.
+2.Experience in building scalable end-to-end data ingestion and processing solutions
+3.Experience with object-oriented and/or functional programming languages, such as Python, Java and Scala"
