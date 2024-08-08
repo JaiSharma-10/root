@@ -6497,6 +6497,139 @@ SET NOCOUNT ON
 
 
 
+---Cognizant 
+
+--IT jobs working in query optimization and finding root cause of error in complex sql / python scripts / Stored procedure and SSIS script
+
+--My senior Jeevan use to say that difference between amateur and professional is finding root cause  and trouble shooting problem
+
+--Finding WHAT and WHERE issue is  , is solving 80 to 90% of the problem itself 
+
+--backtracing, Root Cause Analysis is what makes professional 
+
+--Below is the example for one of problem solving in SQL script 
+
+--Only few times where i feel like engineer
+
+---- Boolean value 'CLINICAL DOCUMENTATION' is not recognized
+
+---- issue was in 6584
+
+
+  -- then
+                        --     --   txn_code_subcategory = 'REG ERROR'
+	--						  'REG ERROR'
+
+select distinct
+        *
+from
+        (
+          SELECT
+                        YEAR(DATEADD(MONTH, +6, txn_date)) AS FiscalYear,
+                        sum(txn_amt)                       as TXNAMOUNT ,
+                        facility_group_name                             ,
+                        b.facility_group_name                           ,
+                        txn_code_subcategory                            ,
+                        case
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and (
+                                        txn_code_desc    like '%coding%'
+                                        or txn_code_desc like '%exceed%'
+                                        or txn_code_desc like '%procedure%')
+                        then
+                                'CODING/CDI'
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and (
+                                        txn_code_desc    like '%Lack%'
+                                        or txn_code_desc like '%info%'
+                                        or txn_code_desc like '%submit%')
+                        then
+                                'Documentation Miss'
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and (
+                                        txn_code_desc    like '%med nec%'
+                                        or txn_code_desc like '%necessity%'
+                                        or txn_code_desc like '%implant invoice%'
+                                        or txn_code_desc like '%rac%'
+                                        or txn_code_desc like '%dialysis%')
+                        then
+                                'Medical Necessity'
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and (
+                                        txn_code_desc    like '%auth%'
+                                        or txn_code_desc like '%snf%'
+                                        or txn_code_desc like '%admission%'
+                                        or txn_code_desc like '%refer%')
+                        then
+                                'No Authorization'
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and txn_code_desc    like '%cover%'
+                        then
+                                'Non-Covered'
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and (
+                                        txn_code_desc    like '%provide%'
+                                        or txn_code_desc like '%credenti%')
+                        then
+                                'NOT CREDENTIALED'
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and txn_code_desc    like '%reg%'
+                        then
+                             --   txn_code_subcategory = 'REG ERROR'
+							 'REG ERROR'
+                        when
+                                txn_code_subcategory = 'Not Specified'
+                                and (
+                                        txn_code_desc    like '%tf%'
+                                        or txn_code_desc like '%timely%'
+                                        or txn_code_desc like '%appeal%')
+                        then
+                                'Untimely Filing'
+                        else
+                                txn_code_subcategory
+                        end as Transaction_Subcategory
+                FROM
+                        fact_transaction a
+                left join
+                        dim_facility b
+                on
+                        a.facility_code = b.facility_code
+                where
+                        txn_code_category in ('Denial - clinical',
+                                             'denial - technical')
+                and     b.facility_group_name = 'Wichita'
+                and     txn_code_subcategory is not null
+                        --and txn_pmt_code = 'DA41.129'
+                group by
+                        facility_group_name  ,
+                        FiscalYear           ,
+                        txn_code_subcategory ,
+                        b.facility_group_name,
+                        txn_code_desc
+						
+						--Boolean value 'MEDICAL NECESSITY' is not recognized
+						
+						--Boolean value 'UNTIMELY FILING' is not recognized
+						
+						-- Boolean value 'NON-COVERED' is not recognized
+						
+						)
+where
+        fiscalyear in ('2022',
+                      '2023' ,
+                      '2024')
+					  
+					  
+-- Boolean value 'CLINICAL DOCUMENTATION' is not recognized
+
+
 
 
 
