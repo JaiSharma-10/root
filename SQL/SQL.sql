@@ -5192,27 +5192,6 @@ from
 from Sales) as derv_table
 where r_no = 1
 
-GATE
-SAS DLD EMFT -june -sept
-NAS Control electronics -july -oct
-Communication Analog Maths -aug -nov
-
-IT
-IBM data science -june
-AWS SAA C03 2 months -june july
-leetcode hackerrank kaggle - SQL and PYTHON
-
-june july aug
-sept oct nov
-dec jan
-
-6-12
-6-7 exercise touch a grass
-7-9 GATE
-9-10 FOOD
-10-12 IT
-
-13-23
 
 
 Find the largest single number. If there is no single number, report null.
@@ -6418,13 +6397,255 @@ WHERE EXISTS (
 
 with x as 
 (select *,
-ROW_NUMBER ( )   OVER ( order by LAT_N desc)  as R_NO 
+ROW_NUMBER ( )	OVER ( order by LAT_N desc)  as R_NO 
 from Station)
-select 
+select *,
 case 
-    when count(R_NO) %2 =0 then "EVEN" else "ODD" end as R_NO
+    when max(R_NO) %2 =0 then "EVEN" else "ODD" end as R_NO
 from x;
 
+--
+with x as 
+(select *,
+ROW_NUMBER ( )	OVER ( order by LAT_N desc)  as R_NO 
+from Station)
+select
+case 
+    when max(R_NO) %2 =0 
+		then (select * from x where R_NO = (max(R_NO)+1)/2 )
+		else (select * from x where R_NO = max(R_NO)/2 )
+	end as R_NO
+from x;
+
+--ERROR 1111 (HY000) at line 1: Invalid use of group function
+
+-- my thinking IS
+
+--first arrange data in order by LAT_N desc and give it row_number()
+
+--then according to even and odd we can just calculate median of the data 
+
+
+
+
+
+
+======================================================================================================================================
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+======================================================================================================================================
+
+
+
+
+
+
+
+
+############################################################
+============================================================
+############################################################
+
+--PERFORMING SQL OPERATIONS WITH NATIVE DYNAMIC SQL
+
+
+--How to use native dynamic SQL (dynamic SQL for short), a PL/SQL interface that makes your programs more flexible, by building and processing SQL statements at run time.
+
+--With dynamic SQL, you can directly execute any kind of SQL statement (even data definition and data control statements). You can build statements where you do not know table names, WHERE clauses, and other information in advance.
+
+--What Is Dynamic SQL?
+--Some programs must build and process SQL statements where some information is not known in advance. A reporting application might build different SELECT statements for the various reports it generates, substituting new table and column names and ordering or grouping by different columns. Database management applications might issue statements such as CREATE, DROP, and GRANT that cannot be coded directly in a PL/SQL program. These statements are called dynamic SQL statements.
+
+--Dynamic SQL statements built as character strings built at run time. The strings contain the text of a SQL statement or PL/SQL block. They can also contain placeholders for bind arguments. Placeholder names are prefixed by a colon, and the names themselves do not matter. For example, PL/SQL makes no distinction between the following strings:
+
+'DELETE FROM emp WHERE sal > :my_sal AND comm < :my_comm'
+'DELETE FROM emp WHERE sal > :s AND comm < :c'
+--To process most dynamic SQL statements, you use the EXECUTE IMMEDIATE statement. To process a multi-row query (SELECT statement), you use the OPEN-FOR, FETCH, and CLOSE statements.
+
+
+--DYNAMIC SQL
+
+--EXECUTE IMMEDIATE
+--for multi-row query use OPEN_FOR , FETCH and CLose 
+
+
+--USING THE EXECUTE IMMEDIATE STATEMENT
+
+--The EXECUTE IMMEDIATE statement prepares (parses) and immediately executes a dynamic SQL statement or an anonymous PL/SQL block.
+--The main argument to EXECUTE IMMEDIATE is the string containing the SQL statement to execute. You can build up the string using concatenation, or use a predefined string.
+--For example
+
+  SET @SQL = @SQL + 'SELECT a.FAC_CODE, A.post_DATE, A.INSERT_DATE, A.TOT_CHRGS, A.TOT_PYMTS, A.TOT_AR, A.VALID_TOTAL_CHRGS, A.VALID_TOTAL_PMNTS, A.VALID_TOTAL_AR
+						FROM ' + QUOTENAME(@DatabaseName) + '.dbo.DATA_RECON a with (nolock)
+						UNION ALL '
+						
+--Except for multi-row queries, the dynamic string can contain any SQL statement (without the final semicolon) or any PL/SQL block (with the final semicolon). The string can also contain placeholders, arbitrary names preceded by a colon, for bind arguments. In this case, you specify which PL/SQL variables correspond to the placeholders with the INTO, USING, and RETURNING INTO clauses.
+
+--You can only use placeholders in places where you can substitute variables in the SQL statement, such as conditional tests in WHERE clauses. You cannot use placeholders for the names of schema objects. 
+
+--Used only for single-row queries, the INTO clause specifies the variables or record into which column values are retrieved. For each value retrieved by the query, there must be a corresponding, type-compatible variable or field in the INTO clause.
+
+--Used only for DML statements that have a RETURNING clause (without a BULK COLLECT clause), the RETURNING INTO clause specifies the variables into which column values are returned. For each value returned by the DML statement, there must be a corresponding, type-compatible variable in the RETURNING INTO clause.
+
+--You can place all bind arguments in the USING clause. The default parameter mode is IN. For DML statements that have a RETURNING clause, you can place OUT arguments in the RETURNING INTO clause without specifying the parameter mode. If you use both the USING clause and the RETURNING INTO clause, the USING clause can contain only IN arguments.
+
+--At run time, bind arguments replace corresponding placeholders in the dynamic string. Every placeholder must be associated with a bind argument in the USING clause and/or RETURNING INTO clause. You can use numeric, character, and string literals as bind arguments, but you cannot use Boolean literals (TRUE, FALSE, and NULL). To pass nulls to the dynamic string, you must use a workaround.
+
+--Dynamic SQL supports all the SQL datatypes. For example, define variables and bind arguments(dynamic) can be collections, LOBs, instances of an object type, and refs.
+
+--As a rule, dynamic SQL does not support PL/SQL-specific types. For example, define variables and bind arguments cannot be Booleans or associative arrays. The only exception is that a PL/SQL record can appear in the INTO clause.
+
+--You can execute a dynamic SQL statement repeatedly using new values for the bind arguments. However, you incur some overhead because EXECUTE IMMEDIATE re-prepares the dynamic string before every execution.
+
+
+--Now below are the example from net after that i will put examples from Cognizant
+
+--Example 7-1 Some Examples of Dynamic SQL
+
+--The following PL/SQL block contains several examples of dynamic SQL:
+
+DECLARE
+   sql_stmt    VARCHAR2(200);
+   plsql_block VARCHAR2(500);
+   emp_id      NUMBER(4) := 7566;
+   salary      NUMBER(7,2);
+   dept_id     NUMBER(2) := 50;
+   dept_name   VARCHAR2(14) := 'PERSONNEL';
+   location    VARCHAR2(13) := 'DALLAS';
+   emp_rec     emp%ROWTYPE;
+BEGIN
+   EXECUTE IMMEDIATE 'CREATE TABLE bonus (id NUMBER, amt NUMBER)';
+   sql_stmt := 'INSERT INTO dept VALUES (:1, :2, :3)';
+   EXECUTE IMMEDIATE sql_stmt USING dept_id, dept_name, location;
+   sql_stmt := 'SELECT * FROM emp WHERE empno = :id';
+   EXECUTE IMMEDIATE sql_stmt INTO emp_rec USING emp_id;
+   plsql_block := 'BEGIN emp_pkg.raise_salary(:id, :amt); END;';
+   EXECUTE IMMEDIATE plsql_block USING 7788, 500;
+   sql_stmt := 'UPDATE emp SET sal = 2000 WHERE empno = :1
+      RETURNING sal INTO :2';
+   EXECUTE IMMEDIATE sql_stmt USING emp_id RETURNING INTO salary;
+   EXECUTE IMMEDIATE 'DELETE FROM dept WHERE deptno = :num'
+      USING dept_id;
+   EXECUTE IMMEDIATE 'ALTER SESSION SET SQL_TRACE TRUE';
+END;
+/
+--Example 7-2 Dynamic SQL Procedure that Accepts Table Name and WHERE Clause
+
+--In the example below, a standalone procedure accepts the name of a database table and an optional WHERE-clause condition. If you omit the condition, the procedure deletes all rows from the table. Otherwise, the procedure deletes only those rows that meet the condition.
+
+CREATE OR REPLACE PROCEDURE delete_rows (
+   table_name IN VARCHAR2,
+   condition IN VARCHAR2 DEFAULT NULL) AS
+   where_clause VARCHAR2(100) := ' WHERE ' || condition;
+BEGIN
+   IF condition IS NULL THEN where_clause := NULL; END IF;
+   EXECUTE IMMEDIATE 'DELETE FROM ' || table_name || where_clause;
+   
+   
+--Examples from Cognizant
+--below is the example for SNF only
+-----------------------------------------CURRENT_DATE
+
+EXECUTE IMMEDIATE
+$$
+Begin
+    let EndDate date;
+    EndDate:=CURRENT_DATE() -60;
+    return EndDate;
+END;
+$$;
+-----------------------------------------CURSOR open and close
+execute immediate
+$$
+begin
+		let seq_no INT := 0;
+                             let sql_statment VARCHAR := null;
+                             let v_cursor cursor for (SELECT
+                                    seq_no,
+                                    sql_statement
+                             FROM
+                                    BDM_EIP_DB_PPD.EIP_T.sql_queue
+                             WHERE  
+                                    process_id='2' AND 
+                                    process_name='BH_M_ACCOUNTS' AND 
+                                    processed_ind is null
+                                                          ORDER BY
+                                                          process_id,
+                                                          seq_no);
+               open v_cursor ;
+               FETCH v_cursor into seq_no,sql_statment;
+                                              close v_cursor ;
+               return seq_no;
+END;
+$$;
+-------------------------------------------------------------
+--------------loopstart and loopend
+--------------while loop
+execute immediate
+$$
+begin
+        let run_time TIMESTAMP_NTZ;
+                             let category_nm VARCHAR  := 'Monitors';
+                             let application_nm VARCHAR  := 'SQL';
+                             let program_nm VARCHAR  := 'MTR_M050_BILLING';
+                             let process_nm VARCHAR  := 'MTR_P_M050_BILLING';
+                             let object_nm VARCHAR;
+                             let as_of_date TIMESTAMP_NTZ;
+                             let hold_activity_count DECIMAL  := 0;
+                             let BeginDate DATE;
+                             let EndDate DATE;
+                             let loopstart DATE;
+                             let loopend DATE;
+                             let flag varchar :='N';
+        let count number :=0;
+        let v_in_end_date varchar;
+        v_in_end_date := '2022-12-25';
+                             if(:v_in_end_date is null)
+                                           then
+                                           EndDate:=CURRENT_DATE();
+                                           else 
+                                           EndDate:=CAST(v_in_end_date AS DATE);
+                             end if;
+                             SELECT MAX(run_date) INTO :loopstart
+                             FROM BDM_EIP_DB_PPD.EIP_T.M050AG_BILLING_BILL_DATES ; --2022-12-22
+                             loopend:=EndDate; --2020-01-01
+                             IF (loopstart < loopend) THEN
+          loopstart:=loopstart+interval'1 day';
+        END IF;
+        while ((loopstart<=loopend)) do
+            count := (count + 1);
+            loopstart:=loopstart+INTERVAL'1 DAY';
+        end while;
+        return count;
+END;
+$$;
+--count =3
+------------------------------------------------example (Returning a Table for a Cursor)
+execute immediate
+$$
+begin
+    let rset1 RESULTSET;
+    rset1 := (SELECT * FROM BDM_CSR_DB_PPD.CSR_T.Daily_Impact_Analysis_Rerun WHERE SOURCE = 'RPX');
+    let c1 CURSOR FOR rset1;
+    open c1;
+        RETURN TABLE(RESULTSET_FROM_CURSOR(c1));
+    close c1;
+end;
+$$-------resultset
+
+
+####################################################
+
+--End of example
+
+-- for further study
+
+--https://docs.oracle.com/cd/B13789_01/appdev.101/b10807/11_dynam.htm#i14257
+
+-- dynamic query is such interesting concept i need to deep drive into it
+
+--In this company i have came across one such beautiful query
 
 --Below is beautiful sql query used to get Recon (reconciliation) data provided by Jenifer 
 --this is SP which not only uses While loop , cursor , states but also, proper comments and have Performance tunning
@@ -6434,8 +6655,8 @@ from x;
 
 --AHV-SISDRCSTG01.accretivehealth.local
 
-#########################################################################
-#########################################################################
+
+####################################################
 ----performance tuning concepts of SQL Server
 SET NOCOUNT ON
 
@@ -6479,10 +6700,7 @@ EXEC sp_executesql @SQL
 
 
 SET NOCOUNT OFF
-
-
-#######################################################################
-#######################################################################
+#################################################
 
 ------performance tuning concepts of SQL Server
 --used in SP and SSIS
@@ -6633,6 +6851,11 @@ where
 					  
 					  
 -- Boolean value 'CLINICAL DOCUMENTATION' is not recognized
+
+############################################################
+============================================================
+############################################################
+
 
 
 
