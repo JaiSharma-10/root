@@ -6428,10 +6428,14 @@ from x;
 
 --Below is beautiful sql query used to get Recon (reconciliation) data provided by Jenifer 
 --this is SP which not only uses While loop , cursor , states but also, proper comments and have Performance tunning
-
+-- it is elegant and impressive .
+-- this must be the most beautiful query I have ever seen.
+-- Hats-off to who made it
 
 --AHV-SISDRCSTG01.accretivehealth.local
 
+#########################################################################
+#########################################################################
 ----performance tuning concepts of SQL Server
 SET NOCOUNT ON
 
@@ -6477,7 +6481,8 @@ EXEC sp_executesql @SQL
 SET NOCOUNT OFF
 
 
-
+#######################################################################
+#######################################################################
 
 ------performance tuning concepts of SQL Server
 --used in SP and SSIS
