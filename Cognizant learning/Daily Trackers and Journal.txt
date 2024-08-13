@@ -1,0 +1,6973 @@
+Links
+
+udemy
+
+HackerRank
+
+HackerEarth
+
+LeetCode
+
+Learn to Code | CodesDope
+
+CCNA 200-301 Cert Guide, Volume 1 eBook and Practice Test.pdf - Google Drive
+
+Databricks Learning
+​
+Daily Tracker
+
+ 
+
+EXTR326520
+
+ 
+
+EXCE_DB_0002
+
+ 
+
+https://home.pearsonvue.com/Clients/Microsoft.aspx
+
+ 
+
+              AZ-900 Microsoft Azure Fundamentals
+
+              Google IT Automation with Python Professional Certificate
+
+ 
+
+CompTIA A+
+
+Databricks Certified Professional Data Engineer
+
+Databricks Certified Associate Data Engineer
+
+Databricks Certified Associate Data Analyst         
+
+Databricks Certified Associate Machine Learning
+
+Databricks Certified Professional Machine Learning         
+
+Databricks - Solution Architect Essentials Badge - [301-ADVANCED]          
+
+Certified Tester Expert Level Assessing Test Processes (CTEL-ITP-ATP)       
+
+Japanese- Language Proficiency Test (JLPT) Level N5        
+
+Machine Learning - Foundation Certificate          
+
+Data Scientist
+
+JavaScript ES6 {101 - BASICS]
+
+Python for Analytics
+
+Python Programming for Beginners Using AI and ML       
+
+PCAP - Python Certified Associate in Python Programming           
+
+Programming with Python 3.x
+
+Google Cloud - Professional Cloud DevOps Engineer        
+
+Exam AZ-400 : Microsoft Azure DevOps Solutions             
+
+Google - Professional Cloud Security Engineer    
+
+Google - Professional Cloud Network Engineer   
+
+Google - Professional Cloud Developer  
+
+certificate program in c & c++ programming       
+
+Programming with JavaScript
+
+GOOGLE CLOUD CERTIFIED - Professiona
+
+Google Cloud Associate Cloud Engineer 
+
+Advance SQL
+
+German language A1/2 Basic
+
+German B1.2
+
+             
+
+ 
+
+ 
+
+Experience:
+
+about 2 years as tester in
+
+And briefly worked as DEV and tester for Stored Procedure conversion in snowflake (for 6 months)
+
+ 
+
+my skillset includes
+
+Project based skillset
+
+ SQL Scripting: Stored procedure, Function and other DDL,DML queries
+
+ Snowflake Database: Defect fixing for complex SQL scripts .
+
+ ETL and Power BI testing
+
+ Data migration and testing in Snowflake
+
+Apart from these I have basic to moderate knowledge in
+
+ Python
+
+ SSIS, SSAS, SSRS
+
+ Some of Microsoft Azure basic like cosmos DB.
+
+ 
+
+My other interests are Web Development and Automation via Python.
+
+ 
+
+ 
+
+ 
+
+Overview
+
+ 
+
+Employee Id: 882769
+
+ 
+
+Designation : Associate
+
+ 
+
+Primary skills & exp. -ANSI SQL, Teradata, Snowflake, ETL tester
+
+ 
+
+Secondary skills & exp. - Python, Azure Data Factory , Unix Shell Scripting
+
+ 
+
+Overall exp. -2.4 years
+
+ 
+
+Role (Developer/Test Analyst/Admin/DevOps, etc.) – About 2 years as ETL Tester (Data migration project from Teradata to snowflake
+
+and Developer (for 6 months) in snowflake DB
+
+ 
+
+ 
+
+ 
+
+ANSI SQL,Teradata,Snowflake,Python, Azure Data Factory,Generative AI,Machine Learning,Microsoft SSIS,Oracle,SQL Scripting,SSAS,Unix Shell Scripting
+
+ 
+
+ANSI SQL,Azure,Azure Data Factory,Azure Public Cloud Admin,Generative AI,Machine Learning,Microsoft Azure,Microsoft SSIS,Oracle,Python,Snowflake,SQL Scripting,SSAS,Teradata,Unix Shell Scripting
+
+ 
+
+ 
+
+Databricks Certified Associate Data Engineer
+
+ 
+
+ETL Testing, Snowflake, Teradata
+
+ 
+
+https://onecognizant.cognizant.com/Home?GlobalAppID=1738&URL=https://onecognizantazrapps.cognizant.com/1738/MLSApp/viewpathway?page=All%20Learning%20Paths|90670165|PathwayImage3.jpg
+
+ 
+
+ 
+
+ 
+
+ 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+GOAL
+
+DATABRICKS CERTIFIED ASSOCIATE DATA ENGINEER - Learning Path
+
+CCNA
+
+Hackerrank and leetcode SQL
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 
+
+DATABRICKS
+
+https://onecognizant.cognizant.com/SAMLSSO/AuthServices/SignIn?ReturnUrl=%2FHome%3FGlobalAppID%3D1738%26URL%3Dhttps%3A%2F%2Fonecognizantazrapps.cognizant.com%2F1738%2FMLSApp%2FPathway%2Fviewpathway%3Fpage%3DAll%20Learning%20Paths|90670165|PathwayImage1.jpg
+
+ 
+
+jitl.jp/packet-tracer
+
+ 
+
+ 
+
+ 
+
+Hi Everyone
+
+I am currently looking for project.
+
+I have 2+ years of experience in ETL, Teradata, Snowflake (Data Migration).
+
+Always looking for broadening my horizons and ready to upskill myself as per the project requirements.
+
+Please let me know if there any relevant requirements.
+
+Name : Jaivardhan Sharma
+
+Emp Id: 882769
+
+Primary Skills: SQL Scripting ,ETL , Snowflake SQL, Teradata
+
+Secondary Skills: Power BI, Python, Azure Data Factory ,Microsoft Azure, Unix Shell Scripting
+
+ 
+
+Overall experience: 3 years 5 months
+
+Designation : Associate
+
+Role - Tester/Developer
+
+ 
+
+Email : jaivardhan.sharma@cognizant.com
+
+Contact Number : 8192037163
+
+Preferred Location : Noida (willing to relocate)
+
+Base Location : Noida
+
+Available: Immediate
+
+Thank you!
+
+ 
+
+ 
+
+ 
+
+Journal
+
+ 
+
+======================================================================================================================================
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+======================================================================================================================================
+
+=====================================SNF DATA MIGRATION PROJECT LEARNING
+
+ 
+
+-------------------------COALESCE() Function
+
+ 
+
+---Return the first non-null value in a list:
+
+SELECT COALESCE(NULL, NULL, NULL, 'W3Schools.com', NULL, 'Example.com');
+
+ 
+
+----Union vs Union ALL
+
+ 
+
+In SQL, it is possible to combine two sets of data with either UNION or UNION ALL constructs. The difference between them is that UNION ALL simply concatenates inputs, while UNION does the same, but also performs duplicate elimination.
+
+ 
+
+ 
+
+----performance SNF
+
+ 
+
+Data Access and Generation Operators
+
+ 
+
+TableScan
+
+ 
+
+Represents access to a single table. Attributes:
+
+ 
+
+Full table name — the name of the accessed table, including database and schema.
+
+ 
+
+Columns — list of scanned columns
+
+ 
+
+Table alias — used table alias, if present
+
+ 
+
+Extracted Variant paths — list of paths extracted from VARIANT columns
+
+ 
+
+-------------
+
+Count(CASE WHEN CDW_FADS_DB_QAT.FADS_PUBLIC_V.D_SUBSCRIPTION.SUB_STAT_CD = 'A' THEN 1 END) AS "Number_of_Active_Lines",
+
+ 
+
+CASE WHEN CDW_FADS_DB_QAT.FADS_PUBLIC_V.D_SUBSCRIPTION.SUB_STAT_CD = 'A' THEN 1 END
+
+ 
+
+SUM(CASE WHEN column1 = 'value1' THEN 1 ELSE 0 END)
+
+If column1 contains the value value1 then the CASE expression will return 1, and SUM() will add 1 for that row. If it does not, the CASE expression will return 0, and it will add 0 for that row. This is a way to count how many rows have value1 in column1, but there are other ways to do this too, e.g. on 2012+:
+
+SELECT COUNT(IIF(column1 = 'value1', 'truish', NULL))
+
+ 
+
+----------------------------------------------------------Macros
+
+ 
+
+ 
+
+How Do You Write a SELECT Statement in SQL?
+
+ 
+
+ 
+
+What Is a Foreign Key in SQL?
+
+ 
+
+ 
+
+Enumerate and Explain All the Basic Elements of an SQL Query
+
+ 
+
+ 
+
+----------------------------------------------------------------IF ELSE In Snowflake
+
+ 
+
+Snowflake Stored Procedures supports following branching constructs in the stored procedure definition.
+
+IF ELSE
+
+CASE
+
+IF Statement
+
+IF statement in Snowflake provides a way to execute a set of statements if a condition is met.
+
+ 
+
+----------------------------------------------------------------Procedure if else
+
+create or replace procedure BDM_EIP_DB_PPD.EIP_T.sp_demo_if(p Number, q Number, r number)
+
+returns varchar
+
+language sql
+
+as
+
+$$
+
+ 
+
+Declare
+
+    var_string varchar default 'Maximum Number:';
+
+   
+
+Begin
+
+    if ( p>=q and p>=r) then return var_string || p;
+
+    elseif (q>=p and q>=r) then return var_string || q;
+
+    else return var_string || r;
+
+    end if;
+
+End;
+
+ 
+
+$$
+
+;
+
+ 
+
+call BDM_EIP_DB_PPD.EIP_T.sp_demo_if(11,12,164);
+
+--------------------------------------------------
+
+ 
+
+SELECT CAST(date_part(YEAR,CURRENT_DATE) AS CHAR(10))  ---2023
+
+ 
+
+SELECT CAST(LAST_DAY(ADD_MONTHS(CURRENT_DATE,-1)) AS DATE ) ---2023-03-31
+
+ 
+
+---------------------------------------------------
+
+while loop in snowflake
+
+ 
+
+WHILE ( <condition> ) { DO | LOOP }
+
+  <statement>;
+
+END { WHILE | LOOP } [ <label> ] ;
+
+In a WHILE Loop:
+
+ 
+
+The <condition> is an expression that evaluates to a BOOLEAN.
+
+The keyword DO should be paired with END WHILE and the keyword LOOP should be paired with END LOOP.
+
+If there are multiple loops defined in the procedure, use the <label> to identify loops individually. This also helps to jump loops using BREAK and CONTINUE statements.
+
+--------------------------------------------------REGULAR EXPRESSION REGEXP_LIKE
+
+REGEXP_INSTR extends the functionality of the INSTR function by letting you search a string for a regular expression pattern.
+
+ 
+
+REGEXP_LIKE( <subject> , <pattern> [ , <parameters> ] )
+
+ 
+
+REGEXP_LIKE is similar to the LIKE function, but with POSIX extended regular expressions instead of SQL LIKE pattern syntax. It supports more complex matching conditions than LIKE.
+
+ 
+
+parameters
+
+String of one or more characters that specifies the parameters used for searching for matches. Supported values:
+
+ 
+
+c , i , m , e , s
+
+ 
+
+Default: c
+
+Parameter
+
+Effect
+
+ 
+
+c
+
+Enables case-sensitive matching.
+
+ 
+
+i
+
+Enables case-insensitive matching.
+
+ 
+
+m
+
+Enables multi-line mode (i.e. meta-characters ^ and $ mark the beginning and end of any line of the subject). By default, multi-line mode is disabled (i.e. ^ and $ mark the beginning and end of the entire subject).
+
+ 
+
+e
+
+Extracts sub-matches; applies only to REGEXP_INSTR, REGEXP_SUBSTR, REGEXP_SUBSTR_ALL, and the aliases for these functions.
+
+ 
+
+s
+
+Enables the POSIX wildcard character . to match \n. By default, wildcard character matching is disabled.
+
+ 
+
+ 
+
+---------------------------------------CURSOR in SQL
+
+Oracle creates a memory area, known as the context area, for processing an SQL statement, which contains all the information needed for processing the statement; for example, the number of rows processed, etc.
+
+ 
+
+A cursor is a pointer to this context area. PL/SQL controls the context area through a cursor. A cursor holds the rows (one or more) returned by a SQL statement. The set of rows the cursor holds is referred to as the active set.
+
+ 
+
+You can name a cursor so that it could be referred to in a program to fetch and process the rows returned by the SQL statement, one at a time. There are two types of cursors −
+
+ 
+
+Implicit cursors
+
+Explicit cursors
+
+ 
+
+Implicit Cursors
+
+Implicit cursors are automatically created by Oracle whenever an SQL statement is executed, when there is no explicit cursor for the statement. Programmers cannot control the implicit cursors and the information in it.
+
+ 
+
+Whenever a DML statement (INSERT, UPDATE and DELETE) is issued, an implicit cursor is associated with this statement. For INSERT operations, the cursor holds the data that needs to be inserted. For UPDATE and DELETE operations, the cursor identifies the rows that would be affected.
+
+ 
+
+In PL/SQL, you can refer to the most recent implicit cursor as the SQL cursor, which always has attributes such as %FOUND, %ISOPEN, %NOTFOUND, and %ROWCOUNT. The SQL cursor has additional attributes, %BULK_ROWCOUNT and %BULK_EXCEPTIONS, designed for use with the FORALL statement. The following table provides the description of the most used attributes −
+
+ 
+
+S.No      Attribute & Description
+
+1           
+
+%FOUND
+
+ 
+
+Returns TRUE if an INSERT, UPDATE, or DELETE statement affected one or more rows or a SELECT INTO statement returned one or more rows. Otherwise, it returns FALSE.
+
+ 
+
+2           
+
+%NOTFOUND
+
+ 
+
+The logical opposite of %FOUND. It returns TRUE if an INSERT, UPDATE, or DELETE statement affected no rows, or a SELECT INTO statement returned no rows. Otherwise, it returns FALSE.
+
+ 
+
+3           
+
+%ISOPEN
+
+ 
+
+Always returns FALSE for implicit cursors, because Oracle closes the SQL cursor automatically after executing its associated SQL statement.
+
+ 
+
+4           
+
+%ROWCOUNT
+
+ 
+
+Returns the number of rows affected by an INSERT, UPDATE, or DELETE statement, or returned by a SELECT INTO statement.
+
+ 
+
+Any SQL cursor attribute will be accessed as sql%attribute_name as shown below in the example.
+
+ 
+
+Example
+
+We will be using the CUSTOMERS table we had created and used in the previous chapters.
+
+ 
+
+Select * from customers; 
+
+ 
+
++----+----------+-----+-----------+----------+
+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
+
++----+----------+-----+-----------+----------+
+
+|  1 | Ramesh   |  32 | Ahmedabad |  2000.00 |
+
+|  2 | Khilan   |  25 | Delhi     |  1500.00 |
+
+|  3 | kaushik  |  23 | Kota      |  2000.00 |
+
+|  4 | Chaitali |  25 | Mumbai    |  6500.00 |
+
+|  5 | Hardik   |  27 | Bhopal    |  8500.00 |
+
+|  6 | Komal    |  22 | MP        |  4500.00 |
+
++----+----------+-----+-----------+----------+
+
+The following program will update the table and increase the salary of each customer by 500 and use the SQL%ROWCOUNT attribute to determine the number of rows affected −
+
+ 
+
+DECLARE 
+
+   total_rows number(2);
+
+BEGIN
+
+   UPDATE customers
+
+   SET salary = salary + 500;
+
+   IF sql%notfound THEN
+
+      dbms_output.put_line('no customers selected');
+
+   ELSIF sql%found THEN
+
+      total_rows := sql%rowcount;
+
+      dbms_output.put_line( total_rows || ' customers selected ');
+
+   END IF; 
+
+END;
+
+/     
+
+When the above code is executed at the SQL prompt, it produces the following result −
+
+ 
+
+6 customers selected 
+
+ 
+
+PL/SQL procedure successfully completed.
+
+If you check the records in customers table, you will find that the rows have been updated −
+
+ 
+
+Select * from customers; 
+
+ 
+
++----+----------+-----+-----------+----------+
+
+| ID | NAME     | AGE | ADDRESS   | SALARY   |
+
++----+----------+-----+-----------+----------+
+
+|  1 | Ramesh   |  32 | Ahmedabad |  2500.00 |
+
+|  2 | Khilan   |  25 | Delhi     |  2000.00 |
+
+|  3 | kaushik  |  23 | Kota      |  2500.00 |
+
+|  4 | Chaitali |  25 | Mumbai    |  7000.00 |
+
+|  5 | Hardik   |  27 | Bhopal    |  9000.00 |
+
+|  6 | Komal    |  22 | MP        |  5000.00 |
+
++----+----------+-----+-----------+----------+
+
+Explicit Cursors
+
+Explicit cursors are programmer-defined cursors for gaining more control over the context area. An explicit cursor should be defined in the declaration section of the PL/SQL Block. It is created on a SELECT Statement which returns more than one row.
+
+ 
+
+The syntax for creating an explicit cursor is −
+
+ 
+
+CURSOR cursor_name IS select_statement;
+
+Working with an explicit cursor includes the following steps −
+
+ 
+
+Declaring the cursor for initializing the memory
+
+Opening the cursor for allocating the memory
+
+Fetching the cursor for retrieving the data
+
+Closing the cursor to release the allocated memory
+
+Declaring the Cursor
+
+Declaring the cursor defines the cursor with a name and the associated SELECT statement. For example −
+
+ 
+
+CURSOR c_customers IS
+
+   SELECT id, name, address FROM customers;
+
+Opening the Cursor
+
+Opening the cursor allocates the memory for the cursor and makes it ready for fetching the rows returned by the SQL statement into it. For example, we will open the above defined cursor as follows −
+
+ 
+
+OPEN c_customers;
+
+Fetching the Cursor
+
+Fetching the cursor involves accessing one row at a time. For example, we will fetch rows from the above-opened cursor as follows −
+
+ 
+
+FETCH c_customers INTO c_id, c_name, c_addr;
+
+Closing the Cursor
+
+Closing the cursor means releasing the allocated memory. For example, we will close the above-opened cursor as follows −
+
+ 
+
+CLOSE c_customers;
+
+Example
+
+Following is a complete example to illustrate the concepts of explicit cursors &minua;
+
+ 
+
+DECLARE
+
+   c_id customers.id%type;
+
+   c_name customers.name%type;
+
+   c_addr customers.address%type;
+
+   CURSOR c_customers is
+
+      SELECT id, name, address FROM customers;
+
+BEGIN
+
+   OPEN c_customers;
+
+   LOOP
+
+   FETCH c_customers into c_id, c_name, c_addr;
+
+      EXIT WHEN c_customers%notfound;
+
+      dbms_output.put_line(c_id || ' ' || c_name || ' ' || c_addr);
+
+   END LOOP;
+
+   CLOSE c_customers;
+
+END;
+
+/
+
+When the above code is executed at the SQL prompt, it produces the following result −
+
+ 
+
+1 Ramesh Ahmedabad 
+
+2 Khilan Delhi 
+
+3 kaushik Kota    
+
+4 Chaitali Mumbai 
+
+5 Hardik Bhopal  
+
+6 Komal MP 
+
+  
+
+PL/SQL procedure successfully completed.
+
+ 
+
+important links cursor
+
+https://docs.snowflake.com/en/developer-guide/snowflake-scripting/cursors
+
+ 
+
+--------------------------------------------------Returning a Table for a Cursor
+
+If you need to return a table of data from a cursor, you can pass the cursor to RESULTSET_FROM_CURSOR(cursor), which in turn you can pass to TABLE(...).
+
+ 
+
+The following block returns a table of data from a cursor:
+
+ 
+
+DECLARE
+
+  c1 CURSOR FOR SELECT * FROM invoices;
+
+BEGIN
+
+  OPEN c1;
+
+  RETURN TABLE(RESULTSET_FROM_CURSOR(c1));
+
+END;
+
+ 
+
+------------------------------------------------example (Returning a Table for a Cursor)
+
+execute immediate
+
+$$
+
+begin
+
+    let rset1 RESULTSET;
+
+    rset1 := (SELECT * FROM BDM_CSR_DB_PPD.CSR_T.Daily_Impact_Analysis_Rerun WHERE SOURCE = 'RPX');
+
+ 
+
+    let c1 CURSOR FOR rset1;
+
+ 
+
+    open c1;
+
+        RETURN TABLE(RESULTSET_FROM_CURSOR(c1));
+
+    close c1;
+
+end;
+
+$$
+
+--------------------------------------------------What are Prepared Statements?
+
+PREPARE
+
+Purpose
+
+Prepares a dynamic SQL statement for execution and assigns a name to it.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+----------------------------------------------------------------STORED PROCEDURE EXAMPLE
+
+ 
+
+show procedure Dl_eip.FS_COUNT_RECORD;
+
+ 
+
+create procedure DL_EIP.FS_COUNT_RECORD (in database_nm varchar(30), in object_nm varchar(30), in filter_column varchar(30) , in filter_value varchar(30), out rowcnt decimal(15,0))
+
+sql security invoker
+
+begin
+
+  /* Audit trail:
+
+     SK 11/19/2019: Created procedure to dynamically create SQL to count record in a table
+
+  */
+
+  declare sqlstr varchar(1000);
+
+  declare holdcol varchar(100) default '';
+
+  declare holdval varchar(100) default '';
+
+  declare whereclause varchar(300) default '';
+
+  declare c1 cursor for s1;
+
+  if trim(filter_column) is not null then
+
+    set whereclause = ' where '||trim(filter_column)||'='||trim(filter_value);
+
+  end if;
+
+  set sqlstr = 'select count(*) as rowcnt from '||trim(database_nm)||'.'||trim(object_nm)||whereclause;
+
+  prepare s1 from sqlstr;
+
+  open c1;
+
+  fetch c1 into rowcnt;
+
+  close c1; 
+
+end;
+
+ 
+
+------------------------------------------------------------MERGE
+
+MERGE statement in SQL is a very popular clause that can handle inserts, updates, and deletes all in a single transaction without having to write separate logic for each of these. You can specify conditions on which you expect the MERGE statement to insert, update, or delete, etc.
+
+ 
+
+https://www.sqlshack.com/understanding-the-sql-merge-statement/
+
+ 
+
+ 
+
+---------------------------------------------------------------UNIFORM
+
+UNIFORM
+
+generates random integer or floating-point numbers in the specified range.
+
+Generates a uniformly-distributed pseudo-random number in the inclusive range [min, max].
+
+ 
+
+----------------------------------------------------------------SP vs UDF
+
+Stored Procedure Purpose
+
+Generally to perform administrative operations by executing SQL statements. The body of a stored procedure is allowed, but not required, to explicitly return a value (such as an error indicator).
+
+ 
+
+User-Defined Function Purpose
+
+Calculate and return a value. A function always returns a value explicitly by specifying an expression. For example, the body of a JavaScript UDF must have a return statement that returns a value.
+
+ 
+
+---------------------------------------------------------------FETCH CURSOR
+
+What is fetch in cursor?
+
+The FETCH statement retrieves rows of data from the result set of a multi-row query. You can fetch rows one at a time, several at a time, or all at once. The data is stored in variables or fields that correspond to the columns selected by the query.
+
+ 
+
+---------------------------------------------------------------Opening a Cursor
+
+Although the statement that declares a cursor defines the query associated with that cursor, the query is not executed until you open the cursor by executing the OPEN command. open c1
+
+ 
+
+Returning a Table for a Cursor
+
+If you need to return a table of data from a cursor, you can pass the cursor to RESULTSET_FROM_CURSOR(cursor), which in turn you can pass to TABLE(...).
+
+ 
+
+---------------------------------------------------------------views
+
+Views are generally used to focus, simplify, and customize the perception each user has of the database. Views can be used as security mechanisms by letting users access data through the view, without granting the users permissions to directly access the underlying base tables of the view
+
+ 
+
+------------------------------------------------------------------view vs table
+
+Key differences between Table and View
+
+The following points explain the differences between tables and views:
+
+ 
+
+A table is a database object that holds information used in applications and reports. On the other hand, a view is also a database object utilized as a table and can also link to other tables.
+
+A table consists of rows and columns to store and organized data in a structured format, while the view is a result set of SQL statements.
+
+A table is structured with columns and rows, while a view is a virtual table extracted from a database.
+
+The table is an independent data object while views are usually depending on the table.
+
+The table is an actual or real table that exists in physical locations. On the other hand, views are the virtual or logical table that does not exist in any physical location.
+
+A table allows to performs add, update or delete operations on the stored data. On the other hand, we cannot perform add, update, or delete operations on any data from a view. If we want to make any changes in a view, we need to update the data in the source tables.
+
+We cannot replace the table object directly because it is stored as a physical entry. In contrast, we can easily use the replace option to recreate the view because it is a pseudo name to the SQL statement running behind on the database server.
+
+ 
+
+---------------------------------------------------------------EXECUTE IMMEDIATE
+
+ 
+
+EXECUTE IMMEDIATE
+
+$$
+
+Begin
+
+let run_time TIMESTAMP_TZ;
+
+run_time:= CURRENT_TIMESTAMP(0);
+
+return run_time;
+
+END;
+
+$$;
+
+---------------------------------------invalid EndDate
+
+EXECUTE IMMEDIATE
+
+$$
+
+BEGIN
+
+        let v_in_end_date date;
+
+        v_in_end_date :='2022-03-26';
+
+        let EndDate DATE;
+
+        let MaxDate DATE  := CURRENT_TIMESTAMP(0)::timestamp_ntz;
+
+        if(v_in_end_date-interval '1 day' > MaxDate)
+
+                             then
+
+                                           EndDate:=MaxDate;
+
+                             else 
+
+                                           EndDate:=v_in_end_date-interval '1 day';
+
+                             end if;
+
+        return EndDate;
+
+        return v_in_end_date;
+
+       
+
+END;
+
+$$;
+
+ 
+
+-------------------------------------select max(procsdate) into :parameter
+
+ 
+
+Execute immediate
+
+$$
+
+Begin
+
+    let MaxDate DATE  := CURRENT_TIMESTAMP(0)::timestamp_ntz;
+
+    SELECT MAX(PRCS_DATE)
+
+    INTO
+
+    :MaxDate FROM BDM_EIP_DB_PPD.EIP_T.A_TT1_TRADEINS;
+
+    return MaxDate;
+
+END;
+
+$$;
+
+---2022-12-21
+
+ 
+
+-----------------------------------------CURSOR open and close
+
+execute immediate
+
+$$
+
+begin
+
+        let seq_no INT := 0;
+
+                             let sql_statment VARCHAR := null;
+
+                             let v_cursor cursor for (SELECT
+
+                                    seq_no,
+
+                                    sql_statement
+
+                             FROM
+
+                                    BDM_EIP_DB_PPD.EIP_T.sql_queue
+
+                             WHERE  
+
+                                    process_id='2' AND 
+
+                                    process_name='BH_M_ACCOUNTS' AND 
+
+                                    processed_ind is null
+
+                                                          ORDER BY
+
+                                                          process_id,
+
+                                                          seq_no);
+
+               open v_cursor ;
+
+               FETCH v_cursor into seq_no,sql_statment;
+
+                                              close v_cursor ;
+
+               return seq_no;
+
+END;
+
+$$;
+
+-------------------------------running select CAST
+
+select CAST('2022-03-26' AS DATE)
+
+select CAST(TRUNC(ADD_MONTHS('2022-03-26',-13),'month')AS DATE)
+
+------------------------------------------------------------------
+
+ 
+
+----------------------------------------------------------REGEXP_INSTR
+
+Returns the position of the specified occurrence of the regular expression pattern in the string subject. If no match is found, returns 0.
+
+ 
+
+execute immediate
+
+$$
+
+begin
+
+    let DATA_DATE date;
+
+   
+
+    SELECT CURRENT_DATE -1 into DATA_DATE;
+
+   
+
+    select SNAPSHOT_DATE,SOURCE_TABLE
+
+    from BDM_CSR_DB_PPD.CSR_T.PSU_CUSTREL_CORPCUST_BASE
+
+    where
+
+    COLLATE(SOURCE_TABLE, 'en-ci') = 'CSR_PSU_HISTORY'
+
+    AND
+
+    to_date(SNAPSHOT_DATE)=to_date(:DATA_DATE);
+
+    return DATA_DATE;
+
+END;
+
+$$;
+
+----------------------------------
+
+desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_rnp_info_complete
+
+(timestamp,
+
+varchar,
+
+integer)
+
+ 
+
+ 
+
+----------------------------------------------------------------create table
+
+create TABLE BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE
+
+as (SELECT * from BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE_BKUP);
+
+ 
+
+-----------------------------------------------------------------drop table procedure
+
+--in_sql_string ->'drop table '||:in_full_table_name
+
+create or replace procedure BDM_EIP_DB_PPD.EIP_T.fs_p_execute_sql(in_sql_string VARCHAR)
+
+returns varchar
+
+language sql
+
+as
+
+$$
+
+ 
+
+ 
+
+              BEGIN
+
+ 
+
+                             CALL BDM_EIP_DB_PPD.EIP_T.fs_p_log('fs_p_execute_sql',to_timestamp_ntz(current_timestamp),'Success:'||:in_sql_string);
+
+                             EXECUTE IMMEDIATE :in_sql_string;
+
+                             EXCEPTION
+
+                             --execute immediate :in_sql_string;
+
+                             WHEN OTHER THEN
+
+                             BEGIN
+
+                                                                                      CALL BDM_EIP_DB_PPD.EIP_T.fs_p_log('fs_p_execute_sql',to_timestamp_ntz(current_timestamp),'Failed:'||:in_sql_string);
+
+                             END;
+
+              END;
+
+$$;
+
+ 
+
+ 
+
+-------------------------------dbc column
+
+ 
+
+select * from dbc.tables
+
+where databasename = 'dl_FPAMGMT'
+
+and TableKind = 'P'
+
+ 
+
+------------------------------------------------TEMPORARY table
+
+ 
+
+A TEMPORARY table is visible only within the current session, and is dropped automatically when the session is closed.
+
+ 
+
+What is a temp table?
+
+As its name indicates, temporary tables are used to store data temporarily and they can perform CRUD (Create, Read, Update, and Delete), join, and some other operations like the persistent database tables. Temporary tables are dropped when the session that creates the table has closed, or can also be explicitly dropped by users. At the same time, temporary tables can act like physical tables in many ways, which gives us more flexibility. Such as, we can create constraints, indexes, or statistics in these tables. SQL Server provides two types of temporary tables according to their scope:
+
+ 
+
+Local Temporary Table
+
+Global Temporary Table
+
+ 
+
+----------------------------------------------current date
+
+SELECT CURRENT_DATE(), CURRENT_TIME(), CURRENT_TIMESTAMP();
+
+ 
+
+--------------------------------------------------update column in Snowflake
+
+UPDATE <target_table>
+
+       SET <col_name> = <value> [ , <col_name> = <value> , ... ]
+
+        [ FROM <additional_tables> ]
+
+        [ WHERE <condition> ]
+
+ 
+
+UPDATE target
+
+  SET v = src.v
+
+  FROM src
+
+  WHERE target.k = src.k;
+
+-------------------------------------------------------------------------------SQL Performance Tips #1 SELF-JOIN
+
+Replacing self joins with unbounded or n-bounded partitioned windows.
+
+The concept of self-join might be daunting for those not used to SQL’s line of thought. But even some seasoned data professionals forget there are alternatives to self-joins, which effectively prevent its complex cardinality.
+
+ 
+
+link->https://towardsdatascience.com/sql-performance-tips-1-50eb318cd0e5
+
+ 
+
+example->
+
+A typical use case is to fill in missing event timestamps. For instance, the following table is missing the event’s termination date, which corresponds to the following event date.
+
+ 
+
+table user_log
+
+ 
+
+id           user_id event_value                     event_start_date                           event_end_date
+
+1            1                           12                                       2020-01-01 12:32:45              NULL
+
+2            2                           20                                       2020-01-05 07:56:02              NULL
+
+3            1                           100                                     2020-01-06 12:56:01              NULL
+
+4            2                           5                                         2020-01-05 14:01:32              NULL
+
+5            2                           60                                       2020-02-05 10:46:12              NULL
+
+6            1                           10                                       2020-01-17 01:56:01              NULL
+
+ 
+
+self-join
+
+ 
+
+select
+
+   ul.id
+
+   ,ul.user_id
+
+   ,ul.event_start_date
+
+   ,coalesce(min(ul_old.event_start_date), '99990101') event_end
+
+from
+
+   user_log ul
+
+left join
+
+   user_log ul_old
+
+on
+
+   ul.event_start_date < ul_old.event_start_date
+
+   and
+
+   ul.user_id = ul_old.user_id
+
+group by
+
+   ul.id
+
+   ,ul.user_id
+
+   ,ul.event_start_date
+
+ 
+
+result
+
+id           user_id event_start_date                           event_end_date
+
+1            1                           2020-01-01 12:32:45      2020-01-06 12:56:01
+
+3            1                           2020-01-06 12:56:01      2020-01-17 01:56:01
+
+6            1                           2020-01-17 01:56:01      9999-01-01 00:00:00
+
+2            2                           2020-01-05 07:56:02      2020-01-05 14:01:32
+
+4            2                           2020-01-05 14:01:32      2020-02-05 10:46:12
+
+5            2                           2020-02-05 10:46:12      9999-01-01 00:00:00
+
+ 
+
+--windowed LEAD term
+
+select
+
+   id
+
+   ,user_id
+
+   ,event_start_date
+
+   ,lead(event_start_date, 1, '99990101') over (partition by user_id   
+
+         order by event_start_date asc) event_end_date
+
+from
+
+   users_log
+
+ 
+
+--The result of replicating the self-join using a LEAD windowed term. The result is the same, although the row order has been modified.
+
+result
+
+id           user_id event_start_date                           event_end_date
+
+1            1                           2020-01-01 12:32:45      2020-01-06 12:56:01
+
+3            1                           2020-01-06 12:56:01      2020-01-17 01:56:01
+
+6            1                           2020-01-17 01:56:01      9999-01-01 00:00:00
+
+2            2                           2020-01-05 07:56:02      2020-01-05 14:01:32
+
+4            2                           2020-01-05 14:01:32      2020-02-05 10:46:12
+
+5            2                           2020-02-05 10:46:12      9999-01-01 00:00:00
+
+ 
+
+ 
+
+Using a windowed function resulted not only in a cleaner and more succinct code but in significant performance improvements as well. Notice the absence of a loop in the windowed version’s execution plan, a critical aspect of performance.
+
+ 
+
+??But what if you are interested in retrieving the date of the last known event, after the current record? Or the highest event value after the current date?
+
+ 
+
+Unbounded window functions allow a partition to consist of all records immediately preceding or following a given record, typically the current record and apply an aggregating function to all those records.
+
+ 
+
+select
+
+   id
+
+   ,user_id
+
+   ,event_start_date  
+
+   ,max(event_start_date) over (partition by user_id order by
+
+        event_start_date rows BETWEEN 1 following and UNBOUNDED
+
+        following) last_event_date
+
+from
+
+   #user_log;
+
+ 
+
+result
+
+id           user_id event_start_date                           event_end_date
+
+1            1                           2020-01-01 12:32:45      2020-01-06 12:56:01
+
+3            1                           2020-01-06 12:56:01      2020-01-17 01:56:01
+
+6            1                           2020-01-17 01:56:01      NULL
+
+2            2                           2020-01-05 07:56:02      2020-01-05 14:01:32
+
+4            2                           2020-01-05 14:01:32      2020-02-05 10:46:12
+
+5            2                           2020-02-05 10:46:12      NULL
+
+ 
+
+----------------------------------------Avoiding using operations and functions on joins
+
+Another performance hog is typically found in the use of functions and operators in the join statements, to the detriment of a pure equal join. Although apparently innocent, this can lead to the SQL engine not being able to make reasonable decisions on which indexes to use, being forced instead, to perform full-table scans; another possible consequence is an incorrect resultset estimation which again, forces incorrect index usage.
+
+ 
+
+To sum up
+
+The heavy workload of the self-join cardinality can sometimes be avoided by using windowed functions;
+
+Aggregating functions can be combined with the bounding terms effectively allowing creating a narrower, uni, or bi-directional partition window;
+
+The bounding terms apply the aggregating function to the entirety of the partition;
+
+Whenever possible, avoid using functions or operations to join clauses as they can cause indexes to not be properly selected;
+
+ 
+
+--------------------------------------------------------------------------
+
+-------interval datatype is not supported in snowflake
+
+ 
+
+--https://community.snowflake.com/s/question/0D53r0000BdRFKnCQO/what-is-the-relevant-data-type-in-the-snowflake-for-the-teradata-data-type-interval-day4-to-second6
+
+ 
+
+--(PASS_SUB.SRC_CRTN_DTTM+CAST(PASS_UDD.PASS_DURTN_CD AS INTERVAL DAY))
+
+--interval in TD
+
+ 
+
+workarounds in snowflake
+
+--DATEADD(Day, PASS_UDD.PASS_DURTN_CD, PASS_SUB.SRC_CRTN_DTTM)
+
+ 
+
+As workarounds:
+
+example;
+
+SELECT to_timestamp('2017-10-04 11:56:40.000') AS v1,
+
+DATEADD(Day, 12, to_timestamp('2017-10-04 11:56:40.000')) AS v;
+
+ 
+
+ 
+
+ 
+
+Ha ok in terms of table column data types, snowflake doesnot support intervals, so now i better understand your question:
+
+ 
+
+https://docs.snowflake.com/en/sql-reference/intro-summary-data-types.html
+
+ 
+
+If you using complex intervals then why note use unix like EPOCH (number of milliseconds since 1970) which is just an integer:
+
+ 
+
+interval data type = NUMBER
+
+date. data type = date or timestamp
+
+use DATE_ADD or any other Dates functions for math: https://docs.snowflake.com/en/sql-reference/functions-date-time.html
+
+ 
+
+example:
+
+start timestamp/date:   2022-07-06
+
+interval:   INTERVAL DAY(4) TO SECOND(6)
+
+                345,600,000 +        6000 = 345,606,000 ms            
+
+(4 days* 24 hours *60 minutes *60 seconds * 1000 ms  + 6 seconds * 1000 ms)
+
+               
+
+then final timestamp calculate by:
+
+SELECT dateadd('ms',345606000,'2022-07-06'::timestamp) new_ts
+
+NEW_TS                 |
+
+-----------------------+
+
+2022-07-10 01:00:06.000|
+
+ 
+
+----------------------------------------------------------
+
+----------------------------------------------------------
+
+---------------------------------------------------------------INDEX function in Teradata
+
+Purpose 
+
+Returns the position in string_expression_1 where string_expression_2 starts.
+
+Teradata has a variety of inbuilt functions to work with Strings. The INDEX function is one of the most commonly used functions in Teradata. It helps to identify the position of a character or string in the values.
+
+ 
+
+The INDEX function accepts two arguments. The first one is the string expression and the second one is the char or string for which you want to find the position. The output of the index function is an integer that gives the position of the string.
+
+ 
+
+INDEX(string expression, string inside to find inside)
+
+ 
+
+SELECT INDEX('https://www.google.com', 'google') as pos;
+
+result 13
+
+ 
+
+------------------------------------------------------------CHARINDEX in snowflake
+
+Searches for the first occurrence of the first argument in the second argument and, if successful, returns the position (1-based) of the first argument in the second argument
+
+ 
+
+CHARINDEX( <expr1>, <expr2> [ , <start_pos> ] )
+
+ 
+
+select CHARINDEX('google','https://www.google.com') as pos;
+
+result 13
+
+ 
+
+ 
+
+-----------------------------------------------------------Variables in Snowflake Stored Procedure
+
+ 
+
+ 
+
+A Variable is a named object which holds a value of a specific data type whose value can change during the stored procedure execution. Variables in Snowflake stored procedures are local to stored procedures are used to hold intermediate results.
+
+ 
+
+ 
+
+2. Declaring Variables in Snowflake Stored Procedures
+
+A Variable must be declared before using it in Stored Procedures. When a variable is declared, the type of the variable must be specified by either:
+
+ 
+
+Explicitly specifying the data type. The data type of variable can be
+
+SQL data type
+
+CURSOR
+
+RESULTSET
+
+EXCEPTION
+
+Specifying an initial value for the variable using DEFAULT command. Snowflake Scripting uses the DEFAULT value to determine the type of the variable.
+
+ 
+
+-- Variable declaration in DECLARE section of body
+
+<variable_name> <type>;
+
+ 
+
+<variable_name> DEFAULT <expression> ;
+
+ 
+
+<variable_name> <type> DEFAULT <expression> ;
+
+ 
+
+-- Examples
+
+net_sales NUMBER(38,2);
+
+ 
+
+net_sales DEFAULT 98.67;
+
+ 
+
+net_sales NUMBER(38,2) DEFAULT 98.67;
+
+ 
+
+-- Variable declaration in BEGIN...END section of body
+
+LET <variable_name> { DEFAULT | := } <expression> ;
+
+ 
+
+LET <variable_name> <type> { DEFAULT | := } <expression> ;
+
+ 
+
+-- Examples
+
+LET net_sales := 98.67;
+
+ 
+
+LET net_sales DEFAULT 98.67;
+
+ 
+
+LET net_sales NUMBER(38,2) := 98.67;
+
+ 
+
+LET net_sales NUMBER(38,2) DEFAULT 98.67;
+
+ 
+
+3. Assigning values to Declared Variables in Snowflake Stored Procedures
+
+ 
+
+DECLARE
+
+    gross_sales NUMBER(38, 2) DEFAULT 0.0;
+
+BEGIN
+
+    LET net_sales NUMBER(38, 2) := 98.67;
+
+    LET tax NUMBER(38, 2) DEFAULT 1.33;
+
+ 
+
+    gross_sales := net_sales + tax;
+
+ 
+
+    RETURN gross_sales;
+
+END;
+
+ 
+
+4. Using a Variable in a SQL Statement (Binding)
+
+The variables declared in the stored procedure can be used in the SQL statements using colon as prefix to the variable name. For example:
+
+ 
+
+DELETE FROM EMPLOYEES WHERE ID = :in_employeeid;
+
+If you are using the variable as the name of an object, use the IDENTIFIER keyword to indicate that the variable represents an object identifier. For example:
+
+ 
+
+DELETE FROM IDENTIFIER(:in_tablename) WHERE ID = : in_employeeid;
+
+If you are building a SQL statement as a string to execute, the variable does not need the colon prefix. For example:
+
+ 
+
+LET sql_stmt := 'DELETE FROM EMPLOYEES WHERE ID = ' || in_employeeid;
+
+Note that if you are using the variable with RETURN, you do not need the colon prefix. For example:
+
+ 
+
+RETURN my_variable;
+
+ 
+
+5. Assigning result of a SQL statement to Variables using INTO clause in Snowflake Stored Procedures
+
+ 
+
+CREATE OR REPLACE PROCEDURE get_employeedata()
+
+    RETURNS VARCHAR
+
+    LANGUAGE SQL
+
+AS
+
+$$
+
+    DECLARE
+
+      id_variable INTEGER;
+
+      name_variable VARCHAR;
+
+    BEGIN
+
+      SELECT id, firstname INTO :id_variable, :name_variable FROM employees WHERE id = 101;
+
+      RETURN id_variable || ' ' || name_variable;
+
+    END;
+
+$$
+
+;
+
+ 
+
+https://thinketl.com/variables-in-snowflake-stored-procedure/#:~:text=3.-,Assigning%20values%20to%20Declared%20Variables%20in%20Snowflake%20Stored%20Procedures,resulting%20value%20to%20the%20variable.
+
+ 
+
+ 
+
+---------------------------------MERGE in SNF
+
+MERGE
+
+Inserts, updates, and deletes values in a table based on values in a second table or a subquery. This can be useful if the second table is a change log that contains new rows (to be inserted), modified rows (to be updated), and/or marked rows (to be deleted) in the target table.
+
+ 
+
+The command supports semantics for handling the following cases:
+
+ 
+
+Values that match (for updates and deletes).
+
+ 
+
+Values that do not match (for inserts).
+
+ 
+
+See also:
+
+DELETE , UPDATE
+
+ 
+
+Syntax
+
+MERGE INTO <target_table> USING <source> ON <join_expr> { matchedClause | notMatchedClause } [ ... ]
+
+Where:
+
+ 
+
+matchedClause ::=
+
+  WHEN MATCHED [ AND <case_predicate> ] THEN { UPDATE SET <col_name> = <expr> [ , <col_name2> = <expr2> ... ] | DELETE } [ ... ]
+
+notMatchedClause ::=
+
+   WHEN NOT MATCHED [ AND <case_predicate> ] THEN INSERT [ ( <col_name> [ , ... ] ) ] VALUES ( <expr> [ , ... ] )
+
+Parameters
+
+target_table
+
+Specifies the table to merge.
+
+ 
+
+source
+
+Specifies the table or subquery to join with the target table.
+
+ 
+
+join_expr
+
+Specifies the expression on which to join the target table and source.
+
+ 
+
+matchedClause (for updates or deletes)
+
+WHEN MATCHED ... THEN UPDATE  <col_name> = <expr>  | DELETE
+
+Specifies the action to perform when the values match.
+
+ 
+
+AND case_predicate
+
+Optionally specifies an expression which, when true, causes the matching case to be executed.
+
+ 
+
+Default: No value (matching case is always executed)
+
+ 
+
+SET col_name = expr [ … ]
+
+Specifies the column within the target table to be updated or inserted and the corresponding expression for the new column value (can refer to both the target and source relations).
+
+ 
+
+In a single SET subclause, you can specify multiple columns to update/delete.
+
+ 
+
+notMatchedClause (for inserts)
+
+WHEN NOT MATCHED ... THEN INSERT
+
+Specifies the action to perform when the values do not match.
+
+ 
+
+AND case_predicate
+
+Optionally specifies an expression which, when true, causes the not-matching case to be executed.
+
+ 
+
+Default: No value (not-matching case is always executed)
+
+ 
+
+( col_name [ , ... ] )
+
+Optionally specifies one or more columns within the target table to be updated or inserted.
+
+ 
+
+Default: No value (all columns within the target table are updated or inserted)
+
+ 
+
+VALUES ( expr [ , ... ] )
+
+Specifies the corresponding expressions for the inserted column values (must refer to the source relations).
+
+ 
+
+Usage Notes
+
+A single MERGE statement can include multiple matching and not-matching clauses (i.e. WHEN MATCHED ... and WHEN NOT MATCHED ...).
+
+ 
+
+Any matching or not-matching clause that omits the AND subclause (default behavior) must be the last of its clause type in the statement (e.g. a WHEN MATCHED ... clause cannot be followed by a WHEN MATCHED AND ... clause). Doing so results in an unreachable case, which returns an error.
+
+ 
+
+Duplicate Join Behavior
+
+Nondeterministic Results for UPDATE and DELETE
+
+When a merge joins a row in the target table against multiple rows in the source, the following join conditions produce nondeterministic results (i.e. the system is unable to determine the source value to use to update or delete the target row):
+
+ 
+
+A target row is selected to be updated with multiple values (e.g. WHEN MATCHED ... THEN UPDATE).
+
+ 
+
+A target row is selected to be both updated and deleted (e.g. WHEN MATCHED ... THEN UPDATE , WHEN MATCHED ... THEN DELETE).
+
+ 
+
+In this situation, the outcome of the merge depends on the value specified for the ERROR_ON_NONDETERMINISTIC_MERGE session parameter:
+
+ 
+
+If TRUE (default value), the merge returns an error.
+
+ 
+
+If FALSE, one row from among the duplicates is selected to perform the update or delete; the row selected is not defined.
+
+ 
+
+Deterministic Results for UPDATE and DELETE
+
+Deterministic merges always complete without error. A merge is deterministic if it meets the following conditions for each target row:
+
+ 
+
+One or more source rows satisfy the WHEN MATCHED ... THEN DELETE clauses, and no other source rows satisfy any WHEN MATCHED clauses
+
+ 
+
+OR
+
+ 
+
+Exactly one source row satisfies a WHEN MATCHED ... THEN UPDATE clause, and no other source rows satisfy any WHEN MATCHED clauses.
+
+ 
+
+This makes MERGE semantically equivalent to the UPDATE and DELETE commands.
+
+ 
+
+Note
+
+ 
+
+To avoid errors when multiple rows in the data source (i.e. the source table or subquery) match the target table based on the ON condition, use GROUP BY in the source clause to ensure that each target row joins against one row (at most) in the source.
+
+ 
+
+In the following example, assume src includes multiple rows with the same k value. It’s ambiguous which values (v) will be used to update rows in the target row with the same value of k. By using MAX() and GROUP BY, the query clarifies exactly which value of v from src is used:
+
+ 
+
+MERGE INTO target USING (select k, max(v) as v from src group by k) AS b ON target.k = b.k
+
+  WHEN MATCHED THEN UPDATE SET target.v = b.v
+
+  WHEN NOT MATCHED THEN INSERT (k, v) VALUES (b.k, b.v);
+
+Deterministic Results for INSERT
+
+Deterministic merges always complete without error.
+
+ 
+
+If the MERGE contains a WHEN NOT MATCHED ... THEN INSERT clause, and if there are no matching rows in the target, and if the source contains duplicate values, then the target gets one copy of the row for each copy in the source. (An example is included below.)
+
+ 
+
+Examples
+
+Perform a simple merge:
+
+ 
+
+Create and load the tables:
+
+ 
+
+CREATE TABLE target_table (ID INTEGER, description VARCHAR);
+
+ 
+
+CREATE TABLE source_table (ID INTEGER, description VARCHAR);
+
+INSERT INTO target_table (ID, description) VALUES
+
+    (10, 'To be updated (this is the old value)')
+
+    ;
+
+ 
+
+INSERT INTO source_table (ID, description) VALUES
+
+    (10, 'To be updated (this is the new value)')
+
+    ;
+
+Execute the MERGE statement:
+
+ 
+
+MERGE INTO target_table USING source_table
+
+    ON target_table.id = source_table.id
+
+    WHEN MATCHED THEN
+
+        UPDATE SET target_table.description = source_table.description;
+
++------------------------+
+
+| number of rows updated |
+
+|------------------------|
+
+|                      1 |
+
++------------------------+
+
+Display the new value(s) in the target table (the source table is unchanged):
+
+ 
+
+SELECT * FROM target_table;
+
++----+---------------------------------------+
+
+| ID | DESCRIPTION                           |
+
+|----+---------------------------------------|
+
+| 10 | To be updated (this is the new value) |
+
++----+---------------------------------------+
+
+SELECT * FROM source_table;
+
++----+---------------------------------------+
+
+| ID | DESCRIPTION                           |
+
+|----+---------------------------------------|
+
+| 10 | To be updated (this is the new value) |
+
++----+---------------------------------------+
+
+Perform a basic merge with a mix of operations (delete, update, insert):
+
+ 
+
+MERGE INTO t1 USING t2 ON t1.t1Key = t2.t2Key
+
+    WHEN MATCHED AND t2.marked = 1 THEN DELETE
+
+    WHEN MATCHED AND t2.isNewStatus = 1 THEN UPDATE SET val = t2.newVal, status = t2.newStatus
+
+    WHEN MATCHED THEN UPDATE SET val = t2.newVal
+
+    WHEN NOT MATCHED THEN INSERT (val, status) VALUES (t2.newVal, t2.newStatus);
+
+Perform a merge in which the source has duplicate values and the target has no matching values. Note that all copies of the source record are inserted into the target:
+
+ 
+
+Truncate both tables and load new rows into the source table. Note that the rows include duplicates.
+
+ 
+
+TRUNCATE TABLE source_table;
+
+ 
+
+TRUNCATE TABLE target_table;
+
+ 
+
+INSERT INTO source_table (ID, description) VALUES
+
+    (50, 'This is a duplicate in the source and has no match in target'),
+
+    (50, 'This is a duplicate in the source and has no match in target')
+
+    ;
+
+Execute the MERGE statement:
+
+ 
+
+MERGE INTO target_table USING source_table
+
+    ON target_table.id = source_table.id
+
+    WHEN MATCHED THEN
+
+        UPDATE SET target_table.description = source_table.description
+
+    WHEN NOT MATCHED THEN
+
+        INSERT (ID, description) VALUES (source_table.id, source_table.description);
+
++-------------------------+------------------------+
+
+| number of rows inserted | number of rows updated |
+
+|-------------------------+------------------------|
+
+|                       2 |                      0 |
+
++-------------------------+------------------------+
+
+Display the new value in the target table:
+
+ 
+
+SELECT ID FROM target_table;
+
++----+
+
+| ID |
+
+|----|
+
+| 50 |
+
+| 50 |
+
++----+
+
+Merge records using joins that produce nondeterministic and deterministic results:
+
+ 
+
+-- Setup for example.
+
+CREATE TABLE target_orig (k NUMBER, v NUMBER);
+
+INSERT INTO target_orig VALUES (0, 10);
+
+ 
+
+CREATE TABLE src (k NUMBER, v NUMBER);
+
+INSERT INTO src VALUES (0, 11), (0, 12), (0, 13);
+
+ 
+
+-- Multiple updates conflict with each other.
+
+-- If ERROR_ON_NONDETERMINISTIC_MERGE=true, returns an error;
+
+-- otherwise updates target.v with a value (e.g. 11, 12, or 13) from one of the duplicate rows (row not defined).
+
+ 
+
+CREATE OR REPLACE TABLE target CLONE target_orig;
+
+ 
+
+MERGE INTO target
+
+  USING src ON target.k = src.k
+
+  WHEN MATCHED THEN UPDATE SET target.v = src.v;
+
+ 
+
+-- Updates and deletes conflict with each other.
+
+-- If ERROR_ON_NONDETERMINISTIC_MERGE=true, returns an error;
+
+-- otherwise either deletes the row or updates target.v with a value (e.g. 12 or 13) from one of the duplicate rows (row not defined).
+
+ 
+
+CREATE OR REPLACE TABLE target CLONE target_orig;
+
+ 
+
+MERGE INTO target
+
+  USING src ON target.k = src.k
+
+  WHEN MATCHED AND src.v = 11 THEN DELETE
+
+  WHEN MATCHED THEN UPDATE SET target.v = src.v;
+
+ 
+
+-- Multiple deletes do not conflict with each other;
+
+-- joined values that do not match any clause do not prevent the delete (src.v = 13).
+
+-- Merge succeeds and the target row is deleted.
+
+ 
+
+CREATE OR REPLACE TABLE target CLONE target_orig;
+
+ 
+
+MERGE INTO target
+
+  USING src ON target.k = src.k
+
+  WHEN MATCHED AND src.v <= 12 THEN DELETE;
+
+ 
+
+-- Joined values that do not match any clause do not prevent an update (src.v = 12, 13).
+
+-- Merge succeeds and the target row is set to target.v = 11.
+
+ 
+
+CREATE OR REPLACE TABLE target CLONE target_orig;
+
+ 
+
+MERGE INTO target
+
+  USING src ON target.k = src.k
+
+  WHEN MATCHED AND src.v = 11 THEN UPDATE SET target.v = src.v;
+
+ 
+
+-- Use GROUP BY in the source clause to ensure that each target row joins against one row
+
+-- in the source:
+
+ 
+
+CREATE OR REPLACE TABLE target CLONE target_orig;
+
+ 
+
+MERGE INTO target USING (select k, max(v) as v from src group by k) AS b ON target.k = b.k
+
+  WHEN MATCHED THEN UPDATE SET target.v = b.v
+
+  WHEN NOT MATCHED THEN INSERT (k, v) VALUES (b.k, b.v);
+
+In the following example, the members table stores the names, addresses, and current fees (members.fee) paid to a local gym. The signup table stores each member’s signup date (signup.date). The MERGE statement applies a standard $40 fee to members who joined the gym more than 30 days ago, after the free trial expired:
+
+ 
+
+MERGE INTO members m
+
+  USING (
+
+  SELECT id, date
+
+  FROM signup
+
+  WHERE DATEDIFF(day, CURRENT_DATE(), signup.date::DATE) < -30) s ON m.id = s.id
+
+  WHEN MATCHED THEN UPDATE SET m.fee = 40;
+
+ 
+
+ 
+
+---ERROR
+
+Duplicate row detected during DML action Row Values: [19463, "970348138", "3", 18463, 18460, 1617653551671112, "202104051109102279", 1049100657, 147679101, "<1YR", "LOAN", 13, "2021-04-01", "N", "Y", 1031789420, "610214667519", 3999, 3999]
+
+ 
+
+---I was able to select distinct * from my staging table to eliminate duplicates. This solved the problem with the Merge.
+
+ 
+
+ 
+
+---------------------------------------------------------------------------------------------------------------TRUNC (date)
+
+ 
+
+ 
+
+The TRUNC (date) function returns date with the time portion of the day truncated to the unit specified by the format model fmt. This function is not sensitive to the NLS_CALENDAR session parameter. It operates according to the rules of the Gregorian calendar. The value returned is always of data type DATE, even if you specify a different datetime data type for date. If you omit fmt, then the default format model 'DD' is used and the value returned is date truncated to the day with a time of midnight.
+
+ 
+
+ 
+
+WITH dates AS (  
+
+  SELECT date'2015-01-01' d FROM dual union  
+
+  SELECT date'2015-01-10' d FROM dual union  
+
+  SELECT date'2015-02-01' d FROM dual union  
+
+  SELECT timestamp_NTZ'2015-03-03 23:45:000' d FROM dual union  
+
+  SELECT timestamp_NTZ'2015-04-11 12:34:560' d FROM dual   
+
+)  
+
+SELECT d "Original Date",  
+
+       trunc(d) "Nearest Day, Time Removed",  
+
+       trunc(d, 'ww') "Nearest Week",
+
+       trunc(d, 'iw') "Start of Week",  
+
+       trunc(d, 'mm') "Start of Month",  
+
+       trunc(d, 'year') "Start of Year"  
+
+FROM dates;
+
+ 
+
+ 
+
+ 
+
+DATE_TRUNC
+
+Truncates a DATE, TIME, or TIMESTAMP to the specified precision.
+
+ 
+
+Note that truncation is not the same as extraction. For example:
+
+ 
+
+Truncating a timestamp down to the quarter returns the timestamp corresponding to midnight of the first day of the quarter for the input timestamp.
+
+ 
+
+Extracting the quarter date part from a timestamp returns the quarter number of the year in the timestamp.
+
+ 
+
+Alternatives:
+
+ 
+
+ 
+
+-------------------------------------
+
+ 
+
+STRTOK
+
+Tokenizes a given string and returns the requested part.
+
+ 
+
+If the requested part does not exist, then NULL is returned. If any parameter is NULL, then NULL is returned.
+
+ 
+
+Optional:
+
+ 
+
+delimiter
+
+Text representing the set of delimiters to tokenize on. Each character in the delimiter string is a delimiter. If the delimiter is empty, and the string is empty, then the function returns NULL. If the delimiter is empty, and the string is non empty, then the whole string will be treated as one token. The default value of the delimiter is a single space character.
+
+ 
+
+partNr
+
+Requested token, which is 1-based (i.e. the first token is token number 1, not token number 0). If the token number is out of range, then NULL is returned. The default value is 1.
+
+ 
+
+SELECT STRTOK('a.b.c', '.', 1);
+
++-------------------------+
+
+| STRTOK('A.B.C', '.', 1) |
+
+|-------------------------|
+
+| a                       |
+
++-------------------------+
+
+ 
+
+--------------------------------------------
+
+ 
+
+WITH
+
+The WITH clause is an optional clause that precedes the body of the SELECT statement, and defines one or more CTEs (common table expressions) that can be used later in the statement. For example, CTEs can be referenced in the FROM clause.
+
+ 
+
+ 
+
+You can use a WITH clause when creating and calling an anonymous procedure similar to a stored procedure. That clause modifies a CALL command rather than a SELECT command. For more information, see CALL (with Anonymous Procedure).
+
+ 
+
+-----------------------------------------------------------------------
+
+ 
+
+ 
+
+======================================================================================================================================
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+======================================================================================================================================
+
+==SQL
+
+===================================SQL QUESTION- Hackerrank
+
+Unique value count
+
+/*select count(City) as total_number_of_record
+
+from station;*/
+
+select count(distinct city) from station;
+
+ 
+
+select LENGTH("jaivardhan");  -- in MySQL
+
+ 
+
+QUESTION-
+
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+
+The STATION table is described as follows:
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Sample Input
+
+For example, CITY has four entries: DEF, ABC, PQRS and WXY.
+
+Sample Output
+
+ABC 3
+
+PQRS 4
+
+Explanation
+
+When ordered alphabetically, the CITY names are listed as ABC, DEF, PQRS, and WXY, with lengths  and . The longest name is PQRS, but there are  options for shortest named city. Choose ABC, because it comes first alphabetically.
+
+ 
+
+Solution-
+
+(select city,LENGTH(city)
+
+from station
+
+order by
+
+LENGTH(city) asc
+
+,city asc
+
+limit 1)
+
+ 
+
+union all
+
+ 
+
+(select city,LENGTH(city)
+
+from station
+
+order by
+
+LENGTH(city) desc
+
+,city desc
+
+limit 1);
+
+ 
+
+ 
+
+Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+Solution-
+
+select distinct city
+
+from station
+
+where substring(city,1,1) = 'a'
+
+or substring(city,1,1)='e'
+
+or substring(city,1,1)='i'
+
+or substring(city,1,1)='o'
+
+or substring(city,1,1)='u'
+
+ 
+
+ 
+
+Query the list of CITY names lasting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+Solution-
+
+select distinct city
+
+from
+
+station
+
+where
+
+substring(city,length(city),length(city)) = 'a'
+
+or substring(city,length(city),length(city)) = 'e'
+
+or substring(city,length(city),length(city)) = 'i'
+
+or substring(city,length(city),length(city)) = 'o'
+
+or substring(city,length(city),length(city)) = 'u'
+
+ 
+
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+solution-
+
+select distinct city
+
+from station
+
+where substring(city,1,1) not in ('a')
+
+and substring(city,1,1) not in ('e')
+
+and substring(city,1,1) not in ('i')
+
+and substring(city,1,1) not in ('o')
+
+and substring(city,1,1) not in ('u')
+
+ 
+
+Query the list of CITY names from STATION that do not start with vowels and do not end with vowels
+
+solution
+
+select distinct city
+
+from station
+
+where
+
+substring(city,1,1) not in ('a')
+
+and substring(city,1,1) not in ('e')
+
+and substring(city,1,1) not in ('i')
+
+and substring(city,1,1) not in ('o')
+
+and substring(city,1,1) not in ('u')
+
+and
+
+substring(city,length(city),length(city)) not in ('a')
+
+and substring(city,length(city),length(city)) not in ('e')
+
+and substring(city,length(city),length(city)) not in ('i')
+
+and substring(city,length(city),length(city)) not in ('o')
+
+and substring(city,length(city),length(city)) not in ('u')
+
+ 
+
+ 
+
+Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+solution-
+
+Enter your query here.
+
+*/
+
+select Name
+
+from Students
+
+where marks>75
+
+order by
+
+substring(Name,Length(Name)-2, Length(Name)) asc
+
+,ID asc
+
+ 
+
+Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than . Round your answer to  decimal places.
+
+solution-
+
+select round(long_w,4)
+
+from station
+
+where
+
+truncate(lat_n,4) <= 137.2345
+
+order by lat_n desc
+
+limit 1;
+
+ 
+
+ 
+
+NOTE TO SELF
+
+ABOUT JOIN WHEN YOU DO NOT PROVIDE ANY CONDITION ON THE JOIN IT WILL CROSS JOIN IT AND WILL PROVIDE N*M RESULTS OF ROWS FOR TABLE A (N rows)JOIN TABLE B(M rows)
+
+ 
+
+--Joins
+
+--question
+
+ 
+
+Table: Employees
+
+ 
+
++---------------+---------+
+
+| Column Name   | Type    |
+
++---------------+---------+
+
+| id            | int     |
+
+| name          | varchar |
+
++---------------+---------+
+
+id is the primary key (column with unique values) for this table.
+
+Each row of this table contains the id and the name of an employee in a company.
+
+ 
+
+Table: EmployeeUNI
+
+ 
+
++---------------+---------+
+
+| Column Name   | Type    |
+
++---------------+---------+
+
+| id            | int     |
+
+| unique_id     | int     |
+
++---------------+---------+
+
+(id, unique_id) is the primary key (combination of columns with unique values) for this table.
+
+Each row of this table contains the id and the corresponding unique id of an employee in the company.
+
+ 
+
+Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
+
+ 
+
+Return the result table in any order.
+
+ 
+
+The result format is in the following example.
+
+ 
+
+ 
+
+Example 1:
+
+ 
+
+Input:
+
+Employees table:
+
++----+----------+
+
+| id | name     |
+
++----+----------+
+
+| 1  | Alice    |
+
+| 7  | Bob      |
+
+| 11 | Meir     |
+
+| 90 | Winston  |
+
+| 3  | Jonathan |
+
++----+----------+
+
+EmployeeUNI table:
+
++----+-----------+
+
+| id | unique_id |
+
++----+-----------+
+
+| 3  | 1         |
+
+| 11 | 2         |
+
+| 90 | 3         |
+
++----+-----------+
+
+Output:
+
++-----------+----------+
+
+| unique_id | name     |
+
++-----------+----------+
+
+| null      | Alice    |
+
+| null      | Bob      |
+
+| 2         | Meir     |
+
+| 3         | Winston  |
+
+| 1         | Jonathan |
+
++-----------+----------+
+
+Explanation:
+
+Alice and Bob do not have a unique ID, We will show null instead.
+
+The unique ID of Meir is 2.
+
+The unique ID of Winston is 3.
+
+The unique ID of Jonathan is 1.
+
+ 
+
+--solution
+
+# Write your MySQL query statement below
+
+select COALESCE(unique_id,0) , name --calesce when null to be replaced
+
+from
+
+Employees emp
+
+left outer join
+
+EmployeeUNI uni
+
+on emp.id = uni.id
+
+ 
+
+ 
+
+1581. Customer Who Visited but Did Not Make Any Transactions
+
+Easy
+
+Topics
+
+Companies
+
+SQL Schema
+
+Pandas Schema
+
+Table: Visits
+
+ 
+
++-------------+---------+
+
+| Column Name | Type    |
+
++-------------+---------+
+
+| visit_id    | int     |
+
+| customer_id | int     |
+
++-------------+---------+
+
+visit_id is the column with unique values for this table.
+
+This table contains information about the customers who visited the mall.
+
+ 
+
+Table: Transactions
+
+ 
+
++----------------+---------+
+
+| Column Name    | Type    |
+
++----------------+---------+
+
+| transaction_id | int     |
+
+| visit_id       | int     |
+
+| amount         | int     |
+
++----------------+---------+
+
+transaction_id is column with unique values for this table.
+
+This table contains information about the transactions made during the visit_id.
+
+ 
+
+Write a solution to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.
+
+ 
+
+Return the result table sorted in any order.
+
+ 
+
+The result format is in the following example.
+
+ 
+
+ 
+
+Example 1:
+
+ 
+
+Input:
+
+Visits
+
++----------+-------------+
+
+| visit_id | customer_id |
+
++----------+-------------+
+
+| 1        | 23          |
+
+| 2        | 9           |
+
+| 4        | 30          |
+
+| 5        | 54          |
+
+| 6        | 96          |
+
+| 7        | 54          |
+
+| 8        | 54          |
+
++----------+-------------+
+
+Transactions
+
++----------------+----------+--------+
+
+| transaction_id | visit_id | amount |
+
++----------------+----------+--------+
+
+| 2              | 5        | 310    |
+
+| 3              | 5        | 300    |
+
+| 9              | 5        | 200    |
+
+| 12             | 1        | 910    |
+
+| 13             | 2        | 970    |
+
++----------------+----------+--------+
+
+Output:
+
++-------------+----------------+
+
+| customer_id | count_no_trans |
+
++-------------+----------------+
+
+| 54          | 2              |
+
+| 30          | 1              |
+
+| 96          | 1              |
+
++-------------+----------------+
+
+Explanation:
+
+Customer with id = 23 visited the mall once and made one transaction during the visit with id = 12.
+
+Customer with id = 9 visited the mall once and made one transaction during the visit with id = 13.
+
+Customer with id = 30 visited the mall once and did not make any transactions.
+
+Customer with id = 54 visited the mall three times. During 2 visits they did not make any transactions, and during one visit they made 3 transactions.
+
+Customer with id = 96 visited the mall once and did not make any transactions.
+
+As we can see, users with IDs 30 and 96 visited the mall one time without making any transactions. Also, user 54 visited the mall twice and did not make any transactions.
+
+ 
+
+ 
+
+===================================solution
+
+--query using derived table
+
+select customer_id
+
+                ,count(customer_id) as count_no_trans
+
+from
+
+              Visits
+
+              where visit_id    not in
+
+              (
+
+              select visit_id from Transactions
+
+              )
+
+    group by customer_id
+
+ 
+
+ 
+
+ 
+
+ 
+
+============CASE Conditions
+
+SELECT OrderID, Quantity,
+
+CASE
+
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+
+    ELSE 'The quantity is under 30'
+
+END AS QuantityText
+
+FROM OrderDetails;
+
+ 
+
+ 
+
+Nested CASE statements in SQL
+
+One of the advanced use-cases for CASE statements in SQL is to nest CASE statements within another CASE statement. This technique is useful when you have sub-conditions that need to be evaluated.
+
+ 
+
+SELECT personID, lastName, firstName, [state],
+
+CASE
+
+              WHEN [state] = 'Minnesota'
+
+              THEN (CASE WHEN income > 100000 THEN 'over'
+
+                                           ELSE 'not over' END)
+
+              WHEN [state] = 'California'
+
+THEN (CASE WHEN income > 150000 THEN 'over'
+
+                                           ELSE 'not over' END)
+
+              WHEN [state] = 'Kentucky'
+
+THEN (CASE WHEN income > 75000 THEN 'over'
+
+                                           ELSE 'not over' END)
+
+END over_income
+
+FROM #Temp_table
+
+ 
+
+ 
+
+ 
+
+It is possible to use CASE to filter data in the WHERE clause of a SQL query. This can be helpful if you want to restrict records based on logical conditions.
+
+ 
+
+SELECT personID, lastName, firstName, [state]
+
+FROM #Temp_table
+
+where(
+
+CASE
+
+              WHEN [state] = 'Minnesota' AND Income >= 100000 THEN 'MN'
+
+              WHEN [state] = 'California' THEN 'CA'
+
+              WHEN [state] = 'Kentucky' THEN 'KY'
+
+END) = 'MN'
+
+ 
+
+ 
+
+Aggregating using CASE statements in SQL
+
+One of the popular ways to use the CASE statement in SQL is for counting records that would be cumbersome to transpose using a count() function. For example, say we want to output a single row result set that returns the number of records from each state where the income is greater than or equal to 100,000:
+
+ 
+
+select sum(CASE
+
+                             WHEN [state] = 'Minnesota' and income >= 100000 THEN 1
+
+                             ELSE 0
+
+                             END) MN_counts,
+
+              sum(CASE WHEN [state] = 'California' and income >= 100000 THEN 1
+
+                             ELSE 0
+
+                             END) CA_counts,
+
+              sum(CASE WHEN [state] = 'Kentucky' and income >= 100000 THEN 1
+
+                             ELSE 0
+
+                             END) KY_counts
+
+from #temp_table
+
+ 
+
+ 
+
+ 
+
+ 
+
+Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table
+
+Values in the tuple  form an Isosceles triangle, because .
+
+Values in the tuple  form an Equilateral triangle, because . Values in the tuple  form a Scalene triangle, because .
+
+Values in the tuple  cannot form a triangle because the combined value of sides  and  is not larger than that of side .
+
+ 
+
+--SOLUTION
+
+select
+
+case
+
+    when A+B <= C then "Not A Triangle"
+
+    when B+C <= A then "Not A Triangle"
+
+    when C+A <= B then "Not A Triangle"
+
+    else
+
+        case
+
+            when A=B and B=C and C=A then "Equilateral" 
+
+            when A=B or B=C or C=A then "Isosceles"
+
+            when A!=B and B!=C and C!=A then "Scalene" end     
+
+End
+
+from TRIANGLES
+
+;
+
+ 
+
+ 
+
+--QUESTION-
+
+Generate the following two result sets:
+
+ 
+
+Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
+
+Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order, and output them in the following format:
+
+ 
+
+There are a total of [occupation_count] [occupation]s.
+
+where [occupation_count] is the number of occurrences of an occupation in OCCUPATIONS and [occupation] is the lowercase occupation name. If more than one Occupation has the same [occupation_count], they should be ordered alphabetically.
+
+ 
+
+Note: There will be at least two entries in the table for each type of occupation.
+
+ 
+
+Input Format
+
+ 
+
+The OCCUPATIONS table is described as follows:  Occupation will only contain one of the following values: Doctor, Professor, Singer or Actor.
+
+ 
+
+Sample Input
+
+ 
+
+An OCCUPATIONS table that contains the following records:
+
+ 
+
+ 
+
+ 
+
+Sample Output
+
+ 
+
+Ashely(P)
+
+Christeen(P)
+
+Jane(A)
+
+Jenny(D)
+
+Julia(A)
+
+Ketty(P)
+
+Maria(A)
+
+Meera(S)
+
+Priya(S)
+
+Samantha(D)
+
+There are a total of 2 doctors.
+
+There are a total of 2 singers.
+
+There are a total of 3 actors.
+
+There are a total of 3 professors.
+
+Explanation
+
+ 
+
+The results of the first query are formatted to the problem description specifications.
+
+The results of the second query are ascendingly ordered first by number of names corresponding to each profession (), and then alphabetically by profession (, and ).
+
+ 
+
+ 
+
+ 
+
+============SOLUTION 2
+
+/*
+
+Enter your query here.
+
+*/
+
+select
+
+case
+
+    when occupation = "Doctor" then concat(name,"(D)")
+
+    when occupation = "Professor" then concat(name,"(P)")
+
+    when occupation = "Singer" then concat(name,"(S)")
+
+    when occupation = "Actor" then concat(name,"(A)")
+
+    else "none"
+
+end
+
+from OCCUPATIONS
+
+order by occupation
+
+ 
+
+union all
+
+ 
+
+select
+
+    concat("There are a total of ",sum(case when occupation = "Doctor" then 1 else 0 end)," doctors.")
+
+from OCCUPATIONS
+
+ 
+
+union all
+
+ 
+
+select
+
+     concat("There are a total of ",sum(case when occupation ="singer" then 1 else 0 end) ," singers.")
+
+from OCCUPATIONS
+
+ 
+
+union all
+
+ 
+
+select
+
+    concat("There are a total of ",sum(case when occupation = "Actor" then 1 else 0 end) ," actors.")
+
+from OCCUPATIONS
+
+ 
+
+union all
+
+ 
+
+select
+
+    concat("There are a total of ",sum(case when occupation ="professor" then 1 else 0 end) ," professors.")
+
+from OCCUPATIONS
+
+================================================
+
+--ongoing
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-- STORED PROCEDURE EXAMPLE OF DECLARING VALUE AND USING IT
+
+  CREATE PROCEDURE proc_vars()
+
+  SPECIFIC proc_vars
+
+  LANGUAGE SQL
+
+  BEGIN
+
+    
+
+    DECLARE v_rcount INTEGER;
+
+ 
+
+    DECLARE v_max DECIMAL (9,2);
+
+ 
+
+    DECLARE v_adate, v_another  DATE;                                  
+
+ 
+
+    DECLARE v_total INTEGER DEFAULT 0;           -- (1)
+
+ 
+
+    DECLARE v_rowsChanged BOOLEAN DEFAULT FALSE; -- (2)
+
+ 
+
+    SET v_total = v_total + 1;                   -- (3)
+
+             
+
+    SELECT MAX(salary)                           -- (4)
+
+      INTO v_max FROM employee;                                           
+
+ 
+
+    VALUES CURRENT_DATE INTO v_date;             -- (5)
+
+ 
+
+    SELECT CURRENT DATE, CURRENT DATE            -- (6)
+
+         INTO v_adate, v_another
+
+    FROM SYSIBM.SYSDUMMY1;
+
+ 
+
+    DELETE FROM T;
+
+    GET DIAGNOSTICS v_rcount = ROW_COUNT;        -- (7)
+
+ 
+
+    IF v_rcount > 0 THEN                         -- (8)
+
+      SET is_done = TRUE;
+
+    END IF;
+
+  END
+
+ 
+
+  
+
+========================================CTE
+
+What are Common Table Expressions (CTEs)?
+
+A Common Table Expression (CTE) is the result set of a query which exists temporarily and for use only within the context of a larger query. Much like a derived table, the result of a CTE is not stored and exists only for the duration of the query.
+
+ 
+
+=Example use cases include
+
+1.Needing to reference a derived table multiple times in a single query
+
+2.An alternative to creating a view in the database
+
+3.Performing the same calculation multiple times over across multiple query components
+
+ 
+
+-- define CTE:
+
+WITH Cost_by_Month AS
+
+(SELECT campaign_id AS campaign,
+
+       TO_CHAR(created_date, 'YYYY-MM') AS month,
+
+       SUM(cost) AS monthly_cost
+
+FROM marketing
+
+WHERE created_date BETWEEN NOW() - INTERVAL '3 MONTH' AND NOW()
+
+GROUP BY 1, 2
+
+ORDER BY 1, 2)
+
+ 
+
+-- use CTE in subsequent query:
+
+SELECT campaign, avg(monthly_cost) as "Avg Monthly Cost"
+
+FROM Cost_by_Month
+
+GROUP BY campaign
+
+ORDER BY campaign
+
+ 
+
+--example
+
+with derived_table AS
+
+(select
+
+        sum(case when occupation = "Doctor" then 1 else 0 end) as d,
+
+        sum(case when occupation ="singer" then 1 else 0 end) as s,
+
+        sum(case when occupation = "Actor" then 1 else 0 end) as a,
+
+        sum(case when occupation ="professor" then 1 else 0 end) p
+
+        from OCCUPATIONS)
+
+                            
+
+select d,s,a,p from derived_table;
+
+ 
+
+--Using a derived query:
+
+SELECT campaign, avg(monthly_cost) as "Avg Monthly Cost"
+
+FROM
+
+    -- this is where the derived query is used
+
+    (SELECT campaign_id AS campaign,
+
+       TO_CHAR(created_date, 'YYYY-MM') AS month,
+
+       SUM(cost) AS monthly_cost
+
+    FROM marketing
+
+    WHERE created_date BETWEEN NOW() - INTERVAL '3 MONTH' AND NOW()
+
+    GROUP BY 1, 2
+
+    ORDER BY 1, 2) as Cost_By_Month
+
+GROUP BY campaign
+
+ORDER BY campaign
+
+ 
+
+--ERROR 1248 (42000) at line 1: Every derived table must have its own alias
+
+ 
+
+--example
+
+select d,s,a,p
+
+FROM
+
+    (
+
+        select
+
+        sum(case when occupation = "Doctor" then 1 else 0 end) as d,
+
+        sum(case when occupation ="singer" then 1 else 0 end) as s,
+
+        sum(case when occupation = "Actor" then 1 else 0 end) as a,
+
+        sum(case when occupation ="professor" then 1 else 0 end) p,
+
+        from OCCUPATIONS
+
+    )
+
+    as derived_table;
+
+select d,s,a,p
+
+from derived_table;
+
+ 
+
+ 
+
+There are two types of CTEs: Recursive and Non-Recursive
+
+ 
+
+Non-Recursive: where the CTE doesn’t use any recursion, or repeated processing in of a sub-routine.
+
+ 
+
+;with ROWCTE(ROWNO) as  -- ROWNO is column name it is optional
+
+   ( 
+
+     SELECT
+
+  ROW_NUMBER() OVER(ORDER BY name ASC) AS ROWNO
+
+FROM sys.databases
+
+WHERE database_id <= 10
+
+    ) 
+
+ 
+
+SELECT * FROM ROWCTE
+
+ 
+
+ 
+
+Recursive CTE:
+
+Recursive CTEs are use repeated procedural loops aka recursion. The recursive query call themselves until the query satisfied the condition. In a recursive CTE we should provide a where condition to terminate the recursion.
+
+ 
+
+Declare @RowNo int =1;
+
+;with ROWCTE as 
+
+   ( 
+
+      SELECT @RowNo as ROWNO   
+
+                             UNION ALL 
+
+      SELECT  ROWNO+1 
+
+  FROM  ROWCTE 
+
+  WHERE RowNo < 10
+
+    ) 
+
+ 
+
+SELECT * FROM ROWCTE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+====================SOLUTION 2
+
+ 
+
+ 
+
+select
+
+case
+
+    when occupation = "Doctor" then concat(name,"(D)")
+
+    when occupation = "Professor" then concat(name,"(P)")
+
+    when occupation = "Singer" then concat(name,"(S)")
+
+    when occupation = "Actor" then concat(name,"(A)")
+
+    else "none"
+
+end
+
+from OCCUPATIONS
+
+order by name asc;
+
+ 
+
+ 
+
+ 
+
+with derived_table AS
+
+(
+
+select occupation,count(occupation) as cnt
+
+from OCCUPATIONS
+
+group by occupation
+
+order by
+
+count(occupation) asc,
+
+occupation asc
+
+)
+
+select
+
+concat("There are a total of " , cnt ," ", lower(occupation) ,"s.")
+
+from derived_table;
+
+ 
+
+===================================
+
+--done
+
+ 
+
+===================================Best solution 3
+
+select
+
+case
+
+    when occupation = "Doctor" then concat(name,"(D)")
+
+    when occupation = "Professor" then concat(name,"(P)")
+
+    when occupation = "Singer" then concat(name,"(S)")
+
+    when occupation = "Actor" then concat(name,"(A)")
+
+    else "none"
+
+end
+
+from OCCUPATIONS
+
+order by name asc;
+
+ 
+
+select concat("There are a total of " , count(occupation) ," ", lower(occupation) ,"s.")
+
+from OCCUPATIONS
+
+group by occupation
+
+order by
+
+count(occupation) asc,
+
+occupation asc
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+====================================Pivot
+
+-----QUESTION-
+
+ 
+
+ 
+
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+
+ 
+
+Note: Print NULL when there are no more names corresponding to an occupation.
+
+ 
+
+Input Format
+
+ 
+
+The OCCUPATIONS table is described as follows:
+
+ 
+
+Occupation will only contain one of the following values: Doctor, Professor, Singer or Actor.
+
+ 
+
+Sample Output
+
+ 
+
+Jenny    Ashley     Meera  Jane
+
+Samantha Christeen  Priya  Julia
+
+NULL     Ketty      NULL   Maria
+
+Explanation
+
+ 
+
+The first column is an alphabetically ordered list of Doctor names.
+
+The second column is an alphabetically ordered list of Professor names.
+
+The third column is an alphabetically ordered list of Singer names.
+
+The fourth column is an alphabetically ordered list of Actor names.
+
+The empty cell data for columns with less than the maximum number of names per occupation (in this case, the Professor and Actor columns) are filled with NULL values.
+
+ 
+
+ 
+
+ 
+
+ 
+
+---------WHAT IS PIVOT
+
+In a pivot query, you specify the columns that you want to pivot on, as well as the aggregate function(s) that you want to apply to the values in those columns. The result of the query is a new table with the pivoted columns as its headers.
+
+ 
+
+Assuming you have a sample table called sales_data with the following columns and data:
+
+ 
+
+Product Name   Sales Date          Sales Amount
+
+Product A                          2022-01-01        500
+
+Product B                          2022-01-01        750
+
+Product C                          2022-01-01        1000
+
+Product A                          2022-01-02        800
+
+Product B                          2022-01-02        900
+
+Product C                          2022-01-02        1200
+
+To pivot this data by Product Name, you can use the following query:
+
+ 
+
+Code:
+
+SELECT
+
+  `Sales Date`,
+
+  MAX(CASE WHEN `Product Name` = 'Product A' then `Sales Amount` END) AS `Product A`,
+
+  MAX(CASE WHEN `Product Name` = 'Product B' then `Sales Amount` END) AS `Product B`,
+
+  MAX(CASE WHEN `Product Name` = 'Product C' than `Sales Amount` END) AS `Product C`
+
+FROM
+
+  `sales_data`
+
+GROUP BY
+
+  `Sales Date`;
+
+ 
+
+Output
+
+Sales Date          Product A           Product B           Product C
+
+2022-01-01        500                                     750                                     1000
+
+2022-01-02        800                                     900                                     1200
+
+ 
+
+ 
+
+---Dynamic Pivot Columns
+
+Assuming you have a sample table called sales_data with the following columns and data:
+
+ 
+
+Product Name   Sales Date          Sales Amount
+
+Product A                          2022-01-01        500
+
+Product B                          2022-01-01        750
+
+Product C                          2022-01-01        1000
+
+Product A                          2022-01-02        800
+
+Product B                          2022-01-02        900
+
+Product C                          2022-01-02        1200
+
+Product D                         2022-01-02        1500
+
+To pivot this data by Product Name, you can use dynamic pivot columns with the following query:
+
+ 
+
+Code:
+
+SET @sql = NULL;
+
+SELECT
+
+  GROUP_CONCAT(DISTINCT
+
+    CONCAT('MAX(CASE WHEN `Product Name` = ''', `Product Name`, ''' THEN `Sales Amount` END) AS `', `Product Name`, '`')
+
+  ) INTO @sql
+
+FROM
+
+  `sales_data`;
+
+ 
+
+SET @sql = CONCAT('SELECT `Sales Date`, ', @sql, ' FROM `sales_data` GROUP BY `Sales Date`');
+
+ 
+
+PREPARE stmt FROM @sql;
+
+EXECUTE stmt;
+
+DEALLOCATE PREPARE stmt;
+
+ 
+
+---The GROUP_CONCAT() function in MySQL is used to concatenate data from multiple rows into one field. This is an aggregate (GROUP BY) function that returns a String value if the group contains at least one non-NULL value. Otherwise, it returns NULL.
+
+ 
+
+Output:
+
+The output will be:
+
+ 
+
+Sales Date          Product A           Product B           Product C           Product D
+
+2022-01-01        500                                     750                                     1000                    NULL
+
+2022-01-02        800                                     900                                     1200                    1500
+
+ 
+
+ 
+
+--explaination
+
+In this query, the first SELECT statement uses GROUP_CONCAT to dynamically generate the pivot columns based on the distinct Product Name values in the sales_data table.
+
+ 
+
+The generated SQL statement is then stored in a user-defined variable @sql. The PREPARE statement is used to prepare the SQL statement in @sql, and the EXECUTE statement is used to execute the prepared statement. Finally, the DEALLOCATE PREPARE statement is used to deallocate the prepared statement.
+
+ 
+
+This query will pivot the data so that Product Name becomes the column header, Sales Date becomes the row header, and the Sales Amount is the data associated with each Product Name and Sales Date combination. The dynamic pivot columns allow for flexibility in column values, making it easy to pivot data with unknown or varying column values.
+
+ 
+
+ 
+
+ 
+
+-----SOLUTION
+
+/*
+
+Enter your query here.
+
+*/
+
+-- select
+
+-- (case when OCCUPATION='Doctor' then name end) as Doctor
+
+-- from OCCUPATIONS
+
+-- ;
+
+-- select name
+
+-- from OCCUPATIONS
+
+-- where OCCUPATION='Doctor';
+
+ 
+
+-- select name
+
+-- from OCCUPATIONS
+
+-- where OCCUPATION='Professor';
+
+ 
+
+-- select name
+
+-- from OCCUPATIONS
+
+-- where OCCUPATION='Singer';
+
+ 
+
+-- select name
+
+-- from OCCUPATIONS
+
+-- where OCCUPATION='Actor';
+
+select distinct d1.doctor,d2.Professor
+
+from
+
+(
+
+ select name as doctor
+
+from OCCUPATIONS
+
+where OCCUPATION='Doctor') as d1
+
+join
+
+(
+
+select name as Professor
+
+from OCCUPATIONS
+
+where OCCUPATION='Professor') as d2;
+
+ 
+
+-- select Doctor,Professor,Singer,Actor
+
+-- from
+
+--     (
+
+--     select
+
+--      (case when OCCUPATION='Doctor' then name end) as Doctor,
+
+--      (case when OCCUPATION='Professor' then name end) as Professor,
+
+--      (case when OCCUPATION='Singer' then name end) as Singer,
+
+--      (case when OCCUPATION='Actor' then name end) as Actor
+
+--     from OCCUPATIONS
+
+--      )
+
+--      as derived_table
+
+-- (case when OCCUPATION='Professor' then name end) as Professor
+
+ 
+
+==ongoing
+
+ 
+
+ 
+
+===================================
+
+FROM - Using PIVOT and UNPIVOT
+
+Pivot operator converts the rows data of the table into the column data. The Unpivot operator does the opposite
+
+--syntax pivot
+
+SELECT (ColumnNames)
+
+FROM (TableName)
+
+PIVOT
+
+(
+
+   AggregateFunction(ColumnToBeAggregated)
+
+   FOR PivotColumn IN (PivotColumnValues)
+
+) AS (Alias) //Alias is a temporary name for a table
+
+--syntax unpivot
+
+SELECT (ColumnNames)
+
+FROM (TableName)
+
+UNPIVOT
+
+(
+
+   AggregateFunction(ColumnToBeAggregated)
+
+   FOR PivotColumn IN (PivotColumnValues)
+
+) AS (Alias)
+
+--EXAMPLE 1
+
+COURSENAME                 COURSECATEGORY                                      PRICE
+
+C                                                       PROGRAMMING                                                        5000
+
+JAVA                                   PROGRAMMING                                                        6000
+
+PYTHON                                          PROGRAMMING                                                        8000
+
+PLACEMENT100 INTERVIEWPREPARATION            5000
+
+ 
+
+--example pivot
+
+SELECT CourseName, PROGRAMMING, INTERVIEWPREPARATION
+
+FROM geeksforgeeks
+
+PIVOT
+
+(
+
+SUM(Price) FOR CourseCategory IN (PROGRAMMING, INTERVIEWPREPARATION )
+
+) AS PivotTable
+
+ 
+
+--example 1 pivot solution
+
+COURSENAME                 PROGRAMMING             INTERVIEWPREPARATION
+
+C                                                       5000                    NULL
+
+JAVA                                   6000                    NULL
+
+PLACEMENT100 NULL                    5000
+
+PYTHON                                          8000                    NULL
+
+ 
+
+--example 2 unpivot query
+
+SELECT CourseName, CourseCategory, Price
+
+FROM
+
+(
+
+SELECT CourseName, PROGRAMMING, INTERVIEWPREPARATION FROM geeksforgeeks
+
+PIVOT
+
+(
+
+SUM(Price) FOR CourseCategory IN (PROGRAMMING, INTERVIEWPREPARATION)
+
+) AS PivotTable
+
+) P
+
+UNPIVOT
+
+(
+
+Price FOR CourseCategory IN (PROGRAMMING, INTERVIEWPREPARATION)
+
+)
+
+AS UnpivotTable
+
+ 
+
+--example 2 unpivot output
+
+CourseName                    CourseCategory                             Price
+
+C                                                       PROGRAMMING                                                        5000
+
+JAVA                                   PROGRAMMING                                                        6000
+
+PLACEMENT100 INTERVIEWPREPARATION            5000
+
+PYTHON                                          PROGRAMMING                                                        8000
+
+ 
+
+ 
+
+ 
+
+ 
+
+====================================================================================================================-+
+
+--solution main                                                                                                                                                                                                                                                                                                                                                                          --+
+
+SELECT Doctor, Professor, Singer, Actor FROM (                                                                                                                                                                                                                                                         --+
+
+SELECT ROW_NUMBER() OVER (PARTITION BY occupation ORDER BY name) as rn, name, occupation FROM occupations)                                    --+
+
+PIVOT                                                                                                                                                                                                                                                                                                                                                                                                         --+
+
+(MAX(name) FOR occupation IN ('Doctor' as Doctor,'Professor' as Professor, 'Singer' as Singer, 'Actor' as Actor))          --+
+
+ORDER BY rn;                                                                                                                                                                                                                                                                                                                                                                             --+
+
+====================================================================================================================--+
+
+--this only worked in Oracle
+
+--having doubts about this use of pivot keyword and window function
+
+ 
+
+ 
+
+--explanation
+
+SELECT ROW_NUMBER() OVER (PARTITION BY occupation ORDER BY name) as rn, name, occupation FROM occupations
+
+--ROW_NUMBER function PARTITION by occupation and ORDER By name 1,2,3,4 UNIQUE
+
+SELECT rank() OVER (PARTITION BY occupation ORDER BY name) as rn, name, occupation FROM occupations
+
+--RANK function PARTITION by occupation and ORDER By name 1,2,3,4 UNIQUE
+
+1 Eve Actor
+
+2 Jennifer Actor
+
+3 Ketty Actor
+
+4 Samantha Actor
+
+1 Aamina Doctor
+
+2 Julia Doctor
+
+3 Priya Doctor
+
+1 Ashley Professor
+
+2 Belvet Professor
+
+3 Britney Professor
+
+4 Maria Professor
+
+5 Meera Professor
+
+6 Naomi Professor
+
+7 Priyanka Professor
+
+1 Christeen Singer
+
+2 Jane Singer
+
+3 Jenny Singer
+
+4 Kristeen Singer
+
+ 
+
+ 
+
+ 
+
+ 
+
+========================================================================================
+
+You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
+
+ 
+
+Write a query to find the node type of Binary Tree ordered by the value of the node. Output one of the following for each node:
+
+ 
+
+Root: If node is root node. --main nodes.
+
+Leaf: If node is leaf node. --lower most nodes.
+
+Inner: If node is neither root nor leaf node.  --middle node
+
+ 
+
+Sample input
+
+N            P
+
+1            2
+
+3            2
+
+6            8
+
+9            8
+
+2            5
+
+8            5
+
+5            null
+
+ 
+
+Sample Output
+
+ 
+
+1 Leaf
+
+2 Inner
+
+3 Leaf
+
+5 Root
+
+6 Leaf
+
+8 Inner
+
+9 Leaf
+
+ 
+
+Explanation
+
+ 
+
+The Binary Tree below illustrates the sample
+
+=====================================================Nodes of binary tree.
+
+There are three types of nodes in a binary tree.
+
+ 
+
+Root: The root node is the tree’s starting point. e,g node 5 is the root node in the above-shown tree.
+
+Inner: An inner node is one that has a parent and at least one child. e,g nodes 2 and 8 are the inner nodes in the above-shown tree.
+
+Leaf: The leaf node has a parent but no children nodes. It occurs at the last level of the tree. e,g nodes 1,3,6, and 9 are the leaf nodes in the above-shown tree.
+
+ 
+
+=====================================================
+
+ 
+
+Approach:
+
+ 
+
+Logical Part: Identify Node: A node is a root if its parent is null.
+
+A node is inner if it has a parent and at least one child. If a node occurs in the ‘n’ column as well as in the ‘p’ column then it is an inner node.
+
+ 
+
+A node is a leaf if it never appears as a parent or it does not occur in the ‘p’ column.
+
+ 
+
+=====================================================what is the Binary tree
+
+A Binary Search Tree (BST) is a type of Binary Tree data structure, where the following properties must be true for any node "X" in the tree:
+
+ 
+
+The X node's left child and all of its descendants (children, children's children, and so on) have lower values than X's value.
+
+The right child, and all its descendants have higher values than X's value.
+
+Left and right subtrees must also be Binary Search Trees.
+
+These properties makes it faster to search, add and delete values than a regular binary tree.
+
+ 
+
+To make this as easy to understand and implement as possible, let us also assume that all values in a Binary Search Tree are unique.
+
+ 
+
+ 
+
+ 
+
+Use the Binary Search Tree below to better understand these concepts and relevant terminology.
+
+ 
+
+The size of a tree is the number of nodes in it (n).
+
+ 
+
+A subtree starts with one of the nodes in the tree as a local root, and consists of that node and all its descendants.
+
+ 
+
+The descendants of a node are all the child nodes of that node, and all their child nodes, and so on. Just start with a node, and the descendants will be all nodes that are connected below that node.
+
+ 
+
+The node's height is the maximum number of edges between that node and a leaf node.
+
+ 
+
+A node's in-order successor is the node that comes after it if we were to do in-order traversal. In-order traversal of the BST above would result in node 13 coming before node 14, and so the successor of node 13 is node 14.
+
+ 
+
+ 
+
+https://python.plainenglish.io/part-1-binary-tree-nodes-sql-question-6b14baf0ebf0
+
+ 
+
+ 
+
+ 
+
+========================================================================================
+
+197. Rising Temperature
+
+Easy
+
+Topics
+
+Companies
+
+SQL Schema
+
+Pandas Schema
+
+Table: Weather
+
+ 
+
++---------------+---------+
+
+| Column Name   | Type    |
+
++---------------+---------+
+
+| id            | int     |
+
+| recordDate    | date    |
+
+| temperature   | int     |
+
++---------------+---------+
+
+id is the column with unique values for this table.
+
+There are no different rows with the same recordDate.
+
+This table contains information about the temperature on a certain day.
+
+ 
+
+Write a solution to find all dates Id with higher temperatures compared to its previous dates (yesterday).
+
+ 
+
+Return the result table in any order.
+
+ 
+
+The result format is in the following example.
+
+ 
+
+ 
+
+Example 1:
+
+ 
+
+Input:
+
+Weather table:
+
++----+------------+-------------+
+
+| id | recordDate | temperature |
+
++----+------------+-------------+
+
+| 1  | 2015-01-01 | 10          |
+
+| 2  | 2015-01-02 | 25          |
+
+| 3  | 2015-01-03 | 20          |
+
+| 4  | 2015-01-04 | 30          |
+
++----+------------+-------------+
+
+Output:
+
++----+
+
+| id |
+
++----+
+
+| 2  |
+
+| 4  |
+
++----+
+
+Explanation:
+
+In 2015-01-02, the temperature was higher than the previous day (10 -> 25).
+
+In 2015-01-04, the temperature was higher than the previous day (20 -> 30).
+
+ 
+
+ 
+
+=============================solution
+
+--solu 1
+
+select w.*,
+
+lag(temperature) over () as lag_T
+
+from Weather as w
+
+ 
+
+--output
+
+| id | recordDate | temperature | lag_T |
+
+| -- | ---------- | ----------- | ----- |
+
+| 1  | 2015-01-01 | 10          | null  |
+
+| 2  | 2015-01-02 | 25          | 10    |
+
+| 3  | 2015-01-03 | 20          | 25    |
+
+| 4  | 2015-01-04 | 30          | 20    |
+
+ 
+
+--solu final
+
+select id
+
+from
+
+ 
+
+(select w.*,
+
+lag(temperature) over () as lag_T
+
+from Weather as w) as a
+
+ 
+
+where temperature>lag_T -- lag_T is previous day temperature
+
+ 
+
+--it is creating problems for example this input no output 7/14 testcases passed
+
+ 
+
+| id | recordDate | temperature |
+
+| -- | ---------- | ----------- |
+
+| 1  | 2000-12-16 | 3           |
+
+| 2  | 2000-12-15 | -1          |
+
+ 
+
+--solution order by in over
+
+ 
+
+select id
+
+from
+
+(select w.*,
+
+lag(temperature) over (order by recordDate) as lag_T
+
+from Weather as w) as a
+
+where temperature>a.lag_T ;
+
+ 
+
+| id | recordDate | temperature |
+
+| -- | ---------- | ----------- |
+
+| 1  | 2000-12-14 | 3           |
+
+| 2  | 2000-12-16 | 5           |
+
+ 
+
+--it is creating problems for example this input 2 output 12/14 testcases passed
+
+--here datediff is greater than 1 - ie 2 days gap so output should be null
+
+ 
+
+select id
+
+from
+
+(select w.*,
+
+lag(temperature) over (order by recordDate) as lag_T,
+
+DATEDIFF(recordDate , LAG(recordDate) OVER (ORDER BY recordDate)) date_diff 
+
+from Weather as w) as a
+
+where temperature>a.lag_T  and date_diff = 1 ;
+
+ 
+
+ 
+
+========================================================================================
+
+Question:1
+
+Ambers conglomerate corporation just acquired some new companies. Each of the companies
+
+follows this hierarchy:
+
+ 
+
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+
+Note:
+
+•            The tables may contain duplicate records.
+
+•            The company_code is string, so the sorting should not be numeric. For example, if the company_codes are C_1, C_2, and C_10, then the ascending company_codes will be C_1, C_10, and C_2.
+
+________________________________________
+
+Input Format
+
+The following tables contain company data:
+
+•            Company: The company_code is the code of the company and founder is the founder of the company. 
+
+•            Lead_Manager: The lead_manager_code is the code of the lead manager, and the company_code is the code of the working company. 
+
+•            Senior_Manager: The senior_manager_code is the code of the senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+•            Manager: The manager_code is the code of the manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+•            Employee: The employee_code is the code of the employee, the manager_code is the code of its manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+________________________________________
+
+Sample Input
+
+Company Table:   Lead_Manager Table:   Senior_Manager Table:   Manager Table:   Employee Table: 
+
+Sample Output
+
+C1 Monika 1 2 1 2
+
+C2 Samantha 1 1 2 2
+
+Explanation
+
+In company C1, the only lead manager is LM1. There are two senior managers, SM1 and SM2, under LM1. There is one manager, M1, under senior manager SM1. There are two employees, E1 and E2, under manager M1.
+
+In company C2, the only lead manager is LM2. There is one senior manager, SM3, under LM2. There are two managers, M2 and M3, under senior manager SM3. There is one employee, E3, under manager M2, and another employee, E4, under manager, M3.
+
+ 
+
+ 
+
+select distinct
+
+c.company_code , c.founder , lm.lm_count ,sm.sm_count,m.mc_count,e.ec_code
+
+ 
+
+from
+
+company c
+
+ 
+
+join
+
+ 
+
+(select
+
+ count(Lead_Manager_code) as lm_count
+
+ from Lead_Manager
+
+group by company_code) as lm
+
+ 
+
+join
+
+ 
+
+(select
+
+count(Senior_Manager_code) as sm_count
+
+from Senior_Manager
+
+group by Lead_Manager_code,Company_code ) as sm
+
+ 
+
+join
+
+ 
+
+(select
+
+count(Manager_code) as mc_count
+
+from Manager
+
+group by Senior_Manager_code,Lead_Manager_code,company_code) as m
+
+ 
+
+join
+
+ 
+
+(select
+
+    count(Employee_code) as ec_code
+
+from Employee
+
+group by Manager_code, Senior_Manager_code, Lead_Manager_code,company_code ) as e
+
+ 
+
+order by c.company_code
+
+==========================================
+
+ 
+
+SELECT c.Company_code , c.founder, lm.num , sm.num , m.num ,e.num
+
+From Company c
+
+join
+
+(SELECT company_code, COUNT(lead_manager_code) as num FROM Lead_Manager GROUP BY company_code) as lm
+
+on lm.company_code = c.company_code
+
+join
+
+(SELECT company_code,COUNT(senior_manager_code) as num FROM Senior_Manager GROUP BY Lead_Manager_code ) as sm 
+
+on sm.company_code = c.company_code
+
+join
+
+(SELECT company_code,COUNT(manager_code) as num FROM Manager GROUP BY Senior_Manager_code) as m
+
+on m.company_code = c.company_code
+
+join
+
+(SELECT company_code,COUNT(employee_code) as num FROM Employee GROUP BY Manager_code) as e
+
+on e.company_code = c.company_code
+
+ 
+
+ 
+
+============-----ongoing
+
+-- best solution
+
+SELECT c.company_code, c.founder, COUNT(DISTINCT l.lead_manager_code), COUNT(DISTINCT e.senior_manager_code), COUNT(DISTINCT e.manager_code), COUNT(DISTINCT e.employee_code)
+
+FROM company AS c
+
+INNER JOIN lead_manager AS l
+
+ON c.company_code = l.company_code
+
+INNER JOIN employee AS e
+
+ON (e.company_code=c.company_code AND e.company_code=l.company_code)
+
+GROUP BY c.company_code, c.founder
+
+ORDER BY c.company_code;
+
+ 
+
+ 
+
+1661. Average Time of Process per Machine
+
+Easy
+
+Topics
+
+Companies
+
+SQL Schema
+
+________________________________________
+
+Pandas Schema
+
+________________________________________
+
+Table: Activity
+
++----------------+---------+
+
+| Column Name    | Type    |
+
++----------------+---------+
+
+| machine_id     | int     |
+
+| process_id     | int     |
+
+| activity_type  | enum    |
+
+| timestamp      | float   |
+
++----------------+---------+
+
+The table shows the user activities for a factory website.
+
+(machine_id, process_id, activity_type) is the primary key (combination of columns with unique values) of this table.
+
+machine_id is the ID of a machine.
+
+process_id is the ID of a process running on the machine with ID machine_id.
+
+activity_type is an ENUM (category) of type ('start', 'end').
+
+timestamp is a float representing the current time in seconds.
+
+'start' means the machine starts the process at the given timestamp and 'end' means the machine ends the process at the given timestamp.
+
+The 'start' timestamp will always be before the 'end' timestamp for every (machine_id, process_id) pair.
+
+There is a factory website that has several machines each running the same number of processes. Write a solution to find the average time each machine takes to complete a process.
+
+The time to complete a process is the 'end' timestamp minus the 'start' timestamp. The average time is calculated by the total time to complete every process on the machine divided by the number of processes that were run.
+
+The resulting table should have the machine_id along with the average time as processing_time, which should be rounded to 3 decimal places.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+Example 1:
+
+Input:
+
+Activity table:
+
++------------+------------+---------------+-----------+
+
+| machine_id | process_id | activity_type | timestamp |
+
++------------+------------+---------------+-----------+
+
+| 0          | 0          | start         | 0.712     |
+
+| 0          | 0          | end           | 1.520     |
+
+| 0          | 1          | start         | 3.140     |
+
+| 0          | 1          | end           | 4.120     |
+
+| 1          | 0          | start         | 0.550     |
+
+| 1          | 0          | end           | 1.550     |
+
+| 1          | 1          | start         | 0.430     |
+
+| 1          | 1          | end           | 1.420     |
+
+| 2          | 0          | start         | 4.100     |
+
+| 2          | 0          | end           | 4.512     |
+
+| 2          | 1          | start         | 2.500     |
+
+| 2          | 1          | end           | 5.000     |
+
++------------+------------+---------------+-----------+
+
+Output:
+
++------------+-----------------+
+
+| machine_id | processing_time |
+
++------------+-----------------+
+
+| 0          | 0.894           |
+
+| 1          | 0.995           |
+
+| 2          | 1.456           |
+
++------------+-----------------+
+
+Explanation:
+
+There are 3 machines running 2 processes each.
+
+Machine 0's average time is ((1.520 - 0.712) + (4.120 - 3.140)) / 2 = 0.894
+
+Machine 1's average time is ((1.550 - 0.550) + (1.420 - 0.430)) / 2 = 0.995
+
+Machine 2 s average time is ((4.512 - 4.100) + (5.000 - 2.500)) / 2
+
+ 
+
+ 
+
+ 
+
+==========================
+
+--Queries
+
+ 
+
+select machine_id from activity
+
+group by machine_id;
+
+ 
+
+select  machine_id,  count(distinct process_id) as num_process from activity group  by machine_id;
+
+--TO GET THE NUMBBER OF PROCESS PER MACHINE CODE
+
+--output
+
+| machine_id | num_process |
+
+| ---------- | ----------- |
+
+| 0          | 2           |
+
+| 1          | 2           |
+
+| 2          | 2           |
+
+ 
+
+ 
+
+select timestamp as end_time from activity where activity_type = 'end' and process_id = 0 and machine_id =0 ;
+
+ 
+
+select
+
+a.*,
+
+lag(timestamp) over (partition by machine_id)
+
+from activity a;
+
+ 
+
+| machine_id | process_id | activity_type | timestamp | lag(timestamp) over (partition by machine_id) |
+
+| ---------- | ---------- | ------------- | --------- | --------------------------------------------- |
+
+| 0          | 0          | start         | 0.712     | null                                          |
+
+| 0          | 0          | end           | 1.52      | 0.712                                         |
+
+| 0          | 1          | start         | 3.14      | 1.52                                          |
+
+| 0          | 1          | end           | 4.12      | 3.14                                          |
+
+| 1          | 0          | start         | 0.55      | null                                          |
+
+| 1          | 0          | end           | 1.55      | 0.55                                          |
+
+| 1          | 1          | start         | 0.43      | 1.55                                          |
+
+| 1          | 1          | end           | 1.42      | 0.43                                                                                                                          
+
+ 
+
+ 
+
+select derv3.*,
+
+sum_per_machine/num_process
+
+from
+
+(
+
+  select derv2.*,
+
+  sum(derv2.diff) over (partition by machine_id) as sum_per_machine
+
+  from
+
+  (
+
+    select derv1.*, (timestamp - derv1.prev) as diff
+
+    from
+
+    (select
+
+    a.*,
+
+    (lag(timestamp) over (partition by machine_id) ) as prev ,
+
+    (count(process_id) over (partition by machine_id,process_id)) as num_process
+
+    from activity a) as derv1
+
+    where activity_type= 'end'
+
+   ) as derv2
+
+) as derv3
+
+ 
+
+output
+
+ 
+
+machine_id        process_id         activity_type      timestamp         prev              num_process                   diff        sum_per_machine                       sum_per_machine/num_process
+
+0                                                       0                                         end                                    1.52                     0.712                   2                                         0.808                  1.788                                                0.894
+
+0                                                       1                                         end                                    4.12                     3.14                     2                                         0.98                     1.788                                                0.894
+
+1                                                       0                                         end                                    1.55                     0.55                     2                                         1                                         1.99                                                  0.995
+
+1                                                       1                                         end                                    1.42                     0.43                     2                                         0.99                     1.99                                                  0.995
+
+2                                                       0                                         end                                    4.512                   4.1                                      2                                         0.4119                 2.912                                                1.456
+
+2                                                       1                                         end                                    5                                         2.5                                      2                                         2.5                                      2.912                                                1.456
+
+ 
+
+ 
+
+--ROUND OFF TO 3
+
+--crt given testcase
+
+select
+
+distinct machine_id,
+
+ROUND((sum_per_machine/num_process) ,3 ) as processing_time
+
+from
+
+(
+
+  select
+
+  derv2.*,
+
+  sum(derv2.diff) over (partition by machine_id) as sum_per_machine
+
+  from
+
+  (
+
+    select
+
+              derv1.*,
+
+              (timestamp - derv1.prev) as diff
+
+    from
+
+    (
+
+              select
+
+                             a.*,
+
+                             (lag(timestamp) over (partition by machine_id) ) as prev ,
+
+                             (count(process_id) over (partition by machine_id,process_id)) as num_process
+
+    from activity a
+
+              ) as derv1
+
+    where activity_type= 'end'
+
+   ) as derv2
+
+) as derv3
+
+ 
+
+--OUTPUT
+
+outputmachine_id          avg_time_per
+
+0                                                                      0.894
+
+1                                                                      0.995
+
+2                                                                      1.456
+
+ 
+
+--EXCEPTED OUTPUT
+
+ 
+
+| machine_id | processing_time |
+
+| ---------- | --------------- |
+
+| 0          | 0.894           |
+
+| 1          | 0.995           |
+
+| 2          | 1.456           |
+
+ 
+
+--for below input error
+
+| machine_id | process_id | activity_type | timestamp |
+
+| ---------- | ---------- | ------------- | --------- |
+
+| 0          | 1          | start         | 18.891    |
+
+| 1          | 0          | end           | 81.874    |
+
+| 0          | 0          | start         | 37.019    |
+
+| 0          | 1          | end           | 38.098    |
+
+| 1          | 0          | start         | 25.135    |
+
+| 1          | 1          | start         | 23.355    |
+
+| 0          | 0          | end           | 40.222    |
+
+| 1          | 1          | end           | 90.302    |
+
+ 
+
+--output is wrong
+
+--Output
+
+| machine_id | processing_time |
+
+| ---------- | --------------- |
+
+| 0          | 1.601           |
+
+| 1          | 33.474          |
+
+Expected
+
+| machine_id | processing_time |
+
+| ---------- | --------------- |
+
+| 1          | 61.843          |
+
+| 0          | 11.205          |
+
+ 
+
+ 
+
+ 
+
+====================================================================================================
+
+ 
+
+ 
+
+--testcase 1:
+
+-- we are encounting problem we this test case where data is not sorted by machine_id and process_id
+
+| machine_id | process_id | activity_type | timestamp |
+
+| ---------- | ---------- | ------------- | --------- |
+
+| 0          | 1          | start         | 18.891    |
+
+| 1          | 0          | end           | 81.874    |
+
+| 0          | 0          | start         | 37.019    |
+
+| 0          | 1          | end           | 38.098    |
+
+| 1          | 0          | start         | 25.135    |
+
+| 1          | 1          | start         | 23.355    |
+
+| 0          | 0          | end           | 40.222    |
+
+| 1          | 1          | end           | 90.302    |
+
+ 
+
+--ordered TABLE
+
+ 
+
+select * from activity
+
+order by machine_id ,process_id,activity_type desc;
+
+ 
+
+machine_id        process_id         activity_type      timestamp
+
+0                                                       0                                         start                    37.019
+
+0                                                       0                                         start                    40.222
+
+0                                                       1                                         start                    18.891
+
+0                                                       1                                         end                                    38.098
+
+1                                                       0                                         start                    25.135
+
+1                                                       0                                         end                                    81.874
+
+1                                                       1                                         end                                    23.355
+
+1                                                       1                                         end                                    90.302
+
+ 
+
+--for machine_id 0
+
+--(40.222-37.019 + 38.098-18.891)/2 = (3.202+19.207)/2
+
+ 
+
+Output
+
+| machine_id | processing_time |
+
+| ---------- | --------------- |
+
+| 0          | 1.601           |
+
+| 1          | 33.474          |
+
+Expected
+
+| machine_id | processing_time |
+
+| ---------- | --------------- |
+
+| 1          | 61.843          |
+
+| 0          | 11.205          |
+
+ 
+
+--query for schema for online
+
+ 
+
+drop table Activity;
+
+ 
+
+Create table If Not Exists Activity (machine_id int, process_id int, activity_type char, timestamp float);
+
+ 
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '1', 'start', '18.891');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '0', 'end', '81.874');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '0', 'start', '37.019');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '1', 'end', '38.098');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '0', 'start', '25.135');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '1', 'end', '23.355');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '0', 'start', '40.222');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '1', 'end', '90.302');
+
+ 
+
+ 
+
+--- here we are trying to order table by "order by machine_id ,process_id,activity_type desc" in inner most query in order to get sequential data by  machine_id , process_id and activity_type start and end
+
+select
+
+                             a.*,
+
+                             (lag(timestamp) over (partition by machine_id order by machine_id ,process_id,activity_type desc) ) as prev ,
+
+                             (count(process_id) over (partition by machine_id,process_id)) as num_process
+
+    from activity a
+
+             
+
+==================
+
+--this output is crt for testcase 1 but not for given testcase 0
+
+select
+
+distinct machine_id,
+
+ROUND((sum_per_machine/num_process) ,3 ) as processing_time
+
+from
+
+(
+
+  select
+
+  derv2.*,
+
+  sum(derv2.diff) over (partition by machine_id) as sum_per_machine
+
+  from
+
+  (
+
+    select
+
+              derv1.*,
+
+              (timestamp - derv1.prev) as diff
+
+    from
+
+    (
+
+              select
+
+                             a.*,
+
+                             (lag(timestamp) over (partition by machine_id order by machine_id ,process_id,activity_type desc) ) as prev ,
+
+                             (count(process_id) over (partition by machine_id,process_id)) as num_process
+
+    from activity a
+
+              ) as derv1
+
+   where activity_type = 'end'
+
+   ) as derv2
+
+   where diff > 0
+
+) as derv3
+
+ 
+
+--output
+
+machine_id        processing_time
+
+0                                         9.604
+
+1                                         61.843
+
+ 
+
+--Expected
+
+| machine_id | processing_time |
+
+| ---------- | --------------- |
+
+| 1          | 61.843          |
+
+| 0          | 11.205          |
+
+ 
+
+drop table Activity;
+
+ 
+
+Create table If Not Exists Activity (machine_id int, process_id int, activity_type char, timestamp float);
+
+ 
+
+ 
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '0', 'start', '0.712');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '0', 'end', '1.52');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '1', 'start', '3.14');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('0', '1', 'end', '4.12');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '0', 'start', '0.55');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '0', 'end', '1.55');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '1', 'start', '0.43');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('1', '1', 'end', '1.42');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '0', 'start', '4.1');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '0', 'end', '4.512');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '1', 'start', '2.5');
+
+insert into Activity (machine_id, process_id, activity_type, timestamp) values ('2', '1', 'end', '5');
+
+ 
+
+ 
+
+select
+
+distinct machine_id,
+
+ROUND((sum_per_machine/num_process) ,3 ) as processing_time
+
+from
+
+(
+
+  select
+
+  derv2.*,
+
+  sum(derv2.diff) over (partition by machine_id) as sum_per_machine
+
+  from
+
+  (
+
+    select
+
+              derv1.*,
+
+              (timestamp - derv1.prev) as diff
+
+    from
+
+    (
+
+              select
+
+                             a.*,
+
+                             (lag(timestamp) over (partition by machine_id order by machine_id ,process_id,activity_type desc) ) as prev ,
+
+                             (count(process_id) over (partition by machine_id,process_id)) as num_process
+
+    from activity a
+
+              ) as derv1
+
+   where activity_type = 'end'
+
+   ) as derv2
+
+   where diff > 0
+
+) as derv3
+
+ 
+
+--output
+
+machine_id        processing_time
+
+0                                         0.894
+
+1                                         0.995
+
+2                                         1.456
+
+ 
+
+--expected output
+
+| machine_id | processing_time |
+
++------------+-----------------+
+
+| 0          | 0.894           |
+
+| 1          | 0.995           |
+
+| 2          | 1.456           |
+
++------------+-----------------+
+
+ 
+
+machine_id        process_id         activity_type      timestamp
+
+0                                                       0                                         start                    0.712
+
+0                                                       0                                         end                                    1.52
+
+0                                                       1                                         start                    3.14
+
+0                                                       1                                         end                                    4.12
+
+1                                                       0                                         start                    0.55
+
+1                                                       0                                         end                                    1.55
+
+1                                                       1                                         start                    0.43
+
+1                                                       1                                         end                                    1.42
+
+2                                                       0                                         start                     4.1
+
+2                                                       0                                         end                                    4.512
+
+2                                                       1                                         start                     2.5
+
+2                                                       1                                         end                                    5
+
+--self join
+
+select
+
+machine_id ,
+
+a.timestamp - b.timestamp
+
+from
+
+              activity a
+
+                             inner join
+
+              activity b
+
+              on a.machine_id = b.machine_id
+
+             
+
+             
+
+-------------------------------------------------------------trying with self join
+
+ 
+
+select * from
+
+activity a join activity b
+
+on a.machine_id = b.machine_id
+
+and a.process_id = b.process_id
+
+and a.activity_type = b.activity_type
+
+ 
+
+-- for this query activity join with activity with same id's for all machine_id ,  process_id ,  activity_type
+
+ 
+
+machine_id        process_id         activity_type      timestamp              machine_id        process_id         activity_type      timestamp
+
+0                                                       0                                         start                                   0.712                   0                                         0                           start                                   0.712
+
+0                                                       0                                         end                                                   1.52                     0                                         0                          end                                                   1.52
+
+0                                                       1                                         start                                   3.14                     0                                         1                           start                                   3.14
+
+0                                                       1                                         end                                                   4.12                     0                                         1                          end                                                   4.12
+
+1                                                       0                                         start                                   0.55                     1                                         0                           start                                   0.55
+
+1                                                       0                                         end                                                   1.55                     1                                         0                          end                                                   1.55
+
+1                                                       1                                         start                                   0.43                     1                                         1                           start                                   0.43
+
+1                                                       1                                         end                                                   1.42                     1                                         1                          end                                                   1.42
+
+2                                                       0                                         start                                   4.1                                      2                                         0                          start                                   4.1
+
+2                                                       0                                         end                                                   4.512                   2                                         0                          end                                                   4.512
+
+2                                                       1                                         start                                   2.5                                      2                                         1                          start                                   2.5
+
+2                                                       1                                         end                                                   5                                         2                                         1                          end                                                   5
+
+ 
+
+ 
+
+select * from
+
+activity a join activity b
+
+on a.machine_id = b.machine_id
+
+and a.process_id = b.process_id
+
+and a.activity_type not in ('b.activity_type') --here it is not in ('b.activity_type') causes opposite
+
+ 
+
+ 
+
+-- for this query activity join with activity with same id's for all machine_id ,  process_id but activity_type is opposite
+
+-- for A activity start we have B activity end
+
+ 
+
+machine_id        process_id         activity_type      timestamp              machine_id        process_id         activity_type      timestamp
+
+0                                                       0                                         start                                   0.712                   0                                         0                           end                                                  1.52
+
+0                                                       0                                         end                                                   1.52                     0                                         0                          start                                   0.712
+
+0                                                       1                                         start                                   3.14                     0                                         1                           end                                                  4.12
+
+0                                                       1                                         end                                                   4.12                     0                                         1                          start                                   3.14
+
+1                                                       0                                         start                                   0.55                     1                                         0                           end                                                  1.55
+
+1                                                       0                                         end                                                   1.55                     1                                         0                          start                                   0.55
+
+1                                                       1                                         start                                   0.43                     1                                         1                           end                                                  1.42
+
+1                                                       1                                         end                                                   1.42                     1                                         1                          start                                   0.43
+
+2                                                       0                                         start                                   4.1                                      2                                         0                          end                                                   4.512
+
+2                                                       0                                         end                                                   4.512                   2                                         0                          start                                   4.1
+
+2                                                       1                                         start                                   2.5                                      2                                         1                          end                                                   5
+
+2                                                       1                                         end                                                   5                                         2                                         1                          start                                   2.5
+
+ 
+
+ 
+
+ 
+
+ 
+
+select *,
+
+(a.timestamp - b.timestamp) as diff
+
+from
+
+activity a join activity b
+
+on a.machine_id = b.machine_id
+
+and a.process_id = b.process_id
+
+and a.activity_type not in (b.activity_type)
+
+ 
+
+machine_id        process_id         activity_type      timestamp              machine_id        process_id         activity_type      timestamp         diff
+
+0                                                       0                                         start                                   0.712                   0                                         0                           end                                                  1.52                     -0.808
+
+0                                                       0                                         end                                                   1.52                     0                                         0                          start                                   0.712                   0.808
+
+0                                                       1                                         start                                   3.14                     0                                         1                           end                                                  4.12                     -0.98
+
+0                                                       1                                         end                                                   4.12                     0                                         1                          start                                   3.14                     0.98
+
+1                                                       0                                         start                                   0.55                     1                                         0                           end                                                  1.55                     -1
+
+1                                                       0                                         end                                                   1.55                     1                                         0                          start                                   0.55                     1
+
+1                                                       1                                         start                                   0.43                     1                                         1                           end                                                  1.42                     -0.99
+
+1                                                       1                                         end                                                   1.42                     1                                         1                          start                                   0.43                     0.99
+
+2                                                       0                                         start                                   4.1                                      2                                         0                          end                                                   4.512                   -0.4119999999999999
+
+2                                                       0                                         end                                                   4.512                   2                                         0                          start                                   4.1                                     0.4119999999999999
+
+2                                                       1                                         start                                   2.5                                      2                                         1                          end                                                   5                                         -2.5
+
+2                                                       1                                         end                                                   5                                         2                                         1                          start                                   2.5                                      2.5
+
+ 
+
+ 
+
+SELECT
+
+distinct
+
+machine_id
+
+,(sum(diff) over(PARTITION by machine_id)) / 2 as sum_per_machine
+
+ 
+
+FROM
+
+ 
+
+(
+
+              SELECT *,
+
+              (a.timestamp - b.timestamp) as diff
+
+ 
+
+              from
+
+              activity a join activity b
+
+              on a.machine_id = b.machine_id
+
+              and a.process_id = b.process_id
+
+              and a.activity_type not in (b.activity_type)
+
+ 
+
+              where diff > 0 -- diff > 0 will give you  end - start
+
+)
+
+as derv
+
+ 
+
+--using derived_table distinct and dividing by num of process
+
+ 
+
+ 
+
+--output
+
+machine_id        sum_per_machine
+
+0                                         0.894
+
+1                                         0.995
+
+2                                         1.456
+
+ 
+
+--expected output
+
+| machine_id | processing_time |
+
++------------+-----------------+
+
+| 0          | 0.894           |
+
+| 1          | 0.995           |
+
+| 2          | 1.456           |
+
++------------+-----------------+
+
+ 
+
+---trying to generalized num of process
+
+ 
+
+              SELECT *,
+
+              (a.timestamp - b.timestamp) as diff,
+
+    (count(a.process_id) over (partition by a.machine_id)) as num_of_process
+
+ 
+
+              from
+
+              activity a join activity b
+
+              on a.machine_id = b.machine_id
+
+              and a.process_id = b.process_id
+
+              and a.activity_type not in (b.activity_type)
+
+ 
+
+              where diff > 0 -- diff > 0 will give you  end - start
+
+             
+
+-- here we can get number of process
+
+----output
+
+machine_id        process_id         activity_type      timestamp              machine_id        process_id         activity_type      timestamp         diff              num_of_process
+
+0                                                       0                                         end                                                   1.52                     0                                         0                                         start                                   0.712    0.808    2
+
+0                                                       1                                         end                                                   4.12                     0                                         1                                         start                                   3.14       0.98       2
+
+1                                                       0                                         end                                                   1.55                     1                                         0                                         start                                   0.55       1                           2
+
+1                                                       1                                         end                                                   1.42                     1                                         1                                         start                                   0.43       0.99       2
+
+2                                                       0                                         end                                                   4.512                   2                                         0                                         start                                   4.1                       0.4119  2
+
+2                                                       1                                         end                                                   5                                         2                                         1                                         start                                   2.5                       2.5                       2
+
+                            
+
+             
+
+SELECT
+
+distinct
+
+              derv.machine_id
+
+              ,round(((sum(derv.diff) over(PARTITION by derv.machine_id)) / derv.num_of_process), 3) as processing_time
+
+ 
+
+FROM
+
+ 
+
+(            
+
+              SELECT *,
+
+              (a.timestamp - b.timestamp) as diff,
+
+    (count(a.process_id) over (partition by a.machine_id)) as num_of_process
+
+ 
+
+              from
+
+              activity a join activity b
+
+              on a.machine_id = b.machine_id
+
+              and a.process_id = b.process_id
+
+              and a.activity_type not in (b.activity_type)
+
+ 
+
+              where diff > 0 -- diff > 0 will give you  end - start
+
+             
+
+)
+
+as derv
+
+ ---Output
+
+machine_id        processing_time
+
+0                                                       0.894
+
+1                                                       0.995
+
+2                                                       1.456
+
+ 
+
+--expected output
+
+| machine_id | processing_time |
+
++------------+-----------------+
+
+| 0          | 0.894           |
+
+| 1          | 0.995           |
+
+| 2          | 1.456           |
+
++------------+-----------------+
+
+ 
+
+--SUCCESSFUL output matches expected output success in online compiler
+
+--so above query is ok for given testcase in online complier
+
+Input:
+
+Activity table:
+
++------------+------------+---------------+-----------+
+
+| machine_id | process_id | activity_type | timestamp |
+
++------------+------------+---------------+-----------+
+
+| 0          | 0          | start         | 0.712     |
+
+| 0          | 0          | end           | 1.520     |
+
+| 0          | 1          | start         | 3.140     |
+
+| 0          | 1          | end           | 4.120     |
+
+| 1          | 0          | start         | 0.550     |
+
+| 1          | 0          | end           | 1.550     |
+
+| 1          | 1          | start         | 0.430     |
+
+| 1          | 1          | end           | 1.420     |
+
+| 2          | 0          | start         | 4.100     |
+
+| 2          | 0          | end           | 4.512     |
+
+| 2          | 1          | start         | 2.500     |
+
+| 2          | 1          | end           | 5.000     |
+
++------------+------------+---------------+-----------+
+
+Output:
+
++------------+-----------------+
+
+| machine_id | processing_time |
+
++------------+-----------------+
+
+| 0          | 0.894           |
+
+| 1          | 0.995           |
+
+| 2          | 1.456           |
+
++------------+-----------------
+
+ 
+
+--now checking for testcase 1
+
+ 
+
+| machine_id | process_id | activity_type | timestamp |
+
+| ---------- | ---------- | ------------- | --------- |
+
+| 0          | 1          | start         | 18.891    |
+
+| 1          | 0          | end           | 81.874    |
+
+| 0          | 0          | start         | 37.019    |
+
+| 0          | 1          | end           | 38.098    |
+
+| 1          | 0          | start         | 25.135    |
+
+| 1          | 1          | start         | 23.355    |
+
+| 0          | 0          | end           | 40.222    |
+
+| 1          | 1          | end           | 90.302    |
+
+ 
+
+Expected
+
+| machine_id | processing_time |
+
+| ---------- | --------------- |
+
+| 1          | 61.843          |
+
+| 0          | 11.205          |
+
+ 
+
+machine_id        processing_time
+
+0                                         19.207
+
+1                                         56.739
+
+ 
+
+--FAILED for testcase 1
+
+================================
+
+----solution 1 with join
+
+select a1.machine_id, round(avg(a2.timestamp-a1.timestamp), 3) as processing_time
+
+from Activity a1
+
+join Activity a2
+
+on a1.machine_id=a2.machine_id and a1.process_id=a2.process_id
+
+and a1.activity_type='start' and a2.activity_type='end'
+
+group by a1.machine_id
+
+--correct
+
+ 
+
+--query
+
+select *
+
+from Activity a1
+
+join Activity a2
+
+on a1.machine_id=a2.machine_id and a1.process_id=a2.process_id
+
+and a1.activity_type='start' and a2.activity_type='end'
+
+ 
+
+machine_id        process_id         activity_type      timestamp              machine_id        process_id         activity_type      timestamp
+
+0                                                       0                                         start                                   0.712                   0                                         0                                         end                                    1.52
+
+0                                                       1                                         start                                   3.14                     0                                         1                                         end                                    4.12
+
+1                                                       0                                         start                                   0.55                     1                                         0                                         end                                    1.55
+
+1                                                       1                                         start                                   0.43                     1                                         1                                         end                                    1.42
+
+2                                                       0                                         start                                   4.1                                      2                                         0                                         end                                    4.512
+
+2                                                       1                                         start                                   2.5                                      2                                         1                                         end                                    5
+
+ 
+
+----solution 2 with subquery
+
+select
+
+a.machine_id,
+
+round(
+
+      (select avg(a1.timestamp) from Activity a1 where a1.activity_type = 'end' and a1.machine_id = a.machine_id) -
+
+      (select avg(a1.timestamp) from Activity a1 where a1.activity_type = 'start' and a1.machine_id = a.machine_id)
+
+,3) as processing_time
+
+from Activity a
+
+group by a.machine_id
+
+ 
+
+ 
+
+--------------------------------------
+
+1280. Students and Examinations
+
+Table: Students
+
++---------------+---------+
+
+| Column Name   | Type    |
+
+| student_id    | int     |
+
+| student_name  | varchar |
+
++---------------+---------+
+
+student_id is the primary key (column with unique values) for this table.
+
+Each row of this table contains the ID and the name of one student in the school
+
+Table: Subjects
+
++--------------+---------+
+
+| Column Name  | Type    |
+
++--------------+---------+
+
+| subject_name | varchar |
+
++--------------+---------+
+
+subject_name is the primary key (column with unique values) for this table.
+
+Each row of this table contains the name of one subject in the school.
+
+Table: Examinations
+
++--------------+---------+
+
+| Column Name  | Type    |
+
++--------------+---------+
+
+| student_id   | int     |
+
+| subject_name | varchar |
+
++--------------+---------+
+
+There is no primary key (column with unique values) for this table. It may contain duplicates.
+
+Each student from the Students table takes every course from the Subjects table.
+
+Each row of this table indicates that a student with ID student_id attended the exam of subject_name.
+
+Write a solution to find the number of times each student attended each exam.
+
+Return the result table ordered by student_id and subject_name.
+
+The result format is in the following example.
+
+Example 1:
+
+Input:
+
+Students table:
+
++------------+--------------+
+
+| student_id | student_name |
+
++------------+--------------+
+
+| 1          | Alice        |
+
+| 2          | Bob          |
+
+| 13         | John         |
+
+| 6          | Alex         |
+
++------------+--------------+
+
+Subjects table:
+
++--------------+
+
+| subject_name |
+
++--------------+
+
+| Math         |
+
+| Physics      |
+
+| Programming  |
+
++--------------+
+
+Examinations table:
+
++------------+--------------+
+
+| student_id | subject_name |
+
++------------+--------------+
+
+| 1          | Math         |
+
+| 1          | Physics      |
+
+| 1          | Programming  |
+
+| 2          | Programming  |
+
+| 1          | Physics      |
+
+| 1          | Math         |
+
+| 13         | Math         |
+
+| 13         | Programming  |
+
+| 13         | Physics      |
+
+| 2          | Math         |
+
+| 1          | Math         |
+
++------------+--------------+
+
+ 
+
+ 
+
+ 
+
+Output:
+
++------------+--------------+--------------+----------------+
+
+| student_id | student_name | subject_name | attended_exams |
+
++------------+--------------+--------------+----------------+
+
+| 1          | Alice        | Math         | 3              |
+
+| 1          | Alice        | Physics      | 2              |
+
+| 1          | Alice        | Programming  | 1              |
+
+| 2          | Bob          | Math         | 1              |
+
+| 2          | Bob          | Physics      | 0              |
+
+| 2          | Bob          | Programming  | 1              |
+
+| 6          | Alex         | Math         | 0              |
+
+| 6          | Alex         | Physics      | 0              |
+
+| 6          | Alex         | Programming  | 0              |
+
+| 13         | John         | Math         | 1              |
+
+| 13         | John         | Physics      | 1              |
+
+| 13         | John         | Programming  | 1              |
+
++------------+--------------+--------------+----------------+
+
+Explanation:
+
+The result table should contain all students and all subjects.
+
+Alice attended the Math exam 3 times, the Physics exam 2 times, and the Programming exam 1 time.
+
+Bob attended the Math exam 1 time, the Programming exam 1 time, and did not attend the Physics exam.
+
+Alex did not attend any exams.
+
+John attended the Math exam 1 time, the Physics exam 1 time, and the Programming exam 1 time.
+
+ 
+
+# Write your MySQL query statement below
+
+ 
+
+select
+
+*
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+ 
+
+| student_id | student_name | subject_name |
+
+| ---------- | ------------ | ------------ |
+
+| 1          | Alice        | Programming  |
+
+| 1          | Alice        | Physics      |
+
+| 1          | Alice        | Math         |
+
+| 2          | Bob          | Programming  |
+
+| 2          | Bob          | Physics      |
+
+| 2          | Bob          | Math         |
+
+| 13         | John         | Programming  |
+
+| 13         | John         | Physics      |
+
+| 13         | John         | Math         |
+
+| 6          | Alex         | Programming  |
+
+| 6          | Alex         | Physics      |
+
+| 6          | Alex         | Math         |
+
+ 
+
+select
+
+*
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+join
+
+Examinations as exam
+
+ 
+
+| student_id | student_name | subject_name | student_id | subject_name |
+
+| ---------- | ------------ | ------------ | ---------- | ------------ |
+
+| 6          | Alex         | Math         | 1          | Math         |
+
+| 6          | Alex         | Physics      | 1          | Math         |
+
+| 6          | Alex         | Programming  | 1          | Math         |
+
+| 13         | John         | Math         | 1          | Math         |
+
+| 13         | John         | Physics      | 1          | Math         |
+
+| 13         | John         | Programming  | 1          | Math         |
+
+| 2          | Bob          | Math         | 1          | Math         |
+
+| 2          | Bob          | Physics      | 1          | Math         |
+
+| 2          | Bob          | Programming  | 1          | Math         |
+
+| 1          | Alice        | Math         | 1          | Math         |
+
+| 1          | Alice        | Physics      | 1          | Math         |
+
+| 1          | Alice        | Programming  | 1          | Math  ...
+
+ 
+
+ 
+
+select
+
+*
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+join
+
+Examinations as exam
+
+on  stud.student_id = exam.student_id
+
+ 
+
+| student_id | student_name | subject_name | student_id | subject_name |
+
+| ---------- | ------------ | ------------ | ---------- | ------------ |
+
+| 1          | Alice        | Math         | 1          | Math         |
+
+| 1          | Alice        | Physics      | 1          | Math         |
+
+| 1          | Alice        | Programming  | 1          | Math         |
+
+| 1          | Alice        | Math         | 1          | Physics      |
+
+| 1          | Alice        | Physics      | 1          | Physics      |
+
+| 1          | Alice        | Programming  | 1          | Physics      |
+
+| 1          | Alice        | Math         | 1          | Programming  |
+
+| 1          | Alice        | Physics      | 1          | Programming  |
+
+| 1          | Alice        | Programming  | 1          | Programming  |
+
+| 2          | Bob          | Math         | 2          | Programming  |
+
+| 2          | Bob          | Physics      | 2          | Programming  |
+
+| 2          | Bob          | Programming  | 2          | Progra...
+
+ 
+
+ 
+
+select
+
+*
+
+from
+
+Students as stud
+
+join
+
+Examinations as exam
+
+on stud.student_id = exam.student_id
+
+join
+
+Subjects as sub
+
+| student_id | student_name | student_id | subject_name | subject_name |
+
+| ---------- | ------------ | ---------- | ------------ | ------------ |
+
+| 1          | Alice        | 1          | Math         | Math         |
+
+| 1          | Alice        | 1          | Math         | Physics      |
+
+| 1          | Alice        | 1          | Math         | Programming  |
+
+| 1          | Alice        | 1          | Physics      | Math         |
+
+| 1          | Alice        | 1          | Physics      | Physics      |
+
+| 1          | Alice        | 1          | Physics      | Programming  |
+
+| 1          | Alice        | 1          | Programming  | Math         |
+
+| 1          | Alice        | 1          | Programming  | Physics      |
+
+| 1          | Alice        | 1          | Programming  | Programming  |
+
+| 2          | Bob          | 2          | Programming  | Math         |
+
+| 2          | Bob          | 2          | Programming  | Physics      |
+
+| 2          | Bob          | 2          | Programming  | Progra...
+
+ 
+
+select
+
+*
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+left outer join
+
+Examinations as exam
+
+on stud.student_id = exam.student_id
+
+and sub.subject_name = exam.subject_name
+
+ 
+
+| student_id | student_name | subject_name | student_id | subject_name |
+
+| ---------- | ------------ | ------------ | ---------- | ------------ |
+
+| 1          | Alice        | Programming  | 1          | Programming  |
+
+| 1          | Alice        | Physics      | 1          | Physics      |
+
+| 1          | Alice        | Physics      | 1          | Physics      |
+
+| 1          | Alice        | Math         | 1          | Math         |
+
+| 1          | Alice        | Math         | 1          | Math         |
+
+| 1          | Alice        | Math         | 1          | Math         |
+
+| 2          | Bob          | Programming  | 2          | Programming  |
+
+| 2          | Bob          | Physics      | null       | null         |
+
+| 2          | Bob          | Math         | 2          | Math         |
+
+| 13         | John         | Programming  | 13         | Programming  |
+
+| 13         | John         | Physics      | 13         | Physics      |
+
+| 13         | John         | Math         | 13         | Math  ...
+
+ 
+
+select
+
+*,count(exam.subject_name) as attended_exams
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+left outer join
+
+Examinations as exam
+
+on stud.student_id = exam.student_id
+
+and sub.subject_name = exam.subject_name
+
+group by exam.subject_name,stud.student_id
+
+ 
+
+--here we have to keep in mind for all Student and all subject data have to be collected so
+
+--Students stud cross join with Subjects sub to get all possible but then result is only left outer join with Examinations as exam
+
+--on condition that
+
+--stud.student_id = exam.student_id
+
+--and sub.subject_name = exam.subject_name
+
+-- later for exam.subject_name we have to group by with both exam.subject_name
+
+ 
+
+| student_id | student_name | subject_name | student_id | subject_name | attended_exams |
+
+| ---------- | ------------ | ------------ | ---------- | ------------ | -------------- |
+
+| 1          | Alice        | Programming  | 1          | Programming  | 1              |
+
+| 1          | Alice        | Physics      | 1          | Physics      | 2              |
+
+| 1          | Alice        | Math         | 1          | Math         | 3              |
+
+| 2          | Bob          | Programming  | 2          | Programming  | 1              |
+
+| 2          | Bob          | Physics      | null       | null         | 0              |
+
+| 2          | Bob          | Math         | 2          | Math         | 1              |
+
+| 13         | John         | Programming  | 13         | Programming  | 1              |
+
+| 13         | John         | Physics      | 13         | Physics      | 1              |
+
+| 13         | John         | Math         | 13         | Math         | 1              |
+
+| 6          | Alex  ...
+
+ 
+
+select
+
+stud.student_id, stud.student_name, sub.subject_name, count(exam.subject_name) as attended_exams
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+left outer join
+
+Examinations as exam
+
+on stud.student_id = exam.student_id
+
+and sub.subject_name = exam.subject_name
+
+group by exam.subject_name,stud.student_id
+
+ 
+
+--output
+
+ 
+
+| student_id | student_name | subject_name | attended_exams |
+
+| ---------- | ------------ | ------------ | -------------- |
+
+| 1          | Alice        | Math         | 3              |
+
+| 1          | Alice        | Physics      | 2              |
+
+| 1          | Alice        | Programming  | 1              |
+
+| 2          | Bob          | Math         | 1              |
+
+| 2          | Bob          | Physics      | 0              |
+
+| 2          | Bob          | Programming  | 1              |
+
+| 6          | Alex         | Programming  | 0              |
+
+| 13         | John         | Math         | 1              |
+
+| 13         | John         | Physics      | 1              |
+
+| 13         | John         | Programming  | 1              |
+
+ 
+
+expected
+
+| student_id | student_name | subject_name | attended_exams |
+
+| ---------- | ------------ | ------------ | -------------- |
+
+| 1          | Alice        | Math         | 3              |
+
+| 1          | Alice        | Physics      | 2              |
+
+| 1          | Alice        | Programming  | 1              |
+
+| 2          | Bob          | Math         | 1              |
+
+| 2          | Bob          | Physics      | 0              |
+
+| 2          | Bob          | Programming  | 1              |
+
+| 6          | Alex         | Math         | 0              |
+
+| 6          | Alex         | Physics      | 0              |
+
+| 6          | Alex         | Programming  | 0              |
+
+| 13         | John         | Math         | 1              |
+
+| 13         | John         | Physics      | 1              |
+
+| 13         | John         | Programming  | 1              |
+
+ 
+
+--FAIL
+
+--here 1 thing to note is that we are counting subject_name in exam and grouping it by subject_name in sub and stud.student_id
+
+-- sub.subject_name,stud.student_id
+
+ 
+
+select
+
+stud.student_id, stud.student_name, sub.subject_name
+
+,count(exam.subject_name) as attended_exams
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+left outer join
+
+Examinations as exam
+
+on stud.student_id = exam.student_id
+
+and sub.subject_name = exam.subject_name
+
+where stud.student_name  = 'Alex'
+
+group by sub.subject_name,stud.student_id
+
+order by stud.student_id , sub.subject_name
+
+ 
+
+| student_id | student_name | subject_name | attended_exams |
+
+| ---------- | ------------ | ------------ | -------------- |
+
+| 6          | Alex         | Math         | 0              |
+
+| 6          | Alex         | Physics      | 0              |
+
+| 6          | Alex         | Programming  | 0              |
+
+ 
+
+ 
+
+select
+
+stud.student_id, stud.student_name, sub.subject_name
+
+,count(exam.subject_name) as attended_exams
+
+from
+
+Students as stud
+
+join
+
+Subjects as sub
+
+left outer join
+
+Examinations as exam
+
+on stud.student_id = exam.student_id
+
+and sub.subject_name = exam.subject_name
+
+group by sub.subject_name,stud.student_id
+
+order by stud.student_id , sub.subject_name
+
+--output
+
+| student_id | student_name | subject_name | attended_exams |
+
+| ---------- | ------------ | ------------ | -------------- |
+
+| 1          | Alice        | Math         | 3              |
+
+| 1          | Alice        | Physics      | 2              |
+
+| 1          | Alice        | Programming  | 1              |
+
+| 2          | Bob          | Math         | 1              |
+
+| 2          | Bob          | Physics      | 0              |
+
+| 2          | Bob          | Programming  | 1              |
+
+| 6          | Alex         | Math         | 0              |
+
+| 6          | Alex         | Physics      | 0              |
+
+| 6          | Alex         | Programming  | 0              |
+
+| 13         | John         | Math         | 1              |
+
+| 13         | John         | Physics      | 1              |
+
+| 13         | John         | Programming  | 1              |
+
+--expected
+
+| student_id | student_name | subject_name | attended_exams |
+
+| ---------- | ------------ | ------------ | -------------- |
+
+| 1          | Alice        | Math         | 3              |
+
+| 1          | Alice        | Physics      | 2              |
+
+| 1          | Alice        | Programming  | 1              |
+
+| 2          | Bob          | Math         | 1              |
+
+| 2          | Bob          | Physics      | 0              |
+
+| 2          | Bob          | Programming  | 1              |
+
+| 6          | Alex         | Math         | 0              |
+
+| 6          | Alex         | Physics      | 0              |
+
+| 6          | Alex         | Programming  | 0              |
+
+| 13         | John         | Math         | 1              |
+
+| 13         | John         | Physics      | 1              |
+
+| 13         | John         | Programming  | 1              |
+
+ 
+
+----------
+
+select count(distinct name)
+
+from
+
+CITY
+
+where Population > 100000
+
+group by
+
+ 
+
+Thanks & Regards, 
+
+Jaivardhan Sharma
+
+Teradata to Snowflake Migration 
+
+( +91 819 203 7163 | Jaivardhan.Sharma@cognizant.com
+
+Cognizant unveils new logo and tagline - The Hindu BusinessLineBrand & Media Assets | T‑Mobile Newsroom
+
+ 
+
+ 
+
+
