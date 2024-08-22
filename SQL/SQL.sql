@@ -3909,6 +3909,45 @@ from x;
 
 
 
+I am using MySQL. Here is my schema:
+
+Suppliers(sid: integer, sname: string, address string)
+
+Parts(pid: integer, pname: string, color: string)
+
+Catalog(sid: integer, pid: integer, cost: real)
+
+(primary keys are bolded)
+
+I am trying to write a query to select all parts that are made by at least two suppliers:
+
+-- Find the pids of parts supplied by at least two different suppliers.
+SELECT c1.pid                      -- select the pid
+FROM Catalog AS c1                 -- from the Catalog table
+WHERE c1.pid IN (                  -- where that pid is in the set:
+    SELECT c2.pid                  -- of pids
+    FROM Catalog AS c2             -- from catalog
+    WHERE c2.pid = c1.pid AND COUNT(c2.sid) >= 2 -- where there are at least two corresponding sids
+);
+
+You need to use HAVING, not WHERE.
+
+The difference is: the WHERE clause filters which rows MySQL selects. Then MySQL groups the rows together and aggregates the numbers for your COUNT function.
+
+HAVING is like WHERE, only it happens after the COUNT value has been computed, so it will work as you expect. Rewrite your subquery as:
+
+(                  -- where that pid is in the set:
+SELECT c2.pid                  -- of pids
+FROM Catalog AS c2             -- from catalog
+WHERE c2.pid = c1.pid
+HAVING COUNT(c2.sid) >= 2)
+
+--use of having vs where 
+
+--The difference between the having and where clause in SQL is that the where clause cannot be used with aggregates, but the having clause can.
+
+
+
 
 
 
