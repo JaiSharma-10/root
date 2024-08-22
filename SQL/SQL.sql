@@ -3946,7 +3946,22 @@ HAVING COUNT(c2.sid) >= 2)
 
 --The difference between the having and where clause in SQL is that the where clause cannot be used with aggregates, but the having clause can.
 
+with x as 
+(select *,
+ROW_NUMBER () over (order by LAT_N desc) as R_NO
+from Station
+)
+select 
+    case when max(R_NO)%2 = 0
+        then (select round(LAT_N,4 ) from x where R_NO in (select max(R_NO)/2 from x ))
+        else (select round(LAT_N,4 )  from x where R_NO in (select (max(R_NO)+1)/2  from x))
+    end 
+    from x
+        
+		
 
+--83.89
+--PASS
 
 
 
