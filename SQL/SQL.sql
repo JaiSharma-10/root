@@ -4436,6 +4436,136 @@ A query execution plan is the definition of:
 
 
 
+========================================================
+--Pivot practical example
+
+select distinct b.entity, count(encounter_id) as Account, sum(open_ar) as AR_Outstanding 
+from fact_ar_snapshot a 
+left join dim_facility b on a.facility_cd = b.facility_code 
+left join dim_payer c on a.facility_cd = c.facility_cd and a.current_payer_plan_code = c.payer_plan_cd
+where open_ar < '2500'
+and days_from_discharge < '30'
+and c.cbo_major_payer not in ('self', 'charity', 'other pending', 'medicaid pending', 'none')
+and snapshot_date in ('2024-08-05', '2024-08-12','2024-08-19')
+group by b.entity
+
+
+
+===================================
+
+CustomerID	DBColumnName	Data
+1	FirstName	Joe
+1	MiddleName	S
+1	LastName	Smith
+1	Date	12/12/2009
+2	FirstName	Sam
+2	MiddleName	S
+2	LastName	Freddrick
+2	Date	1/12/2009
+3	FirstName	Jaime
+
+CustomerID	FirstName	MiddleName	LastName	Date
+1	Joe	S	Smith	12/12/2009
+2	Sam	S	Freddrick	1/12/2009
+3	Jaime	S	Carol	12/1/2009
+
+ Select CustomerID,
+     Min(Case DBColumnName When 'FirstName' Then Data End) FirstName,
+     Min(Case DBColumnName When 'MiddleName' Then Data End) MiddleName,
+     Min(Case DBColumnName When 'LastName' Then Data End) LastName,
+     Min(Case DBColumnName When 'Date' Then Data End) Date
+   From table
+   Group By CustomerId
+---------------------------------
+
+with x as 
+(
+	select distinct snapshot_date, b.entity, count(encounter_id) as Account, sum(open_ar) as AR_Outstanding 
+	from fact_ar_snapshot a 
+	left join dim_facility b on a.facility_cd = b.facility_code 
+	left join dim_payer c on a.facility_cd = c.facility_cd and a.current_payer_plan_code = c.payer_plan_cd
+	where open_ar < '2500'
+	and days_from_discharge < '30'
+	and c.cbo_major_payer not in ('self', 'charity', 'other pending', 'medicaid pending', 'none')
+	and snapshot_date in ('2024-08-05', '2024-08-12','2024-08-19')
+	group by b.entity, snapshot_date
+)
+select entity , 
+ max(case snapshot_date when '2024-08-05' then Account end) "2024-08-05 Account",
+ max(case snapshot_date when '2024-08-05' then AR_Outstanding end) "2024-08-05 AR_Outstanding",
+  
+ max(case snapshot_date when '2024-08-12' then Account end) "2024-08-12 Account",
+ max(case snapshot_date when '2024-08-12' then AR_Outstanding end) "2024-08-12 AR_Outstanding",
+  
+ max(case snapshot_date when '2024-08-19' then Account end) "2024-08-19 Account",
+ max(case snapshot_date when '2024-08-19' then AR_Outstanding end) "2024-08-19 AR_Outstanding",
+ 
+ from x
+ group by entity
+ 
+------------------------------------------------------------------
+
+--MS SQL Server pivoting without aggregation
+
+--table main:
+
+ CREATE TABLE Sales (idx int, variable varchar(50), value varchar(50));
+   INSERT into Sales (idx, variable, value) VALUES(1, 'column1', '34');
+   INSERT into Sales (idx, variable, value) VALUES(1, 'column2', 'text value');
+   INSERT into Sales (idx, variable, value) VALUES(1, 'column3', 'another text');
+
+   INSERT into Sales (idx, variable, value) VALUES(2, 'column1', '14');
+   INSERT into Sales (idx, variable, value) VALUES(2, 'column2', 'text value2');
+   INSERT into Sales (idx, variable, value) VALUES(2, 'column3', 'another text2');
+   
+   select * from Sales
+   
+--Output
+  
+idx		variable	value
+1		column1		34
+1		column2		text value
+1		column3		another text
+2		column1		14
+2		column2		text value2
+2		column3		another text2
+   
+--transformed table
+
+CREATE TABLE SalesPivoted (column1 varchar(50), column2 varchar(50), column3 varchar(50));
+
+   INSERT INTO SalesPivoted (column1, column2, column3) VALUES ('34', 'text value', 'another text');
+   INSERT INTO SalesPivoted (column1, column2, column3) VALUES ('14', 'text value2', 'another text2');
+   
+   
+select * from SalesPivoted ;
+
+--Output
+
+column1		column2			column3
+34			text value		another text
+14			text value2		another text2
+
+--For pivot we do need an aggregate function. But even with that, we can get the work around results.
+
+--Solution
+
+
+--pivot
+
+SELECT [Data You Break Up The Other Datas With] AS 'a cool name',
+[DataPoint1], [DataPoint2], [DataPointEtc]
+FROM (
+    SELECT [The], [Columns], [With], [Data]
+) AS SourceTable
+PIVOT (
+    AGGREGATE_FUNCTION([Column with data you want displayed in rows])
+    FOR [Column in which "The Columns With Data" live] IN (
+        [DataPoint1], [DataPoint2], [DataPointEtc]
+    )
+) AS PivotTable
+
+--https://builtin.com/articles/sql-pivot
 
 
 
