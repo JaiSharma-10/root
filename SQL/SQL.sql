@@ -3963,9 +3963,76 @@ select
 --83.89
 --PASS
 
+--hackerrank
 
 
+--name, Grade, Mark
+--Grade > =8
+--order by grade DESC , name 
+--grade < 8
+	--replace name as NULL
+	--order by grade Desc mark asc
+	
+	
+-- join Student and Grades
+-- use case to assign grades to each Student
 
+--use cte to use case for bifurcation of grades>8
+
+with X
+
+as 
+
+(
+    select * ,
+    case when Marks between 0 and 9 then 1    
+         when Marks between 10 and 19 then 2  
+         when Marks between 20 and 29 then 3  
+         when Marks between 30 and 39 then 4  
+         when Marks between 40 and 49 then 5
+         when Marks between 50 and 59 then 6  
+         when Marks between 60 and 69 then 7  
+         when Marks between 70 and 79 then 8  
+         when Marks between 80 and 89 then 9  
+         when Marks between 90 and 100 then 10
+         else 0
+   end as Grade                             
+    from Students
+)
+select 
+case 
+    when Grade >= 8 then Name 
+    else 'NULL'
+    end as 'Name'
+    , Grade, Marks 
+    from X
+    order by grade desc , name asc , marks asc
+
+
+--more optimized query , your above query is only brute force 
+
+
+WITH REPORT AS(
+SELECT 
+    s.*,
+	g.grade 
+	--here we are taking grade from Grades TABLE
+	--grade 	min_mark 	Max_Mark
+	--1			0			9
+	
+FROM STUDENTS s
+JOIN GRADES g
+ON s.marks BETWEEN g.Min_mark AND g.Max_Mark --here we have used marks between min and max marks
+
+)
+SELECT 
+IF(grade < 8,NULL,name),--use of If in the query
+grade,
+marks
+FROM REPORT
+ORDER BY 2 DESC,1,3
+
+--PASS
 ======================================================================================================================================
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
