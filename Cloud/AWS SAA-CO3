@@ -44,3 +44,17 @@ IAM Permissions
 -User and groups can be assign JSON documents called policies
 
 IAM Policies Inheritance
+
+======================================================================
+--AWS
+AWS applications includes
+-building highly scalable and sophisticated apps
+-Enterpise IT , Backup and Storage, Big Data Analytics
+-Website Hosting, Mobile App and Gaming 
+
+AWS Region
+-Example  
+-us east-1, eu-west-3
+-cluster of data center
+
+AWS availablity zone
