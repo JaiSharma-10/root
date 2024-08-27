@@ -1,1 +1,37 @@
-Snowflake learnings
+-------------------------------------------------------------SNF
+
+Databases and schemas are used to organize data stored in Snowflake:
+
+A database is a logical grouping of schemas. Each database belongs to a single Snowflake account.
+
+A schema is a logical grouping of database objects (tables, views, etc.). Each schema belongs to a single database.
+
+Databases are used to group datasets (tables) together. A second-level organizational grouping, within a database, is called a schema. Every time you create a database, Snowflake will automatically create two schemas for you.
+
+The INFORMATION_SCHEMA schema holds a collection of views.  The INFORMATION_SCHEMA schema cannot be deleted (dropped), renamed, or moved.
+
+The PUBLIC schema is created empty and you can fill it with tables, views and other things over time. The PUBLIC schema can be dropped, renamed, or moved at any time.
+
+
+Identity vs ACCESS
+Username password one time Vs role base continuous
+Authentication vs Authorization
+ 
+Roles
+--5 Roles
+ACCOUNTADMIN  - Master of ACCOUNT
+SYSADMIN	  - Master of creation of DB and schemas
+
+Role-based Access Control(RBAC)
+Discretionary Access Control (DAC). -you own what you create
+SNF uses both RABC and DAC
+
+
+--ROLE CREATION AS INHERITANCE
+ACCOUNTADMIN --parent
+SECURITYADMIN and SYSADMIN --child
+
+ACCOUNTADMIN -it can manage all aspect of account
+	SECURITYADMIN -security
+	SYSADMIN -it can manage and create database and warehouse
+	USERADMIN -it can manage users
