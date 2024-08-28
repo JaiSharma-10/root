@@ -68,4 +68,11 @@ Built-in security features –
 	
 Multi-cloud deployment – 
 	The warehouse can be deployed on AWSopens in new tab, Azureopens in new tab, and Google Cloudopens in new tab.
-	
+--Grant ownership for all
+
+--After cloning the database, transfer ownership to another role using the GRANT OWNERSHIP (see also example) function using COPY CURRENT GRANTS clause, for example
+
+GRANT OWNERSHIP ON DATABASE mydb TO ROLE developer COPY CURRENT GRANTS;  
+GRANT OWNERSHIP ON ALL SCHEMAS IN DATABASE mydb TO ROLE developer COPY CURRENT GRANTS;
+GRANT OWNERSHIP ON ALL TABLES IN DATABASE mydb TO ROLE developer COPY CURRENT GRANTS; 
+GRANT OWNERSHIP ON ALL VIEWS IN DATABASE mydb TO ROLE developer COPY CURRENT GRANTS;
