@@ -76,3 +76,87 @@ GRANT OWNERSHIP ON DATABASE mydb TO ROLE developer COPY CURRENT GRANTS;
 GRANT OWNERSHIP ON ALL SCHEMAS IN DATABASE mydb TO ROLE developer COPY CURRENT GRANTS;
 GRANT OWNERSHIP ON ALL TABLES IN DATABASE mydb TO ROLE developer COPY CURRENT GRANTS; 
 GRANT OWNERSHIP ON ALL VIEWS IN DATABASE mydb TO ROLE developer COPY CURRENT GRANTS;
+
+create DATABASE GARDEN_PLANTS;
+
+drop schema GARDEN_PLANTS.PUBLIC;
+
+--VEGGIES, FRUITS and FLOWERS
+
+create schema GARDEN_PLANTS.VEGGIES;
+create schema GARDEN_PLANTS.FRUITS;
+create schema GARDEN_PLANTS.FLOWERS;
+
+describe database GARDEN_PLANTS;
+
+show databases;
+show schemas;
+
+SHOW SCHEMAS IN ACCOUNT;
+
+
+------------------------------------------------SNF
+	
+DATA MODELING and NORMALIZATION
+
+--DATA MODELING
+
+Data modeling is the process of organizing and mapping data using simplified diagrams, symbols, and text to represent data associations and flow.
+
+Types of Approaches
+There are four primary approaches to data modeling.  
+
+1. Hierarchical
+	A hierarchical database model organizes data into tree-like structures with data stored as interconnected records with one-to-many arrangements. Hierarchical
+	database models are standard in XML and GIS.  
+
+2. Relational
+	A relational data model, AKA a relational model, manages data by providing methodology for specifying data and queries. Most relational data models use SQL for 
+	data definition and query language.
+
+3. Entity-relationship
+	Entity-relationship models use diagrams to portray data and their relationships. Integrated with relational data models, entity-relationship models graphically 
+	depict data elements to understand underlying models. 
+
+4. Graph
+	Graph data models are visualizations of complex relationships within data sets that are limited by a chosen domain.
+
+
+Types of Data Models
+There are three primary types of data models. 
+
+1. Conceptual, defining what data system contains, used to organize, scope, and define business concepts and rules.
+
+2. Logical, defining how a data system should be implemented, used to develop a technical map of rules and data structures.
+
+3. Physical, defining how the data system will be implemented according to the specific use case.
+
+
+--WHAT IS DATA NORMALIZATION?
+
+Data normalization applies a set of formal rules to develop standardized, organized data, and eliminates data anomalies that cause difficulty for analysis. The clean data 
+can then be easily grouped, understood, and interpreted. Without normalization, valuable data will go unused. 
+
+Depending on your use case, data normalization may happen prior to or after loading the data into your data warehouse or platform. Some platforms, such as Snowflake, allow 
+complete flexibility so you can store massive amounts of raw data and normalize only the data you need as you need it.
+
+--DATA NORMALIZATION RULES
+Data normalization rules are sequential—as you move through each rule, you normalize the data further. For this reason, you can think of normalization rules as “levels” of
+normalization. Although there are five rules in total, only three are commonly used for practical reasons, since too much normalization results in inflexibility in the 
+data model. 
+
+--1NF (First Normal Form) rule (Remove duplicate)
+	The first rule is about ensuring there are no repeating entries in a group. All attributes must have a unique name, and entities may consist of only two dimensions.
+(You’ll need to create a new entity for additional dimensions.) Each entry must have only a single value for each cell, and each record must be unique. The goal of this 
+first rule is to make it easier to search the data.
+
+--2NF (Second Normal Form) rule (Unique primary key by segregating table further)
+	The second rule is designed to eliminate redundant data. Before applying the 2NF rule, you must be sure that the 1NF rule has been fully applied. Data that is in 
+the 2NF state will have only one primary key. For this reason, you must separate data by placing all subsets of data that can be placed in multiple rows into separate 
+tables. Relationships can then be created via foreign key labels.
+
+--3NF (Third Normal Form) rule (remove transitive)
+	The third rule eliminates transitive dependency. As before, data must have achieved 1NF and 2NF status before you can apply the 3NF rule. Transitive dependency is
+when a nonprime attribute depends on other nonprime attributes instead of depending on the prime attributes or primary key. So the third rule ensures that no attribute 
+within an entity is dependent on a nonprime attribute that depends on the primary key. For this reason, if the primary key is changed, all data impacted by the change has 
+to be put into a new table with a new foreign key.
