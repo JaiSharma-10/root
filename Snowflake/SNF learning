@@ -39,6 +39,10 @@ ACCOUNTADMIN -it can manage all aspect of account
 
 -------------------------------------------------------------------------SNF
 
+IN SNF WAREHOUSE IS NOT PLACE TO STORE DATA , IT IS COMPUTE RESOURCE, OR COMPUTING POWER. WAREHOUSE IS THE MACHINE THAT CRUCHES DATA , BIG MACHINE CAN CRUCH THAT REALLY
+FAST LIKE WH-XL
+
+============================================================================
 
 Data warehouses vs Databases
 
@@ -160,3 +164,10 @@ tables. Relationships can then be created via foreign key labels.
 when a nonprime attribute depends on other nonprime attributes instead of depending on the prime attributes or primary key. So the third rule ensures that no attribute 
 within an entity is dependent on a nonprime attribute that depends on the primary key. For this reason, if the primary key is changed, all data impacted by the change has 
 to be put into a new table with a new foreign key.
+
+------------------------------------------------------------------SNF
+GETTING ROWS OF DATA INTO TABLE
+
+Using an INSERT statement from the Worksheet. 
+Using the Load Data Wizard.
+Using COPY INTO statements. 
