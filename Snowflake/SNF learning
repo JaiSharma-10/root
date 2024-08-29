@@ -178,19 +178,23 @@ Using COPY INTO statements.
 
 
 Database Storage
-When data is loaded into Snowflake, Snowflake reorganizes that data into its internal optimized, compressed, columnar format. Snowflake stores this optimized data in cloud storage.
+When data is loaded into Snowflake, Snowflake reorganizes that data into its internal optimized, compressed, columnar format. Snowflake stores this optimized data in cloud
+storage.
 
 --Elaborate
 
-Snowflake, a cloud-based data warehousing platform, stores data in cloud storage after reorganizing it into a compressed, COLUMNAR FORMAT. Snowflake manages all aspects of data storage, including organization, file size, structure, compression, metadata, and statistics.
+Snowflake, a cloud-based data warehousing platform, stores data in cloud storage after reorganizing it into a compressed, COLUMNAR FORMAT. Snowflake manages all aspects of 
+data storage, including organization, file size, structure, compression, metadata, and statistics.
  
-Snowflake storage layer uses scalable CLOUD BLOB STORAGE to store data, tables, and query results. The storage layer is designed to scale independently from compute resources, and customers can increase and reduce storage and analytics requirements independently. 
+Snowflake storage layer uses scalable CLOUD BLOB STORAGE to store data, tables, and query results. The storage layer is designed to scale independently from compute 
+resources, and customers can increase and reduce storage and analytics requirements independently. 
 
 Snowflake stores data in different places depending on the version of Snowflake: 
 AWS version: Stores data on S3 
 Azure version: Stores data on Azure Blob 
 
-Snowflake stores all data in database tables, which are logically structured as collections of columns and rows. Within each micro-partition, data is stored in a columnar data structure, allowing better compression and efficient access only to those columns required by a query. 
+Snowflake stores all data in database tables, which are logically structured as collections of columns and rows. Within each micro-partition, data is stored in a columnar 
+data structure, allowing better compression and efficient access only to those columns required by a query. 
 Customers can only access the data objects stored by Snowflake through SQL query operations run using Snowflake. 
 
 -------------------------------------------------------SNF
