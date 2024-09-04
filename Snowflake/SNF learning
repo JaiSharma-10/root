@@ -223,6 +223,44 @@ If multi-cluster scaling out takes place, clusters are added for the period of d
 The number of servers in the original cluster dictates the number of servers in each cluster during periods where the warehouse scales out by adding clusters. 
 
 
+--------------------------------------------------------SNF
+
+when an xs warehouse automatically adds cluster to handle an increase workload, this  is example of scaling OUT.
+Opposite of scaling out is snapping back.
+
+Cluster is the group of servers.
+
+All warehouse have single cluster until scaling out.
+
+Number of server is only thing that changes.
+
+--------------------------------------------------------snf
+--api_integration
+
+use role accountadmin;
+
+create or replace api integration dora_api_integration
+api_provider = aws_api_gateway
+api_aws_role_arn = 'arn:aws:iam::321463406630:role/snowflakeLearnerAssumedRole'
+enabled = true
+api_allowed_prefixes = ('https://awy6hshxy4.execute-api.us-west-2.amazonaws.com/dev/edu_dora');
+
+
+--create grader function 
+use role accountadmin;  
+
+create or replace external function util_db.public.grader(
+      step varchar
+    , passed boolean
+    , actual integer
+    , expected integer
+    , description varchar)
+returns variant
+api_integration = dora_api_integration 
+context_headers = (current_timestamp, current_account, current_statement, current_account_name) 
+as 'https://awy6hshxy4.execute-api.us-west-2.amazonaws.com/dev/edu_dora/grader'
+
+--------------------------------------------------------------------------
 ----------------------------------------snf
 To COPY INTO statement, it is best to have 4 things in place:
 
