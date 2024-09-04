@@ -469,6 +469,188 @@ file_format = ( format_name = FORMAT_DETAIL_PLANT_HEIGHT)
 	
 select * from VEGETABLE_DETAILS_PLANT_HEIGHT;
 
+--------------------------------------------------------------------------------------
+
+	
+-----------------------------------------------------SNF	
+ Create a Sequence 
+A sequence is a counter. It can help you create unique ids for table rows. There are ways to create unique ids within a single table called an AUTO-INCREMENT column. Those are easy to set up and work well in a single table. A sequence can give you the power to split information across different tables and put the same ID in all tables as a way to make it easy to link them back together later. 
+
+
+--Semi data STRUCTURE
+
+Data type "VARIANT"
+
+// JSON DDL Scripts
+use database library_card_catalog;
+use role sysadmin;
+
+// Create an Ingestion Table for JSON Data
+create table library_card_catalog.public.author_ingest_json
+(
+  raw_author variant
+);
+
+
+
+-- JSON DDL Scripts
+use database library_card_catalog;
+use role sysadmin;
+
+-- Create an Ingestion Table for JSON Data
+create table library_card_catalog.public.author_ingest_json
+(
+  raw_author variant
+);
+
+--Create File Format for JSON Data 
+create or replace file format library_card_catalog.public.json_file_format
+type = 'JSON' 
+compression = 'AUTO' 
+enable_octal = False
+allow_duplicate = False
+strip_outer_array = true -- this will result in data in different rows
+strip_null_values = false
+ignore_utf8_errors = false;
+
+select $1
+from @UTIL_DB.PUBLIC.MY_INTERNAL_STAGE/author_with_header.json;
+
+select $1
+from @UTIL_DB.PUBLIC.MY_INTERNAL_STAGE/author_with_header.json
+(file_format => library_card_catalog.public.json_file_format) ;
+
+----------------------------------
+
+copy into LIBRARY_CARD_CATALOG.PUBLIC.AUTHOR_INGEST_JSON
+from @util_db.public.my_internal_stage
+files = ('author_with_header.json')
+file_format = ( format_name = json_file_format);
+
+select * from author_ingest_json;
+
+
+---------------------------
+
+--returns AUTHOR_UID value from top-level object's attribute
+select raw_author:AUTHOR_UID
+from author_ingest_json;
+
+--returns the data in a way that makes it look like a normalized table
+SELECT 
+ raw_author:AUTHOR_UID
+,raw_author:FIRST_NAME::STRING as FIRST_NAME
+,raw_author:MIDDLE_NAME::STRING as MIDDLE_NAME
+,raw_author:LAST_NAME::STRING as LAST_NAME
+FROM AUTHOR_INGEST_JSON;
+
+
+---------------------------
+
+--Tweet data
+
+//Create a new database to hold the Twitter file
+create database SOCIAL_MEDIA_FLOODGATES 
+comment = 'There\'s so much data from social media - flood warning';
+
+use database SOCIAL_MEDIA_FLOODGATES;
+
+//Create a table in the new database
+create table SOCIAL_MEDIA_FLOODGATES.PUBLIC.TWEET_INGEST 
+("RAW_STATUS" VARIANT) 
+comment = 'Bring in tweets, one row per tweet or status entity';
+
+//Create a JSON file format in the new database
+create file format SOCIAL_MEDIA_FLOODGATES.PUBLIC.JSON_FILE_FORMAT 
+type = 'JSON'
+strip_outer_array = true;
+
+
+--'@"UTIL_DB"."PUBLIC"."MY_INTERNAL_STAGE"/nutrition_tweets.json'
+
+
+select $1
+from @UTIL_DB.PUBLIC.MY_INTERNAL_STAGE/nutrition_tweets.json;
+
+select $1
+from '@"UTIL_DB"."PUBLIC"."MY_INTERNAL_STAGE"/nutrition_tweets.json'
+(file_format => SOCIAL_MEDIA_FLOODGATES.PUBLIC.JSON_FILE_FORMAT ) ;
+
+----------------------------------
+
+copy into SOCIAL_MEDIA_FLOODGATES.PUBLIC.TWEET_INGEST 
+from @util_db.public.my_internal_stage
+files = ('nutrition_tweets.json')
+file_format = ( format_name = JSON_FILE_FORMAT);
+
+select * from TWEET_INGEST;
+
+------------------------------------------------
+//select statements as seen in the video
+SELECT RAW_STATUS
+FROM TWEET_INGEST;
+
+SELECT RAW_STATUS:entities
+FROM TWEET_INGEST;
+
+SELECT RAW_STATUS:entities:hashtags
+FROM TWEET_INGEST;
+
+//Explore looking at specific hashtags by adding bracketed numbers
+//This query returns just the first hashtag in each tweet
+SELECT RAW_STATUS:entities:hashtags[0].text
+FROM TWEET_INGEST;
+
+//This version adds a WHERE clause to get rid of any tweet that 
+//doesn't include any hashtags
+SELECT RAW_STATUS:entities:hashtags[0].text
+FROM TWEET_INGEST
+WHERE RAW_STATUS:entities:hashtags[0].text is not null;
+
+//Perform a simple CAST on the created_at key
+//Add an ORDER BY clause to sort by the tweet's creation date
+SELECT RAW_STATUS:created_at::DATE
+FROM TWEET_INGEST
+ORDER BY RAW_STATUS:created_at::DATE;
+
+//Flatten statements that return the whole hashtag entity
+SELECT value
+FROM TWEET_INGEST
+,LATERAL FLATTEN
+(input => RAW_STATUS:entities:hashtags);
+
+SELECT value
+FROM TWEET_INGEST
+,TABLE(FLATTEN(RAW_STATUS:entities:hashtags));
+
+//Flatten statement that restricts the value to just the TEXT of the hashtag
+SELECT value:text
+FROM TWEET_INGEST
+,LATERAL FLATTEN
+(input => RAW_STATUS:entities:hashtags);
+
+
+//Flatten and return just the hashtag text, CAST the text as VARCHAR
+SELECT value:text::VARCHAR
+FROM TWEET_INGEST
+,LATERAL FLATTEN
+(input => RAW_STATUS:entities:hashtags);
+
+//Flatten and return just the hashtag text, CAST the text as VARCHAR
+// Use the AS command to name the column
+SELECT value:text::VARCHAR AS THE_HASHTAG
+FROM TWEET_INGEST
+,LATERAL FLATTEN
+(input => RAW_STATUS:entities:hashtags);
+
+//Add the Tweet ID and User ID to the returned table
+SELECT RAW_STATUS:user:id AS USER_ID
+,RAW_STATUS:id AS TWEET_ID
+,value:text::VARCHAR AS HASHTAG_TEXT
+FROM TWEET_INGEST
+,LATERAL FLATTEN
+(input => RAW_STATUS:entities:hashtags);
+
 
 --------------------------------------------------------------------------------------
 
