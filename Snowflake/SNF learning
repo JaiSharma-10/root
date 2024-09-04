@@ -221,3 +221,189 @@ Scaling In and Out:
 If multi-cluster/elastic warehousing is available (Enterprise edition or above) a warehouse is capable of scaling out in times of increased demand.  (Adding temporary teams, made up of a collection of temporary workers). 
 If multi-cluster scaling out takes place, clusters are added for the period of demand and then clusters are removed (snap back) when demand decreases. (Removing temporary teams). 
 The number of servers in the original cluster dictates the number of servers in each cluster during periods where the warehouse scales out by adding clusters. 
+
+
+----------------------------------------snf
+To COPY INTO statement, it is best to have 4 things in place:
+
+A table 
+A stage object
+A file
+A file format 
+The file format is sort of optional, but it is a cleaner process if you have one, and we do!
+
+copy into my_table_name
+from @my_internal_stage
+files = ( 'IF_I_HAD_A_FILE_LIKE_THIS.txt')
+file_format = ( format_name='EXAMPLE_FILEFORMAT' );
+
+-------------
+
+HOW TO CREATE STAGE AND FILE FORMAT
+
+--create table
+
+create or replace table vegetable_details_soil_type
+( plant_name varchar(25)
+ ,soil_type number(1,0)
+);
+
+--create format 
+
+create file format garden_plants.veggies.PIPECOLSEP_ONEHEADROW 
+    type = 'CSV'--csv is used for any flat file (tsv, pipe-separated, etc)
+    field_delimiter = '|' --pipes as column separators
+    skip_header = 1 --one header row to skip
+	
+-- copy into
+
+copy into vegetable_details_soil_type
+from @util_db.public.my_internal_stage
+files = ( 'VEG_NAME_TO_SOIL_TYPE_PIPE.txt')
+file_format = ( format_name=GARDEN_PLANTS.VEGGIES.PIPECOLSEP_ONEHEADROW );
+
+
+----------------------------------------------
+
+--The data in the file, with no FILE FORMAT specified
+select $1
+from @util_db.public.my_internal_stage/LU_SOIL_TYPE.tsv;
+
+--Same file but with one of the file formats we created earlier  
+select $1, $2, $3
+from @util_db.public.my_internal_stage/LU_SOIL_TYPE.tsv
+(file_format => garden_plants.veggies.COMMASEP_DBLQUOT_ONEHEADROW);
+
+--Same file but with the other file format we created earlier
+select $1, $2, $3
+from @util_db.public.my_internal_stage/LU_SOIL_TYPE.tsv
+(file_format => garden_plants.veggies.PIPECOLSEP_ONEHEADROW );
+
+---------------------------------------------
+
+--CREATE FILE FORMAT
+Creates a named file format that describes a set of staged data to access or load into Snowflake tables.
+--query syntax
+CREATE [ OR REPLACE ] [ { TEMP | TEMPORARY | VOLATILE } ] FILE FORMAT [ IF NOT EXISTS ] <name>
+  [ TYPE = { CSV | JSON | AVRO | ORC | PARQUET | XML | CUSTOM} [ formatTypeOptions ] ]
+  [ COMMENT = '<string_literal>' ]
+  
+ formatTypeOptions ::=
+-- If TYPE = CSV
+     COMPRESSION = AUTO | GZIP | BZ2 | BROTLI | ZSTD | DEFLATE | RAW_DEFLATE | NONE
+     RECORD_DELIMITER = '<character>' | NONE
+     FIELD_DELIMITER = '<character>' | NONE
+     FILE_EXTENSION = '<string>'
+     PARSE_HEADER = TRUE | FALSE
+     SKIP_HEADER = <integer>
+     SKIP_BLANK_LINES = TRUE | FALSE
+     DATE_FORMAT = '<string>' | AUTO
+     TIME_FORMAT = '<string>' | AUTO
+     TIMESTAMP_FORMAT = '<string>' | AUTO
+     BINARY_FORMAT = HEX | BASE64 | UTF8
+     ESCAPE = '<character>' | NONE
+     ESCAPE_UNENCLOSED_FIELD = '<character>' | NONE
+     TRIM_SPACE = TRUE | FALSE
+     FIELD_OPTIONALLY_ENCLOSED_BY = '<character>' | NONE
+     NULL_IF = ( '<string>' [ , '<string>' ... ] )
+     ERROR_ON_COLUMN_COUNT_MISMATCH = TRUE | FALSE
+     REPLACE_INVALID_CHARACTERS = TRUE | FALSE
+     EMPTY_FIELD_AS_NULL = TRUE | FALSE
+     SKIP_BYTE_ORDER_MARK = TRUE | FALSE
+     ENCODING = '<string>' | UTF8
+-- If TYPE = JSON
+     COMPRESSION = AUTO | GZIP | BZ2 | BROTLI | ZSTD | DEFLATE | RAW_DEFLATE | NONE
+     DATE_FORMAT = '<string>' | AUTO
+     TIME_FORMAT = '<string>' | AUTO
+     TIMESTAMP_FORMAT = '<string>' | AUTO
+     BINARY_FORMAT = HEX | BASE64 | UTF8
+     TRIM_SPACE = TRUE | FALSE
+     NULL_IF = ( '<string>' [ , '<string>' ... ] )
+     FILE_EXTENSION = '<string>'
+     ENABLE_OCTAL = TRUE | FALSE
+     ALLOW_DUPLICATE = TRUE | FALSE
+     STRIP_OUTER_ARRAY = TRUE | FALSE
+     STRIP_NULL_VALUES = TRUE | FALSE
+     REPLACE_INVALID_CHARACTERS = TRUE | FALSE
+     IGNORE_UTF8_ERRORS = TRUE | FALSE
+     SKIP_BYTE_ORDER_MARK = TRUE | FALSE
+-- If TYPE = AVRO
+     COMPRESSION = AUTO | GZIP | BROTLI | ZSTD | DEFLATE | RAW_DEFLATE | NONE
+     TRIM_SPACE = TRUE | FALSE
+     REPLACE_INVALID_CHARACTERS = TRUE | FALSE
+     NULL_IF = ( '<string>' [ , '<string>' ... ] )
+-- If TYPE = ORC
+     TRIM_SPACE = TRUE | FALSE
+     REPLACE_INVALID_CHARACTERS = TRUE | FALSE
+     NULL_IF = ( '<string>' [ , '<string>' ... ] )
+-- If TYPE = PARQUET
+     COMPRESSION = AUTO | LZO | SNAPPY | NONE
+     SNAPPY_COMPRESSION = TRUE | FALSE
+     BINARY_AS_TEXT = TRUE | FALSE
+     USE_LOGICAL_TYPE = TRUE | FALSE
+     TRIM_SPACE = TRUE | FALSE
+     REPLACE_INVALID_CHARACTERS = TRUE | FALSE
+     NULL_IF = ( '<string>' [ , '<string>' ... ] )
+-- If TYPE = XML
+     COMPRESSION = AUTO | GZIP | BZ2 | BROTLI | ZSTD | DEFLATE | RAW_DEFLATE | NONE
+     IGNORE_UTF8_ERRORS = TRUE | FALSE
+     PRESERVE_SPACE = TRUE | FALSE
+     STRIP_OUTER_ELEMENT = TRUE | FALSE
+     DISABLE_SNOWFLAKE_DATA = TRUE | FALSE
+     DISABLE_AUTO_CONVERT = TRUE | FALSE
+     REPLACE_INVALID_CHARACTERS = TRUE | FALSE
+     SKIP_BYTE_ORDER_MARK = TRUE | FALSE
+  
+  
+--L9_CHALLENGE_FF
+
+create or replace file format garden_plants.veggies.L9_CHALLENGE_FF
+	type = 'CSV' -- error invalid value ['TSV'] for parameter 'type'
+	field_delimiter = '\t' -- providing tab as delimiter
+	skip_header = 1;
+	
+--The data in the file, with no FILE FORMAT specified
+select $1
+from @util_db.public.my_internal_stage/LU_SOIL_TYPE.tsv;
+
+--Same file but with one of the file formats we created earlier  
+select $1, $2, $3
+from @util_db.public.my_internal_stage/LU_SOIL_TYPE.tsv
+(file_format => garden_plants.veggies.COMMASEP_DBLQUOT_ONEHEADROW);
+
+
+--passed
+
+create or replace table LU_SOIL_TYPE(
+SOIL_TYPE_ID number,	
+SOIL_TYPE varchar(15),
+SOIL_DESCRIPTION varchar(75)
+ );
+
+--copy into 
+
+copy into LU_SOIL_TYPE
+from @util_db.public.my_internal_stage
+files = ( 'LU_SOIL_TYPE.tsv')
+file_format = ( format_name=GARDEN_PLANTS.VEGGIES.L9_CHALLENGE_FF );
+
+
+
+------------------------------------------------------------------------------------
+
+🎯 Choose a File Format, write the COPY INTO, Load the File into the Table
+
+Download this file: veg_plant_height.csv
+
+Look at the data. Do not edit the data. Just look to understand it.  
+
+Create a table called VEGETABLE_DETAILS_PLANT_HEIGHT in the VEGGIES schema. Use the header row of the file to get your column names. Choose good data types for each column. 
+
+Upload the file into your stage.
+
+Choose an existing file format (one you already created) that you think can be used to load the data.
+
+Use a COPY INTO command to load the file from the Stage to the table you created. 
+
+NOTE: The most common error is "Number of columns in file (1) does not match that of the corresponding table (4)" if you see this message, you have not chosen the correct file format. Or, sometimes, you are trying to load the wrong file. Double-check the file, file format, and table to make sure they match up. 
+
