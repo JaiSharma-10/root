@@ -407,3 +407,26 @@ Use a COPY INTO command to load the file from the Stage to the table you created
 
 NOTE: The most common error is "Number of columns in file (1) does not match that of the corresponding table (4)" if you see this message, you have not chosen the correct file format. Or, sometimes, you are trying to load the wrong file. Double-check the file, file format, and table to make sure they match up. 
 
+-------------------------------SNF
+
+create or replace file format FORMAT_DETAIL_PLANT_HEIGHT
+    type = 'CSV'
+    field_delimiter = ','
+    skip_header =1
+    RECORD_DELIMITER = '\n' 
+    FIELD_OPTIONALLY_ENCLOSED_BY = '\"';
+	
+select $1, $2, $3 , $4, $5 
+from @util_db.public.my_internal_stage/veg_plant_height.csv;
+	
+select $1, $2, $3 , $4 ,$5
+from @util_db.public.my_internal_stage/veg_plant_height.csv
+(file_format => garden_plants.veggies.FORMAT_DETAIL_PLANT_HEIGHT);
+
+	
+copy into VEGETABLE_DETAILS_PLANT_HEIGHT 
+from @util_db.public.my_internal_stage
+files = ( 'veg_plant_height.csv')
+file_format = ( format_name = FORMAT_DETAIL_PLANT_HEIGHT)
+	
+select * from VEGETABLE_DETAILS_PLANT_HEIGHT;
