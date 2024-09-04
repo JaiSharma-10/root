@@ -468,3 +468,14 @@ files = ( 'veg_plant_height.csv')
 file_format = ( format_name = FORMAT_DETAIL_PLANT_HEIGHT)
 	
 select * from VEGETABLE_DETAILS_PLANT_HEIGHT;
+
+
+--------------------------------------------------------------------------------------
+
+▪️ | 🎉 Badge Time! | ESS-DWW Courseware | Snowflake University: On-Demand
+
+https://learn.snowflake.com/courses/course-v1:snowflake+ESS_DWW_101+2021/courseware/26086155ba0b43d28755a2d5a2111756/35515f95be0945e7b30859714e336237/?child=first
+
+Home - Snowflake
+
+https://app.snowflake.com/baqcvdr/lrb05308/#/homepage
