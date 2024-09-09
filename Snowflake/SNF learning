@@ -675,3 +675,50 @@ https://achieve.snowflake.com/730d2107-b912-484c-8751-48dd830e2b1e#gs.e373mb
 Courses
 
 https://learn.snowflake.com/en/courses/
+
+
+=========================================================================================================================================================================
+
+Badge 2- 
+
+
+--Joining local data with shared data
+create or replace table intl_db.public.INT_STDS_ORG_3166 
+(iso_country_name varchar(100), 
+ country_name_official varchar(200), 
+ sovreignty varchar(40), 
+ alpha_code_2digit varchar(2), 
+ alpha_code_3digit varchar(3), 
+ numeric_country_code integer,
+ iso_subdivision varchar(15), 
+ internet_domain_code varchar(10)
+);
+
+
+create or replace file format util_db.public.PIPE_DBLQUOTE_HEADER_CR 
+  type = 'CSV' --use CSV for any flat file
+  compression = 'AUTO' 
+  field_delimiter = '|' --pipe or vertical bar
+  record_delimiter = '\r' --carriage return
+  skip_header = 1  --1 header row
+  field_optionally_enclosed_by = '\042'  --double quotes
+  trim_space = FALSE;
+
+--Data files for this course are available from an s3 bucket named uni-cmcw.  There is only one s3 bucket in the whole world with that name and it belongs to this course.
+show stages in account;
+
+create or replace stage util_db.public.aws_s3_bucket url = 's3://uni-cmcw';
+--creating stage
+
+--The file you will be loading is called iso_countries_utf8_pipe.csv. BUT remember that AWS is very case sensitive, so be sure to look up the EXACT spelling of the file name for your COPY INTO statement. Remember that you can view the files in the stage either by navigating to the stage and enabling the directory table, or by running a list command like this
+
+list @util_db.public.aws_s3_bucket;
+
+--copy inot from S3 bucket
+copy into intl_db.public.INT_STDS_ORG_3166 
+from @UTIL_DB.PUBLIC.AWS_S3_BUCKET
+files = ('ISO_Countries_UTF8_pipe.csv')
+file_format = (format_name = 'PIPE_DBLQUOTE_HEADER_CR');
+
+select count(*) as found, '249' as expected 
+from INTL_DB.PUBLIC.INT_STDS_ORG_3166; 
