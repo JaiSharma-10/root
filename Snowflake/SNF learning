@@ -722,3 +722,10 @@ file_format = (format_name = 'PIPE_DBLQUOTE_HEADER_CR');
 
 select count(*) as found, '249' as expected 
 from INTL_DB.PUBLIC.INT_STDS_ORG_3166; 
+
+--How to Test Whether You Set Up Your Table in the Right Place with the Right Name
+ 
+select count(*) as OBJECTS_FOUND
+from <database name>.INFORMATION_SCHEMA.TABLES 
+where table_schema=<schema name> 
+and table_name= <table name>;
