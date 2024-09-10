@@ -814,4 +814,52 @@ file_format = (format_name = 'UTIL_DB.PUBLIC.CSV_COMMA_LF_HEADER');
 ---
 
 select * from INTL_DB.PUBLIC.CURRENCIES;
+
+------------------------------------------------------------------------------
+
+-----------------------------------------SNF
+--two SNOWFALKE accounts
+
+1-
+https://app.snowflake.com/nykiqhf/acme/#/homepage
+ACME
+ACME_ADMIN
+Yay123456
+NYKIQHF.ACME
+
+2-
+https://app.snowflake.com/nykiqhf/qrb06978/#/homepage
+WORLD_EMP_DATA (WDE)
+Jai1097
+
+
+--Sharing data between two account 
+
+--adding in Data product -> Provider Sharing and ACME as the consumer
+
+--so whatever data WORLD_EMP_DATA have can be shared to ACME_ADMIN (in private sharing)
+
+--How Sharing Will Work
+--Because your trial account (WDE) and your ACME account are on different clouds, in different regions, Snowflake will automatically perform replication to the other cloud/region.
+
+--This will be a cost that WDE/Osiris covers. If Osiris doesn't want to cover that cost, he could insist that Lottie's team get a Snowflake account on the same cloud and in the same region as his primary account. This may become part of their negotiations.
+
+--If we look at the WDE Account (your original trial account) we see that a new database with an odd name has been created. 
+
+--📓 What is a Listing?
+--A listing is a vehicle for sharing. As we've seen, we were able to create a data share named WDE_INTL_CURRENCIES and enclose it in a listing named "International Currencies."
+
+
+--SNOWFLAKE PRICING
+
+--The Snowflake architecture separates data warehousing into three distinct layers: storage, virtual warehouses (compute), and cloud services. Snowflake pricing is based on the actual usage of these layers and of serverless features Snowpipe, replication and Clustering.
+
+--Storage
+--A monthly fee for data stored in Snowflake is calculated using the average amount of storage used per month, after compression, for data ingested into Snowflake. Depending on file types, compression can reduce the total storage needs substantially.
+
+--Virtual Warehouses (Compute)
+--A virtual warehouse is one or more compute clusters that enable customers to load data and perform queries. Customers pay for virtual warehouses using Snowflake credits.
+
+--Cloud Services
+--The cloud services layer provides all permanent state management and overall coordination of Snowflake. Customers pay for cloud services using Snowflake credits.
  
