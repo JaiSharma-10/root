@@ -729,3 +729,89 @@ select count(*) as OBJECTS_FOUND
 from <database name>.INFORMATION_SCHEMA.TABLES 
 where table_schema=<schema name> 
 and table_name= <table name>;
+
+
+--------------------------------------------------------------------------------------------snf
+
+-- So if we are looking for INTL_DB.PUBLIC.INT_STDS_ORG_3166 we can run this command to check: 
+
+select count(*) as OBJECTS_FOUND
+from INTL_DB.INFORMATION_SCHEMA.TABLES 
+where table_schema='PUBLIC'
+and table_name= 'INT_STDS_ORG_3166';
+
+--We can "ask" the Information Schema Table called "Tables" if our table has the expected number of rows with a command like this:
+
+select row_count
+from <database name>.INFORMATION_SCHEMA.TABLES 
+where table_schema=<schema name> 
+and table_name= <table name>;
+
+--for  INTL_DB.PUBLIC.INT_STDS_ORG_3166
+
+select row_count
+from INTL_DB.INFORMATION_SCHEMA.TABLES 
+where table_schema='PUBLIC'
+and table_name= 'INT_STDS_ORG_3166';
+
+--use of views is to capture a complex select statement and make it simple to run 
+
+----------------------------------------------------------------------------------------------
+--Create Table Currencies
+
+create table intl_db.public.CURRENCIES 
+(
+  currency_ID integer, 
+  currency_char_code varchar(3), 
+  currency_symbol varchar(4), 
+  currency_digital_code varchar(3), 
+  currency_digital_name varchar(30)
+)
+  comment = 'Information about currencies including character codes, symbols, digital codes, etc.';
+
+  create table intl_db.public.COUNTRY_CODE_TO_CURRENCY_CODE 
+  (
+    country_char_code varchar(3), 
+    country_numeric_code integer, 
+    country_name varchar(100), 
+    currency_name varchar(100), 
+    currency_char_code varchar(3), 
+    currency_numeric_code integer
+  ) 
+  comment = 'Mapping table currencies to countries';
+
+   create file format util_db.public.CSV_COMMA_LF_HEADER
+  type = 'CSV' 
+  field_delimiter = ',' 
+  record_delimiter = '\n' -- the n represents a Line Feed character
+  skip_header = 1 
+;
+
+--viweing aws stage file data with file format CSV_COMMA_LF_HEADER
+
+select $1, $2 ,$3, $4, $5
+from '@"UTIL_DB"."PUBLIC"."AWS_S3_BUCKET"/currencies.csv'
+(file_format => UTIL_DB.PUBLIC.CSV_COMMA_LF_HEADER);
+
+--load data from stage to table
+copy into INTL_DB.PUBLIC.CURRENCIES
+from @UTIL_DB.PUBLIC.AWS_S3_BUCKET
+files = ('currencies.csv')
+file_format = (format_name = 'UTIL_DB.PUBLIC.CSV_COMMA_LF_HEADER') ;
+
+
+--from @STAGE_NAME
+
+select $1, $2 ,$3, $4, $5, $6
+from '@"UTIL_DB"."PUBLIC"."AWS_S3_BUCKET"/country_code_to_currency_code.csv'
+(file_format => UTIL_DB.PUBLIC.CSV_COMMA_LF_HEADER);
+
+copy into INTL_DB.PUBLIC.COUNTRY_CODE_TO_CURRENCY_CODE
+from @UTIL_DB.PUBLIC.AWS_S3_BUCKET
+files = ('country_code_to_currency_code.csv')
+file_format = (format_name = 'UTIL_DB.PUBLIC.CSV_COMMA_LF_HEADER');
+
+---
+
+select * from INTL_DB.PUBLIC.CURRENCIES;
+ 
