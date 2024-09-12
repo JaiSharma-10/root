@@ -862,4 +862,178 @@ Jai1097
 
 --Cloud Services
 --The cloud services layer provides all permanent state management and overall coordination of Snowflake. Customers pay for cloud services using Snowflake credits.
+
+
+
+--------------------------------------------------SNF
+Badge 2: Collaboration, Marketplace & Cost Estimation Workshop
+A course covering Snowflake iss revolutionary collaboration technologies. Learn to create listings, get listings sent by other accounts, and shop for data sets on the Snowflake Marketplace. Understand how your organization can get rid of nightly extracts and cumbersome ETL processes. This course also helps those new to SQL brush up on some important SQL skills including basics like DISTINCT, GROUP BY, ORDER BY, JOINS, and control-of-flow like BEGIN, END, DECLARE and FOR. Finally, the course covers cost categories, cost estimation, and some beginner-level cost control mechanisms.
+
+
+
+====================================================================
+
+BELOW IS THE EXMAPLE OF SNF USE FROM START FROM ACCOUNT CREATION -> WAREHOUSE, RESOURCE MONITOR CREATION ->DATABASE->SCHEMA -> TABLE CREATION ->FILE FORMAT->CREATE AN EXTERNAL STAGE -> COPY INTO TABLES
+
+3-GCP
+https://nykiqhf-auto_data_unlimited.snowflakecomputing.com
+AUTO_DATA_UNLIMITED
+ADU_ADMIN
+YaY123456
+
+create database VIN;
+
+create schema VIN.DECODE;
+
+drop schema VIN.PUBLIC;
+
+--We need a table that will allow WMIs to be decoded into Manufacturer Name, Country and Vehicle Type
+CREATE TABLE vin.decode.wmi_to_manuf 
+(
+     wmi	    varchar(6)
+    ,manuf_id	    number(6)
+    ,manuf_name	    varchar(50)
+    ,country	    varchar(50)
+    ,vehicle_type    varchar(50)
+ );
+ 
+--We need a table that will allow you to go from Manufacturer to Make
+--For example, Mercedes AG of Germany and Mercedes USA both roll up into Mercedes
+--But they use different WMI Codes
+CREATE TABLE vin.decode.manuf_to_make
+(
+     manuf_id	number(6)
+    ,make_name	varchar(50)
+    ,make_id	number(5)
+);
+
+--We need a table that can decode the model year
+-- The year 2001 is represented by the digit 1
+-- The year 2020 is represented by the letter L
+CREATE TABLE vin.decode.model_year
+(
+     model_year_code	varchar(1)
+    ,model_year_name	varchar(4)
+);
+
+--We need a table that can decode which plant at which 
+--the vehicle was assembled
+--You might have code "A" for Honda and code "A" for Ford
+--so you need both the Make and the Plant Code to properly decode 
+--the plant code
+CREATE TABLE vin.decode.manuf_plants
+(
+     make_id	number(5)
+    ,plant_code	varchar(1)
+    ,plant_name	varchar(75)
+ );
+ 
+--We need to use a combination of both the Make and VDS 
+--to decode many attributes including the engine, transmission, etc
+CREATE TABLE vin.decode.make_model_vds
+(
+     make_id	  number(3)
+    ,model_id	  number(6)
+    ,model_name	  varchar(50)
+    ,vds	  varchar(5)
+    ,desc1	  varchar(25)
+    ,desc2	  varchar(25)
+    ,desc3	  varchar(50)
+    ,desc4	  varchar(25)
+    ,desc5	  varchar(25)
+    ,body_style	  varchar(25)
+    ,engine	  varchar(100)
+    ,drive_type	  varchar(50)
+    ,transmission varchar(50)
+    ,mpg  	varchar(25)
+);
+
+
+--Create a file format and then load each of the 5 Lookup Tables
+--You need a file format if you want to load the table
+CREATE FILE FORMAT vin.decode.comma_sep_oneheadrow 
+type = 'CSV' 
+field_delimiter = ',' 
+record_delimiter = '\n' 
+skip_header = 1 
+field_optionally_enclosed_by = '"'  
+trim_space = TRUE;
+
+
+-- Even though our ADU Account is on GCP, we can still pull files from an AWS Stage. Storage from all 3 cloud providers work seamlessly with Snowflake accounts on any other provider.
+
+-- It should be an External AWS Stage
+-- The URL is  s3://uni-cmcw/  
+-- The stage should be in the VIN.DECODE schema. 
+-- You can name it whatever you want, but aws_s3_bucket might be easiest.
+-- It should be owned by SYSADMIN
+
+
+--approach via coding
+
+
+-- External stages
+-- In addition to loading directly from files in S3 buckets, Snowflake supports creating named external stages, which encapsulate all of the required information for staging files, including:
+
+-- The S3 bucket where the files are staged.
+
+-- The named storage integration object or S3 credentials for the bucket (if it is protected).
+
+-- An encryption key (if the files in the bucket have been encrypted).
+
+
+-- Create an external stage using SQL¶
+-- Use the CREATE STAGE command to create an external stage using SQL.
+
+-- The following example uses SQL to create an external stage named my_s3_stage that references a private/protected S3 bucket named mybucket with a folder path named encrypted_files/. The CREATE statement includes the s3_int storage integration that was created in Option 1: Configuring a Snowflake storage integration to access Amazon S3 to access the S3 bucket. The stage references a named file format object named my_csv_format, which describes the data in the files stored in the bucket path:
+
+-- CREATE STAGE my_s3_stage
+--   STORAGE_INTEGRATION = s3_int
+--   URL = 's3://mybucket/encrypted_files/'
+--   FILE_FORMAT = my_csv_format
+
+
+
+COPY INTO vin.decode.wmi_to_manuf
+from @vin.decode.aws_s3_bucket
+files = ('Maxs_WMIToManuf_data.csv')
+file_format =(format_name = vin.decode.comma_sep_oneheadrow);
+
+COPY INTO vin.decode.manuf_to_make
+from @vin.decode.aws_s3_bucket
+files = ('Maxs_ManufToMake_Data.csv')
+file_format =(format_name = vin.decode.comma_sep_oneheadrow);
+
+
+COPY INTO vin.decode.model_year
+from @vin.decode.aws_s3_bucket
+files = ('Maxs_ModelYear_Data.csv')
+file_format =(format_name = vin.decode.comma_sep_oneheadrow);
+
+--there's a typo in the stage name here. Remember that AWS is case-sensitive and fix the file name
+COPY INTO vin.decode.manuf_plants
+from @vin.decode.aws_s3_bucket
+files = ('Maxs_ManufPlants_Data.csv')
+file_format =(format_name = vin.decode.comma_sep_oneheadrow);
+
+--there's one table left to load, and one file left to be loaded. 
+--figure out what goes in each of the <bracketed> areas to make the final load
+COPY INTO VIN.DECODE.MAKE_MODEL_VDS
+from @vin.decode.aws_s3_bucket
+files = ('Maxs_MMVDS_Data.csv')
+file_format =(format_name=vin.decode.comma_sep_oneheadrow);
+
+
+
+show stages;-- as name suggests it shows all stages created
+
+LIST @vin.decode.aws_s3_bucket; -- and this query will help you to list all files in stage
+
+--s3://uni-cmcw/Maxs_MMVDS_Data.csv
+
+===============================================================
+
+
+
+
  
