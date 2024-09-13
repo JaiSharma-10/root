@@ -1174,6 +1174,230 @@ from table(vin.decode.PARSE_AND_ENHANCE_VIN('19UUB2F34LA001631'));
 select *
 from table(vin.decode.PARSE_AND_ENHANCE_VIN('5UXCR6C0XL9C77256'));
 
+--------------------------------------------------------------------------------------------------------------------------
+
+------------------------
+
+--QUESTION
+
+Since your ACME account and your ADU account are on two different clouds, how can they share so easily with one another?
+
+--ANS
+
+--Snowflake will create a new database called SNOWFLAKE$GDS and use it to automate the replication needed.
+
+--QUESTION
+
+--How to Load a File of 3 Columns into a Table of 18 Columns?
+ 
+--ANS
+
+--Did you notice that the file we are loading only has 3 columns or fields? The VIN, the Exterior Colors and the Interior Colors are the columns in our file. The other columns in the table will be empty until we use Max's DECODE functionality to populate them. 
+--
+--To load our file into our table, we'll need a new File Format with two new properties. 
+--
+--We'll replace the SKIP_HEADER property with a PARSE_HEADER property. This will tell Snowflake to look at that first row and use it to figure out the column names. 
+--
+--We'll also add a ERROR_ON_COLUMN_COUNT_MISMATCH property. By setting this property FALSE, we'll be telling Snowflake that it's fine if the file has 3 columns but the table has 18. 
+
+-- This file format will allow the 3 column file to be loaded into an 18 column table
+-- By parsing the header, Snowflake can infer the column names
+CREATE FILE FORMAT util_db.public.CSV_COL_COUNT_DIFF 
+type = 'CSV' 
+field_delimiter = ',' 
+record_delimiter = '\n' 
+field_optionally_enclosed_by = '"'
+trim_space = TRUE
+error_on_column_count_mismatch = FALSE
+parse_header = TRUE;
+
+
+-- With a parsed header, Snowflake can MATCH BY COLUMN NAME during the COPY INTO
+copy into stock.unsold.lotstock
+from @stock.unsold.aws_s3_bucket/Lotties_LotStock_Data.csv
+file_format = (format_name = util_db.public.csv_col_count_diff)
+match_by_column_name='CASE_INSENSITIVE';
+
+
+--after data listing from Max of ADU to ACME 
+
+--we can use function via acme account without having access to logic 
+
+--If ACME Can't see the tables and their data, how can they run the function that uses those tables and their data!
+
+
+
+select * 
+from table(ADU_VIN.DECODE.PARSE_AND_ENHANCE_VIN('5UXCR6C0XL9C77256'));
+
+alter database VIN_PARSE__ENHANCE;
+
+ALTER DATABASE IF EXISTS VIN_PARSE__ENHANCE RENAME TO ADU_VIN;
+
+
+--A simple select from Lot Stock (choose any VIN from the LotStock table)
+select * 
+from stock.unsold.lotstock
+where vin = '5J8YD4H86LL013641';
+
+-- here we use ls for lotstock table and pf for parse function
+-- this more complete statement lets us combine the data already in the table 
+-- with the data returned from the parse function
+select ls.vin, ls.exterior, ls.interior, pf.*
+from
+(select * 
+from table(ADU_VIN.DECODE.PARSE_AND_ENHANCE_VIN('5J8YD4H86LL013641'))
+) pf
+join stock.unsold.lotstock ls
+where pf.vin = ls.vin;
+;
+
+-- We can use a local (session) variable to make it easier to change the VIN we are trying to enhance
+set my_vin = '5J8YD4H86LL013641';
+
+select $my_vin;
+select ls.vin, pf.manuf_name, pf.vehicle_type
+        , pf.make_name, pf.plant_name, pf.model_year
+        , pf.desc1, pf.desc2, pf.desc3, pf.desc4, pf.desc5
+        , pf.engine, pf.drive_type, pf.transmission, pf.mpg
+from stock.unsold.lotstock ls
+join 
+    (   select 
+          vin, manuf_name, vehicle_type
+        , make_name, plant_name, model_year
+        , desc1, desc2, desc3, desc4, desc5
+        , engine, drive_type, transmission, mpg
+        from table(ADU_VIN.DECODE.PARSE_AND_ENHANCE_VIN($my_vin))
+    ) pf
+on pf.vin = ls.vin;
+
+
+-- We're using "s" for "source." The joined data from the LotStock table and the parsing function will be a source of data for us. 
+-- We're using "t" for "target." The LotStock table is the target table we want to update.
+ 
+update stock.unsold.lotstock t
+set manuf_name = s.manuf_name
+, vehicle_type = s.vehicle_type
+, make_name = s.make_name
+, plant_name = s.plant_name
+, model_year = s.model_year
+, desc1 = s.desc1
+, desc2 = s.desc2
+, desc3 = s.desc3
+, desc4 = s.desc4
+, desc5 = s.desc5
+, engine = s.engine
+, drive_type = s.drive_type
+, transmission = s.transmission
+, mpg = s.mpg
+from 
+(
+    select ls.vin, pf.manuf_name, pf.vehicle_type
+        , pf.make_name, pf.plant_name, pf.model_year
+        , pf.desc1, pf.desc2, pf.desc3, pf.desc4, pf.desc5
+        , pf.engine, pf.drive_type, pf.transmission, pf.mpg
+    from stock.unsold.lotstock ls
+    join 
+    (   select 
+          vin, manuf_name, vehicle_type
+        , make_name, plant_name, model_year
+        , desc1, desc2, desc3, desc4, desc5
+        , engine, drive_type, transmission, mpg
+        from table(ADU_VIN.DECODE.PARSE_AND_ENHANCE_VIN($my_vin))
+    ) pf
+    on pf.vin = ls.vin
+) s
+where t.vin = s.vin;
+
+
+🥋 Setting a Variable with a SQL Query
+
+-- We can count the number of rows in the LotStock table that have not yet been updated.  
+ 
+set row_count = (select count(*) 
+                from stock.unsold.lotstock
+                where manuf_name is null);
+
+select $row_count;
+
+
+
+--------------------------------------------------------------------------------
+
+--CONTROL FLOW
+
+
+📓 A Look at a SQL Scripting Block
+Words like DECLARE, BEGIN, END, FOR are for "control of flow". They allow you to dictate which statements will take place in a certain order and be run one after another. 
+
+The code block below will allow you to update all the remaining LotStock rows by clicking RUN just one more time.
+
+Till now we have updated only three.
+
+Before running the code block below, look at the images below to see what each part is doing. 
+
+
+When you run the code block, notice how slow it runs!! This is because it is updating one row each time it completes a loop.
+
+Snowflake was originally optimized for bulk loading and bulk updating.
+
+
+🥋 Combining the Table Data with the Function Data
+copy command
+
+-- This scripting block runs very slow, but it shows how blocks work for people who are new to using them
+DECLARE
+    update_stmt varchar(2000);
+    res RESULTSET;
+    cur CURSOR FOR select vin from stock.unsold.lotstock where manuf_name is null;
+BEGIN
+    OPEN cur;
+    FOR each_row IN cur DO
+        update_stmt := 'update stock.unsold.lotstock t '||
+            'set manuf_name = s.manuf_name ' ||
+            ', vehicle_type = s.vehicle_type ' ||
+            ', make_name = s.make_name ' ||
+            ', plant_name = s.plant_name ' ||
+            ', model_year = s.model_year ' ||
+            ', desc1 = s.desc1 ' ||
+            ', desc2 = s.desc2 ' ||
+            ', desc3 = s.desc3 ' ||
+            ', desc4 = s.desc4 ' ||
+            ', desc5 = s.desc5 ' ||
+            ', engine = s.engine ' ||
+            ', drive_type = s.drive_type ' ||
+            ', transmission = s.transmission ' ||
+            ', mpg = s.mpg ' ||
+            'from ' ||
+            '(       select ls.vin, pf.manuf_name, pf.vehicle_type ' ||
+                    ', pf.make_name, pf.plant_name, pf.model_year ' ||
+                    ', pf.desc1, pf.desc2, pf.desc3, pf.desc4, pf.desc5 ' ||
+                    ', pf.engine, pf.drive_type, pf.transmission, pf.mpg ' ||
+                'from stock.unsold.lotstock ls ' ||
+                'join ' ||
+                '(   select' || 
+                '     vin, manuf_name, vehicle_type' ||
+                '    , make_name, plant_name, model_year ' ||
+                '    , desc1, desc2, desc3, desc4, desc5 ' ||
+                '    , engine, drive_type, transmission, mpg ' ||
+                '    from table(ADU_VIN.DECODE.PARSE_AND_ENHANCE_VIN(\'' ||
+                  each_row.vin || '\')) ' ||
+                ') pf ' ||
+                'on pf.vin = ls.vin ' ||
+            ') s ' ||
+            'where t.vin = s.vin;';
+        res := (EXECUTE IMMEDIATE :update_stmt);
+    END FOR;
+    CLOSE cur;   
+END;
+
+
+https://docs.snowflake.com/en/sql-reference-snowflake-scripting
+
+Most people put scripting blocks into Stored Procedures, which are another way to encapsulate different bits of code. 
+
+Snowflake was designed for loading and updating large record sets with a single statement, not for updating one row at a time, using a FOR LOOP. 
+There are more efficient ways to achieve the result we achieved above, but this lesson's example allowed you to see how each part became a building block for the next. 
 
 
  
