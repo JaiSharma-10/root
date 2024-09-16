@@ -1,0 +1,24 @@
+Module 1: Probability and Statistics
+https://www.youtube.com/playlist?list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo Doesn't matter how great this professor or this playlist is, you have to practice lot of problems.
+
+Module 2: Linear Algebra
+https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D This playlist is like God himself teaching linear algebra. But God can't help you if you don't practice problems.
+
+Module 3: Calculus and Optimization
+Amit M Agarwaal Calculus (Differential and Integral both) are my favorite books. But I understand those are too much for this smallest module in syllabus. So I will update it later alongside resource for Optimization Involving Single Variable. Any small youtube playlist teaching it will do.
+
+REMEMBER WITHOUT PRACTICING QUESTIONS IN MATHEMATICS MODULES, THESE PLAYLISTS WON'T BE OF ANY HELP.
+
+Module 4: Programming, Data Structures and Algorithms
+For Python. Any resource will do. Remember that the questions involving programming will simply be testing your programming aptitude not your grasp over language. But hey, you are gonna need Python if you crack this paper. https://www.pythontutorial.net/ are way more than enough to crack the paper. For Data Structures and Algorithms: If you got sufficient time,https://youtube.com/playlist?list=PLC36xJgs4dxFCQVvjMrrjcY3XrcMm2GHy&si=2ggPdps0KLDfE_Wa are a goldmine, else https://www.youtube.com/playlist?list=PLx9tWsBMrsTho2pUdEgnkLVp-gT9jLWuPshould be enough. If you want to finish, go with Gothi sir. If you want to learn, go with Amit Khurana's playlist
+
+For the above 4 modules, You can use PYQs other branches' corresponding problems to practice.
+
+Module 5: Database Management and Warehousing
+This https://www.youtube.com/playlist?list=PLNxx5gyq8aLCwY1SiyFKfnbPr3O3KZQ2V (currently ongoing as of Nov 1, 2023) seems promising but its updated slowly but its good. For Database Management tho, this IIT Madras - Database Mangement playlist is excellent.https://www.youtube.com/playlist?list=PLZ2ps__7DhBYc4jkUk_yQAjYEVFzVzhdU
+
+Module 6: Machine Learning
+The selection of playlist here is based on my personal bias towards mathematics and a mathematical approach and visualization to Machine Learning. Hence I follow Arun Rajkumar - MLT playlist. However this is missing some stuff from syllabus like "hierarchical clustering, top-down, bottom-up: single-linkage, multiple- linkage". These missing things are available in plenty outside. If you are not really prompt in mathematics or combinatorial optimizations, then go for any of the OG Godfather's playlist. I am talking about Andrew Ng. Not sure this Andrew Ng - ML (Deeplearning.ai) playlist is complete or not, but this gets you up to speed without too much mathematics. If none of them suits for you, there are tons of ML courses in NPTEL that cover the syllabus. Take your pick.https://youtube.com/playlist?list=PLZ2ps__7DhBbA_e6_G3FI-BA1f7lCINUu&si=ox6z609aXnn66Hxc
+https://youtube.com/playlist?list=PLkDaE6sCZn6FNC6YRfRQc_FbeQrF8BwGI&si=6Zxxww4DmH1XdnTe
+Module 7: Artificial Intelligence
+This playlist An introduction to Artificial Intelligence by Mausam sir is more than enough. Also start from lecture number 7 or 10 in this playlist. The complete playlist contains things towards the end that are beyond the scope of syllabus. So be mindful.https://youtube.com/playlist?list=PLp6ek2hDcoNB_YJCruBFjhF79f5ZHyBuz&si=fX7kywbXfMh8kEXi
