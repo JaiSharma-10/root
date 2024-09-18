@@ -4636,7 +4636,12 @@ PIVOT (
 
 
 
+------------------------------
 
+9/18/2024
+Remove dupicate without distinct 
+	inner join (pk_Ist > IInd_pk)
+	group by we have to include every column of query otherwise it will throw aggregate error
 
 
 
