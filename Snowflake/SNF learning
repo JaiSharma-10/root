@@ -1399,5 +1399,213 @@ Most people put scripting blocks into Stored Procedures, which are another way t
 Snowflake was designed for loading and updating large record sets with a single statement, not for updating one row at a time, using a FOR LOOP. 
 There are more efficient ways to achieve the result we achieved above, but this lesson's example allowed you to see how each part became a building block for the next. 
 
+-------------------------------------------------------------------
 
+
+Badge 3: Data Application Builders Workshop
+Almost like a full-stack developer bootcamp, this course covers a wide array of technologies that will help you build applications that use Snowflake as a back end. Including: Streamlit (Python), Streamlit-in-Snowflake, REST APIs, and much more.
+
+
+--------------------------------------------------------------------
+DABW
+Yay123456
+-------------------------------------------------------------------- 
+
+--Create the Internal Stage and Load the File Into It
+ 
+--'@"SMOOTHIES"."PUBLIC"."MY_UPLOADED_FILES"/fruits_available_for_smoothies.txt'
+
+copy into SMOOTHIES.PUBLIC.FRUIT_OPTIONS
+from @SMOOTHIES.PUBLIC.MY_UPLOADED_FILES
+files = ('fruits_available_for_smoothies.txt')
+file_format = (format_name = SMOOTHIES.PUBLIC.TWO_HEADERROW_PCT_DELIM)
+on_error = abort_statement
+validation_mode = return_errors --this will return error
+purge = true;
+
+--Query the Not-Yet-Loaded Data Using the File Format
+
+SELECT $1, $2, $3, $4, $5
+FROM @<stage_name>/<file_name>
+(FILE_FORMAT => <file_format_name>)
+
+
+SELECT $1, $2
+FROM '@"SMOOTHIES"."PUBLIC"."MY_UPLOADED_FILES"/fruits_available_for_smoothies.txt'
+(FILE_FORMAT => SMOOTHIES.PUBLIC.TWO_HEADERROW_PCT_DELIM);
+
+--TRANSFORMING DATA DURING A LOAD
+
+--Snowflake supports transforming data while loading it into a table using the COPY INTO <table> command, dramatically simplifying your ETL pipeline for basic transformations. This feature helps you avoid the use of temporary tables to store pre-transformed data when reordering columns during a data load. This feature applies to both bulk loading and Snowpipe.
+
+--The COPY command supports:
+
+--Column reordering, column omission, and casts using a SELECT statement. There is no requirement for your data files to have the same number and ordering of columns as your target table.
+
+--The ENFORCE_LENGTH | TRUNCATECOLUMNS option, which can truncate text strings that exceed the target column length.
+
+--Transforming CSV data
+
+
+--Load a subset of table data
+
+--Load a subset of data into a table. For any missing columns, Snowflake inserts the default values. The following example loads data from columns 1, 2, 6, and 7 of a staged CSV file:
+
+copy into home_sales(city, zip, sale_date, price)
+   from (select t.$1, t.$2, t.$6, t.$7 from @mystage/sales.csv.gz t)
+   FILE_FORMAT = (FORMAT_NAME = mycsvformat);
+   
+--Reorder CSV columns during a load
+--The following example reorders the column data from a staged CSV file before loading it into a table. Additionally, the COPY statement uses the SUBSTR , SUBSTRING function to remove the first few characters of a string before inserting it:
+
+copy into home_sales(city, zip, sale_date, price)
+   from (select SUBSTR(t.$2,4), t.$1, t.$5, t.$4 from @mystage t)
+   FILE_FORMAT = (FORMAT_NAME = mycsvformat);
+   
+--Load semi-structured data into separate columns
+
+--The following example loads repeating elements from a staged semi-structured file into separate table columns with different data types.
+
+--This example loads the following semi-structured data into separate columns in a relational table, with the location object values loaded into a VARIANT column and the remaining values loaded into relational columns:
+
+-- Sample data:
+{"location": {"city": "Lexington","zip": "40503"},"dimensions": {"sq_ft": "1000"},"type": "Residential","sale_date": "4-25-16","price": "75836"},
+{"location": {"city": "Belmont","zip": "02478"},"dimensions": {"sq_ft": "1103"},"type": "Residential","sale_date": "6-18-16","price": "92567"},
+{"location": {"city": "Winchester","zip": "01890"},"dimensions": {"sq_ft": "1122"},"type": "Condo","sale_date": "1-31-16","price": "89921"}
+
+
+-- Create an internal stage with the file type set as JSON.
+ CREATE OR REPLACE STAGE mystage
+   FILE_FORMAT = (TYPE = 'json');
+
+ -- Stage a JSON data file in the internal stage.
+ PUT file:///tmp/sales.json @mystage;
+
+ -- Query the staged data. The data file comprises three objects in NDJSON format.
+ SELECT t.$1 FROM @mystage/sales.json.gz t;
+
+ +------------------------------+
+ | $1                           |
+ |------------------------------|
+ | {                            |
+ |   "dimensions": {            |
+ |     "sq_ft": "1000"          |
+ |   },                         |
+ |   "location": {              |
+ |     "city": "Lexington",     |
+ |     "zip": "40503"           |
+ |   },                         |
+ |   "price": "75836",          |
+ |   "sale_date": "2022-08-25", |
+ |   "type": "Residential"      |
+ | }                            |
+ | {                            |
+ |   "dimensions": {            |
+ |     "sq_ft": "1103"          |
+ |   },                         |
+ |   "location": {              |
+ |     "city": "Belmont",       |
+ |     "zip": "02478"           |
+ |   },                         |
+ |   "price": "92567",          |
+ |   "sale_date": "2022-09-18", |
+ |   "type": "Residential"      |
+ | }                            |
+ | {                            |
+ |   "dimensions": {            |
+ |     "sq_ft": "1122"          |
+ |   },                         |
+ |   "location": {              |
+ |     "city": "Winchester",    |
+ |     "zip": "01890"           |
+ |   },                         |
+ |   "price": "89921",          |
+ |   "sale_date": "2022-09-23", |
+ |   "type": "Condo"            |
+ | }                            |
+ +------------------------------+
+
+ -- Create a target table for the data.
+ CREATE OR REPLACE TABLE home_sales (
+   CITY VARCHAR,
+   POSTAL_CODE VARCHAR,
+   SQ_FT NUMBER,
+   SALE_DATE DATE,
+   PRICE NUMBER
+ );
+
+ -- Copy elements from the staged file into the target table.
+ COPY INTO home_sales(city, postal_code, sq_ft, sale_date, price)
+ FROM (select
+ $1:location.city::varchar,
+ $1:location.zip::varchar,
+ $1:dimensions.sq_ft::number,
+ $1:sale_date::date,
+ $1:price::number
+ FROM @mystage/sales.json.gz t);
+
+ -- Query the target table.
+ SELECT * from home_sales;
+
++------------+-------------+-------+------------+-------+
+| CITY       | POSTAL_CODE | SQ_FT | SALE_DATE  | PRICE |
+|------------+-------------+-------+------------+-------|
+| Lexington  | 40503       |  1000 | 2022-08-25 | 75836 |
+| Belmont    | 02478       |  1103 | 2022-09-18 | 92567 |
+| Winchester | 01890       |  1122 | 2022-09-23 | 89921 |
++------------+-------------+-------+------------+-------+
+
+
+--Flatten semi-structured data
+
+--FLATTEN is a table function that produces a lateral view of a VARIANT, OBJECT, or ARRAY column. Using the sample data from Load semi-structured Data into Separate Columns, create a table with a separate row for each element in the objects.
+
+-- Create an internal stage with the file delimiter set as none and the record delimiter set as the new line character
+create or replace stage mystage
+  file_format = (type = 'json');
+
+-- Stage a JSON data file in the internal stage with the default values
+put file:///tmp/sales.json @mystage;
+
+-- Create a table composed of the output from the FLATTEN function
+create or replace table flattened_source
+(seq string, key string, path string, index string, value variant, element variant)
+as
+  select
+    seq::string
+  , key::string
+  , path::string
+  , index::string
+  , value::variant
+  , this::variant
+  from @mystage/sales.json.gz
+    , table(flatten(input => parse_json($1)));
+
+  select * from flattened_source;
+
++-----+-----------+-----------+-------+-------------------------+-----------------------------+
+| SEQ | KEY       | PATH      | INDEX | VALUE                   | ELEMENT                     |
+|-----+-----------+-----------+-------+-------------------------+-----------------------------|
+| 1   | location  | location  | NULL  | {                       | {                           |
+|     |           |           |       |   "city": "Lexington",  |   "location": {             |
+|     |           |           |       |   "zip": "40503"        |     "city": "Lexington",    |
+|     |           |           |       | }                       |     "zip": "40503"          |
+|     |           |           |       |                         |   },                        |
+|     |           |           |       |                         |   "price": "75836",         |
+|     |           |           |       |                         |   "sale_date": "2017-3-5",  |
+|     |           |           |       |                         |   "sq__ft": "1000",         |
+|     |           |           |       |                         |   "type": "Residential"     |
+|     |           |           |       |                         | }                           |
+...
+| 3   | type      | type      | NULL  | "Condo"                 | {                           |
+|     |           |           |       |                         |   "location": {             |
+|     |           |           |       |                         |     "city": "Winchester",   |
+|     |           |           |       |                         |     "zip": "01890"          |
+|     |           |           |       |                         |   },                        |
+|     |           |           |       |                         |   "price": "89921",         |
+|     |           |           |       |                         |   "sale_date": "2017-3-21", |
+|     |           |           |       |                         |   "sq__ft": "1122",         |
+|     |           |           |       |                         |   "type": "Condo"           |
+|     |           |           |       |                         | }                           |
++-----+-----------+-----------+-------+-------------------------+-----------------------------+
  
