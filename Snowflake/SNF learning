@@ -1609,3 +1609,42 @@ as
 |     |           |           |       |                         | }                           |
 +-----+-----------+-----------+-------+-------------------------+-----------------------------+
  
+-------------------------------------------------- SNF
+
+SELECT $1, $2
+FROM '@"SMOOTHIES"."PUBLIC"."MY_UPLOADED_FILES"/fruits_available_for_smoothies.txt'
+(FILE_FORMAT => SMOOTHIES.PUBLIC.TWO_HEADERROW_PCT_DELIM);
+
+
+--changing the order by columns
+
+copy into SMOOTHIES.PUBLIC.FRUIT_OPTIONS
+from ( select $2 as FRUIT_ID, $1 as FRUIT_NAME 
+FROM '@"SMOOTHIES"."PUBLIC"."MY_UPLOADED_FILES"/fruits_available_for_smoothies.txt')
+file_format = (format_name = SMOOTHIES.PUBLIC.TWO_HEADERROW_PCT_DELIM)
+on_error = abort_statement
+purge = true; --purge true will remove original file
+
+--------------------------------------------------------SiS stearmlit
+
+# Import python packages
+import streamlit as st
+from snowflake.snowpark.context import get_active_session
+
+# Write directly to the app
+st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
+st.write(
+    """Choose the fruit you want in your Smothie!"""
+)
+
+
+option = st.selectbox(
+    "What is your favorite fruit?",
+    ("Banana", "Strawberries", "Peaches"),
+)
+
+st.write("You selected:", option)
+
+session = get_active_session()
+my_dataframe = session.table("smoothies.public.fruit_options")
+st.dataframe(data=my_dataframe, use_container_width=True)
