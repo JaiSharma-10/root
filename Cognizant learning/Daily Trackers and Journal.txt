@@ -92,73 +92,7 @@ German language A1/2 Basic
 
 German B1.2
 
-             
-
- 
-
- 
-
-
- 
-
-my skillset includes
-
-Project based skillset
-
- SQL Scripting: Stored procedure, Function and other DDL,DML queries
-
- Snowflake Database: Defect fixing for complex SQL scripts .
-
- ETL and Power BI testing
-
- Data migration and testing in Snowflake
-
-Apart from these I have basic to moderate knowledge in
-
- Python
-
- SSIS, SSAS, SSRS
-
- Some of Microsoft Azure basic like cosmos DB.
-
- 
-
-My other interests are Web Development and Automation via Python.
-
- 
-
- 
-
- 
-
-Overview
-
- 
-
-Employee Id: 882769
-
- 
-
-Designation : Associate
-
- 
-
-Primary skills & exp. -ANSI SQL, Teradata, Snowflake, ETL tester
-
- 
-
-Secondary skills & exp. - Python, Azure Data Factory , Unix Shell Scripting
-
- 
-
-Overall exp. -2.4 years
-
- 
-
-Role (Developer/Test Analyst/Admin/DevOps, etc.) – About 2 years as ETL Tester (Data migration project from Teradata to snowflake
-
-and Developer (for 6 months) in snowflake DB
-
+            
  
 
  
@@ -199,7 +133,6 @@ https://onecognizant.cognizant.com/Home?GlobalAppID=1738&URL=https://onecognizan
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-GOAL
 
 DATABRICKS CERTIFIED ASSOCIATE DATA ENGINEER - Learning Path
 
@@ -221,55 +154,7 @@ jitl.jp/packet-tracer
 
  
 
- 
 
- 
-
-Hi Everyone
-
-I am currently looking for project.
-
-I have 2+ years of experience in ETL, Teradata, Snowflake (Data Migration).
-
-Always looking for broadening my horizons and ready to upskill myself as per the project requirements.
-
-Please let me know if there any relevant requirements.
-
-Name : Jaivardhan Sharma
-
-Emp Id: 882769
-
-Primary Skills: SQL Scripting ,ETL , Snowflake SQL, Teradata
-
-Secondary Skills: Power BI, Python, Azure Data Factory ,Microsoft Azure, Unix Shell Scripting
-
- 
-
-Overall experience: 3 years 5 months
-
-Designation : Associate
-
-Role - Tester/Developer
-
- 
-
-Email : jaivardhan.sharma@cognizant.com
-
-Contact Number : 8192037163
-
-Preferred Location : Noida (willing to relocate)
-
-Base Location : Noida
-
-Available: Immediate
-
-Thank you!
-
- 
-
- 
-
- 
 
 Journal
 
