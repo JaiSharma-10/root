@@ -1,5 +1,4 @@
-
-print("1->###############################Welocome to reality###############################");
+print("1->###############################   Welocome to NHK   ###############################");
 
 for left in range(7):
     for right in range (left,7):
