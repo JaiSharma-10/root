@@ -1718,3 +1718,8 @@ my_dataframe = session.table("smoothies.public.orders").filter(col("NAME_ON_ORDE
 st.write(my_dataframe)
 
 ----------------------------------------------------
+
+Badge 2: Collaboration, Marketplace & Cost Estimation Workshop
+
+Url: https://achieve.snowflake.com/d162c284-ae4b-408d-977c-3c9608f573a5#gs.f0yvkc
+
