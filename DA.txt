@@ -7,8 +7,6 @@ https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D This playlist is like G
 Module 3: Calculus and Optimization
 Amit M Agarwaal Calculus (Differential and Integral both) are my favorite books. But I understand those are too much for this smallest module in syllabus. So I will update it later alongside resource for Optimization Involving Single Variable. Any small youtube playlist teaching it will do.
 
-
-
 Module 4: Programming, Data Structures and Algorithms
 For Python. Any resource will do. Remember that the questions involving programming will simply be testing your programming aptitude not your grasp over language. But hey, you are gonna need Python if you crack this paper.
 
