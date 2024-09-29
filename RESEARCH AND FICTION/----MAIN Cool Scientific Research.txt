@@ -96,7 +96,8 @@ be well understood using Newtonian physics,but Newton himself was aware of probl
 So calculating the motion of the Earth around the Sun was simple enough with just those two bodies but add in one more, say the moon,and it became virtually impossible ,that there was no simple solution to the
 three-body problem.Poincaré had glimpsed what later became known as chaos.
 
-Chaos really came into focus in the 1960s,when meteorologist Ed Lorenz tried to make a basic computer simulation of the Earth's atmospherehe had 12 equations and 12 variables, things like temperature, pressure, humidity and so on and the computer would print out each time step as a row of 12 numbers if he changed the numbers just a tiny bit, results diverged dramatically.Lorenz's system displayed what's become known as
+Chaos really came into focus in the 1960s,when meteorologist Ed Lorenz tried to make a basic computer simulation of the Earth's atmospherehe had 12 equations and 12 variables, things like temperature, pressure, 
+humidity and so on and the computer would print out each time step as a row of 12 numbers if he changed the numbers just a tiny bit, results diverged dramatically.Lorenz's system displayed what's become known as
 sensitive dependence on initial conditions,which is the hallmark of chaos now since Lorenz was working with three variables, we can plot the phase space of his system in three dimensions.We can pick any point as
 our initial state and watch how it evolves.
 
