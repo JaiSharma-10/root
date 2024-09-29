@@ -370,7 +370,8 @@ For instance, when you compare the electromagnetic force to gravity, we find tha
 powers were more evenly matched, stars wouldn't burn long enough for life to develop on an orbiting planet. Scientists refer to this as an anthropic coincidence, or a coincidence related to mankind's very 
 existence.
 
-Here's another example that Stenger reminds us of: A vacuum in the universe is a lot less dense than we previously thought (139 times less dense, in fact). That's significant because if the original higher estimates had been correct, the universe would have blown apart eons ago.
+Here's another example that Stenger reminds us of: A vacuum in the universe is a lot less dense than we previously thought (139 times less dense, in fact). That's significant because if the original higher 
+estimates had been correct, the universe would have blown apart eons ago.
 
 So if certain conditions in our universe were just a little off, life would have never evolved. Just how is it that we're so fortunate? Of all possible universes, why did ours turn out like it did?
 In 1974, astronomer Brandon Carter tackled this quandary by introducing the anthropic principle. Carter hypothesized that anthropic coincidences are part of the universe's very structure and that chance has 
