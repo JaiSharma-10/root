@@ -1,29 +1,25 @@
-print("1->###############################   Welocome to NHK   ###############################");
+print("###################################   Welocome to NHK   ###############################");
 
+print("###################################   Nested loop   ###############################");
 #simple loop within loop 
 for left in range(7):
     for right in range (left,7):
         print("[" +  str(left)   +   "|" + str(right) + "]" , end=" ")
     print()
+	
+print("############################### recursion #########################################");
 
-################################################################################ recursion
-print("2->###############################");
-print(" recursion");
-
-
+#function calling itself once and again untill base condtion is matched
 def factorial(n):
     if n<2:
         return 1;
-    return n*factorial(n-1); # base case
+    return n*factorial(n-1); # recursion
+print("factorial of 8-",factorial(8));
 
-print(factorial(8));
-
-
-
-#########################################################################################
-print("###############################");
-print(" is_power_of");
-
+print("############################### is_power_of function #########################################");
+# function to identifies whether the given number is power of other number
+number = int(input("Enter the number-"))
+base = int(input("Enter the base number to check-"))
 
 def is_power_of(number, base):
   # Base case: when number is smaller than base.
@@ -36,7 +32,7 @@ def is_power_of(number, base):
   # Recursive case: keep dividing number by base.
   return is_power_of(number/base, base)
 
-print (is_power_of(9,2) );
+print ("Is",number, "power of",base,"-",is_power_of(number,base));
 
 
 #--8,2
