@@ -1,8 +1,8 @@
 Module 1: Probability and Statistics
 
-https://www.youtube.com/playlist?list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo 
+https://www.youtube.com/playlist?list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo - std
 
-https://www.youtube.com/playlist?list=PLiXmpWFyWCUmfCvasV1-y-xWl5flnZ1u9
+https://www.youtube.com/playlist?list=PLiXmpWFyWCUmfCvasV1-y-xWl5flnZ1u9 - gate oriented
 
 Module 2: Linear Algebra
 
