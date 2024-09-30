@@ -1,5 +1,6 @@
 print("1->###############################   Welocome to NHK   ###############################");
 
+#simple loop within loop 
 for left in range(7):
     for right in range (left,7):
         print("[" +  str(left)   +   "|" + str(right) + "]" , end=" ")
