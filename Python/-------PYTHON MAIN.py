@@ -27,14 +27,12 @@ def is_power_of(number, base):
     # If number is equal to 1, it's a power (base**0).
     if (number==1):
         return number==1
-    return number==1
+    return number==1 # this is base condition
 
   # Recursive case: keep dividing number by base.
   return is_power_of(number/base, base)
 
 print ("Is",number, "power of",base,"-",is_power_of(number,base));
-
-
 #--8,2
 #--4,2
 #--2,2
