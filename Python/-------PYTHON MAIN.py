@@ -37,51 +37,49 @@ print ("Is",number, "power of",base,"-",is_power_of(number,base));
 #--4,2
 #--2,2
 #--1,2
+print("############################### factorial_loop #########################################");
 
-
-################################################################################################
-
-print("###############################");
-print(" factorial_loop");
-
+n = int(input("Enter number to find factorial "))
 
 def factorial(n):
     result = n
-    start = n
     n -= 1
     while n>0: # The while loop should execute as long as n is greater than 0
         result *= n # Multiply the current result by the current value of n
-        n -=1 # Decrement the appropriate variable by -1
+        n -= 1 # Decrement the appropriate variable by -1
     return result
+print("Factorial of",n,"is",factorial(n))
 
-print(factorial(5))
+print("############################### rows_asterisks half pyramid pattern #########################################");
 
-#################################################################################################
-
-print("###############################");
-print(" rows_asterisks");
-
-
-def rows_asterisks(rows):
+n = int(input("Enter the number of rows for pattern-"))
+def rows_asterisks(rows): # calling function by reference
     # Complete the outer loop range to control the number of rows
-    for x in range(6):
-        # Complete the inner loop range to control the number of
-        # asterisks per row
+    for x in range(rows):
+        # Complete the inner loop range to control the number of asterisks per row
         for y in range(x):
             # Prints one asterisk and one space
             print("*", end=" ")
-        # An empty print() function inserts a line break at the
-        # end of the row
+        # An empty print() function inserts a line break at the end of the row
         print()
+rows_asterisks(n)
+# Should print the asterisk rows shown above str can converted number to str
+print("############################### rows_asterisks full pyramid pattern #########################################");
+
+n = int(input("Enter the number of rows for pattern-"))
+def rows_asterisks(num): # calling function by reference
+    # Complete the outer loop range to control the number of rows
+    for i in range (num):
+      for j in range(num):
+        if(i<=num-j):
+          print("", end=" ")
+        else:
+          print("*", end=" ")
+      print()
+
+rows_asterisks(n)
 
 
-rows_asterisks(5)
-# Should print the asterisk rows shown above
-################################################################################################
-
-#   str can converted number to str
-print("###############################");
-print(" countdown_loop");
 
 def countdown(start):
     x = start
