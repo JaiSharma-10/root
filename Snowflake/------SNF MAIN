@@ -1723,3 +1723,60 @@ Badge 2: Collaboration, Marketplace & Cost Estimation Workshop
 
 Url: https://achieve.snowflake.com/d162c284-ae4b-408d-977c-3c9608f573a5#gs.f0yvkc
 
+----------------------------------------------------
+
+-------------------------------------SNF
+--Batch 5 Data Engineering
+•	Username: JAI10 
+•	Dedicated Login URL: https://pqxyrdr-gj64664.snowflakecomputing.com 
+
+
+Run data analysis and build visualizations
+
+Build or train a machine learning model
+
+Load data, build a data pipeline or migrate an existing warehouse
+
+Build or distribute an application with Snowflake
+
+List or buy data from the Snowflake marketplace
+
+Use Snowflake as a data warehouse and data lake
+
+
+create database  AGS_GAME_AUDIENCE;
+
+drop schema AGS_GAME_AUDIENCE.PUBLIC;
+
+create schema AGS_GAME_AUDIENCE.RAW;
+
+create or replace TABLE AGS_GAME_AUDIENCE.RAW.GAMES_LOGS (
+	RAW_LOG VARIANT
+);
+
+list @AGS_GAME_AUDIENCE.RAW.UNI_KISHORE;
+--here it can list all files in stages 
+--this is example of AWS S3 bucket storage
+
+create or replace file format AGS_GAME_AUDIENCE.RAW.FF_JSON_LOGS
+    type = 'JSON'
+    strip_outer_array = true -- this will result in data in different rows
+    ;
+select $1,$2,$3,$4,$5 from
+   '@"AGS_GAME_AUDIENCE"."RAW"."UNI_KISHORE"/kickoff/DNGW_Sample_from_Agnies_Game.json';
+   --with out file format
+
+select $1 from
+   '@"AGS_GAME_AUDIENCE"."RAW"."UNI_KISHORE"/kickoff/DNGW_Sample_from_Agnies_Game.json'
+   (file_format => "FF_JSON_LOGS");
+
+copy into AGS_GAME_AUDIENCE.RAW.GAMES_LOGS
+from @AGS_GAME_AUDIENCE.RAW.UNI_KISHORE/kickoff
+file_format = (format_name =FF_JSON_LOGS);
+--if you have more than one file in the stage path then all files will get loaded into table
+
+--A COPY INTO statement like the one shown above will load EVERY file in the folder if more than one file is there, and the file name is not specified.
+
+list @AGS_GAME_AUDIENCE.RAW.UNI_KISHORE;
+
+truncate table  AGS_GAME_AUDIENCE.RAW.GAMES_LOGS;
