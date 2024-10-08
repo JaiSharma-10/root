@@ -1780,3 +1780,40 @@ file_format = (format_name =FF_JSON_LOGS);
 list @AGS_GAME_AUDIENCE.RAW.UNI_KISHORE;
 
 truncate table  AGS_GAME_AUDIENCE.RAW.GAMES_LOGS;
+
+select * from AGS_GAME_AUDIENCE.RAW.GAMES_LOGS;
+
+--SELECT statement that separates every field in the RAW_LOG column into its own column of the SELECT results.
+select 
+
+RAW_LOG:user_login::text as USER_LOGIN,
+RAW_LOG:user_event::text  as USER_EVENT,
+RAW_LOG:datetime_iso8601::TIMESTAMP_NTZ as DATETIME_ISO8601,
+RAW_LOG:agent::text as AGENT,
+
+RAW_LOG
+
+from AGS_GAME_AUDIENCE.RAW.GAMES_LOGS;
+
+--here "::" is use for casting datatype while ":" is used to get attributes
+
+--creating above logs in view
+
+create view LOGS
+as
+(
+select 
+
+    RAW_LOG:user_login::text as USER_LOGIN,
+    RAW_LOG:user_event::text  as USER_EVENT,
+    RAW_LOG:datetime_iso8601::TIMESTAMP_NTZ as DATETIME_ISO8601,
+    RAW_LOG:agent::text as AGENT,
+    RAW_LOG
+
+from AGS_GAME_AUDIENCE.RAW.GAMES_LOGS
+);
+
+
+select * from LOGS;
+
+
