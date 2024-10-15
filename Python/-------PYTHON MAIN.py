@@ -134,7 +134,8 @@ rows_asterisks(n)
 
 #string[i] - Accesses the character at index i of the string, starting at zero
 
-#string[i:j] - Accesses the substring starting at index i, ending at index j minus 1. If i is omitted, its value defaults to 0. If j is omitted, the value will default to len(string).
+#string[i:j] - Accesses the substring starting at index i, ending at index j minus 1. If i is omitted, its value defaults to 0. If j is omitted, the value will default 
+#to len(string).
 
 #String methods
 #string.lower() - Returns a copy of the string with all lowercase characters
