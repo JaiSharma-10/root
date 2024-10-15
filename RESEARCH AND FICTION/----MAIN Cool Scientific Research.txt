@@ -441,3 +441,13 @@ Thus, UTF-8 was created to address ASCII's shortcomings and can translate almost
 What if I forget to include <meta charset="utf-8"> in my HTML file?Don't worry — HTML5 to the rescue! 🦸
 The default character encoding used in HTML5 is UTF-8. This means if you include <!DOCTYPE html> at the top of your HTML file (which declares that it's an HTML5 file), it'll automatically use UTF-8 unless specified otherwise.
 Furthermore, most browsers use UTF-8 by default if no character encoding is specified. But because that's not guaranteed, it's better to just include a character encoding specification using the <meta> tag in your HTML file.
+
+
+
+BIOLOGY
+CLASSIFICATION OF ORGANISMS
+
+Kingdom, phylum, class, order, family, genus, and species are the levels of biological classification, from most general to most specific. Each level is nested within the level above it. For example, a genus contains one or more species, and a family contains one or more genera. 
+The Swedish botanist Carl Linnaeus (1707–1778) is credited with revolutionizing modern taxonomy. His work introduced the standardized binomial naming system and the standard of class, order, genus, and species. 
+Here's a mnemonic device to help remember the order of the levels: "King Philip Came Over For Good Spaghetti". 
+The study of taxonomy helps us understand biodiversity and evolutionary history
