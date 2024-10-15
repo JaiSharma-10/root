@@ -198,23 +198,18 @@ rows_asterisks(n)
 #'{:<6s}'.format('Py') → 'Py    ' #string aligned to the left that many spaces
 #'{:>6s}'.format('Py') → '    Py' #string aligned to the right that many spaces
 #'{:^6s}'.format('Py') → '  Py  ' #string centered in that many spaces
-################################################################
 
-# Reverse a String using Slicing
+print("############################### Reverse a String using Slicing #########################################");
 
-print("###############################");
-print(" Reverse a String using Slicing");	
-
-test= "this is the string";
+test= "Friren Journey beyond the end";
 test_1= test[::-1];
-test_2='';
+print(test_1) #dne eht dnoyeb yenruoJ nerirF
 
-count = len(test);
-print(count);
-
-
-
-print(test_2)
+# arr[start:stop]         # items start through stop-1
+# arr[start:]             # items start through the rest of the array
+# arr[:stop]              # items from the beginning through stop-1
+# arr[:]                  # a copy of the whole array
+# arr[start:stop:step]    # start through not past stop, by step
 ######################################################
 
 print("###############################");
