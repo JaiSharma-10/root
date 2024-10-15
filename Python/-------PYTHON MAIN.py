@@ -161,6 +161,8 @@ rows_asterisks(n)
 #string.replace(old, new) - Returns a new string where all occurrences of old have been replaced by new.
 
 #delimiter.join(list of strings) - Returns a new string with all the strings joined by the delimiter 
+# str = '-'.join('hello')
+# print(str)  # Output: h-e-l-l-o
 
 #Check out the official documentation for 
 #all available String methods.  https://docs.python.org/3/library/stdtypes.html#string-methods
