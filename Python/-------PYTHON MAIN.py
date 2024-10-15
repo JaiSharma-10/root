@@ -69,16 +69,17 @@ print("############################### rows_asterisks full pyramid pattern #####
 n = int(input("Enter the number of rows for pattern-"))
 def rows_asterisks(num): # calling function by reference
     # Complete the outer loop range to control the number of rows
-    for i in range (num):
-      for j in range(num):
-        if(i<=num-j):
-          print("", end=" ")
+    for i in range (0,num):
+      for j in range(1,2*num):
+        if(num-j>i):
+            print(" ", end=" ")
+        elif(j-num>i):
+            print(" ", end=" ")
         else:
           print("*", end=" ")
       print()
 
 rows_asterisks(n)
-
 
 
 def countdown(start):
