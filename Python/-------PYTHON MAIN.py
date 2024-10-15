@@ -100,18 +100,6 @@ rows_asterisks(n)
 	#If you wanted to check if a string ends with a given substring, you can use the method endswith.
 	#" ".join(["This","is","a","sentence"]) would return the string "This is a sentence".
 
-print("###############################");
-print(" string format ,format expression and place holder");	
-	
-def student_grade(name, grade):
-	return "{} received {}% on the exam".format(name,grade)
-	#return "{name} recevied {grade}% on the exam".format(name=name,grade=grade)
-
-print(student_grade("Reed", 80))
-print(student_grade("Paige", 92))
-print(student_grade("Jesse", 85))
-
-
 #STRING FORMATTING
 
 
