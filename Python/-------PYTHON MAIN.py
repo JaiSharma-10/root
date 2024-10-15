@@ -210,11 +210,8 @@ print(test_1) #dne eht dnoyeb yenruoJ nerirF
 # arr[:stop]              # items from the beginning through stop-1
 # arr[:]                  # a copy of the whole array
 # arr[start:stop:step]    # start through not past stop, by step
-######################################################
 
-print("###############################");
-print("is_palindrome");	
-	
+print("############################### palindrome #########################################");
 
 def is_palindrome(input_string):
     # Two variables are initialized as string date types using empty 
@@ -235,13 +232,12 @@ def is_palindrome(input_string):
             # If True, add the "letter" to the end of "new_string" and
             # to the front of "reverse_string". If False (if a space
             # is detected), no action is needed. Exit the if-block.
-            new_string =new_string + letter
-            reverse_string =letter + reverse_string
-
+            new_string = new_string + letter
+            reverse_string = letter + reverse_string
+    
     # Complete the if-statement to compare the "new_string" to the
     # "reverse_string". Remember that Python is case-sensitive when
     # creating the string comparison code. 
-
 
     if new_string.upper()==reverse_string.upper():
 
@@ -253,10 +249,10 @@ def is_palindrome(input_string):
 
 
 print(is_palindrome("Never Odd or Even")) # Should be True
-print(is_palindrome("abc")) # Should be False
-print(is_palindrome("kayak")) # Should be True
+# print(is_palindrome("abc")) # Should be False
+# print(is_palindrome("kayak")) # Should be True
 
-######################################################
+##############################################################################
 
 print("###############################");
 print("format 1 decimal");	
