@@ -447,7 +447,9 @@ Furthermore, most browsers use UTF-8 by default if no character encoding is spec
 BIOLOGY
 CLASSIFICATION OF ORGANISMS
 
-Kingdom, phylum, class, order, family, genus, and species are the levels of biological classification, from most general to most specific. Each level is nested within the level above it. For example, a genus contains one or more species, and a family contains one or more genera. 
-The Swedish botanist Carl Linnaeus (1707–1778) is credited with revolutionizing modern taxonomy. His work introduced the standardized binomial naming system and the standard of class, order, genus, and species. 
+Kingdom, phylum, class, order, family, genus, and species are the levels of biological classification, from most general to most specific.
+Each level is nested within the level above it. For example, a genus contains one or more species, and a family contains one or more genera. 
+The Swedish botanist Carl Linnaeus (1707–1778) is credited with revolutionizing modern taxonomy. 
+His work introduced the standardized binomial naming system and the standard of class, order, genus, and species. 
 Here's a mnemonic device to help remember the order of the levels: "King Philip Came Over For Good Spaghetti". 
 The study of taxonomy helps us understand biodiversity and evolutionary history
