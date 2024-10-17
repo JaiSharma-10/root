@@ -252,47 +252,12 @@ print(is_palindrome("Never Odd or Even")) # Should be True
 # print(is_palindrome("abc")) # Should be False
 # print(is_palindrome("kayak")) # Should be True
 
-##############################################################################
 
-print("###############################");
-print("format 1 decimal");	
-
-
-def convert_distance(miles):
-    km = miles * 1.6 
-    result = "{:6.1f} miles equals {:12.5f} km".format(miles,km)
-    return result
-
-
-print(convert_distance(12)) # Should be: 12 miles equals 19.2 km
-print(convert_distance(5.5)) # Should be: 5.5 miles equals 8.8 km
-print(convert_distance(11)) # Should be: 11 miles equals 17.6 km
-
-######################################################
-
-print("###############################");
-print("string slicing");	
-
-string = 'Rainfall is wet'
-
-convert_string = string[::-1]
-
-print(string);
-print(" ");
-print(convert_string);
-
-
-######################################################
-
-print("###############################");
-print("replace string at the end by list method");
-print(" ")
-
+print("############################### replace string at the end by list method #########################################");
 
 def replace_ending(sentence, old, new):
     # Check if the old substring is at the end of the sentence 
     str = sentence.split();
-
 # i think we have converted string into list that is why the assignment is possible
 
     if old == str[-1]:
@@ -306,17 +271,11 @@ def replace_ending(sentence, old, new):
             # print(" ")
             str_test = str_test + i + " "
         # print(str_test)
-        
-
         # here last substring in string is calculated by str[-1:] 
         # print(str); #["It's", 'raining', 'cats', 'and', 'cats']
         # print(str[-1]); #cats last string
-
-
         new_sentence = str_test
         return new_sentence
-
-
     # Return the original sentence if there is no match 
     return sentence
     
@@ -329,15 +288,10 @@ print(replace_ending("The weather is nice in May", "may", "april"))
 print(replace_ending("The weather is nice in May", "May", "April")) 
 # Should display "The weather is nice in April"
 
-
 # string_test = "It's raining cats and cats";
-
 # print(string_test.split()) ;
-
 # print(string_test.replace("cats", "dogs"));
 
-
-######################################################
 
 print("###############################");
 print("replace string at the end by Naive Method");
