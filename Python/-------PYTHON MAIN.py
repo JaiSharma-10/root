@@ -293,27 +293,21 @@ print(replace_ending("The weather is nice in May", "May", "April"))
 # print(string_test.replace("cats", "dogs"));
 
 
-print("###############################");
-print("replace string at the end by Naive Method");
-print(" ")
-
+print("############################### replace string at the end by Naive Method #########################################");
 
 def replace_ending(sentence, old, new):
     # Check if the old substring is at the end of the sentence 
-
-
-# i think we have converted string into list that is why the assignment is possible
+    # i think we have converted string into list that is why the assignment is possible
 
     if sentence.endswith(old):
         # Using i as the slicing index, combine the part
         # of the sentence up to the matched string at the 
         # end with the new string
-        
+
         i = len(old)
 
         new_sentence = sentence[:-i] + new
         return new_sentence
-
 
     # Return the original sentence if there is no match 
     return sentence
@@ -327,19 +321,14 @@ print(replace_ending("The weather is nice in May", "may", "april"))
 print(replace_ending("The weather is nice in May", "May", "April")) 
 # Should display "The weather is nice in April"
 
-
 # string_test = "It's raining cats and cats";
-
 # print(string_test.split()) ;
-
 # print(string_test.replace("cats", "dogs"));
-
-
 
 # Modifying Lists
 # While lists and strings are both sequences, a big difference between them is that lists are mutable. This means that the contents 
 # of the list can be changed, unlike strings, which are immutable.
-#  You can add, remove, or modify elements in a list.
+# You can add, remove, or modify elements in a list.
 
 # You can add elements to the end of a list using the append method. You call this method on a list using dot notation, 
 # and pass in the element to be added as a parameter. For example, list.append("New data") would add the string "New data" 
@@ -361,31 +350,20 @@ print(replace_ending("The weather is nice in May", "May", "April"))
 # the list.
 
 # Finally, you can change an element in a list by using indexing to overwrite the value stored at the specified index.
-#  For example, you can enter list[0] = "Old data" to overwrite the first element in a list with the new string "Old data".
-
-
-
+# For example, you can enter list[0] = "Old data" to overwrite the first element in a list with the new string "Old data".
 
 # As we mentioned earlier, strings and lists are both examples of sequences. Strings are sequences of characters, and are immutable.
 # Lists are sequences of elements of any data type, and are mutable. The third sequence type is the tuple. Tuples are like lists, 
-# since they can contain elements of any data type. But unlike lists, tuples are immutable. They’re specified using parentheses 
-# instead of square brackets.
+# since they can contain elements of any data type. But unlike lists, tuples are immutable. They’re specified using parentheses instead of square brackets.
 
-# You might be wondering why tuples are a thing, given how similar they are to lists. Tuples can be useful when we need to ensure that an element is in a certain position and will not change. Since lists are mutable, the order of the elements can be changed on us. Since the order of the elements in a tuple can't be changed, the position of the element in a tuple can have meaning. A good example of this is when a function returns multiple values. In this case, what gets returned is a tuple, with the return values as elements in the tuple. The order of the returned values is important, and a tuple ensures that the order isn’t going to change. Storing the elements of a tuple in separate variables is called unpacking. 
+# Tuples can be useful when we need to ensure that an element is in a certain position and will not change. Since lists are mutable, the order of the elements can be
+# changed on us. Since the order of the elements in a tuple can't be changed, the position of the element in a tuple can have meaning. A good example of this is when a 
+# function returns multiple values. In this case, what gets returned is a tuple, with the return values as elements in the tuple. The order of the returned values is 
+# important, and a tuple ensures that the order isn’t going to change. Storing the elements of a tuple in separate variables is called unpacking. 
 # This allows you to take multiple returned values from a function and store each value in its own variable.
 
-
-
-
 # list append in python
-
-######################################################
-
-print("###############################");
-print("Complete the skip_elements function to return every other element from the list");
-print(" ")
-
-
+print("############################### skip_elements #########################################");
 
 def skip_elements(elements):
     # code goes here
@@ -410,22 +388,16 @@ print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # S
     
 # [ x for x in range(1,101) if x % 10 == 0 ] generates a new list containing all the integers divisible by 10 from 1 to 100. 
 
-
 # Knowledge
 # Common sequence operations
-# Lists and tuples are both sequences and they share a number of sequence operations. The following common sequence operations
-#  are used by both lists and tuples:
+# Lists and tuples are both sequences and they share a number of sequence operations. The following common sequence operations are used by both lists and tuples:
 
 # len(sequence) - Returns the length of the sequence.
-
 # for element in sequence - Iterates over each element in the sequence.
-
 # if element in sequence - Checks whether the element is part of the sequence.
-
 # sequence[x] - Accesses the element at index [x] of the sequence, starting at zero
-
-# sequence[x:y] - Accesses a slice starting at index [x], ending at index [y-1]. If [x] is omitted, the index will start at 0 by default. If [y] is omitted, the len(sequence) will set the ending index position by default.
-
+# sequence[x:y] - Accesses a slice starting at index [x], ending at index [y-1]. If [x] is omitted, the index will start at 0 by default. If [y] is omitted, the 
+# len(sequence) will set the ending index position by default.
 # for index, element in enumerate(sequence) - Iterates over both the indices and the elements in the sequence at the same time.
 
 # List-specific operations and methods
@@ -460,7 +432,7 @@ print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # S
 
 # [expression for variable in sequence] - Creates a new list based on the given sequence. Each element in the new list is the result of the given expression.
 
-# Example: my_list = [ x*2 for x in range(1,11) ]
+# Example: my_list = [ x*2 for x in range(1,11) ] #[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
 # [expression for variable in sequence if condition] - Creates a new list based on a specified sequence. Each element is the result of the given expression; elements are added only if the specified condition is true. 
 
@@ -477,16 +449,11 @@ print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # S
 
 
 ######################################################
-
-print("###############################");
-print("replace hpp with h");
-print(" ")
-
+print("replace part of string with other string");
 
 filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.out"]
 # Generate newfilenames as a list containing the new filenames
-# using as many lines of code as your chosen method requires.
- 
+# using as many lines of code as your chosen method requires. 
 newfilenames =[] ;
 
 temp = [] ;
@@ -509,9 +476,7 @@ for element in filenames:
     
     else:
         newfilenames.append(element) 
-        
-        
-        
+         
 print(newfilenames) 
 
         
