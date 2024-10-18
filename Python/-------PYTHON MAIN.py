@@ -447,44 +447,29 @@ print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # S
 #  string.join()   ", ".join(elements)
 
 
-
-######################################################
-print("replace part of string with other string");
+print("############################### replace part of string with other string #########################################");
 
 filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.out"]
 # Generate newfilenames as a list containing the new filenames
 # using as many lines of code as your chosen method requires. 
 newfilenames =[] ;
-
 temp = [] ;
-
 temp_string =" ";
-
 count = 0 ;
 
 for element in filenames:
-    
-    temp = element.split(".");  #returns the list
-
+    temp = element.split(".");  #returns the list ['program', 'c'], ['stdio', 'hpp'], ['sample', 'hpp'], ['a', 'out'], ['math', 'hpp'], ['hpp', 'out']
     if( temp[1] =='hpp' ):
-        
         temp[1] = 'h'
-        
         temp_string = temp[0]+'.'+temp[1];
-        
         newfilenames.append(temp_string)
-    
     else:
-        newfilenames.append(element) 
-         
+        newfilenames.append(element)          
 print(newfilenames) 
-
-        
        
 # for i,element in enumerate(filenames):
 #             print(i)
 #             newfilenames.append(filenames[i])
-
 
 # Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "v.out"]
 
