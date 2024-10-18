@@ -253,47 +253,7 @@ print(is_palindrome("Never Odd or Even")) # Should be True
 # print(is_palindrome("kayak")) # Should be True
 
 
-print("############################### replace string at the end by list method #########################################");
-
-def replace_ending(sentence, old, new):
-    # Check if the old substring is at the end of the sentence 
-    str = sentence.split();
-# i think we have converted string into list that is why the assignment is possible
-
-    if old == str[-1]:
-        # Using i as the slicing index, combine the part
-        # of the sentence up to the matched string at the 
-        # end with the new string
-        str[-1] = new 
-        str_test = ""
-        for i in str:
-            # print(i);
-            # print(" ")
-            str_test = str_test + i + " "
-        # print(str_test)
-        # here last substring in string is calculated by str[-1:] 
-        # print(str); #["It's", 'raining', 'cats', 'and', 'cats']
-        # print(str[-1]); #cats last string
-        new_sentence = str_test
-        return new_sentence
-    # Return the original sentence if there is no match 
-    return sentence
-    
-print(replace_ending("It's raining cats and cats", "cats", "dogs")) 
-# Should display "It's raining cats and dogs"
-print(replace_ending("She sells seashells by the seashore", "seashells", "donuts")) 
-#  Should display "She sells seashells by the seashore"
-print(replace_ending("The weather is nice in May", "may", "april")) 
-#  Should display "The weather is nice in May"
-print(replace_ending("The weather is nice in May", "May", "April")) 
-# Should display "The weather is nice in April"
-
-# string_test = "It's raining cats and cats";
-# print(string_test.split()) ;
-# print(string_test.replace("cats", "dogs"));
-
-
-print("############################### replace string at the end by Naive Method #########################################");
+print("############################### replace string at the end #########################################");
 
 def replace_ending(sentence, old, new):
     # Check if the old substring is at the end of the sentence 
@@ -363,7 +323,7 @@ print(replace_ending("The weather is nice in May", "May", "April"))
 # This allows you to take multiple returned values from a function and store each value in its own variable.
 
 # list append in python
-print("############################### skip_elements #########################################");
+print("############################### skip_elements using enumerate #########################################");
 
 def skip_elements(elements):
     # code goes here
@@ -472,46 +432,6 @@ print(newfilenames)
 #             newfilenames.append(filenames[i])
 
 # Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "v.out"]
-
-
-######################################################
-
-print("###############################");
-print("pig_latin");
-print(" ")
-
-
-def pig_latin(text):
-  
-  say = "" ;
-  # Separate the text into words
-
-  words = text.split();
-
-  temp = [];
-
-  str_test = "" ;
-
-  for word in words:
-    # Create the pig latin word and add it to the list
-    say = word[1:] + word[0] + "ay"
-    temp.append(say)
-
-  str_test = " ".join(temp) # converting list back to string by joining
- 
-
-#   print(str_test)
-    
-    
-    # Turn the list back into a phrase
-  return str_test
-		
-print(pig_latin("hello how are you")) # Should be "ellohay owhay reaay ouyay"
-print(pig_latin("programming in python is fun")) # Should be "rogrammingpay niay ythonpay siay unfay"
-
-
-
-######################################################
 
 print("###############################");
 print("list string");
