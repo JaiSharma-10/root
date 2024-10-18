@@ -122,7 +122,7 @@ rows_asterisks(n)
 
 #In Python, there are a lot of things you can do with strings. In this guide, you’ll find the most common string operations and string methods.
 
-#String operations
+#SRTING operations
 #len(string) - Returns the length of the string
 #for character in string - Iterates over each character in the string
 #if substring in string - Checks whether the substring is part of the string
@@ -146,9 +146,6 @@ rows_asterisks(n)
 # str = '-'.join('hello')
 # print(str)  # Output: h-e-l-l-o
 
-#Check out the official documentation for 
-#all available String methods.  https://docs.python.org/3/library/stdtypes.html#string-methods
-
 ######################################################################################################################################################
 
 
@@ -166,7 +163,6 @@ rows_asterisks(n)
 # print(formatted_string) #this is an example of using the format() method on a string
 
 # If the placeholders indicate a number, they’re replaced by the variable corresponding to that order (starting at zero).
-
 # first = "apple"
 # second = "banana"
 # third = "carrot"
@@ -327,10 +323,8 @@ print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # S
 # The first value of the tuple is the index and the second value is the element itself.
 
 # List Comprehension with Conditional Statement
-    
 # [ x for x in range(1,101) if x % 10 == 0 ] generates a new list containing all the integers divisible by 10 from 1 to 100. 
 
-# Knowledge
 # Common sequence operations
 # Lists and tuples are both sequences and they share a number of sequence operations. The following common sequence operations are used by both lists and tuples:
 
@@ -345,49 +339,31 @@ print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # S
 # List-specific operations and methods
 # One major difference between lists and tuples is that lists are mutable (changeable) and tuples are immutable (not changeable). 
 # There are a few operations and methods that are specific to changing data within lists:
-
 # list[index] = x - Replaces the element at index [n] with x.
-
 # list.append(x) - Appends x to the end of the list.
-
 # list.insert(index, x) - Inserts x at index position [index].
-
-# list.pop(index) - Returns the element at [index] and removes it from the list. If [index] position is not in the list,
-#  the last element in the list is returned and removed.
-
+# list.pop(index) - Returns the element at [index] and removes it from the list. If [index] position is not in the list,the last element in the list is returned and removed.
 # list.remove(x) - Removes the first occurrence of x in the list.
-
 # list.sort() - Sorts the items in the list.
-
 # list.reverse() - Reverses the order of items of the list.
-
 # list.clear() - Deletes all items in the list.
-
 # list.copy() - Creates a copy of the list.
-
-# list.extend(other_list) - Appends all the elements of other_list at the end of list
+# list.extend(other_list) - Appends all the elements of other_list at the end of list.
 
 # List comprehensions
 # A list comprehension is an efficient method for creating a new list from a sequence or a range in a single line of code. 
-# It is a best practice to add descriptive comments about any list comprehensions used in your code, as their purpose can
-#  be difficult to interpret by other coders.
+# It is a best practice to add descriptive comments about any list comprehensions used in your code, as their purpose can be difficult to interpret by other coders.
 
 # [expression for variable in sequence] - Creates a new list based on the given sequence. Each element in the new list is the result of the given expression.
 
 # Example: my_list = [ x*2 for x in range(1,11) ] #[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-
-# [expression for variable in sequence if condition] - Creates a new list based on a specified sequence. Each element is the result of the given expression; elements are added only if the specified condition is true. 
-
+# [expression for variable in sequence if condition] - Creates a new list based on a specified sequence. Each element is the result of the given expression; elements are added only if the specified condition is true.
 # Example: my_list = [ x for x in range(1,101) if x % 10 == 0 ]
 
 # Use the list.append(old,new) method.
-
 # Use the string.endswith() and string.replace()
-
 # string.split()  given_string.split()
-
-#  string.join()   ", ".join(elements)
-
+# string.join()   ", ".join(elements)
 
 print("############################### replace part of string with other string #########################################");
 
@@ -415,47 +391,7 @@ print(newfilenames)
 
 # Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "v.out"]
 
-print("###############################");
-print("list string");
-print(" ")
-
-def group_list(group, users):
-#   list = []
-#   list = users.split()
-# can not use that as split function  works on string not list
-# but in ear;ier query we have join list back to string
-#   temp_str ="";
-#   temp_str = ",".join(users);  #list to string vi join it works
-
-  members = group + ": "+", ".join(users);
-  return members
-
-print(group_list("Marketing", ["Mike", "Karen", "Jake", "Tasha"])) # Should be "Marketing: Mike, Karen, Jake, Tasha"
-print(group_list("Engineering", ["Kim", "Jay", "Tom"])) # Should be "Engineering: Kim, Jay, Tom"
-print(group_list("Users", "")) # Should be "Users:"
-
-
-
 ######################################################
-
-print("###############################");
-print("list string  list of the tuple");
-print(" ")
-
-def guest_list(guests):
-    for element in guests:
-        print("{0} is {1} years old and work as {2}".format(element[0],element[1],element[2]))
-
-guest_list([('Ken', 30, "Chef"), ("Pat", 35, 'Lawyer'), ('Amanda', 25, "Engineer")])
-
-#Click Run to submit code
-"""
-Output should match:
-Ken is 30 years old and works as Chef
-Pat is 35 years old and works as Lawyer
-Amanda is 25 years old and works as Engineer
-"""
-
 
 # Iterating Over Dictionaries
 # You can iterate over dictionaries using a for loop, just like with strings, lists, 
@@ -468,111 +404,57 @@ Amanda is 25 years old and works as Engineer
 # method on the dictionary: dictionary.keys(). If you only wanted the values, you could use the values() method: dictionary.values()
 
 
-
-
-# Python dictionaries are used to organize elements into collections. Dictionaries include one or more keys, with one or more 
-# values associated with each key. 
+# Python dictionaries are used to organize elements into collections. Dictionaries include one or more keys, with one or more  values associated with each key. 
 
 # my_dictionary = {keyA:value1,value2, keyB:value3,value4}
-
-
 # len(dictionary) - Returns the number of items in a dictionary.
-
 # for key, in dictionary - Iterates over each key in a dictionary.
-
 # for key, value in dictionary.items() - Iterates over each key,value pair in a dictionary.
-
 # if key in dictionary - Checks whether a key is in a dictionary.
-
 # dictionary[key] - Accesses a value using the associated key from a dictionary.
-
 # dictionary[key] = value - Sets a value associated with a key.
-
 # del dictionary[key] - Removes a value using the associated key from a dictionary.
-
 
 # Methods
 # dictionary.get(key, default) - Returns the value corresponding to a key, or the default value if the specified key is not present.
-
 # dictionary.keys() - Returns a sequence containing the keys in a dictionary.
-
 # dictionary.values() - Returns a sequence containing the values in a dictionary.
-
 # dictionary[key].append(value) - Appends a new value for an existing key.
-
 # dictionary.update(other_dictionary) - Updates a dictionary with the items from another dictionary. Existing entries are updated; new entries are added.
-
 # dictionary.clear() - Deletes all items from a dictionary.
-
 # dictionary.copy() - Makes a copy of a dictionary.
-
-
 
 # Dictionaries versus Lists 
 # Dictionaries are similar to lists, but there are a few differences:
+# Both dictionaries and lists: are used to organize elements into collections; are used to initialize a new dictionary or list, use empty brackets;
+# can iterate through the items or elements in the collection; and can use a variety of methods and operations to create and change the collections, like removing and inserting items or elements.
 
-# Both dictionaries and lists:
-# are used to organize elements into collections;
-
-# are used to initialize a new dictionary or list, use empty brackets;
-
-# can iterate through the items or elements in the collection; and
-
-# can use a variety of methods and operations to create and change the collections, like removing and inserting items or elements.
-
-# Dictionaries only:
-# are unordered sets;
-
-# have keys that can be a variety of data types, including strings, integers, floats, tuples;.
-
-# can access dictionary values by keys;
-
-# use square brackets inside curly brackets { [ ] };
+# Dictionaries only: are unordered sets; have keys that can be a variety of data types, including strings, integers, floats, tuples;.
+# can access dictionary values by keys; use square brackets inside curly brackets { [ ] };
 
 # use colons between the key and the value(s);
-
 # use commas to separate each key group and each value within a key group;
-
 # make it quicker and easier for a Python interpreter to find specific elements, as compared to a list.
 
-# Dictionary Example:
-# 123456
+# Dictionary Example: 123456
 # pet_dictionary = {"dogs": ["Yorkie", "Collie", "Bulldog"], "cats": ["Persian", "Scottish Fold", "Siberian"], "rabbits": ["Angora", "Holland Lop", "Harlequin"]}  
 
-
 # print(pet_dictionary.get("dogs", 0))
-# # Should print ['Yorkie', 'Collie', 'Bulldog']
+# Should print ['Yorkie', 'Collie', 'Bulldog']
 
-# Reset
-# Lists only:
-# are ordered sets;
-
-# access list elements by index positions;
-
-# require that these indices be integers;
-
-# use square brackets [ ];
-
+# Reset Lists only:are ordered sets ; access list elements by index positions ; require that these indices be integers ; use square brackets [ ];
 # use commas to separate each list element.
 
-######################################################
-
-print("###############################");
-print("dict domian and email key value pair");
-print(" ")
+print("############################### dictionary example domian and email key value pair #########################################");
 
 def email_list(domains): # domains is dict 
     emails = []
     for key, value in domains.items():
-            # print("Key")
-            # print(key)
-            # print(domains[key]) # accessing value in dict through key ALL values for certain key
-            # print(domains[key][0]) # accessing first value of each key in dict
-            # print(" ")
-            # print(" ")
-        # for element in domains[key]:# iterating over all values for each individual 
-        #     print(element)
+            # print(key) # gmail.com
+            # print(domains[key]) # accessing value in dict through key ALL values for certain key #['clark.kent', 'diana.prince', 'peter.parker']
+            # print(domains[key][0]) # accessing first value of each key in dict #clark.kent
             users = domains[key]
+            print(domains[key]) # ['clark.kent', 'diana.prince', 'peter.parker'], ['barbara.gordon', 'jean.grey'], ['bruce.wayne']
             for user in users:  # iterating over all values for each individual 
                 # print(user)
                 # print(user+"@"+key)
