@@ -510,14 +510,12 @@ print(groups_per_user({"local": ["admin", "userA"],"public":  ["admin", "userB"]
 
 # dictionary.update(other_dictionary) - 
 # Updates a dictionary with the items from another dictionary. Existing entries are updated; new entries are added.
-print("###############################");
-print("dictionary.update");
-print(" ")
+
+print("############################### dictionary.update #########################################");
 wardrobe = {'shirt': ['red', 'blue', 'white'], 'jeans': ['blue', 'black']}
 new_items = {'jeans': ['white'], 'scarf': ['yellow'], 'socks': ['black', 'brown']}
 wardrobe.update(new_items)
 print(wardrobe)
-
 # {'shirt': ['red', 'blue', 'white'], 'jeans': ['white'], 'scarf': ['yellow'], 'socks': ['black', 'brown']}
 
 
