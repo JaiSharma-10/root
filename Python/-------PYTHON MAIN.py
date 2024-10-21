@@ -643,7 +643,9 @@ print(this_pun_is_for_you)
 #  of the string is different, the methods will return different values. You can also use the help() function on an object,
 #  which will return the documentation for the corresponding class. This will show all the methods for the class, along with 
 #  parameters the methods receive, types of return values, and a description of the methods
+
 print("########################################################## CHAPTER 2 ##################################################");
+
 print("########################################################## DATA SCIENCE IBM ##################################################");
 
 print("")
