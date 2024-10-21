@@ -463,84 +463,50 @@ def email_list(domains): # domains is dict
 
 print(email_list({"gmail.com": ["clark.kent", "diana.prince", "peter.parker"], "yahoo.com": ["barbara.gordon", "jean.grey"], "hotmail.com": ["bruce.wayne"]}))
 
-######################################################
+print("############################### dict reversing key value #########################################");
 
-print("###############################");
-print("dict reversing key value");
-print(" ")
+# given dict = {'local': ['admin', 'userA'],'public':  ['admin', 'userB'],administrator': ['admin'] }
+# output dict = {'admin': ['local', 'public', 'administrator'], 'userA': ['local'], 'userB': ['public']}
+
+print("given dict = {'local': ['admin', 'userA'],'public':  ['admin', 'userB'],administrator': ['admin'] }")
 
 def groups_per_user(group_dictionary):
     user_groups = {};
     for key , value  in group_dictionary.items():
-        # print(key)
-        # print(group_dictionary[key])  # same as print(value)
-        # print(group_dictionary.keys())
-        # user_groups[value] = key # unhashable type: 'list'
         
-        print(key,value) # prints key value pair
+        # print(key) # local, public, administrator, None
+        # print(group_dictionary[key])  # same as print(value) # ['admin', 'userA'] ,['admin', 'userB'], ['admin'], None
+        # user_groups[value] = key # unhashable type: 'list'
+        # print(key,value) # prints key value pair # local ['admin', 'userA'] , public ['admin', 'userB'] , administrator ['admin'] ,None
 
         for element in value:
-            # print(" ")
-            # print(element) # value is list 
-
+            # print(element) # value is list ; admin,userA; admin,userB; admin
             # adding new key value to dict
             # user_groups[element] = []
-            
+
+            # at first control will go to else
 
             if element in user_groups:
-                print('yes')
-                print(element)
-                user_groups[element].append(key)  #Appends a new value for an existing key.
-                print('')
-
-            if element not in user_groups:
-                user_groups[element] = [key]
-            
-            print(user_groups)
-            print(" ")
-        # user_groups[element].append(key) #str' object has no attribute 'append
-            
-        print(" ")
-    print("test")
-    print(user_groups)
-
-
-
-
-	# return(user_groups)
-
-print(groups_per_user({"local": ["admin", "userA"],
-		"public":  ["admin", "userB"],
-		"administrator": ["admin"] }))
-
-
-
-print("###############################");
-print("dict reversing key value group and user easy version");
-print(" ")
-
-def groups_per_user(group_dictionary):
-    user_groups = {};
-    for key , value  in group_dictionary.items():
-        # print(key,value) # prints key value pair
-
-        for element in value:
-
-            if element in user_groups:
-                user_groups[element].append(key)  #Appends a new value for an existing key.
-
-            if element not in user_groups:
-                user_groups[element] = [key]
-             
+                # if element is already a key then appends
+                # print('yes')
+                # print(element)
+                user_groups[element].append(key)  #Appends a new value for an existing key. # at this point key value pair reverse takes place
+                # print(user_groups) {'admin': ['local', 'public'], 'userA': ['local']}
+                
+            #if element not in user_groups:
+            else :
+                # print('no')
+                # print(element)
+                # print(user_groups)
+                # print(key)
+                user_groups[element] = [key] # adding key and value to new dict user_groups #{'admin': ['local']} # at this point key value pair reverse takes place
+                # print(user_groups)
+                # print('')
+    #print(user_groups)
+    print("Ouptut dict")
     return(user_groups)
 
-print(groups_per_user({"local": ["admin", "userA"],
-		"public":  ["admin", "userB"],
-		"administrator": ["admin"] }))
-
-
-
-
+print(groups_per_user({"local": ["admin", "userA"],"public":  ["admin", "userB"],"administrator": ["admin"] }))
 
 # dictionary.update(other_dictionary) - 
 # Updates a dictionary with the items from another dictionary. Existing entries are updated; new entries are added.
