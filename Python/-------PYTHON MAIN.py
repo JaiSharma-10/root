@@ -1,6 +1,6 @@
-print("###################################   python   ###############################");
+print("################################### 	CHAPTER 1: Basics	##################################################");
 
-print("###################################   Nested loop   ###############################");
+print("###################################	Nested loop	###############################");
 #simple loop within loop 
 for left in range(7):
     for right in range (left,7):
@@ -512,6 +512,7 @@ print(groups_per_user({"local": ["admin", "userA"],"public":  ["admin", "userB"]
 # Updates a dictionary with the items from another dictionary. Existing entries are updated; new entries are added.
 
 print("############################### dictionary.update #########################################");
+
 wardrobe = {'shirt': ['red', 'blue', 'white'], 'jeans': ['blue', 'black']}
 new_items = {'jeans': ['white'], 'scarf': ['yellow'], 'socks': ['black', 'brown']}
 wardrobe.update(new_items)
@@ -521,281 +522,24 @@ print(wardrobe)
 
 # It’s quicker and easier to find a specific element in a dictionary
 
-
-# Study Guide: Week 4 Graded Quiz
-#  It is time to prepare for the Week 4 Graded Quiz. Please review the following items from this module before
-#  beginning the quiz. If you would like to refresh your memory on these materials, please also revisit the Study 
-# Guides located before each practice quiz in Week 4: 
-# Study Guide: Strings
-# ,  
-# Study Guide: Lists Operations and Methods
-# , and 
-# Study Guide: Dictionary Methods
-# .
-
-
 # Knowledge
 # How to output a list of the keys in a Python dictionary. 
-
 # How to determine the output of a string index range used on a string.
-
 # Determine what a list should contain after the .insert() method is used on the list.
-
 # How to replace a specific word in a sentence with the same word in all uppercase letters.
-
 # How to use a dictionary to count the frequency of letters in a string. 
 
 # Operations, Methods, and Functions
 # String Methods, Operations, and Functions
 
-# .upper()
-
-# .lower()
-
-# .split()
-
-# .format()
-
-# .isnumeric()
-
-# .isalpha()
-
-# .replace()
-
-# string index [ ]
-
-# len()
-
-# List Operations and Methods
-
-# .reverse()
-
-# .extend()
-
-# .insert()
-
-# .append()
-
-# .remove()
-
-# .sort()
-
-# list comprehensions [ ]
-
-# list comprehensions [ ] with if condition
-
-# Dictionary Operations and Methods
-
-# .items()
-
-# .update()
-
-# .keys()
-
-# .values()
-
-# .copy()
-
-# dictionary[key]
-
-# dictionary[key] = value 
-
-
-
-# Coding Skills
-# Skill 1: Using string methods
-# Separate numerical values from text values in a string using .split(). 
-
-# Iterate over the elements in a string.
-
-# Test if the element contains letters with .isalpha().
-
-# Assign the elements of the split string to new variables.
-
-# Trim any extra white space using .strip().
-
-# Format a string using .format() and { } variable placeholders.
-
-# 1234567891011121314151617181920212223242526272829303132
-# def sales_prices(item_and_price):
-#     # Initialize variables "item" and "price" as strings
-#     item = ""
-#     price = ""
-#     # Create a variable "item_or_price" to hold the result of the split. 
-#     item_or_price = item_and_price.split()
-
-#     # For each element "x" in the split variable "item_or_price" 
-#     for x in item_or_price:
-
-
-# Reset
-
-# Use the len() function to measure a string.
-
-# 1234567891011121314151617
-# # This function accepts a string variable "data_field".  
-# def count_words(data_field):
-
-#     # Splits the string into individual words. 
-#     split_data = data_field.split()
-  
-#     # Then returns the number of words in the string using the len()
-#     # function. 
-#     return len(split_data)
-    
-
-# Reset
-# Skill 2: Using list methods
-# Reverse the order of a list using the .reverse() method.
-
-# Combine two lists using the .extend() method.
-
-# 1234567891011121314151617181920212223242526272829
-# # This function accepts two variables, each containing a list of years.
-# # A current "recent_first" list contains [2022, 2018, 2011, 2006].
-# # An older "recent_last" list contains [1989, 1992, 1997, 2001].
-# # The lists need to be combined with the years in chronological order.
-# def record_profit_years(recent_first, recent_last):
-
-#     # Reverse the order of the "recent_first" list so that it is in 
-#     # chronological order.
-#     recent_first.reverse()
-
-
-# Reset
-
-# Skill 3: Using a list comprehension 
-# Use a list comprehension [ ] as a shortcut for creating a new list from a range.
-
-# Include a calculation with a for loop in a range with 2 parameters (lower, upper+1). 
-
-# 123456789101112
-# # The function accepts two parameters: a start year and an end year.
-# def list_years(start, end):
-
-#     # It returns a list comprehension that creates a list of years in a for
-#     # loop using a range from the start year to the end year (inclusive of 
-#     # the upper range year, using end+1).
-#     return [year for year in range(start, end+1)]
-
 def squares(start, end):
     return [ i**2 for i in range(start, end+1)] # Create the required list comprehension.
 
-
-# # Call the years() function with two parameters.
-
-# Reset
-
 #  Use a list comprehension [ ] with a for loop and an if condition.   
 
-# 12345678910111213141516171819
-# # The function accepts two variable integers through the parameters and
-# # returns all odd numbers between x and y-1.
-# def odd_numbers(x, y):
-
-
-# # This list comprehension uses a for loop to iterate through values 
-# # of n in a range from x to y, with the value of y excluded (meaning
-# # keep the default range() function behavior to exclude the
-# # end-of-range value from the range). Since an incremental value is not 
-# # specified, the range function uses the default increment of +1.
-
-# Reset
-
-# Skill 4: Using dictionary methods
-# Iterate through the keys and values of a dictionary.
-
-# Return the keys and values in a formatted string using the .format() function.
-
-# 123456789101112131415161718192021222324252627
-# # The network() function accepts a dictionary "servers" as a parameter.
-# def network(servers):
-
-#     # A string variable is initialized to hold the "result". 
-#     result = ""
-
-#     # For each "hostname" (key) and "IP address" (value) in the "server" dictionary items...
-#     for hostname, IP_address in servers.items():
-
-#         # A string identifying the hostname and IP address for each server is added
-
-# Reset
-
-# Create a copy of a dictionary.
-
-# Iterate through the values of the new dictionary.
-
-# Change each value in the new dictionary, while keeping the same keys. 
-
-# 12345678910111213141516171819202122
-# # The scores() function accepts a dictionary "game_scores" as a parameter.
-# def reset_scores(game_scores):
-
-#     # The .copy() dictionary method is used to create a new copy of the "game_scores".
-#     new_game_scores = game_scores.copy() 
-
-#     # The for loop iterates over new_game_scores items, with the player as the key
-#     # and the score as the value. 
-#     for player, score in new_game_scores.items():
-    
-
-# Reset
-# Reminder: Correct syntax is critical
-# Using precise syntax is critical when writing code in any programming language, including Python. Even a small typo 
-# can cause a syntax error and the automated Python-coded quiz grader will mark your code as incorrect. This reflects 
-# real life coding errors in the sense that a single error in spelling, case, punctuation, etc. can cause your code to
-#  fail. Coding problems caused by imprecise syntax will always be an issue whether you are learning a programming 
-# language or you are using programming skills on the job. So, it is critical to start the habit of being precise in your code now. 
-
-# No credit will be given if there are any coding errors on the automated graded quizzes - including minor errors.
-#  Fortunately, you have 3 optional retake opportunities on the graded quizzes in this course. Additionally, you have
-#  unlimited retakes on practice quizzes and can review the videos and readings as many times as you need to master 
-# the concepts in this course.  
-
-# Now, before starting the graded quiz, please review this list of common syntax errors coders make when writing code.
-
-# Common syntax errors:
-
-# Misspellings
-
-# Incorrect indentations
-
-# Missing or incorrect key characters:
-
-# Parenthetical types - ( curved ), [ square ], { curly }
-
-# Quote types - "straight-double" or 'straight-single', “curly-double” or ‘curly-single’
-
-# Block introduction characters, like colons - :
-
-# Data type mismatches
-
-# Missing, incorrectly used, or misplaced Python reserved words
-
-# Using the wrong case (uppercase/lowercase) - Python is a case-sensitive language 
-
-# Resources
-# For additional Python practice, the following links will take you to several popular online interpreters and codepads:
-
-# Welcome to Python
- 
-
-# Online Python Interpreter
- 
-
-# Create a new Repl
- 
-
-# Online Python-3 Compiler (Interpreter)
-
-# Compile Python 3 Online
-
-# Your Python Trinket
-
-print("###############################");
-print("list sorting");
-print(" ")
-
+print("############################### list sorting #########################################");
+print("given string = [2,4,0,15,8,9]")
+print
 def sort_distance(distances):
     # Sort the list
     temp = 0
@@ -810,28 +554,13 @@ def sort_distance(distances):
     
     print(distances)
 
-
-                
-
-       
-  
-
     # Reverse the order of the list
     # return distances
-
 
 print(sort_distance([2,4,0,15,8,9]))
 # Should print [15, 9, 8, 4, 2, 0]
 
-
-
-
-
-print("###############################");
-print("dict number of letter in string letter : frequency");
-print(" ")
-
-
+print("############################### dict number of letter in string letter : frequency #########################################");
 
 def count_letters(text):
   # Initialize a new dictionary.
@@ -839,12 +568,9 @@ def count_letters(text):
   # Complete the for loop to iterate through each "text" character and 
   # use a string method to ensure all letters are lowercase.
   for letter in  text :
-    
     lower_case_letter = letter.lower()
-
     # Complete the if-statement using a string method to check if the
     # character is a letter.
-
     if lower_case_letter.isalpha() :
 
       # Complete the if-statement using a logical operator to check if 
@@ -864,8 +590,6 @@ def count_letters(text):
    # Increment the letter counter. 
   return dictionary
 
-
-
 print(count_letters("AaBbCc"))
 # Should be {'a': 2, 'b': 2, 'c': 2}
 
@@ -876,34 +600,7 @@ print(count_letters("This is a sentence."))
 # Should be {'t': 2, 'h': 1, 'i': 2, 's': 3, 'a': 1, 'e': 3, 'n': 2, 'c': 1}
 
 
-
-
-
-print("###############################");
-print("test");
-print(" ")
-def car_listing(car_prices):
-  result = ""
-  # Complete the for loop to iterate through the key and value items 
-  # in the dictionary.
-  for key , value in car_prices.items() :
-    result += "A {0} Soul costs {1} dollar \n".format(key,value) # Use a string method to format the required string. 
-  return result
-
-print(car_listing({"Kia Soul":19000, "Lamborghini Diablo":55000, "Ford Fiesta":13000, "Toyota Prius":24000}))
-
-# Should print:
-# A Kia Soul costs 19000 dollars
-# A Lamborghini Diablo costs 55000 dollars
-# A Ford Fiesta costs 13000 dollars
-# A Toyota Prius costs 24000 dollars
-
-
-
-
-print("###############################");
-print("class");
-print(" ")
+print("############################### class example #########################################");
 
 class Flower:
   color = 'unknown'
@@ -919,6 +616,7 @@ this_pun_is_for_you = "this_pun_is_for_you"
 print("Roses are {},".format(rose.color))
 print("violets are {},".format(violet.color))
 print(this_pun_is_for_you) 
+
 
 
 # Object-Oriented Programming Defined
@@ -945,8 +643,8 @@ print(this_pun_is_for_you)
 #  of the string is different, the methods will return different values. You can also use the help() function on an object,
 #  which will return the documentation for the corresponding class. This will show all the methods for the class, along with 
 #  parameters the methods receive, types of return values, and a description of the methods
-
-print("###############################DATA SCIENCE IBM##################################################");
+print("########################################################## CHAPTER 2 ##################################################");
+print("########################################################## DATA SCIENCE IBM ##################################################");
 
 print("")
 #STRING INTERPOLATION (F-STRINGS)
