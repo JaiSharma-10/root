@@ -2222,4 +2222,8 @@ screen.exitonclick() # turtle graphics screen
 
 
 # in second method we can use t.setheading()
-print("###############################################	Chapter 3: Automation via python Coursera	##############################################################################")
+print("###############################################	Chapter 3: Automation via python Coursera	########################################################")
+
+with open("test.txt") as file:
+    for line in file:
+        print(line.strip().upper()) # strip is used to remove extra new line
