@@ -1815,5 +1815,12 @@ from AGS_GAME_AUDIENCE.RAW.GAMES_LOGS
 
 
 select * from LOGS;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+EXECUTE IMMEDIATE
+Executes a string that contains a SQL statement or a Snowflake Scripting statement.
+
+https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index
+
+Snowflake Scripting Developer Guide->
 
