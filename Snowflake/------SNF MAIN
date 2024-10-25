@@ -1867,3 +1867,22 @@ Declare
         surface_area := 4*pi()*(radius)*(radius);
         Return surface_area; 	--return a values , if retrun is not specified than output is anonymous block with null
     End;
+
+--Stored procedure example
+create or replace procedure surface_area()
+returns float
+language sql
+as 
+$$
+Declare
+    radius float;
+    surface_area float;
+    begin
+        radius := 2 ;
+        surface_area := 4*pi()*(radius)*(radius);
+        Return surface_area; --return a values , if retrun is not specified than output is anonymous block with null
+    End;
+$$
+;
+
+call surface_area();
