@@ -1824,3 +1824,17 @@ https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index
 
 Snowflake Scripting Developer Guide->
 
+Understanding blocks in Snowflake Scripting
+
+DECLARE
+  -- (variable declarations, cursor declarations, etc.) ...
+  --Variables --Cursors --RESULTSETs --Exceptions
+BEGIN
+  -- (Snowflake Scripting and SQL statements) ...
+EXCEPTION
+  -- (statements for handling exceptions) ...
+END;
+
+--Snowflake Transient Tables can act as temporary staging areas for loading and transforming data before moving it to permanent tables.
+
+A simple block only requires the keywords BEGIN and END. For example:
