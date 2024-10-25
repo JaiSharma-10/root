@@ -1837,4 +1837,22 @@ END;
 
 --Snowflake Transient Tables can act as temporary staging areas for loading and transforming data before moving it to permanent tables.
 
+-- What Is the Difference Between Temporary and Transient Tables in Snowflake?
+Snowflake Temp table exists only within the current session. Automatically dropped when the session ends	
+Persist beyond the current session and are available to all users with the necessary credentials until they are dropped
+
+-- What Is the Difference Between CTE and Temp Table in Snowflake?
+Snowflake Temporary tables create an object in the instance that can be queried repeatedly during the session. They are primarily used when you have a large dataset that
+you want to refer to multiple times for a short period.
+Snowflake CTEs are named subqueries defined within the WITH clause of a Snowflake SQL statement. They are used to break up complex queries into smaller, more manageable 
+chunks and do not create any physical objects.
+
 A simple block only requires the keywords BEGIN and END. For example:
+
+Begin
+    CREATE or replace temporary TABLE table_name (
+      Time timestamp,
+      account_name varchar)
+      as (
+        select current_timestamp,current_user);
+End;
