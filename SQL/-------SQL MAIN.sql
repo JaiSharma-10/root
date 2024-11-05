@@ -4643,6 +4643,14 @@ Remove dupicate without distinct
 	inner join (pk_Ist > IInd_pk)
 	group by we have to include every column of query otherwise it will throw aggregate error
 
+-----------------------------------	
+	--Queries for Sql SERVERS
+SELECT top 10 * FROM tbPayments ;
+
+select *
+from INFORMATION_SCHEMA.COLUMNS
+where TABLE_NAME='tbPayments';
+
 
 
 
