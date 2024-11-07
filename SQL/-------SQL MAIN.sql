@@ -4651,15 +4651,104 @@ select *
 from INFORMATION_SCHEMA.COLUMNS
 where TABLE_NAME='tbPayments';
 
+------------------------------------------------------------------------------------------------------------
+
+Difference between SP and Function
+
+In Snowflake, stored procedures and user-defined functions (UDFs) serve different purposes and have distinct characteristics:
+
+Stored Procedures
+- Purpose: Primarily used for performing administrative tasks and executing SQL statements. They can include complex logic and multiple SQL operations.
+- Return Value: They are allowed, but not required, to return a value. If they don not explicitly return a value, they implicitly return `NULL`.
+- Usage: Called independently using the `CALL` statement. For example, `CALL MyStoredProcedure(arg1);`.
+- Database Operations: Can perform database operations such as `SELECT`, `UPDATE`, `DELETE`, and `CREATE`¹(https://docs.snowflake.com/en/developer-guide/stored-procedures-vs-udfs)²(https://dwgeek.com/difference-between-snowflake-stored-procedure-and-udfs-sp-vs-udfs.html/).
+
+User-Defined Functions (UDFs)
+- Purpose: Designed to calculate and return a single value. They are often used within SQL statements to perform calculations or transformations.
+- Return Value: Must always return a value explicitly.
+- Usage: Called as part of a SQL statement. For example, `SELECT MyFunction(col1) FROM my_table;`.
+- Database Operations: Unlike stored procedures, UDFs do not have access to perform database operations¹(https://docs.snowflake.com/en/developer-guide/stored-procedures-vs-udfs)²(https://dwgeek.com/difference-between-snowflake-stored-procedure-and-udfs-sp-vs-udfs.html/).
 
 
+Here are some scenarios to illustrate the differences between stored procedures and user-defined functions (UDFs) in Snowflake:
 
+Scenario 1: Data Cleanup
+Stored Procedure: You need to clean up old data from multiple tables at the end of each month. A stored procedure can be written to perform this task, executing multiple `DELETE` statements across different tables in a single call.
+```sql
+CREATE OR REPLACE PROCEDURE cleanup_old_data()
+RETURNS STRING
+LANGUAGE SQL
+AS
+$$
+BEGIN
+  DELETE FROM table1 WHERE created_at < DATEADD(month, -1, CURRENT_DATE);
+  DELETE FROM table2 WHERE created_at < DATEADD(month, -1, CURRENT_DATE);
+  RETURN 'Cleanup completed';
+END;
+$$;
+```
+User-Defined Function: Not suitable for this scenario, as UDFs cannot perform multiple database operations or execute `DELETE` statements.
 
+Scenario 2: Calculating Discounts
+User-Defined Function: You need to apply a discount to product prices based on certain conditions. A UDF can be created to calculate the discounted price and used directly in a `SELECT` statement.
+```sql
+CREATE OR REPLACE FUNCTION calculate_discount(price FLOAT, discount_rate FLOAT)
+RETURNS FLOAT
+LANGUAGE SQL
+AS
+$$
+  RETURN price * (1 - discount_rate);
+$$;
+```
+Usage:
+```sql
+SELECT product_id, calculate_discount(price, 0.1) AS discounted_price
+FROM products;
+```
+Stored Procedure: Overkill for this scenario, as it involves a simple calculation that can be efficiently handled by a UDF.
 
+Scenario 3: Generating Reports
+Stored Procedure: You need to generate a complex report that involves multiple steps, such as aggregating data, updating a status table, and sending notifications. A stored procedure can handle these tasks in sequence.
+```sql
+CREATE OR REPLACE PROCEDURE generate_monthly_report()
+RETURNS STRING
+LANGUAGE SQL
+AS
+$$
+BEGIN
+  INSERT INTO report_table (report_date, total_sales)
+  SELECT CURRENT_DATE, SUM(sales_amount) FROM sales WHERE sale_date = CURRENT_DATE;
+  
+  UPDATE status_table SET report_generated = TRUE WHERE report_date = CURRENT_DATE;
+  
+  -- Assume send_notification is another stored procedure
+  CALL send_notification('Monthly report generated');
+  
+  RETURN 'Report generation completed';
+END;
+$$;
+```
+User-Defined Function: Not suitable for this scenario, as it involves multiple steps and database operations beyond simple calculations.
 
+Scenario 4: Data Transformation
+User-Defined Function: You need to transform data within a query, such as converting a string to uppercase. A UDF can be created for this transformation.
+```sql
+CREATE OR REPLACE FUNCTION to_uppercase(input_string STRING)
+RETURNS STRING
+LANGUAGE SQL
+AS
+$$
+  RETURN UPPER(input_string);
+$$;
+```
+Usage:
+```sql
+SELECT to_uppercase(name) AS uppercase_name
+FROM employees;
+```
+Stored Procedure: Not necessary for this scenario, as it involves a straightforward transformation that can be handled by a UDF.
 
-
-
+These scenarios should help clarify when to use stored procedures versus user-defined functions in Snowflake. I
 
 
 
