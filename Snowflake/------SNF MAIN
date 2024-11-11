@@ -1897,3 +1897,34 @@ $$
 ;
 
 call surface_area();
+
+--------------------------------------------------------------------------------------------------------
+Snowflake offers several major advantages over SQL Server, particularly for data warehousing and analytics:
+
+1. Scalability:
+   - Snowflake: Automatically scales storage and compute resources independently, allowing for seamless handling of varying workloads and data volumes
+   - SQL Server: Requires manual scaling and infrastructure management, which can be more complex and less flexible.
+
+2. Performance:
+   - Snowflake: Optimized for read-heavy analytical queries with advanced compression techniques and columnar storage, leading to faster query performance
+   - SQL Server: While performant, it often requires manual tuning and optimization to achieve similar results.
+
+3. Maintenance and Management:
+   - Snowflake: Fully managed service with automatic maintenance, updates, and backups, reducing administrative overhead
+   - SQL Server: Requires ongoing maintenance, updates, and backups, which can be time-consuming and resource-intensive.
+
+4. Cost Efficiency:
+   - Snowflake: Pay-as-you-go pricing model, where you only pay for the resources you use, potentially leading to cost savings
+   - SQL Server: Typically involves upfront costs for hardware and software, along with ongoing maintenance expenses.
+
+5. Data Sharing and Collaboration:
+   - Snowflake: Built-in data sharing capabilities that allow secure and easy sharing of data across different organizations and platforms
+   - SQL Server: Data sharing is possible but often requires more complex configurations and integrations.
+
+6. Multi-Cloud Support:
+   - Snowflake: Supports multiple cloud platforms (AWS, Azure, Google Cloud), providing flexibility and reducing vendor lock-in
+   - SQL Server: Primarily designed for on-premises use, though it can be deployed on Azure for cloud capabilities.
+
+7. Security and Compliance:
+   - Snowflake: Offers robust security features, including encryption, role-based access control, and compliance with various industry standards
+   - SQL Server: Also provides strong security features, but managing and maintaining these can be more complex in an on-premises environment.
