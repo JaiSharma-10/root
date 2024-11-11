@@ -61,6 +61,43 @@ PRACTICAL EXPERIENCE
    - Certifications: Consider certifications like Microsoft Certified: Azure Data Engineer Associate or Snowflake SnowPro Core Certification.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
+Some recommended paths and resources to get you started with Python, Snowflake, and Azure Databricks:
 
+Python
+1. Online Courses:
+   - Coursera: "Python for Everybody" by the University of Michigan.
+   - Udemy: "Complete Python Bootcamp: Go from zero to hero in Python 3" by Jose Portilla.
 
+2. Books:
+   - "Automate the Boring Stuff with Python" by Al Sweigart.
+   - "Python Crash Course" by Eric Matthes.
+
+3. Practice Platforms:
+   - LeetCode: For coding challenges.
+   - HackerRank: For practice problems and competitions.
+
+Snowflake
+1. Official Documentation:
+   - Snowflake Documentation: Comprehensive guides and tutorials on using Snowflake.
+
+2. Online Courses:
+   - Udemy: "Snowflake Masterclass: Hands-On Training for Data Engineers" by Sid Inf.
+   - Coursera: "Data Warehousing for Business Intelligence" by the University of Colorado.
+
+3. Community and Blogs:
+   - Snowflake Community: Forums and discussions.
+   - Snowflake Blog: Updates and use cases.
+
+Azure Databricks
+1. Official Documentation:
+   - Microsoft Learn: "Azure Databricks for Python developers"¹(https://learn.microsoft.com/en-us/azure/databricks/languages/python).
+   - Microsoft Learn: "Read and write data from Snowflake"²(https://learn.microsoft.com/en-us/azure/databricks/connect/external-systems/snowflake).
+
+2. Online Courses:
+   - Coursera: "Introduction to Azure Databricks" by Microsoft.
+   - Udemy: "Azure Databricks & Spark Core For Data Engineers (Python/SQL)" by Ramesh Retnasamy.
+
+3. Tutorials and Guides:
+   - Databricks Documentation: Tutorials on data engineering, data science, and machine learning¹(https://learn.microsoft.com/en-us/azure/databricks/languages/python).
+   - YouTube: Channels like "Databricks" and "Microsoft Azure" for video tutorials.
 
