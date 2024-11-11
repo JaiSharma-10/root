@@ -4747,8 +4747,3 @@ SELECT to_uppercase(name) AS uppercase_name
 FROM employees;
 ```
 Stored Procedure: Not necessary for this scenario, as it involves a straightforward transformation that can be handled by a UDF.
-
-These scenarios should help clarify when to use stored procedures versus user-defined functions in Snowflake. I
-
-
-
