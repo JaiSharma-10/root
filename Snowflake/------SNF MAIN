@@ -54,25 +54,35 @@ FAST LIKE WH-XL
 Data warehouses vs Databases
 
 Data warehouses
-Store data from multiple sources in a fixed schema for long-term storage and reporting. They are useful for analytics, reporting, and read-heavy operations. Data warehouses can include current and historical data, and they allow business analysts and data scientists to analyze the data. They can also help companies make analytical queries to track variables for business intelligence. Data warehouses are well-suited for OLAP solutions, which can aggregate data for large-scale analytics. 
+Store data from multiple sources in a fixed schema for long-term storage and reporting. They are useful for analytics, reporting, and read-heavy operations. 
+Data warehouses can include current and historical data, and they allow business analysts and data scientists to analyze the data. 
+They can also help companies make analytical queries to track variables for business intelligence. Data warehouses are well-suited for OLAP solutions, 
+which can aggregate data for large-scale analytics. 
 
 Databases
-Store structured data in tables for short-term data storage and data manipulation tasks. They are ideal for transactional data and applications that require frequent read/write operations. Databases are mainly used for data manipulation and retrieval tasks, and they serve as a management system to organize and process data. They are also good for OLTP solutions, which provide fast data access
+Store structured data in tables for short-term data storage and data manipulation tasks. They are ideal for transactional data and applications that require frequent 
+read/write operations. Databases are mainly used for data manipulation and retrieval tasks, and they serve as a management system to organize and process data. 
+They are also good for OLTP solutions, which provide fast data access
 
 --SNOWFLAKE AND ITS BASIC SERVICE -DATA WAREHOUSING
 
-Inside Snowflake, the virtual warehouse is a cluster of compute resources. It provides resources — including memory, temporary storage and CPU — to perform tasks such as DML operation and SQL execution.
+Inside Snowflake, the virtual warehouse is a cluster of compute resources. It provides resources — including memory, temporary storage and CPU — to perform tasks such as
+DML operation and SQL execution.
 
 
 --WHAT IS SNOWFLAKE?
 
 
-Snowflake is a cloud-based data platform that offers data warehousing as its core service. Every Snowflake customer gains access to a dedicated virtual warehouse, which they build based on their storage and processing needs. After that, they migrate their data to the warehouse and implement a new data architecture, which results in all data pipelines leading to the central data repository.
+Snowflake is a cloud-based data platform that offers data warehousing as its core service. Every Snowflake customer gains access to a dedicated virtual warehouse, which
+they build based on their storage and processing needs. After that, they migrate their data to the warehouse and implement a new data architecture, which results in all 
+data pipelines leading to the central data repository.
 
 Some of the features of the Snowflake data warehouse include:
 
 Scalability – 
-	Snowflake uses massively parallel processing (MPP) architecture, which distributes data across a cluster of independently running machines. This allows the warehouse to scale as needed, multiple times a day. When you have multiple users batch processing or stream processing large volumes of data simultaneously, the platform scales out and dedicates additional resources to you. It scales back down automatically afterward.
+	Snowflake uses massively parallel processing (MPP) architecture, which distributes data across a cluster of independently running machines. This allows the 
+warehouse to scale as needed, multiple times a day. When you have multiple users batch processing or stream processing large volumes of data simultaneously, the platform 
+scales out and dedicates additional resources to you. It scales back down automatically afterward.
 	
 Built-in security features – 
 	There are several security measures built into the platform, such as multi-factor authentication for all users, end-to-end encryption of data, and IP whitelisting.
