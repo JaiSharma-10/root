@@ -12,7 +12,8 @@ A database is a logical grouping of schemas. Each database belongs to a single S
 
 A schema is a logical grouping of database objects (tables, views, etc.). Each schema belongs to a single database.
 
-Databases are used to group datasets (tables) together. A second-level organizational grouping, within a database, is called a schema. Every time you create a database, Snowflake will automatically create two schemas for you.
+Databases are used to group datasets (tables) together. A second-level organizational grouping, within a database, is called a schema. Every time you create a database,
+Snowflake will automatically create two schemas for you.
 
 The INFORMATION_SCHEMA schema holds a collection of views.  The INFORMATION_SCHEMA schema cannot be deleted (dropped), renamed, or moved.
 
