@@ -4305,6 +4305,196 @@ EXEC sp_executesql @SQL
 SET NOCOUNT OFF
 #################################################
 
+----Explaination of the above query
+-------------------------------
+Let's break this down step-by-step. Here's what this SQL script does and an explanation of each component:
+
+ Server and Database Components
+- `AHV-SISDRCSTG01.accretivehealth.local`: This appears to be the server name.
+- `Recon_Total`, `Recon_Valid`, `AR-InsertDate`, `Recon abs`: These look like they could be names of tables or columns in your database that are being referenced or manipulated by the script, but they are not directly used in this script.
+
+ Performance Tuning Concepts
+- `SET NOCOUNT ON`: This statement prevents the message that shows the number of rows affected by a T-SQL statement from being returned. This can improve performance by reducing network traffic.
+- `SET NOCOUNT OFF`: This turns the counting of affected rows back on.
+
+ Declaration of Variables
+- `DECLARE @DatabaseName NVARCHAR(128)`: Declares a variable to hold database names.
+- `DECLARE @SQL NVARCHAR(MAX) = ''`: Declares a variable to build a dynamic SQL query.
+
+ Cursor Setup
+- `DECLARE DatabaseCursor CURSOR FOR`: This sets up a cursor to iterate over databases that meet certain conditions.
+- `SELECT name FROM sys.databases WHERE state = 0 AND right(name,3) = 'DRC' ORDER BY name`: This query selects the names of online databases whose names end with 'DRC'.
+
+ Opening and Fetching from Cursor
+- `OPEN DatabaseCursor`: Opens the cursor.
+- `FETCH NEXT FROM DatabaseCursor INTO @DatabaseName`: Fetches the next database name into the variable `@DatabaseName`.
+
+ Building the Union Query
+- `WHILE @@FETCH_STATUS = 0`: Loop through each fetched database name.
+- `SET @SQL = @SQL + 'SELECT ... FROM ' + QUOTENAME(@DatabaseName) + '.dbo.DATA_RECON a with (nolock) UNION ALL '`: This line builds a dynamic SQL query by concatenating the current database name into the query string. `QUOTENAME(@DatabaseName)` safely adds the database name.
+
+ Closing and Deallocating Cursor
+- `CLOSE DatabaseCursor`: Closes the cursor when done.
+- `DEALLOCATE DatabaseCursor`: Releases the cursor resources.
+
+ Executing the Union Query
+- `SET @SQL = LEFT(@SQL, LEN(@SQL) - LEN('UNION ALL '))`: Removes the last 'UNION ALL' from the query.
+- `EXEC sp_executesql @SQL`: Executes the dynamically built SQL query.
+
+ Example: Built Dynamic Query
+```sql
+SELECT a.FAC_CODE, A.post_DATE, A.INSERT_DATE, A.TOT_CHRGS, A.TOT_PYMTS *-1 TOT_PYMTS, A.Tot_Adj *-1 Tot_Adj, A.TOT_AR, A.VALID_TOTAL_CHRGS, A.VALID_TOTAL_PMNTS *-1 VALID_TOTAL_PMNTS, A.VALID_TOTAL_Adj *-1 VALID_TOTAL_Adj, A.VALID_TOTAL_AR
+FROM [Database1].dbo.DATA_RECON a with (nolock)
+UNION ALL
+SELECT a.FAC_CODE, A.post_DATE, A.INSERT_DATE, A.TOT_CHRGS, A.TOT_PYMTS *-1 TOT_PYMTS, A.Tot_Adj *-1 Tot_Adj, A.TOT_AR, A.VALID_TOTAL_CHRGS, A.VALID_TOTAL_PMNTS *-1 VALID_TOTAL_PMNTS, A.VALID_TOTAL_Adj *-1 VALID_TOTAL_Adj, A.VALID_TOTAL_AR
+FROM [Database2].dbo.DATA_RECON a with (nolock)
+-- and so on...
+```
+
+The purpose of this script is to aggregate data from multiple databases ending with 'DRC' into a single result set by using a cursor to dynamically build and execute a
+union query. Performance tuning concepts such as `SET NOCOUNT ON` and using `nolock` hints help optimize the query execution.
+
+-----------More explaination
+
+ Cursors in SQL Server
+A cursor is a database object used to retrieve, manipulate, and navigate through a result set row by row. Here’s a detailed look at why you might use a cursor and how it works:
+
+Use of Cursor:
+1. Row-by-Row Processing: Cursors allow you to process each row individually, which is useful when the logic cannot be set-based.
+2. Complex Operations: When you need to perform operations that require iterative processing, such as when each operation depends on the result of the previous one.
+3. Procedural Logic: Ideal for scenarios where procedural logic is necessary, as it gives you more control over the flow of data manipulation.
+
+Drawbacks of Using Cursors:
+1. Performance: Cursors are often slower than set-based operations because they process rows individually, which can be resource-intensive.
+2. Resource Usage: They can consume significant memory and CPU resources, especially with large result sets.
+
+A simple example of how you might use a cursor in SQL Server to iterate over a list of rows. Let's say you have a table `Employee` and you want to process each employee's data individually:
+
+ Example Scenario:
+Imagine you have an `Employee` table with the following columns: `EmployeeID`, `FirstName`, `LastName`, and `Salary`. You want to give a bonus to each employee based on their current salary.
+
+ Example Table Structure:
+```sql
+CREATE TABLE Employee (
+    EmployeeID INT PRIMARY KEY,
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50),
+    Salary DECIMAL(10, 2)
+);
+
+INSERT INTO Employee (EmployeeID, FirstName, LastName, Salary)
+VALUES 
+(1, 'John', 'Doe', 50000.00),
+(2, 'Jane', 'Smith', 60000.00),
+(3, 'Bob', 'Johnson', 55000.00);
+```
+
+ Cursor Example:
+This cursor will loop through each employee and increase their salary by 10%.
+
+```sql
+-- Disable row count message
+SET NOCOUNT ON;
+
+-- Declare variables to hold employee data
+DECLARE @EmployeeID INT;
+DECLARE @FirstName NVARCHAR(50);
+DECLARE @LastName NVARCHAR(50);
+DECLARE @Salary DECIMAL(10, 2);
+
+-- Declare a cursor to fetch employee data
+DECLARE EmployeeCursor CURSOR FOR
+SELECT EmployeeID, FirstName, LastName, Salary
+FROM Employee;
+
+-- Open the cursor
+OPEN EmployeeCursor;
+
+-- Fetch the first row from the cursor
+FETCH NEXT FROM EmployeeCursor INTO @EmployeeID, @FirstName, @LastName, @Salary;
+
+-- Loop through the result set
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    -- Print employee information (or perform any other operation)
+    PRINT 'Updating salary for ' + @FirstName + ' ' + @LastName;
+
+    -- Increase salary by 10%
+    UPDATE Employee
+    SET Salary = Salary * 1.10
+    WHERE EmployeeID = @EmployeeID;
+
+    -- Fetch the next row from the cursor
+    FETCH NEXT FROM EmployeeCursor INTO @EmployeeID, @FirstName, @LastName, @Salary;
+END;
+
+-- Close and deallocate the cursor
+CLOSE EmployeeCursor;
+DEALLOCATE EmployeeCursor;
+
+-- Enable row count message again
+SET NOCOUNT OFF;
+```
+
+ Explanation:
+1. Disable Row Count Messages: `SET NOCOUNT ON;` disables messages about the number of rows affected, which can improve performance.
+2. Declare Variables: Variables are declared to hold data for each employee.
+3. Declare Cursor: The cursor `EmployeeCursor` is declared to fetch employee data.
+4. Open Cursor: The cursor is opened, and data is fetched from it.
+5. Fetch and Process Data: The script loops through each row returned by the cursor. For each employee, it prints a message and updates their salary.
+6. Close and Deallocate Cursor: The cursor is closed and deallocated to free up resources.
+7. Enable Row Count Messages: `SET NOCOUNT OFF;` re-enables row count messages.
+
+Cursors can be very useful in specific scenarios where row-by-row processing is necessary. However, always consider whether a set-based operation could achieve the same result more efficiently.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 
+
+Performance Tuning Methods in SQL Server
+To optimize SQL Server performance, you can employ various techniques beyond avoiding cursors. Here are some key methods:
+
+1. Indexing:
+   - Clustered and Non-Clustered Indexes: Improve the speed of data retrieval.
+   - Covering Indexes: Ensure indexes contain all required columns for a query to avoid additional lookups.
+
+2. Query Optimization:
+   - Analyze Execution Plans: Use SQL Server Management Studio (SSMS) to examine query execution plans and identify bottlenecks.
+   - Rewriting Queries: Simplify or restructure queries to improve performance.
+
+3. Use of SET Options:
+   - SET NOCOUNT ON: Reduces network traffic by suppressing the message that indicates the number of rows affected by a T-SQL statement.
+   - SET STATISTICS IO/TIME ON: Provides information about the amount of disk activity generated by your queries.
+
+4. Temporary Tables and Table Variables:
+   - Temporary Tables: Useful for storing intermediate results.
+   - Table Variables: Better for smaller datasets and less likely to cause recompilation of queries.
+
+5. Data Partitioning:
+   - Partitioned Tables and Indexes: Distribute large tables across multiple storage structures to improve manageability and query performance.
+
+6. Query Hints:
+   - Force Join Orders: Use hints like `OPTION (FORCE ORDER)` to influence the query optimizer’s choice of join order.
+   - Max Degree of Parallelism: Control the number of processors used for query execution with `OPTION (MAXDOP)`.
+
+7. Maintenance Plans:
+   - Regular Index Maintenance: Rebuild or reorganize indexes to improve performance.
+   - Update Statistics: Ensure query optimizer has up-to-date information for making decisions.
+
+8. Hardware and Configuration:
+   - Memory Allocation: Allocate sufficient memory for SQL Server.
+   - Storage Optimization: Use fast SSDs for data storage and ensure proper disk I/O configurations.
+   - Server Configuration: Optimize server settings, like `max server memory`, and network protocols.
+
+ Example of Using Indexes
+To illustrate, here’s how you might create an index to improve query performance:
+```sql
+CREATE NONCLUSTERED INDEX IX_DataRecon_InsertDate
+ON DATA_RECON (INSERT_DATE);
+```
+	
+
 ------performance tuning concepts of SQL Server
 --used in SP and SSIS
 SET NOCOUNT ON
