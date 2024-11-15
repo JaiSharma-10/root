@@ -4937,3 +4937,22 @@ SELECT to_uppercase(name) AS uppercase_name
 FROM employees;
 ```
 Stored Procedure: Not necessary for this scenario, as it involves a straightforward transformation that can be handled by a UDF.
+
+--------------------------------------------------------------------
+--SQL server queries
+
+select top 10* from dbo.tbPayments;
+
+select *
+from INFORMATION_SCHEMA.COLUMNS
+where TABLE_NAME='tbPayments';
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES
+where TABLE_NAME='tbPayments';
+
+select SCHEMA_NAME(); --gives schema name
+
+sp_help tbPayments; --in sql server --to get info about table struct
+
+desc tablename --in oracle
+
