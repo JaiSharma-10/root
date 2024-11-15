@@ -2222,8 +2222,106 @@ screen.exitonclick() # turtle graphics screen
 
 
 # in second method we can use t.setheading()
-print("###############################################	Chapter 3: Automation via python Coursera	########################################################")
+print("###############################################	Chapter 3: Automation via python Coursera/book	########################################################")
 
 with open("test.txt") as file:
     for line in file:
         print(line.strip().upper()) # strip is used to remove extra new line
+
+###REGEX
+import re;
+
+# phone_regexp = re.compile(r'\d\d\d-\d\d\d\d-\d\d\d\d')
+
+phone_regexp = re.compile(r'(\d\d\d)-(\d\d\d\d-\d\d\d\d)')
+
+# Now the phone_regexp variable contains a Regex object. 
+
+# r is used for raw string
+
+# putting bracket to add group (1) ,group(2)
+
+mo = phone_regexp.search('My number is 123-1234-1234.')
+
+print(mo.group(1)) # 123
+
+print(mo.group(2)) # 1234-1234
+
+comicsReg = re.compile(r'batman|constantine|spiderman|')
+
+# it will search keywords or in the comicsReg
+
+mo1 = comicsReg.search('batman is a DC character')
+
+print(mo1.group())
+
+comicsReg1 = re.compile(r'bat(man|mobile)')
+
+mo2 = comicsReg1.search('batmobile lost a wheel')
+
+print(mo2.group()) #batmobile
+
+print(mo2.group(1)) #mobile
+
+#The ? character flags the group that precedes it as an optional part of the pattern.
+
+#The * (called the star or asterisk) means “match zero or more”—the group that precedes the star can occur any number of times in the text. 
+# It can becompletely absent or repeated over and over again.
+
+# The findall() Method
+# In addition to the search() method, Regex objects also have a findall()
+# method. While search() will return a Match object of the first matched text
+# in the searched string, the findall() method will return the strings of every
+# match in the searched string
+
+
+# below code can calculate frequency of the vowels in the sentence
+
+string = 'Note that inside the square brackets, the normal regular expression symbols are not interpreted as such. This means you do not need to escape the ., *, ?, or ()'
+
+vowelRegex = re.compile(r'[AEIOUaeiou]') # using regex
+
+mo = vowelRegex.findall(string)
+
+print(mo)
+# ['o', 'e', 'a', 'i', 'i', 'e', 'e', 'u', 'a', 'e', 'a', 'e', 'e', 'o', 'a', 'e', 'u', 'a', 'e', 'e', 'i', 'o', 'o', 'a', 'e', 'o', 'i', 'e', 'e', 'e', 'a', 'u', 'i', 'e', 'a', 'o', 'u', 'o', 'o', 'e', 'e', 'o', 'e', 'a', 'e', 'e', 'o']
+
+# we have list of element mo = ['o', 'e', 'a', 'i', 'i', 'e', 'e', 'u', 'a', 'e', 'a', 'e', 'e', 'o', 'a', 'e', 'u', 'a', 'e', 'e', 'i', 'o', 'o', 'a', 'e', 'o', 'i', 'e', 'e', 'e', 'a', 'u', 'i', 'e', 'a', 'o', 'u', 'o', 'o', 'e', 'e', 'o', 'e', 'a', 'e', 'e', 'o']
+
+frequency = {} # dict to calculate frequency of elements
+
+# calculate frequency of each element 
+
+for element in mo:
+    if(element in frequency):
+        frequency[element] += 1
+    else:
+        frequency[element] = 1
+
+print('frequency of the vowels in ')
+
+print(frequency)
+
+
+# below code can calculate frequency of the consonant in the sentence
+
+string = 'Note that inside the square brackets, the normal regular expression symbols are not interpreted as such. This means you do not need to escape the ., *, ?, or ()'
+
+consonantRegex = re.compile(r'[^AEIOUaeiou]') #negative character class
+
+mo1 = consonantRegex.findall(string)
+
+print(mo1)
+
+frequency = {} # dict
+
+for element in mo1:
+    if(element in frequency):
+        frequency[element] +=1
+    else :
+        frequency[element] = 1
+
+ 
+print('frequency of the consonant in ')
+
+print(frequency)
