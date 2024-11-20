@@ -4956,3 +4956,8 @@ sp_help tbPayments; --in sql server --to get info about table struct
 
 desc tablename --in oracle
 
+---------------------------------------------------------------Performance enhancement Set nocount on and nolock
+
+SET NOCOUNT ON is very useful in stored procedures - especially when called from SSIS/SSRS and other external applications. 
+It removes that extra resultset that can cause issues for those applications. NOLOCK is the same as READ UNCOMMITTED and allows for 'dirty' reads.
+
