@@ -2343,3 +2343,10 @@ print(frequency)
 # respectively.
 # •	 [abc] matches any character between the brackets (such as a, b, or c).
 # •	 [^abc] matches any character that isn’t between the brackets.
+
+
+# Common Wildcard Characters:
+# *: Matches any number of characters (including zero)
+# ?: Matches any single character
+# []: Matches any character within the brackets
+# [!seq]: Matches any character not in the sequence seq
