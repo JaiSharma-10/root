@@ -4957,7 +4957,70 @@ sp_help tbPayments; --in sql server --to get info about table struct
 desc tablename --in oracle
 
 ---------------------------------------------------------------Performance enhancement Set nocount on and nolock
-
+SET NOCOUNT ON statement usage and performance benefits in SQL Server
+	
 SET NOCOUNT ON is very useful in stored procedures - especially when called from SSIS/SSRS and other external applications. 
 It removes that extra resultset that can cause issues for those applications. NOLOCK is the same as READ UNCOMMITTED and allows for 'dirty' reads.
 
+Configure the behavior of NOCOUNT at instance level
+The SET NOCOUNT ON works at the session-level. We need to specify it with each session. In the stored procedures, we specify the code itself. 
+Therefore, it does not require specifying explicitly in the session.We can use the sp_configure configuration option to use it at the instance level. 
+The following query sets the behavior of SET NOCOUNT ON at the instance level.
+EXEC sys.sp_configure 'user options', '512'; 
+  RECONFIGURE
+If we specify the NOCOUNT ON/OFF in the individual session, we can override the behavior configured at the instance level.
+
+
+SET NOCOUNT and @@ROWCOUNT function
+We can use the @@ROWCOUNT function to get the number of affected rows in SQL Server. The NOCOUNT ON function does not have any impact on the @@ROWCOUNT function.
+Execute the following query, and we get the number of rows affected with the Insert statement.
+TRUNCATE TABLE tblEmployeeDemo;
+    GO
+    USE [SQLShackDemo]
+    GO
+    SET NOCOUNT ON
+    INSERT [dbo].[tblEmployeeDemo] ([Id], [EmpName], [Gender]) VALUES (1, N'Grace', N'Female'),(2, N'Gordon', N'Male')
+    Select @@ROWCOUNT  as rowsaffected
+
+
+The Performance impact of NOCOUNT statement
+According to Microsoft documentation, using NOCOUNT option can provide a significant performance improvement.
+Let’s explore this performance benefit with the following example.
+Create two different stored procedures with different NOCOUNT properties.
+Create a stored procedure with default behavior ( NOCOUNT OFF)
+CREATE PROC NOCountTest(@N INT)
+  AS
+       DECLARE @NumberofRecords INT;
+       SET @NumberofRecords = 0;
+       WHILE @NumberofRecords < @N
+           BEGIN
+               SET @NumberofRecords = @NumberofRecords + 1;
+           END;
+      GO
+Create stored procedure with explicit set statement
+
+CREATE PROC NOCountTest_ON(@N INT)
+  AS
+  	SET NOCOUNT ON
+       	DECLARE @NumberofRecords INT;
+       	SET @NumberofRecords = 0;
+       	WHILE @NumberofRecords < @N
+           BEGIN
+              	SET @NumberofRecords = @NumberofRecords + 1;
+           END;
+  		 SELECT @NumberofRecords
+      GO
+			 
+Execute both the stored procedures with the different number of rows 1000, 10000, 100000 and 1000000. We want to capture client statistics for these executions. 
+In the query window of SSMS, go to Edit and enable the Include Client Statistics.
+(see pics)
+
+Observation-
+We can see a huge difference in the TDS packagers received from the server, Bytes received from the server and the client processing time.
+The number of the select statement also shows a significant improvement. We did not specify the Select statement in the stored procedure, but still, SQL Server treats 
+SET statement as a select statement with the default NOCOUNT value. We can reduce the network bandwidth with the SET NOCOUNT ON option in the stored procedures or
+T-SQL statements. It might not improve the query performance drastically, but definitely, it puts an impact on the processing time, reducing the network bandwidth and 
+client processing times.
+
+we explored the behavior of T-SQL statements and stored procedures using the SET NOCOUNT ON. We should consider this SET option and eliminate unnecessary messages to 
+reduce network traffic and improve performance.
