@@ -1947,13 +1947,18 @@ Views for all the objects contained in the database, as well as views for accoun
 Table functions for historical and usage data across your account.
 
 General usage notes
+SELECT table_name, comment FROM testdb.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'PUBLIC' ... ;
 
-Each INFORMATION_SCHEMA schema is read-only (i.e. the schema, and all the views and table functions in the schema, cannot be modified or dropped).
-Queries on INFORMATION_SCHEMA views do not guarantee consistency with respect to concurrent DDL. For example, if a set of tables are created while a long-running 
-INFORMATION_SCHEMA query is being executed, the result of the query may include some, none, or all of the tables created.
-The output of a view or table function depend on the privileges granted to the user’s current role. When querying an INFORMATION_SCHEMA view or table function, only 
-objects for which the current role has been granted access privileges are returned.
-To prevent performance issues, the following error is returned if the filters specified in an INFORMATION_SCHEMA query are not sufficiently selective:
-Information schema query returned too much data. Please repeat query with more selective predicates.
-The Snowflake-specific views are subject to change. Avoid selecting all columns from these views. Instead, select the columns that you want. For example, if you want 
-the name column, use SELECT name, rather than SELECT *.
+SELECT event_timestamp, user_name FROM TABLE(testdb.INFORMATION_SCHEMA.LOGIN_HISTORY( ... ));
+
+USE DATABASE testdb;
+
+SELECT table_name, comment FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'PUBLIC' ... ;
+
+SELECT event_timestamp, user_name FROM TABLE(INFORMATION_SCHEMA.LOGIN_HISTORY( ... ));
+
+USE SCHEMA testdb.INFORMATION_SCHEMA;
+
+SELECT table_name, comment FROM TABLES WHERE TABLE_SCHEMA = 'PUBLIC' ... ;
+
+SELECT event_timestamp, user_name FROM TABLE(LOGIN_HISTORY( ... ));
