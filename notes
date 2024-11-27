@@ -14,8 +14,8 @@ PROBLEM STATEMENT
 
 CREATE PYTHON SCRIPT 
 
-To get data from all server to from queries
+To get data from all server to from queries AKA sys.databases
 To compile all results from SQL
 To filter date according to Column and date
-To explore Snowflake to find specific column in table
+To explore Snowflake to find specific column in table aka INFORMATION_SCHEMA
 
