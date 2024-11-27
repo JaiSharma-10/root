@@ -1,6 +1,4 @@
 Snowflake Developer
-• ETL skills using Bigdata (Databricks, Spark, Scala, Python), Kafka, Airflow, Hive and Azure Cloud
-
 PYTHON SNOWFLAKE DATABRICKS
 
 Python - Coursera
@@ -8,12 +6,13 @@ Google IT Automation with Python Professional Certificate
 https://www.coursera.org/learn/python-crash-course/home/module/6
 
 Snowflake - Udemy
+
+DATABRICKS
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 PROBLEM STATEMENT
 
 CREATE PYTHON SCRIPT 
-
 To get data from all server to from queries AKA sys.databases
 To compile all results from SQL
 To filter date according to Column and date
