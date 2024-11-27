@@ -2350,3 +2350,10 @@ print(frequency)
 # ?: Matches any single character
 # []: Matches any character within the brackets
 # [!seq]: Matches any character not in the sequence seq
+---------------------------------------------------------WORKING WITH EXCEL FILES (https://pandas.pydata.org/)
+
+Excel files
+The read_excel() method can read Excel 2007+ (.xlsx) files using the openpyxl Python module. Excel 2003 (.xls) files can be read using xlrd.
+Binary Excel (.xlsb) files can be read using pyxlsb. All formats can be read using calamine engine. 
+The to_excel() instance method is used for saving a DataFrame to Excel. 
+Generally the semantics are similar to working with csv data.
