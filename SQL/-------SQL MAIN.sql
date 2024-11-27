@@ -5024,3 +5024,183 @@ client processing times.
 
 we explored the behavior of T-SQL statements and stored procedures using the SET NOCOUNT ON. We should consider this SET option and eliminate unnecessary messages to 
 reduce network traffic and improve performance.
+
+-------------------------------------------------------------------------
+Query to get data from multiple DB in single server
+
+script is designed to aggregate and filter specific data from multiple databases whose names start with "Stage" and then compile the results into a single temporary 
+table for further analysis
+
+IF
+        object_id('tempdb..#temp') IS NOT NULL
+        DROP TABLE #temp
+        SET
+                QUOTED_IDENTIFIER ON
+        CREATE TABLE #temp
+                (
+                        Facilitycode         VARCHAR(5) NULL  ,
+                        PatientAccountNbr    VARCHAR(50) NULL ,
+                        EncounterOpenBalance MONEY            ,
+                        fileDate             DATE
+                )
+        EXEC sp_MSforeachdb 'IF left(''?'',5) =''Stage''
+BEGIN
+use ?
+Set QUOTED_IDENTIFIER On
+insert into #temp
+Select right (db_name(),4)Facilitycode,Count(PatientAccountNbr) accounts,SUM(TRY_CAST(EncounterOpenBalance as money))
+OpenBalance,cast (fileDate as date) Date from RETRO07D (nolock)
+Where
+TRY_CAST(EncounterOpenBalance as money) IS NOT NULL
+AND
+TRY_CAST(EncounterOpenBalance as money) > 0
+and FacilityCode <>''TRAILER''
+and fileDate > ''2024-09-01''
+and AccountStatus <>''OFC''
+group by fileDate order by 1 desc
+end'
+        SELECT
+                *
+        FROM
+                #temp
+EXPLANATION
+			 
+Check and Drop Temporary Table:
+
+sql
+IF object_id('tempdb..#temp') IS NOT NULL
+    DROP TABLE #temp
+This checks if the temporary table #temp exists in tempdb. If it does, the table is dropped to ensure there's no conflict when recreating it later.
+
+Set QUOTED_IDENTIFIER ON:
+
+sql
+SET QUOTED_IDENTIFIER ON
+This setting allows the use of double quotation marks for identifying delimited identifiers.
+
+Create Temporary Table:
+
+sql
+CREATE TABLE #temp
+    (
+        Facilitycode         VARCHAR(5) NULL,
+        PatientAccountNbr    VARCHAR(50) NULL,
+        EncounterOpenBalance MONEY,
+        fileDate             DATE
+    )
+A new temporary table named #temp is created with four columns: Facilitycode, PatientAccountNbr, EncounterOpenBalance, and fileDate.
+
+Execute for Each Database:
+
+sql
+EXEC sp_MSforeachdb 'IF left(''?'',5) =''Stage''
+BEGIN
+    use ?
+    Set QUOTED_IDENTIFIER On
+    insert into #temp
+    Select right(db_name(),4) Facilitycode, 
+           Count(PatientAccountNbr) accounts,
+           SUM(TRY_CAST(EncounterOpenBalance as money)) OpenBalance,
+           cast(fileDate as date) Date 
+    from RETRO07D (nolock)
+    Where TRY_CAST(EncounterOpenBalance as money) IS NOT NULL
+      AND TRY_CAST(EncounterOpenBalance as money) > 0
+      and FacilityCode <>''TRAILER''
+      and fileDate > ''2024-09-01''
+      and AccountStatus <>''OFC''
+    group by fileDate 
+    order by 1 desc
+end'
+
+This block executes the following steps for each database:
+
+The sp_MSforeachdb system stored procedure is used to iterate through all databases.
+
+For each database whose name starts with "Stage" (checked by IF left('?', 5) = 'Stage'):
+
+The database is switched to using USE ?.
+
+The QUOTED_IDENTIFIER is set to ON.
+
+Data is inserted into the #temp table with the following fields:
+
+Facilitycode: The last 4 characters of the database name.
+
+accounts: The count of PatientAccountNbr.
+
+OpenBalance: The sum of non-null and positive EncounterOpenBalance values.
+
+Date: The fileDate converted to a date format.
+
+The query fetches data from the RETRO07D table, applying several filters:
+
+Non-null and positive EncounterOpenBalance.
+
+FacilityCode is not 'TRAILER'.
+
+fileDate is after '2024-09-01'.
+
+AccountStatus is not 'OFC'.
+
+Results are grouped by fileDate and ordered descendingly.
+
+Select Data from Temporary Table:
+
+sql
+SELECT *
+FROM #temp
+Finally, all data in the temporary table #temp is selected and returned.
+
+This script is designed to aggregate and filter specific data from multiple databases whose names start with "Stage" and then compile the results into a single
+temporary table for further analysis.
+
+stored procedure version of your query:'
+
+sql
+CREATE PROCEDURE sp_GenerateReport
+AS
+BEGIN
+    -- Drop the temporary table if it exists
+    IF OBJECT_ID('tempdb..#temp') IS NOT NULL
+        DROP TABLE #temp;
+
+    -- Set QUOTED_IDENTIFIER ON
+    SET QUOTED_IDENTIFIER ON;
+
+    -- Create the temporary table
+    CREATE TABLE #temp
+    (
+        Facilitycode         VARCHAR(5) NULL,
+        PatientAccountNbr    VARCHAR(50) NULL,
+        EncounterOpenBalance MONEY,
+        fileDate             DATE
+    );
+
+    -- Execute for each database
+    EXEC sp_MSforeachdb 'IF LEFT(''?'', 5) = ''Stage''
+    BEGIN
+        USE ?
+        SET QUOTED_IDENTIFIER ON
+        INSERT INTO #temp
+        SELECT RIGHT(DB_NAME(), 4) AS Facilitycode, 
+               COUNT(PatientAccountNbr) AS accounts,
+               SUM(TRY_CAST(EncounterOpenBalance AS MONEY)) AS OpenBalance,
+               CAST(fileDate AS DATE) AS Date
+        FROM RETRO07D (NOLOCK)
+        WHERE TRY_CAST(EncounterOpenBalance AS MONEY) IS NOT NULL
+          AND TRY_CAST(EncounterOpenBalance AS MONEY) > 0
+          AND FacilityCode <> ''TRAILER''
+          AND fileDate > ''2024-09-01''
+          AND AccountStatus <> ''OFC''
+        GROUP BY fileDate
+        ORDER BY 1 DESC
+    END';
+
+    -- Select data from the temporary table
+    SELECT *
+    FROM #temp;
+END;
+
+
+sql
+EXEC sp_GenerateReport;
