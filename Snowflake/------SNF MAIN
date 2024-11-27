@@ -1931,3 +1931,29 @@ Snowflake offers several major advantages over SQL Server, particularly for data
 
 
 ----------------------------------------------------------------------
+SNOWFLAKE INFORMATION SCHEMA
+
+The Snowflake Information Schema (aka “Data Dictionary”) consists of a set of system-defined views and table functions that provide extensive metadata information about 
+the objects created in your account. The Snowflake Information Schema is based on the SQL-92 ANSI Information Schema, but with the addition of views and functions that
+are specific to Snowflake.
+
+The Information Schema is implemented as a schema named INFORMATION_SCHEMA that Snowflake automatically creates in every database in an account.
+
+What is INFORMATION_SCHEMA?
+Each database created in your account automatically includes a built-in, read-only schema named INFORMATION_SCHEMA. The schema contains the following objects:
+
+Views for all the objects contained in the database, as well as views for account-level objects (i.e. non-database objects such as roles, warehouses, and databases)
+
+Table functions for historical and usage data across your account.
+
+General usage notes
+
+Each INFORMATION_SCHEMA schema is read-only (i.e. the schema, and all the views and table functions in the schema, cannot be modified or dropped).
+Queries on INFORMATION_SCHEMA views do not guarantee consistency with respect to concurrent DDL. For example, if a set of tables are created while a long-running 
+INFORMATION_SCHEMA query is being executed, the result of the query may include some, none, or all of the tables created.
+The output of a view or table function depend on the privileges granted to the user’s current role. When querying an INFORMATION_SCHEMA view or table function, only 
+objects for which the current role has been granted access privileges are returned.
+To prevent performance issues, the following error is returned if the filters specified in an INFORMATION_SCHEMA query are not sufficiently selective:
+Information schema query returned too much data. Please repeat query with more selective predicates.
+The Snowflake-specific views are subject to change. Avoid selecting all columns from these views. Instead, select the columns that you want. For example, if you want 
+the name column, use SELECT name, rather than SELECT *.
