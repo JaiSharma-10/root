@@ -2366,3 +2366,23 @@ Otherwise if path_or_buffer is in xlsb format, pyxlsb will be used.
 Otherwise openpyxl will be used.
 
 pd.read_excel("path_to_file.xls", sheet_name="Sheet1")
+
+ExcelFile class
+To facilitate working with multiple sheets from the same file, the ExcelFile class can be used to wrap the file and can be passed into read_excel There will be a
+performance benefit for reading multiple sheets as the file is read into memory only once.
+
+xlsx = pd.ExcelFile("path_to_file.xls")
+df = pd.read_excel(xlsx, "Sheet1")
+
+The sheet_names property will generate a list of the sheet names in the file.
+import pandas as pd
+# Create an ExcelFile object
+excel_file = pd.ExcelFile("your_excel_file.xlsx")
+# Access the sheet names using the sheet_names attribute
+sheet_names = excel_file.sheet_names
+# Print the sheet names
+print(sheet_names)
+
+with pd.ExcelFile("path_to_file.xls") as xls:
+    df1 = pd.read_excel(xls, "Sheet1")
+    df2 = pd.read_excel(xls, "Sheet2")
