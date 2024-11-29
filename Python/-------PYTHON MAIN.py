@@ -2384,3 +2384,52 @@ print(sheet_names)
 with pd.ExcelFile("path_to_file.xls") as xls:
     df1 = pd.read_excel(xls, "Sheet1")
     df2 = pd.read_excel(xls, "Sheet2")
+
+
+------------------------import pandas as pd
+
+# Path to the local Excel file
+file_path = 'C:\\Users\\IN10033204\\OneDrive - R1\\Documents\\Data.xlsb' #xlsx is excel workbook .xlsb is excel binary
+
+# Creating an ExcelFile object 
+df = pd.ExcelFile(file_path) #<pandas.io.excel._base.ExcelFile object at 0x00000189C354A000>
+
+#df = pd.read_excel(file_path) #if excel has multiple sheets then by default it will read first one
+
+# Get the sheet names using The sheet_names property that will generate a list of the sheet names in the file.
+sheet_names = df.sheet_names #Print the sheet names ['Payment', 'AR_', 'Charges', 'Released', 'Activity', 'Remits', 'Adjustment']
+
+# creating dictionary to list of each sheets and dataframe object
+# pd.read_excel is used to read the excel file data into a DataFrame object
+
+dict = {}
+
+for sheet in sheet_names:
+    dict[sheet] = pd.read_excel(df,sheet,header = 0 ) #header: The row number to use as the header (0-indexed, defaults to 0).
+
+# above code will hold sheet name as keys and whole data as its value
+
+#dict.items() # return list of tuple
+# for key , value in dict.items():
+#     print(key) 
+# this will iterate though each key and value in dictionary
+
+list_of_sheet = list(dict.keys()) #this will list all keys in the dict
+
+# concatinating both the sheets
+# newData = pd.concat([sheet1, sheet2])
+# print(newData)
+
+print(list_of_sheet) #['Payment', 'AR_', 'Charges', 'Released', 'Activity', 'Remits', 'Adjustment']
+
+# concatinating 2 sheets
+# Whole_data = pd.concat([dict["Payment"], dict["AR_"]])
+
+for key , value in dict.items():
+    print(value)
+
+
+
+
+
+
