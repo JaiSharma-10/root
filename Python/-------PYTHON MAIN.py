@@ -2350,7 +2350,13 @@ print(frequency)
 # ?: Matches any single character
 # []: Matches any character within the brackets
 # [!seq]: Matches any character not in the sequence seq
----------------------------------------------------------WORKING WITH EXCEL FILES (https://pandas.pydata.org/)
+---------------------------------------------------------WORKING WITH EXCEL FILES (greeks for greeks)
+Getting Started Python Openpyxl
+Openpyxl is a Python library that provides various methods to interact with Excel Files using Python. It allows operations like reading, writing, arithmetic operations, 
+plotting graph
+pip install openpyxl
+pip install xlrd
+pip install pyxlsb
 
 Excel files
 The read_excel() method can read Excel 2007+ (.xlsx) files using the openpyxl Python module. Excel 2003 (.xls) files can be read using xlrd.
