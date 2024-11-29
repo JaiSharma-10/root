@@ -2357,14 +2357,6 @@ The read_excel() method can read Excel 2007+ (.xlsx) files using the openpyxl Py
 Binary Excel (.xlsb) files can be read using pyxlsb. All formats can be read using calamine engine. 
 The to_excel() instance method is used for saving a DataFrame to Excel. 
 Generally the semantics are similar to working with csv data.
-
-NOTE
-When engine=None, the following logic will be used to determine the engine:
-If path_or_buffer is an OpenDocument format (.odf, .ods, .odt), then odf will be used.
-Otherwise if path_or_buffer is an xls format, xlrd will be used.
-Otherwise if path_or_buffer is in xlsb format, pyxlsb will be used.
-Otherwise openpyxl will be used.
-
 pd.read_excel("path_to_file.xls", sheet_name="Sheet1")
 
 ExcelFile class
