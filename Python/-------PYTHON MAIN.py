@@ -2388,6 +2388,8 @@ with pd.ExcelFile("path_to_file.xls") as xls:
 
 ------------------------import pandas as pd
 
+import pandas as pd
+
 # Path to the local Excel file
 file_path = 'C:\\Users\\IN10033204\\OneDrive - R1\\Documents\\Data.xlsb' #xlsx is excel workbook .xlsb is excel binary
 
@@ -2405,31 +2407,39 @@ sheet_names = df.sheet_names #Print the sheet names ['Payment', 'AR_', 'Charges'
 dict = {}
 
 for sheet in sheet_names:
+    # Load an Excel file into a DataFrame read_excel
     dict[sheet] = pd.read_excel(df,sheet,header = 0 ) #header: The row number to use as the header (0-indexed, defaults to 0).
-
 # above code will hold sheet name as keys and whole data as its value
 
-#dict.items() # return list of tuple
-# for key , value in dict.items():
-#     print(key) 
-# this will iterate though each key and value in dictionary
+df_whole_data = pd.DataFrame()
 
-list_of_sheet = list(dict.keys()) #this will list all keys in the dict
+print(df_whole_data)
 
-# concatinating both the sheets
-# newData = pd.concat([sheet1, sheet2])
-# print(newData)
+# concatenating whole data
 
-print(list_of_sheet) #['Payment', 'AR_', 'Charges', 'Released', 'Activity', 'Remits', 'Adjustment']
+for sheet in sheet_names:
+    df_whole_data = pd.concat([dict[sheet],df_whole_data], axis = 0 )
 
-# concatinating 2 sheets
-# Whole_data = pd.concat([dict["Payment"], dict["AR_"]])
+#print(df_whole_data)
 
-for key , value in dict.items():
-    print(value)
+# concatenating 2 sheets
+# df1 = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+# df2 = pd.DataFrame({'A': [5, 6], 'B': [7, 8]})
+# vertical_concat = pd.concat([df1, df2], axis=0)    # concatenating along rows
+# horizontal_concat = pd.concat([df1, df2], axis=1)  # concatenating along column
 
+# To view 5 columns from the top and from the bottom of the data frame
+# print(newData.head())
+# print(newData.tail())
 
+# The shape() method can be used to view the number of rows and columns
+# newData.shape
 
+# Pandas Describe() method
+# Now, suppose our data is mostly numerical. We can get the statistical information like mean, max, min, etc. about the data frame 
 
+#print(df_whole_data.describe())
 
-
+# Write the DataFrame to an Excel file
+df_whole_data.to_excel('output_concat.xlsx', sheet_name='Sheet1', index=False)
+# if "output" file is not there then it will create new sheet 
