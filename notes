@@ -20,4 +20,5 @@ To filter date according to Column and date
 To explore Snowflake to find specific column in table aka INFORMATION_SCHEMA
 
 --start with Python script that can filter out data
+1-concatenating all sheets
 
