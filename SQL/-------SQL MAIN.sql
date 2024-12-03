@@ -5209,3 +5209,18 @@ EXEC sp_GenerateReport;
 WITH (NOLOCK) is the equivalent of using READ UNCOMMITED as a transaction isolation level. So, you stand the risk of reading an uncommitted row that is subsequently
 rolled back, i.e. data that never made it into the database. So, while it can prevent reads being deadlocked by other operations, it comes with a risk. In a banking 
 application with high transaction rates, it's probably not going to be the right solution to whatever problem you're trying to solve with it IMHO.
+
+------------------------SSIS package log in SQL
+
+use BINextGen;
+
+select top 10* from tbSSISQueue(nolock) order by date desc ;
+
+select top 10* from sysssislog(nolock);
+
+select *
+from INFORMATION_SCHEMA.COLUMNS
+where TABLE_NAME like '%SSIS%';
+
+--error
+--component "Charges from Source" (1) failed validation and returned error code 0xC020801C.  
