@@ -2386,7 +2386,8 @@ with pd.ExcelFile("path_to_file.xls") as xls:
     df2 = pd.read_excel(xls, "Sheet2")
 
 
-------------------------import pandas as pd
+---------------------------
+# below code can concat diff sheet and filter by col value for existing excel and create new excel
 
 import pandas as pd
 
@@ -2441,5 +2442,19 @@ for sheet in sheet_names:
 #print(df_whole_data.describe())
 
 # Write the DataFrame to an Excel file
-df_whole_data.to_excel('output_concat.xlsx', sheet_name='Sheet1', index=False)
+# df_whole_data.to_excel('output_concat.xlsx', sheet_name='Sheet1', index=False) #creating new excel sheet
 # if "output" file is not there then it will create new sheet 
+
+# To filter a DataFrame by column value, you can use several methods:
+# 1. Boolean Indexing
+# df = pd.DataFrame({'A': [1, 2, 3], 'B': ['x', 'y', 'x']}
+# Filter for rows where column 'A' is equal to 2
+# filtered_df = df[df['A'] == 2]
+# 2. loc Method
+# filtered_df = df.loc[df['B'] == 'x']
+# 3. query Method
+# Filter for rows where column 'A' is greater than 1
+# filtered_df = df.query('A > 1')
+
+filtered_df = df_whole_data.query('Date >= 45536 and Date =< 45626')
+filtered_df.to_excel('output_concat_filtered_1.xlsx', sheet_name='Sheet1', index=False) #creating new excel sheet
