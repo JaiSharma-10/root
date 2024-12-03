@@ -5224,3 +5224,24 @@ where TABLE_NAME like '%SSIS%';
 
 --error
 --component "Charges from Source" (1) failed validation and returned error code 0xC020801C.  
+
+----------------------- check for  duplicate records for FacilityCode,EncounterId,OpenAR,Snapshotdate 
+
+Select * From
+(
+Select
+	FacilityCode,
+	EncounterId,
+	OpenAR,
+	Snapshotdate,
+	ROW_NUMBER() over (Partition by FacilityCode,EncounterId,OpenAR,Snapshotdate ORDER BY 
+	FacilityCode,EncounterId,OpenAR,Snapshotdate) as 'Dup'
+From
+	ORARSnapshot(NOLOCK)
+where
+	FacilityCode = 'SAMD'
+	And EncounterId in ('SA0038882726','ON0003417730','SA9100022871','SA9100055962')
+	and snapshotdate Between '2024-11-09 00:00:00' and '2024-11-11 00:00:00'
+	and AccountStatus <> 'ofc'
+	And OPENAR> '0.00'
+	) A --Where Dup> 1
