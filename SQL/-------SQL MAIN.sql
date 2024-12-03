@@ -5204,3 +5204,8 @@ END;
 
 sql
 EXEC sp_GenerateReport;
+
+---------------------nolock in sql
+WITH (NOLOCK) is the equivalent of using READ UNCOMMITED as a transaction isolation level. So, you stand the risk of reading an uncommitted row that is subsequently
+rolled back, i.e. data that never made it into the database. So, while it can prevent reads being deadlocked by other operations, it comes with a risk. In a banking 
+application with high transaction rates, it's probably not going to be the right solution to whatever problem you're trying to solve with it IMHO.
