@@ -5258,3 +5258,7 @@ RDBMS often implements data integrity constraints like primary keys and foreign 
 Example:
 DBMS example: A simple flat file database used to store basic information. 
 RDBMS example: Popular databases like MySQL, Oracle, PostgreSQL, and Microsoft SQL Server which use tables and relationships to store data
+---------------------
+declare @variable date
+set @variable = Getdate() --current date
+select @variable;
