@@ -2387,7 +2387,9 @@ with pd.ExcelFile("path_to_file.xls") as xls:
 
 
 ---------------------------
-# below code can concat diff sheet and filter by col value for existing excel and create new excel
+# below code can 
+# concat different sheet into single sheet
+# filter by column value
 
 import pandas as pd
 
@@ -2412,14 +2414,14 @@ for sheet in sheet_names:
     dict[sheet] = pd.read_excel(df,sheet,header = 0 ) #header: The row number to use as the header (0-indexed, defaults to 0).
 # above code will hold sheet name as keys and whole data as its value
 
-df_whole_data = pd.DataFrame()
+# for example Payment : dict['Payment'] is the data frame where Payment is key and dict['Payments'] is dataframe #print(dict['Payment'])
 
-print(df_whole_data)
+df_whole_data = pd.DataFrame()
 
 # concatenating whole data
 
-for sheet in sheet_names:
-    df_whole_data = pd.concat([dict[sheet],df_whole_data], axis = 0 )
+# for sheet in sheet_names:
+#     df_whole_data = pd.concat([dict[sheet],df_whole_data], axis = 0 )
 
 #print(df_whole_data)
 
@@ -2456,5 +2458,31 @@ for sheet in sheet_names:
 # Filter for rows where column 'A' is greater than 1
 # filtered_df = df.query('A > 1')
 
-filtered_df = df_whole_data.query('Date >= 45536 and Date =< 45626')
-filtered_df.to_excel('output_concat_filtered_1.xlsx', sheet_name='Sheet1', index=False) #creating new excel sheet
+# filtered_df = df_whole_data.query('Date >= 45536 and Date =< 45626')
+# filtered_df.to_excel('output_concat_filtered_1.xlsx', sheet_name='Sheet1', index=False) #creating new excel sheet
+
+# for sheet in sheet_names:
+#     df_whole_data = pd.concat([dict[sheet],df_whole_data], axis = 0 )
+
+df_filter_sheet = pd.DataFrame()
+
+print(df_filter_sheet)
+
+# for sheet in sheet_names:
+#     df_filter = dict[sheet].query('Date > 45536 and Date < 45626')
+#     df_filter.to_excel('output_filtered_sheetwise_1.xlsx', sheet_name=sheet, index=False)
+
+    # Python keyword not valid identifier in numexpr query
+    # This error typically occurs when you're using the query() method in Pandas and one of your column names is a Python keyword (e.g., for, if, else, lambda, etc.).
+    # do not put equal to sign ('Date >= 45536 and Date =< 45626')
+
+    # this is resulting in only one last sheet adjustment 
+
+with pd.ExcelWriter("output_filtered_sheetwise_2.xlsx") as writer:
+    for sheet in sheet_names:
+        df_filter = dict[sheet].query('Date > 45535 and Date < 45627')
+        df_filter.to_excel(writer, sheet_name=sheet, index=False)
+
+# To write to multiple sheets it is necessary to create an ExcelWriter object with a target file name, and specify a sheet in the file
+# to write to. Multiple sheets may be written to by specifying unique sheet_name . With all data written to the file it is necessary to 
+# save the changes
