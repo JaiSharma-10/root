@@ -5245,3 +5245,16 @@ where
 	and AccountStatus <> 'ofc'
 	And OPENAR> '0.00'
 	) A --Where Dup> 1
+	----------------------------------
+DBMS vs RDBMS
+Data structure:
+DBMS can store data in various formats like files, while RDBMS stores data in tables with rows and columns, creating clear relationships between data points. 
+Complexity:
+DBMS is a broader term encompassing various database management systems, while RDBMS is a specific type of DBMS with a structured relational model. 
+Data manipulation:
+RDBMS typically uses Structured Query Language (SQL) to access and manipulate data, providing powerful querying capabilities. 
+Data integrity:
+RDBMS often implements data integrity constraints like primary keys and foreign keys to ensure data consistency and accuracy, which may not be as robust in a standard DBMS. 
+Example:
+DBMS example: A simple flat file database used to store basic information. 
+RDBMS example: Popular databases like MySQL, Oracle, PostgreSQL, and Microsoft SQL Server which use tables and relationships to store data
