@@ -14,6 +14,8 @@ To compile all results from SQL
 To filter date according to Column and date
 To explore Snowflake to find specific column in table aka INFORMATION_SCHEMA
 
---start with Python script that can filter out data
+Subtasks
 1-concatenating all sheets --done
+2-filtering out sheets by column value --done
+3-To get data from sql to excel file
 
