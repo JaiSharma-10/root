@@ -2394,7 +2394,7 @@ with pd.ExcelFile("path_to_file.xls") as xls:
 import pandas as pd
 
 # Path to the local Excel file
-file_path = 'C:\\Users\\IN10033204\\OneDrive - R1\\Documents\\Data.xlsb' #xlsx is excel workbook .xlsb is excel binary
+file_path = 'C:\\Users\\IN10033204\\OneDrive - R1\\Documents\\Data_1206.xlsx' #xlsx is excel workbook .xlsb is excel binary
 
 # Creating an ExcelFile object 
 df = pd.ExcelFile(file_path) #<pandas.io.excel._base.ExcelFile object at 0x00000189C354A000>
@@ -2478,9 +2478,9 @@ print(df_filter_sheet)
 
     # this is resulting in only one last sheet adjustment 
 
-with pd.ExcelWriter("output_filtered_sheetwise_2.xlsx") as writer:
+with pd.ExcelWriter("output_Data_1206_1.xlsx") as writer:
     for sheet in sheet_names:
-        df_filter = dict[sheet].query('Date > 45535 and Date < 45627')
+        df_filter = dict[sheet].query('Date > 45565 and Date < 45630')
         df_filter.to_excel(writer, sheet_name=sheet, index=False)
 
 # To write to multiple sheets it is necessary to create an ExcelWriter object with a target file name, and specify a sheet in the file
