@@ -2486,3 +2486,12 @@ with pd.ExcelWriter("output_filtered_sheetwise_2.xlsx") as writer:
 # To write to multiple sheets it is necessary to create an ExcelWriter object with a target file name, and specify a sheet in the file
 # to write to. Multiple sheets may be written to by specifying unique sheet_name . With all data written to the file it is necessary to 
 # save the changes
+
+-----------------------------------------
+
+SQL using Python
+Integrating SQLite3 with Python is discussed. Here we will discuss all the CRUD operations on the SQLite3 database using Python. CRUD contains four major operations – 
+create read update delete
+CRUD operations SQLite3 and Python
+Note: This needs a basic understanding of SQL. 
+Here, we are going to connect SQLite with Python. Python has a native library for SQLite3 called sqlite3.
