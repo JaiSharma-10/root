@@ -1,105 +1,30 @@
 DM 
 Sharma, Jaivardhan (Cognizant)
-​
-Sharma, Jaivardhan (Cognizant)
-​
+​​
 [28-07 14:57] Sharma, Jaivardhan (Cognizant)
-
- 
 
 TMO FB - TD SF Migration
 
- 
-
 Stored Procedure Migration
-
- 
-
- 
-
- 
 
 Deliverable Description->
 
- 
-
- 
-
-Stored Procedure Conversion and Testing
-
- 
-
--> Conversion and testing Stored Procedure which includes
-
- 
+Stored Procedure Conversion and Testing-> Conversion and testing Stored Procedure which includes
 
 1.checking all dependent objects present with data and proper mapping
+2.Verifying it syntactically and functionally by comparing with source script and making necessary changes in target code
 
- 
-
-2.Verifying it syntactically and functionally by comparing with source script
-
- 
-
-and making necessary changes in target code
-
- 
-
- 
-
-Measurement Criteria*->
-
- 
-
- 
-
-Object should run in reasonable time without any error and perform tasks based on its function.
-
- 
-
-===================
-
-DATA MIGRATION
-
-=================
-
- 
-
-[28-07 14:57] Sharma, Jaivardhan (Cognizant)
-
- 
-
-same we can write about Bteq script, User defined Function , Macros
+Measurement Criteria*->Object should run in reasonable time without any error and perform tasks based on its function.
 
 ==================
-
+DATA MIGRATION
+==================
+[28-07 14:57] Sharma, Jaivardhan (Cognizant)
+same we can write about Bteq script, User defined Function , Macros
+==================
+BTEQ(Basic TEradata Query) is the utility used in Teradata and It helps to execute the queries either batch or interactive mode. BTEQ is the excellent tool for import and export the data in Teradata. If the Teradata query needs to run in the batch mode,We can prepare the BTEQ along with the query.
  
-
 Bteq script Conversion and Testing
-
- 
-
--> Conversion and testing Bteq script which includes
-
- 
-
-1.checking all dependent objects present with data and proper mapping
-
- 
-
-2.Verifying it syntactically and functionally by comparing with source script
-
- 
-
-and making necessary changes in target code
-
- 
-
- 
-
- 
-
- 
 
 ------------------------------------fs_p_drop_table
 
