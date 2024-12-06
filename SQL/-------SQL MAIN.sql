@@ -5275,3 +5275,5 @@ Begin catch
 	print 'Divide by 0 not possible'
 end catch
 Go
+-------------------------
+go will separte batch
