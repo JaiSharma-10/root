@@ -1963,10 +1963,21 @@ SELECT table_name, comment FROM TABLES WHERE TABLE_SCHEMA = 'PUBLIC' ... ;
 
 SELECT event_timestamp, user_name FROM TABLE(LOGIN_HISTORY( ... ));
 
-------------------------------Get List of all procedure in account
+------------------------------Get List of all OBJECTS in ACCOUNT
 
 SHOW PROCEDURES IN ACCOUNT;
 
 SHOW USER FUNCTIONS IN ACCOUNT;
+
+Show Stages in account;
+
+show pipes in account;
+
+show databases in account;
+
+SHOW SCHEMAS in account;
+
+Show tables in account;
+
 
 Both of these will list all objects that your current role has access to. If run as ACCOUNTADMIN, they will return everything.
