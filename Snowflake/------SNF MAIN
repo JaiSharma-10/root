@@ -1978,6 +1978,16 @@ show databases in account;
 SHOW SCHEMAS in account;
 
 Show tables in account;
+---------------------------Information schema
+select * from information_schema.functions;
+
+SELECT *
+FROM INFORMATION_SCHEMA.TABLES 
+WHERE table_name like '%SAT%' and TABLE_SCHEMA like 'RCM_RAW_DV';
+
+SELECT *
+FROM information_schema.columns 
+WHERE table_schema = 'RCM' ;
 
 
 Both of these will list all objects that your current role has access to. If run as ACCOUNTADMIN, they will return everything.
