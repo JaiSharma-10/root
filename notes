@@ -17,5 +17,5 @@ To explore Snowflake to find specific column in table aka INFORMATION_SCHEMA
 Subtasks
 1-concatenating all sheets --done
 2-filtering out sheets by column value --done
-3-To get data from sql to excel file
+3-To get data from sql to excel file (try to use Ms SQL extension)
 
