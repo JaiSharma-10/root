@@ -27,37 +27,17 @@ BTEQ(Basic TEradata Query) is the utility used in Teradata and It helps to execu
 Bteq script Conversion and Testing
 
 ------------------------------------fs_p_drop_table
-
- 
-
 desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table(varchar)
-
- 
 
 desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_execute_sql(varchar)
 
- 
-
 desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_log(varchar, timestamp, varchar)
-
- 
 
 select count(*) from BDM_EIP_DB_PPD.EIP_T.COVID_11
 
- 
-
- 
-
 select * from BDM_EIP_DB_PPD.EIP_T.fs_log
 
- 
-
 CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_11');
-
- 
-
- 
-
 -------------------------1/0
 
 The TD 1/0 functionality should be converted in Sf as DIV0(1,0)
