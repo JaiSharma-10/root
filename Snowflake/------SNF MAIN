@@ -1962,3 +1962,11 @@ USE SCHEMA testdb.INFORMATION_SCHEMA;
 SELECT table_name, comment FROM TABLES WHERE TABLE_SCHEMA = 'PUBLIC' ... ;
 
 SELECT event_timestamp, user_name FROM TABLE(LOGIN_HISTORY( ... ));
+
+------------------------------Get List of all procedure in account
+
+SHOW PROCEDURES IN ACCOUNT;
+
+SHOW USER FUNCTIONS IN ACCOUNT;
+
+Both of these will list all objects that your current role has access to. If run as ACCOUNTADMIN, they will return everything.
