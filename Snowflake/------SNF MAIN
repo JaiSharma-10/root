@@ -1858,6 +1858,9 @@ you want to refer to multiple times for a short period.
 Snowflake CTEs are named subqueries defined within the WITH clause of a Snowflake SQL statement. They are used to break up complex queries into smaller, more manageable 
 chunks and do not create any physical objects.
 
+------------------Temp Table vs CTE and Subquery
+--A temp table can be accessed by multiple queries in the same SQL session. A CTE/subquery is only available for a single query.
+
 A simple block only requires the keywords BEGIN and END. For example:
 
 Begin
