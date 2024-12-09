@@ -2,20 +2,13 @@ DM
 Sharma, Jaivardhan (Cognizant)
 ​​
 [28-07 14:57] Sharma, Jaivardhan (Cognizant)
-
 TMO FB - TD SF Migration
-
 Stored Procedure Migration
-
 Deliverable Description->
-
 Stored Procedure Conversion and Testing-> Conversion and testing Stored Procedure which includes
-
 1.checking all dependent objects present with data and proper mapping
 2.Verifying it syntactically and functionally by comparing with source script and making necessary changes in target code
-
 Measurement Criteria*->Object should run in reasonable time without any error and perform tasks based on its function.
-
 ==================
 DATA MIGRATION
 ==================
@@ -23,32 +16,21 @@ DATA MIGRATION
 same we can write about Bteq script, User defined Function , Macros
 ==================
 BTEQ(Basic TEradata Query) is the utility used in Teradata and It helps to execute the queries either batch or interactive mode. BTEQ is the excellent tool for import and export the data in Teradata. If the Teradata query needs to run in the batch mode,We can prepare the BTEQ along with the query.
- 
 Bteq script Conversion and Testing
-
 ------------------------------------fs_p_drop_table
 desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table(varchar)
-
 desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_execute_sql(varchar)
-
 desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_log(varchar, timestamp, varchar)
-
 select count(*) from BDM_EIP_DB_PPD.EIP_T.COVID_11
-
 select * from BDM_EIP_DB_PPD.EIP_T.fs_log
-
 CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_11');
 -------------------------1/0
-
 The TD 1/0 functionality should be converted in Sf as DIV0(1,0)
-
 --------------------------------------DELETE WHERE EXISTS
-
 DELETE dl_ue.T_Metro_act
 FROM driver_table_final AS d, dl_ue.T_Metro_act WHERE T_Metro_act.calendar_month_dt = d.calendar_month_dt
 AND  T_Metro_act.segment_id = d.segment
 AND d.tenure = 0;
-                                                                     
 DELETE
 FROM
 BDM_UE_DB_PPD.UE_T.T_Metro_act
@@ -60,13 +42,10 @@ WHERE  BDM_UE_DB_PPD.UE_T.T_Metro_act.calendar_month_dt=d.calendar_month_dt AND
  UPPER(BDM_UE_DB_PPD.UE_T.T_Metro_act.segment_id)=UPPER(d.segment) AND 
  d.tenure=0
 );                                                                     
-
 -------------------------------------------Encryption
 Hi Team
 Please find below the query results.
-
 TD Query:
-
 SELECT VOLT.TMODECRYPT(PIN_ENCR,'password') AS PIN_ENCR,
 CUSTOMER_ACCOUNT_ID ,
 EFFECTIVE_DATE ,EXPIRATION_DATE
@@ -75,13 +54,11 @@ WHERE CUSTOMER_ACCOUNT_ID IN('100000063','100000325','100000336')
 AND EFFECTIVE_DATE = '2022-06-10 00:00:00.000'
 AND EXPIRATION_DATE = '9999-12-31 00:00:00.000'
 ORDER BY CUSTOMER_ACCOUNT_ID;
-
 Results:
 PIN_ENCR           CUSTOMER_ACCOUNT_ID           EFFECTIVE_DATE              EXPIRATION_DATE
 19941994           100000063         2022-06-10 00:00:00      9999-12-31 00:00:00
 13131313           100000325         2022-06-10 00:00:00      9999-12-31 00:00:00
 10241024           100000336         2022-06-10 00:00:00      9999-12-31 00:00:00
-
 SF Query:
 SELECT
 ds_db.ds_sch.sfDecrypt(PIN_ENCR,'password') as PIN_ENCR ,
@@ -90,84 +67,52 @@ EFFECTIVE_DATE ,EXPIRATION_DATE FROM EDS_MDW_DB_QA.MERCURY_T.CUSTOMER_ACCOUNT_HI
 WHERE CUSTOMER_ACCOUNT_ID IN('100000063','100000325','100000336') AND EFFECTIVE_DATE = '2022-06-10 00:00:00.000'
 AND EXPIRATION_DATE = '9999-12-31 00:00:00.000'
 ORDER BY CUSTOMER_ACCOUNT_ID;
-
 Results:
 PIN_ENCR           CUSTOMER_ACCOUNT_ID           EFFECTIVE_DATE              EXPIRATION_DATE
 19941994           100000063         6/10/22 12:00 AM          12/31/99 12:00 AM
 13131313           100000325         6/10/22 12:00 AM          12/31/99 12:00 AM
 10241024           100000336         6/10/22 12:00 AM          12/31/99 12:00 AM
 ---------------------------------------------
-
 --DBC query
-
 SELECT  DatabaseName,TableName, CreateTimeStamp,LastAlterTimeStamp
 FROM    DBC.TablesV
 WHERE   TableKind = 'T'
 and     DatabaseName = 'DBC'
 ORDER BY    TableName;
-
 Table Size in GB:
-
 SELECT DATABASENAME, TABLENAME, CAST(SUM(CURRENTPERM) /1024/1024/1024 as DECIMAL (6,0)) as MaxPerm_GB
 FROM DBC.TABLESIZE
 WHERE DATABASENAME = '<database>' AND TABLENAME = '<table>'
 GROUP BY DATABASENAME , TABLENAME;
-
 Table Size in MB:
-
 SELECT DATABASENAME, TABLENAME, CAST(SUM(CURRENTPERM) /1024/1024 as DECIMAL (6,0)) as MaxPerm_MB
 FROM DBC.TABLESIZE
 WHERE DATABASENAME = '<database>' AND TABLENAME = '<table>'
 GROUP BY DATABASENAME , TABLENAME;
-
 ----------fs_p_drop_table procs function
-
 show procedure DL_EIP.fs_p_drop_table
-
 show procedure dl_eip.fs_p_execute_sql
-
 show procedure dl_eip.fs_p_log --dl_eip.fs_log
-
 call DL_EIP.fs_p_drop_table('DL_EIP.COVID_COLL');----call dl_eip.fs_p_execute_sql ('drop table '||in_full_table_name);
-
 show procedure DL_EIP.fs_p_drop_table --call dl_eip.fs_p_execute_sql ('drop table '||in_full_table_name);
-
 show procedure DL_EIP.fs_p_execute_sql  --it will exceute in_sql_string (drop) and call dl_eip.fs_p_log('fs_p_execute_sql', current_timestamp,'Success:' ||:in_sql_string);  
-
 show procedure DL_EIP.fs_p_log --it will insert into dl_eip.fs_log(process_name, run_dttm, message, activity_dttm, activity_user)
-
- 
 call DL_EIP.fs_p_drop_table('DL_EIP.COVID_RT');
-
 call DL_EIP.fs_p_drop_table('DL_EIP.A_TA1_COVID_MEDHOLD_BAN_BASE');
-
 call DL_EIP.fs_p_drop_table('DL_EIP.COVID_11');
-
 call dl_eip.fs_p_rnp_info_complete (run_time, object_nm, activity_count);
-
 show procedure dl_eip.fs_p_rnp_info_complete --update DL_EIP.FS_RNP_INFO
-
 call dl_eip.fs_p_log(process_nm, current_timestamp, 'Step-1 completed for table A_TA1_COVID_MEDHOLD_BAN_BASE');
-
 call PROCEDURE fs_p_drop_table ->call dl_eip.fs_p_execute_sql ('drop table '||in_full_table_name)
-
 ->show procedure DL_EIP.fs_p_log
-
 delete from BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE
-
 INSERT INTO BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE
-
 ----------------------------------------
-
 --Example for DECODE where we put UPPER. 
-
 DECODE(upper(ar.ADJMT_CTGY_CD),'C','Adj to Correct','S','Adj to Satisfy','D','Discount (auto adj)','T','Technical (auto adj)','A','Adj to Satisfy',ar.ADJMT_CTGY_CD)
-
 ----------------------------------------
 datediff reverse order
-
  to_varchar(to_date(w.actvy_yymm),'YYYY-MM') ACTVY_YYMM,
-
 -------------------------------------------try_to_number()
 to_number()
 try_to_number()
@@ -178,7 +123,6 @@ current_date,
 CAST(DATE_PART(YEAR, current_date) || '-' || LPAD(DATE_PART(MONTH, current_date), 2, '0') AS VARCHAR(7)) as ACTVY_YYMM,
 '2023-12-31'::date as Test_date,
 CAST(DATE_PART(YEAR, Test_date) || '-' || LPAD(DATE_PART(MONTH, Test_date),2,'0') AS VARCHAR(7)) as ACTVY_YYMM_1
-
 ---------------------------------------------------------------EXECUTE IMMEDIATE
 EXECUTE IMMEDIATE
 $$
@@ -188,9 +132,7 @@ Begin
  return run_time;
 END;
 $$;
-
 ---------------------------------------invalid EndDate
-
 EXECUTE IMMEDIATE
 $$
 BEGIN
@@ -207,7 +149,6 @@ BEGIN
 return EndDate;
 END;
 $$;
-
 -------------------------------------select max(procsdate) into :parameter
 Execute immediate
 $$
@@ -219,10 +160,8 @@ Begin
 return MaxDate;
 END;
 $$;
-
 ---2022-12-21
 -----------------------------------------CURRENT_DATE
-
 EXECUTE IMMEDIATE
 $$
 Begin
@@ -231,9 +170,6 @@ Begin
 return EndDate;
 END;
 $$;
-
- 
-
 -----------------------------------------CURSOR open and close
 execute immediate
 $$
@@ -275,33 +211,26 @@ begin
  let count number :=0;
  let v_in_end_date varchar;
  v_in_end_date := '2022-12-25';
-  
  if(:v_in_end_date is null)
  then
  EndDate:=CURRENT_DATE();
  else 
  EndDate:=CAST(v_in_end_date AS DATE);
  end if;
-
  SELECT MAX(run_date) INTO :loopstart
  FROM BDM_EIP_DB_PPD.EIP_T.M050AG_BILLING_BILL_DATES ; --2022-12-22
-
  loopend:=EndDate; --2020-01-01
-
  IF (loopstart < loopend) THEN
  loopstart:=loopstart+interval'1 day';
  END IF;
-
  while ((loopstart<=loopend)) do
   count := (count + 1);
   loopstart:=loopstart+INTERVAL'1 DAY';
   end while;
-
 return count;
 END;
 $$;
 --count =3
-
 ------------------------------------------------example (Returning a Table for a Cursor)
 execute immediate
 $$
@@ -314,12 +243,9 @@ begin
 close c1;
 end;
 $$-------resultset
-
 -------------------------------running select CAST
-
 select CAST('2022-03-26' AS DATE)
 select CAST(TRUNC(ADD_MONTHS('2022-03-26',-13),'month')AS DATE)
-
 ----------------------------------------------------------Greatest TIMESTAMP
 select GREATEST(
 CAST('0001-01-01 00:00:00.000000'::TIMESTAMP AS VARCHAR(26)),
@@ -335,15 +261,12 @@ select CAST( GREATEST( cast(cast(A.EFF_START_DTTM AS DATE) as int) ,
   ) AS DATE) AS EFF_START_DT;
   select (to_char(date(2020-01-01),'YYYYMMDD')::int);
  select to_char(current_date, 'YYYYMMDD')::int;
-
 ---------------------------------EQUIVALENT MONTHS_BETWEEN
-
 Cast(((m.report_dt-act_calendar_month_dt )MONTH(4)) AS INT) AS tenure-- EQUIVALENT
 TD
 select Cast(((cast('2020-03-01' as date) - cast('2020-01-01' as date))MONTH(4)) AS INT);
 SNF
 select Cast(MONTHS_BETWEEN(cast('2020-03-01' as date) , cast('2020-01-01' as date)) AS INT);         
-
 --------DATA_DATE
 execute immediate
 $$
@@ -359,34 +282,21 @@ begin
  return DATA_DATE;
 END;
 $$;
-
 -------------------------------------------------------------------
-
 desc procedure BDM_EIP_DB_PPD.EIP_T.fs_p_rnp_info_complete(timestamp,varchar,integer)
-
 --SNOWFLAKE_ACCOUNT_DB.ACCOUNT_USAGE_DL.TABLES
-
 --SNOWFLAKE_ACCOUNT_DB.ACCOUNT_USAGE_DL.TABLESIZE
-
 --databasename ->TABLE_CATALOG and TABLE_SCHEMA
-
 --currentperm ->ACTIVE_BYTES
-
 ------dbc all DATABASE SNOWFLAKE_ACCOUNT_DB
-
-
 SELECT * FROM SNOWFLAKE_ACCOUNT_DB.ACCOUNT_USAGE_DL.TABLES
 WHERE   UPPER(TABLE_CATALOG)='BDM_EIP_DB_PPD';
-
 SHOW PROCEDURES;
 SHOW PROCEDURES IN DATABASE BDM_EIP_DB_PPD
 SHOW USER FUNCTIONS IN DATABASE BDM_EIP_DB_PPD
 SHOW FUNCTIONS IN DATABASE BDM_EIP_DB_PPD
 SHOW tables IN DATABASE BDM_EIP_DB_PPD
-
- 
 ---dbc SNF size and count
-
 SELECT 
 CAST(TRIM(t.TABLE_NAME)AS VARCHAR(30)) as TABLE_NAME,
 cast((SUM(ts.ACTIVE_BYTES)/(pow(1024 ,3))) as NUMBER(12,2) ) as TABLE_SIZE_GB,
@@ -413,46 +323,29 @@ UPPER(t.TABLE_SCHEMA) = 'MAPI_T'
 AND
 UPPER(t.TABLE_NAME)='TC_BILLER_SWITCHER_SUBS'
 GROUP BY 1;
-
-
-
-
 ------------------------------log table DL_EIP SP
-
 select * from BDM_EIP_DB_PPD.EIP_T.FS_RNP_INFO where program_nm like '%BAS_P_GOODWILL_CREDIT%' and run_date > '2023-06-28 03:56:49.000' order by run_date desc;
-
 select * from BDM_EIP_DB_PPD.EIP_T.fs_log where process_name like '%BAS_P_GOODWILL_CREDIT%' and run_dttm > '2023-06-28 03:56:50.397' order by run_dttm desc;
-
 -----------------------------------------ALTER TABLE
 To increase the column data type length in SF
-
 ALTER TABLE TABLENAME ALTER COLUMNAME SET DATA TYPE VARCHAR(250);
-
 ALTER TABLE table_name
-
 ADD column_name datatype;
-
 example:
-
 ALTER TABLE BDM_FCST_DB_PPD.FCST_T.jj_ProcEvents_BKP ALTER USERID SET DATA TYPE VARCHAR(100);
-
 ----------------------------------------------MONTHS_BETWEEN
-
 select cast('2022-10-01' as date) - cast('2022-12-01' as date) MONTH(4)
 -2
 select cast(MONTHS_BETWEEN((cast('2022-10-01' as date) ) , (cast('2022-12-01' as date) )) as int)
 -2
 cast(MONTHS_BETWEEN(m.calendar_month_dt , m.subscriber_init_activation_dt) as int)
-
 ------------------------------------------TRUNC (date)
 TRUNC
 Truncates a DATE, TIME, or TIMESTAMP to the specified precision.
 --TD
 select TRUNC(current_date,'MM')--it will Truncates to starting of month
-
 --SNF
 select date_trunc('Month',current_date);
-
 WITH dates AS (  
  SELECT date'2015-01-01' d FROM dual union  
  SELECT date'2015-01-10' d FROM dual union  
@@ -460,7 +353,6 @@ WITH dates AS (
  SELECT timestamp'2015-03-03 23:45:00' d FROM dual union  
  SELECT timestamp'2015-04-11 12:34:56' d FROM dual   
 )  
-
 SELECT d "Original Date",  
 trunc(d) "Nearest Day, Time Removed",  
 trunc(d, 'ww') "Nearest Week",
@@ -468,27 +360,19 @@ trunc(d, 'iw') "Start of Week",
 trunc(d, 'mm') "Start of Month",  
 trunc(d, 'year') "Start of Year"  
 FROM dates;
-
 ----------------------------------------------------------------create table
-
 create TABLE BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE
-
 as (SELECT * from BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE_BKUP);
-
 ------------------------loop mtr_p-m050_billing
 insert into testloop (select :loopstart);
 ---------------------------------------time interval in snf
-
 select current_timestamp() -interval '1 SECOND' ;
-
 ----------------------------DIV0(1,0) Division by zero
-
 select case
 when  
  current_timestamp < (select (current_date+1) AS TIMESTAMP_TZ)
 THEN DIV0(1,0)
  ELSE 1 END
-
 ------------------------------------------------------------date -> char 'YYYYMMDD'-> number
 CAST(GREATEST(
  to_number(to_char(date(A.EFF_START_DTTM),'YYYYMMDD')),
@@ -496,2430 +380,882 @@ CAST(GREATEST(
  to_number(to_char(date(c.EFF_START_DTTM),'YYYYMMDD')),
  to_number(to_char(date(d.EFF_START_DT),'YYYYMMDD'))
  AS DATE) as EFF_START_D;
-
 select Date(to_char(GREATEST(to_number(to_char(date('2020-01-01'),'YYYYMMDD')),
 to_number(to_char(date('2020-01-02'),'YYYYMMDD')),
 to_number(to_char(date('2020-01-03'),'YYYYMMDD')),
 to_number(to_char(date('2020-01-04'),'YYYYMMDD'))
 ) ));--as 'EFF_START_D';
-
-                                                                       
-
 ---------------------------------converting string to date format
 TD
 select cast('20200102' as date format 'yyyymmdd')
 --02-01-2020
 --converting string to date
-
 SNF
 select  date((SUBSTR('20200102', 1, 4)||'-'||SUBSTR('20200102', 5, 2)||'-'||SUBSTR('20200102', 7, 2)));
-
 Paul, Mayurakshi (Cognizant)
-
- 
-
 TRIM(network_year*10000+network_month*100+network_day)(VARCHAR(8)) as yyyymmdd_char--- equivalent for this line?
-
- 
-
 TRIM(to_varchar(network_year*10000+network_month*100+network_day) ) as yyyymmdd_char,-- is this okay?
-
- 
-
 TRIM(to_varchar(network_year*10000+network_month*100+network_day),' yyyymmdd_char')
-
 --sriram
-
- 
-
- 
-
 select TO_CHAR('2020-01-01'::DATE,'yyyy-mm')
-
- 
-
 select cast(1200701 as date);
-
- 
-
- 
-
- 
-
 --2020-01
-
 --snf
-
 ----------------------------------------------------
-
 -------interval datatype is not supported in snowflake
-
- 
-
 --https://community.snowflake.com/s/question/0D53r0000BdRFKnCQO/what-is-the-relevant-data-type-in-the-snowflake-for-the-teradata-data-type-interval-day4-to-second6
-
- 
-
 --(PASS_SUB.SRC_CRTN_DTTM+CAST(PASS_UDD.PASS_DURTN_CD AS INTERVAL DAY))
-
 --interval in TD
-
- 
-
 workarounds in snowflake
-
 --DATEADD(Day, PASS_UDD.PASS_DURTN_CD, PASS_SUB.SRC_CRTN_DTTM)
-
- 
-
 As workarounds:
-
 example;
-
 SELECT to_timestamp('2017-10-04 11:56:40.000') AS v1,
-
 DATEADD(Day, 12, to_timestamp('2017-10-04 11:56:40.000')) AS v;
-
- 
-
- 
-
- 
-
 Ha ok in terms of table column data types, snowflake doesnot support intervals, so now i better understand your question:
-
- 
-
 https://docs.snowflake.com/en/sql-reference/intro-summary-data-types.html
-
- 
-
 If you using complex intervals then why note use unix like EPOCH (number of milliseconds since 1970) which is just an integer:
-
- 
-
 interval data type = NUMBER
-
 date. data type = date or timestamp
-
 use DATE_ADD or any other Dates functions for math: https://docs.snowflake.com/en/sql-reference/functions-date-time.html
-
- 
-
 example:
-
 start timestamp/date:   2022-07-06
-
-interval:   INTERVAL DAY(4) TO SECOND(6)
-
-                345,600,000 +        6000 = 345,606,000 ms            
-
+interval:   
+INTERVAL DAY(4) TO SECOND(6)
+345,600,000 + 6000 = 345,606,000 ms            
 (4 days* 24 hours *60 minutes *60 seconds * 1000 ms  + 6 seconds * 1000 ms)
-
-               
-
 then final timestamp calculate by:
-
 SELECT dateadd('ms',345606000,'2022-07-06'::timestamp) new_ts
-
-NEW_TS                 |
-
+NEW_TS  
 -----------------------+
-
 2022-07-10 01:00:06.000|
-
- 
-
 ----------------------------------------------------------
-
-----------------------------------------------------------
-
 ---------------------------------------------------------------INDEX function in Teradata
-
 Purpose 
-
 Returns the position in string_expression_1 where string_expression_2 starts.
-
 Teradata has a variety of inbuilt functions to work with Strings. The INDEX function is one of the most commonly used functions in Teradata. It helps to identify the position of a character or string in the values.
-
- 
-
-The INDEX function accepts two arguments. The first one is the string expression and the second one is the char or string for which you want to find the position. The output of the index function is an integer that gives the position of the string.
-
- 
-
 INDEX(string expression, string inside to find inside)
-
- 
-
 SELECT INDEX('https://www.google.com', 'google') as pos;
-
 result 13
-
- 
-
 ------------------------------------------------------------CHARINDEX in snowflake
-
 Searches for the first occurrence of the first argument in the second argument and, if successful, returns the position (1-based) of the first argument in the second argument
-
- 
-
 CHARINDEX( <expr1>, <expr2> [ , <start_pos> ] )
-
- 
-
 select CHARINDEX('google','https://www.google.com') as pos;
-
- 
-
 1-A_PE1_BALANCE_INVOICE
-
- 
-
 --create these temp table
-
 --drop table INV_BAL_AD
-
---drop table INV_PM                                                                              ---ERROR in MERGE
-
+--drop table INV_PM                                                                              
+---ERROR in MERGE
 Duplicate row detected during DML action Row Values: [19463, "970348138", "3", 18463, 18460, 1617653551671112, "202104051109102279", 1049100657, 147679101, "<1YR", "LOAN", 13, "2021-04-01", "N", "Y", 1031789420, "610214667519", 3999, 3999]
-
- 
-
 ---I was able to select distinct * from my staging table to eliminate duplicates. This solved the problem with the Merge.                                         
-
- 
-
- 
-
 =================================================
-
 --DL_CSR case ManualControls
-
 ---from inner query to case
-
- 
-
----invalid identifier 'RVNUE_COMB_ID' in Snowflake
-
-                                                                                       
-
+---invalid identifier 'RVNUE_COMB_ID' in Snowflake                                                                                     
 --root cause -we are trying to use derived column in inner query
-
-                                                                                        
-
 ----------------------------------
-
- 
-
-===--suggestion
-
-(CASE WHEN A.BSCS_ACCT_ID=(SELECT WRK.BSCS_ACCT_ID
-
-                                                                           FROM CDW_CMN_DIM_DB_PPD.CMN_WRK_V.D_BSCS_SUBS_CURR_SNPSHT_WRK WRK WHERE WRK.BSCS_ACCT_ID=A.BSCS_ACCT_ID AND
-
-                                                                           UPPER(WRK.VRTL_CNTRCT_IND)='Y') AND UPPER(A.VRTL_CNTRCT_IND)<>'Y'THEN'M'ELSE NULL END) as LN_TYP_CD,
-
- 
-
+--suggestion
+(CASE WHEN A.BSCS_ACCT_ID=(SELECT WRK.BSCS_ACCT_ID FROM CDW_CMN_DIM_DB_PPD.CMN_WRK_V.D_BSCS_SUBS_CURR_SNPSHT_WRK WRK WHERE WRK.BSCS_ACCT_ID=A.BSCS_ACCT_ID AND
+UPPER(WRK.VRTL_CNTRCT_IND)='Y') AND UPPER(A.VRTL_CNTRCT_IND)<>'Y'THEN'M'ELSE NULL END) as LN_TYP_CD,
 ---working SNF
-
- 
-
 ===========================================================
-
 --Method 1 working  --692,051,472
-
- 
-
 --case and left outer join
-
 ===========================================================
-
- 
-
 SELECT
-
-                                                                               CURRENT_DATE() as run_date,
-
-                            
-
-                                                                                                                                  
-
-                                                                                         
-
-                                                                               CASE
-
-                                                                                         WHEN(BASE.ACCT_ID='192514386'
-
-                                                                                                     OR
-
+CURRENT_DATE() as run_date,
+ CASE
+  WHEN(BASE.ACCT_ID='192514386'
+ OR
                                                                                                      BASE.ACCT_ID='659488489'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='650446998'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='907740900'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='279604889'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='815440775'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='369087025'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='818798415'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='120690786'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='527973411'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='840833183'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='506951659'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='551730419'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='694054985') THEN 1 --ELSE 0 end AS SC1 --covid
-
-                                                                                                    
-
                                                                                          WHEN UPPER(RP.RATE_PLAN_DESC) LIKE'%EMPLOYEE%'THEN 100
-
                                                                                           --ELSE 0 end AS SC3
-
                                                                                                      --mrc threshols TMO logic
-
-                                                                                                    
-
                                                                                          WHEN UPPER(BASE.PRDCT_LN_CD) IN('IOT1')AND UPPER(BASE.RATE_PLAN_CD) NOT IN('Z1MBDAT','ZPOOLMI')AND RT.PP_RECURNG_RT_AMT<1 THEN 10000000 --ELSE 0 end AS SC8 -- mrc
-
-                                                                                        
-
                                                                                          WHEN UPPER(BASE.SUB_TYP_NM)='POSTPAID MINT'AND UPPER(BASE.PRDCT_LN_CD)<>'IOT1'AND UPPER(BASE.RATE_PLAN_CD) NOT LIKE'%DIG%'AND UPPER(BASE.RATE_PLAN_CD) NOT IN('Z1MBDAT','ZPOOLMI')AND RT.PP_RECURNG_RT_AMT<5 AND RT.PP_RECURNG_RT_AMT>=1 THEN 100000000
-
                                                                                          --ELSE 0 end AS SC9 -- mrc
-
-                                                                                        
-
                                                                                          WHEN UPPER(BASE.SUB_TYP_NM)='POSTPAID VOICE'AND UPPER(BASE.RATE_PLAN_CD) NOT IN('Z1MBDAT','ZPOOLMI')AND RT.PP_RECURNG_RT_AMT<10 AND RT.PP_RECURNG_RT_AMT>=5 THEN 1000000000
-
-                                                                                         
-
                                                                                          --ELSE 0 end AS SC10 -- mrc
-
-                                                                                        
-
                                                                                          WHEN (udd.UDD_$0MRC > 0) THEN 1000 
-
                                                                                          -- UDD $0 MRC
-
-                                                                                        
-
                                                                                          WHEN(udd.Cnt>0)THEN 10000 -- UDD
-
-                                                                                        
-
                                                                                          ELSE 0 END as RVNUE_COMB_ID,
-
-                                                                                        
-
                                                                                          --, c.shortDesc AS ManualControls
-
-                                                                                        
-
-                                                                       
-
-                                                                       
-
                                                                         --(SELECT c.shortDesc FROM BDM_CSR_DB_PPD.CSR_T.DA_RevN_ScenarioLookup c
-
                                                                         -- WHERE    c.comb_id=Rvnue_comb_id AND UPPER(c.CMPNY_CD)=UPPER(BASE.CMPNY_CD)) ManualControls,
-
-                                                                       
-
 case when UPPER(c.comb_id)=UPPER(RVNUE_COMB_ID) then c.shortDesc END as ManualControls
-
-                                                                       
-
                                                                         --case statement used for derived column  ManualControls as above code is giving error
-
                                                                         --invalid identifier 'RVNUE_COMB_ID' in Snowflake
-
-                                                                                        
-
-                                                                               
-
 FROM
-
 CDW_CSR_SCORECARD_DB_PPD.CSR_V.F_SAA_SUBSCRIPTION BASE
-
-                                                                                        
-
                                                                                          --join condition added for derived column ManualControls
-
-                                                                                        
-
                                                                                          LEFT OUTER JOIN
-
-                                                                                         
-
                            BDM_CSR_DB_PPD.CSR_T.DA_RevN_ScenarioLookup c
-
-                                                                                        
-
                                                                                          on
-
-                                                                
-
                                                                                UPPER(c.CMPNY_CD)=UPPER(BASE.CMPNY_CD)
-
-                                                                                                                                                                               
-
                                                                          LEFT OUTER JOIN
-
                                                                             CDW_FADS_DB_PPD.FADS_PUBLIC_V.D_PRODUCT_RECURRING_RATE RT
-
-                                                                         
-
                                                                           ON
-
-                                                                              
-
                                                                                UPPER(BASE.RATE_PLAN_CD)=UPPER(RT.SRC_SOC_CD) AND
-
                                                                                UPPER(RT.CURR_IND)='Y' AND
-
-                                                                               
-
                                                                                UPPER(RT.RC_TYP_CD)='R' AND
-
-                                                                               
-
                                                                                RT.TIER_LVL_CD=0 AND
-
                                                                                UPPER(RT.FEAT_CD) IN('STD','DATARC')
-
                                                                                          /*-- TMO RATE_PLAN_MRC_AMT*/
-
                                                                         LEFT OUTER JOIN
-
                                                                             CDW_CMN_DIM_DB_PPD.CMN_DIM_V.D_RATE_PLAN RP
-
                                                                           ON
-
-                                                                              
-
                                                                                UPPER(BASE.RATE_PLAN_CD)=UPPER(RP.RATE_PLAN_CD) AND
-
-                                                                               
-
                                                                                BASE.SAA_SNPSHT_DATE BETWEEN RP.EFF_START_DTTM AND
-
-                                                                               
-
                                                                                RP.EFF_END_DTTM /*-- TMO RATE_PLAN_DESC*/
-
                                                                         LEFT OUTER JOIN
-
                                                                          (SELECT
-
                                                                                udd.SRC_SOC_CD,
-
                                                                                SUM(CASE WHEN CHNG_RSN_DESC LIKE'%$0 MRC%'THEN 1 ELSE 0 END) as UDD_$0MRC,
-
                                                                                COUNT(*) as Cnt
-
                                                                         FROM
-
                                                                                CDW_CSR_SCORECARD_DB_PPD.CSR_UDD_V.CSR_BUS_DERIVE_PLAN_ATTR_UDD udd
-
                                                                         WHERE  
-
-                                                                               
-
                                                                                UPPER(udd.FUNC_TYP_CD)='R' AND
-
                                                                                UPPER(udd.SRC_SYS_CD) IN('SAMSON')
-
                                                                         GROUP BY
-
                                                                                udd.SRC_SOC_CD) udd
-
                                                                           ON
-
-                                                                              
-
                                                                                UPPER(BASE.RATE_PLAN_CD)=UPPER(udd.SRC_SOC_CD)
-
-                                                                                        
-
                                                                          WHERE  
-
-                                                                               
-
                                                                                BASE.SAA_SNPSHT_DATE=(CAST('2023-05-22' as DATE))
-
-                                                                                         
-
                                                                                          /*--AND BASE.sub_stat_cd IN ('A', 'ACTIVE', 'S', 'SUSPEND')*//*--AND BASE.saa_stat_cd IN ('C', 'D', 'P')*/
-
-                                                                                         
-
                                                                                          AND 
-
-                                                                               
-
                                                                                UPPER(BASE.SRC_SYS_CD)=UPPER('SAMSON')
-
-                                                                                        
-
-                                                                                         
-
-                                                                                         
-
 ============================================================
-
- 
-
 --method 2 Not working
-
- 
-
 --when UPPER(RVNUE_COMB_ID)=(SELECT c.comb_id
-
 ============================================================
-
- 
-
 SELECT
-
                                                                                CURRENT_DATE() as run_date,
-
-                            
-
-                                                                                                                                  
-
-                                                                                         
-
                                                                                CASE
-
                                                                                          WHEN(BASE.ACCT_ID='192514386'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='659488489'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='650446998'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='907740900'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='279604889'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='815440775'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='369087025'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='818798415'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='120690786'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='527973411'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='840833183'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='506951659'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='551730419'
-
                                                                                                      OR
-
                                                                                                      BASE.ACCT_ID='694054985') THEN 1 --ELSE 0 end AS SC1 --covid
-
-                                                                                                    
-
                                                                                          WHEN UPPER(RP.RATE_PLAN_DESC) LIKE'%EMPLOYEE%'THEN 100
-
                                                                                           --ELSE 0 end AS SC3
-
                                                                                                      --mrc threshols TMO logic
-
-                                                                                                    
-
                                                                                          WHEN UPPER(BASE.PRDCT_LN_CD) IN('IOT1')AND UPPER(BASE.RATE_PLAN_CD) NOT IN('Z1MBDAT','ZPOOLMI')AND RT.PP_RECURNG_RT_AMT<1 THEN 10000000 --ELSE 0 end AS SC8 -- mrc
-
-                                                                                        
-
                                                                                          WHEN UPPER(BASE.SUB_TYP_NM)='POSTPAID MINT'AND UPPER(BASE.PRDCT_LN_CD)<>'IOT1'AND UPPER(BASE.RATE_PLAN_CD) NOT LIKE'%DIG%'AND UPPER(BASE.RATE_PLAN_CD) NOT IN('Z1MBDAT','ZPOOLMI')AND RT.PP_RECURNG_RT_AMT<5 AND RT.PP_RECURNG_RT_AMT>=1 THEN 100000000
-
                                                                                          --ELSE 0 end AS SC9 -- mrc
-
-                                                                                        
-
                                                                                          WHEN UPPER(BASE.SUB_TYP_NM)='POSTPAID VOICE'AND UPPER(BASE.RATE_PLAN_CD) NOT IN('Z1MBDAT','ZPOOLMI')AND RT.PP_RECURNG_RT_AMT<10 AND RT.PP_RECURNG_RT_AMT>=5 THEN 1000000000
-
-                                                                                         
-
                                                                                          --ELSE 0 end AS SC10 -- mrc
-
-                                                                                        
-
                                                                                          WHEN (udd.UDD_$0MRC > 0) THEN 1000 
-
                                                                                          -- UDD $0 MRC
-
-                                                                                        
-
                                                                                          WHEN(udd.Cnt>0)THEN 10000 -- UDD
-
-                                                                                        
-
                                                                                          ELSE 0 END as RVNUE_COMB_ID,
-
-                                                                                        
-
                                                                                          --, c.shortDesc AS ManualControls
-
-                                                                                        
-
-                                                                       
-
-                                                                       
-
                                                                         --(SELECT c.shortDesc FROM BDM_CSR_DB_PPD.CSR_T.DA_RevN_ScenarioLookup c
-
                                                                         -- WHERE    c.comb_id=Rvnue_comb_id AND UPPER(c.CMPNY_CD)=UPPER(BASE.CMPNY_CD)) ManualControls,
-
-                                                                       
-
 --case when UPPER(c.comb_id)=UPPER(RVNUE_COMB_ID) then c.shortDesc END as ManualControls
-
- 
-
 case when UPPER(RVNUE_COMB_ID)=(SELECT c.comb_id
-
                                                                                                      FROM BDM_CSR_DB_PPD.CSR_T.DA_RevN_ScenarioLookup c
-
                                                                                                      WHERE  
-
                                                                                                     UPPER(c.CMPNY_CD)=UPPER(BASE.CMPNY_CD))
-
-                                                                                                    
-
                                                                                                      then c.shortDesc END as ManualControls
-
- 
-
-                                                                       
-
                                                                         --case statement used for derived column  ManualControls as above code is giving error
-
                                                                         --invalid identifier 'RVNUE_COMB_ID' in Snowflake
-
-                                                                                        
-
-                                                                               
-
 FROM
-
 CDW_CSR_SCORECARD_DB_PPD.CSR_V.F_SAA_SUBSCRIPTION BASE
-
-                                                                                        
-
                                                                                          --join condition added for derived column ManualControls
-
-                                                                                        
-
                                                                                         -- LEFT OUTER JOIN
-
-                                                                                         
-
                           -- BDM_CSR_DB_PPD.CSR_T.DA_RevN_ScenarioLookup c
-
-                                                                                        
-
                                                                                         -- on
-
-                                                                
-
                                                                               -- UPPER(c.CMPNY_CD)=UPPER(BASE.CMPNY_CD)
-
-                                                                                                                                                                               
-
                                                                          LEFT OUTER JOIN
-
                                                                             CDW_FADS_DB_PPD.FADS_PUBLIC_V.D_PRODUCT_RECURRING_RATE RT
-
-                                                                         
-
                                                                           ON
-
-                                                                              
-
                                                                                UPPER(BASE.RATE_PLAN_CD)=UPPER(RT.SRC_SOC_CD) AND
-
                                                                                UPPER(RT.CURR_IND)='Y' AND
-
-                                                                               
-
                                                                                UPPER(RT.RC_TYP_CD)='R' AND
-
-                                                                               
-
                                                                                RT.TIER_LVL_CD=0 AND
-
                                                                                UPPER(RT.FEAT_CD) IN('STD','DATARC')
-
                                                                                          /*-- TMO RATE_PLAN_MRC_AMT*/
-
                                                                         LEFT OUTER JOIN
-
                                                                             CDW_CMN_DIM_DB_PPD.CMN_DIM_V.D_RATE_PLAN RP
-
                                                                           ON
-
-                                                                              
-
                                                                                UPPER(BASE.RATE_PLAN_CD)=UPPER(RP.RATE_PLAN_CD) AND
-
-                                                                               
-
                                                                                BASE.SAA_SNPSHT_DATE BETWEEN RP.EFF_START_DTTM AND
-
-                                                                               
-
                                                                                RP.EFF_END_DTTM /*-- TMO RATE_PLAN_DESC*/
-
                                                                         LEFT OUTER JOIN
-
                                                                          (SELECT
-
                                                                                udd.SRC_SOC_CD,
-
                                                                                SUM(CASE WHEN CHNG_RSN_DESC LIKE'%$0 MRC%'THEN 1 ELSE 0 END) as UDD_$0MRC,
-
                                                                                COUNT(*) as Cnt
-
                                                                         FROM
-
                                                                                CDW_CSR_SCORECARD_DB_PPD.CSR_UDD_V.CSR_BUS_DERIVE_PLAN_ATTR_UDD udd
-
                                                                         WHERE  
-
-                                                                               
-
                                                                                UPPER(udd.FUNC_TYP_CD)='R' AND
-
                                                                                UPPER(udd.SRC_SYS_CD) IN('SAMSON')
-
                                                                         GROUP BY
-
                                                                                udd.SRC_SOC_CD) udd
-
                                                                           ON
-
-                                                                              
-
                                                                                UPPER(BASE.RATE_PLAN_CD)=UPPER(udd.SRC_SOC_CD)
-
-                                                                                        
-
                                                                          WHERE  
-
-                                                                               
-
                                                                                BASE.SAA_SNPSHT_DATE=(CAST('2023-05-22' as DATE))
-
-                                                                                         
-
                                                                                          /*--AND BASE.sub_stat_cd IN ('A', 'ACTIVE', 'S', 'SUSPEND')*//*--AND BASE.saa_stat_cd IN ('C', 'D', 'P')*/
-
-                                                                                         
-
                                                                                          AND 
-
-                                                                               
-
                                                                                UPPER(BASE.SRC_SYS_CD)=UPPER('SAMSON')
-
 =====================================================
-
 -TD
-
- 
-
 SELECT
-
 Current_Date AS run_date,
-
 -------------------Controls:
-
 CASE WHEN (BASE.ACCT_ID = '192514386'
-
 OR BASE.ACCT_ID = '659488489'
-
 OR BASE.ACCT_ID = '650446998'
-
 OR BASE.ACCT_ID = '907740900'
-
 OR BASE.ACCT_ID = '279604889'
-
 OR BASE.ACCT_ID = '815440775'
-
 OR BASE.ACCT_ID = '369087025'
-
 OR BASE.ACCT_ID = '818798415'
-
 OR BASE.ACCT_ID = '120690786'
-
 OR BASE.ACCT_ID = '527973411'
-
 OR BASE.ACCT_ID = '840833183'
-
 OR BASE.ACCT_ID = '506951659'
-
 OR BASE.ACCT_ID = '551730419'
-
 OR BASE.ACCT_ID = '694054985') THEN 1 --ELSE 0 end AS SC1 --covid
-
 WHEN RP.RATE_PLAN_DESC LIKE '%employee%' THEN 100 --ELSE 0 end AS SC3
-
 --mrc threshols TMO logic
-
 WHEN BASE.PRDCT_LN_CD IN ('IOT1') AND BASE.RATE_PLAN_CD NOT IN ('Z1MBDAT', 'ZPOOLMI') AND RT.PP_RECURNG_RT_AMT <1 THEN 10000000 --ELSE 0 end AS SC8 -- mrc
-
 WHEN BASE.SUB_TYP_NM = 'Postpaid MINT' AND BASE.PRDCT_LN_CD<>'IOT1' AND BASE.RATE_PLAN_CD NOT LIKE '%DIG%' AND BASE.RATE_PLAN_CD NOT IN ('Z1MBDAT', 'ZPOOLMI') AND RT.PP_RECURNG_RT_AMT <5 AND RT.PP_RECURNG_RT_AMT >= 1 THEN 100000000 --ELSE 0 end AS SC9 -- mrc
-
 WHEN BASE.SUB_TYP_NM = 'Postpaid Voice' AND BASE.RATE_PLAN_CD NOT IN ('Z1MBDAT', 'ZPOOLMI') AND RT.PP_RECURNG_RT_AMT < 10 AND RT.PP_RECURNG_RT_AMT >=5 THEN 1000000000 --ELSE 0 end AS SC10 -- mrc
-
 WHEN  (udd.UDD_$0MRC > 0) THEN 1000 -- UDD $0 MRC
-
 WHEN  (udd.Cnt > 0) THEN 10000 -- UDD
-
- 
-
 ELSE 0 END AS Rvnue_comb_id
-
 --, c.shortDesc AS ManualControls
-
 ,(SELECT c.shortDesc FROM DL_CSR.DA_RevN_ScenarioLookup c WHERE c.comb_id = Rvnue_comb_id AND c.CMPNY_CD = BASE.CMPNY_CD) AS ManualControls
-
- 
-
- 
-
 FROM FADS_CSR_V.F_SAA_SUBSCRIPTION BASE
-
- 
-
 LEFT OUTER JOIN  FADS_PUBLIC_V.D_PRODUCT_RECURRING_RATE RT ON BASE.RATE_PLAN_CD = RT.SRC_SOC_CD AND RT.CURR_IND = 'y' AND RT.RC_TYP_CD = 'R' AND RT.TIER_LVL_CD = 0 AND RT.FEAT_CD IN ('STD', 'DATARC') -- TMO RATE_PLAN_MRC_AMT
-
 LEFT OUTER JOIN FADS_PUBLIC_V.D_RATE_PLAN AS RP ON BASE.RATE_PLAN_CD = RP.RATE_PLAN_CD AND BASE.SAA_SNPSHT_DATE BETWEEN RP.EFF_START_DTTM AND RP.EFF_END_DTTM -- TMO RATE_PLAN_DESC
-
 LEFT OUTER JOIN (SELECT udd.SRC_SOC_CD, Sum(CASE WHEN CHNG_RSN_DESC LIKE '%$0 MRC%' THEN 1 ELSE 0 END) AS UDD_$0MRC, Count(*) Cnt FROM FADS_V.CSR_BUS_DERIVE_PLAN_ATTR_UDD udd WHERE udd.FUNC_TYP_CD = 'R' AND udd.SRC_SYS_CD IN ('SAMSON')  GROUP BY udd.SRC_SOC_CD) udd ON BASE.RATE_PLAN_CD = udd.SRC_SOC_CD
-
- 
-
- 
-
 WHERE BASE.SAA_SNPSHT_DATE = (CAST('2023-05-22' as DATE))
-
 --AND BASE.sub_stat_cd IN ('A', 'ACTIVE', 'S', 'SUSPEND')
-
 --AND BASE.saa_stat_cd IN ('C', 'D', 'P')
-
 AND BASE.src_sys_cd = 'SAMSON'
-
 ;
-
   --692,051,472 TD
-
 =====================================================
-
 -----------------------------------------------------
-
- 
-
 BEGIN
-
-             
-
 DELETE
-
                              FROM
-
                                     BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE INV
-
                              WHERE  
-
                                     INV.as_of_date=:AS_OF_DATE AND 
-
                                     INV.INVC_TYP_CD=:INV_TYP;
-
 CREATE local Temporary  TABLE
-
                                     INV_BAL_AD
-
                              AS
-
                              (
-
                              SELECT
-
                                     :AS_OF_DATE as as_of_date,
-
                                     ACCT_ID,
-
                                     EIP_PLAN_ID,
-
                                     EIP_LIN_LVL_PLAN_ID as EIP_EQUIP_ID,
-
                                     INVC_TYP_CD,
-
                                     SUM(CHRG_AMT) as CHRG_AMT,
-
                                     SUM(PYMT_AMT) as PYMT_AMT,
-
                                     SUM(BILL_CR_AMT) as BILL_CR_AMT,
-
                                     SUM(BILL_DISC_AMT) as BILL_DISC_AMT,
-
                                     SUM(TOT_GEN_CRD_AMT) as TOT_GEN_CRD_AMT,
-
                                     SUM(ADJ_AMT) as ADJ_AMT,
-
                                     SUM(INVC_ADJ_AMT) as INVC_ADJ_AMT,
-
                                     SUM(DUE_AMOUNT) as INV_AR,
-
                                     SUM(CASE WHEN INVC_DUE_DAYS<=0 THEN DUE_AMOUNT ELSE 0 END) as CURRENT_CHARGE_AMT,
-
                                     SUM(CASE WHEN INVC_DUE_DAYS BETWEEN 1 AND 30 THEN DUE_AMOUNT ELSE 0 END) as AGE_BCKT_1_30_AMT,
-
                                     SUM(CASE WHEN INVC_DUE_DAYS BETWEEN 31 AND 60 THEN DUE_AMOUNT ELSE 0 END) as AGE_BCKT_31_60_AMT,
-
                                     SUM(CASE WHEN INVC_DUE_DAYS BETWEEN 61 AND 90 THEN DUE_AMOUNT ELSE 0 END) as AGE_BCKT_61_90_AMT,
-
                                     SUM(CASE WHEN INVC_DUE_DAYS>=91 THEN DUE_AMOUNT ELSE 0 END) as AGE_BCKT_91_PLUS_AMT
-
                              FROM
-
                              (SELECT
-
                                     EIP_PLAN_ID as EIP_PLAN_ID,
-
                                     COALESCE(EIP_LIN_LVL_PLAN_ID,-1) as EIP_LIN_LVL_PLAN_ID,
-
                                     TRIM(ACCT_ID) as ACCT_ID,
-
                                     (CAST(:AS_OF_DATE AS DATE)-INVC_DUE_DT) as INVC_DUE_DAYS,
-
                                     INVC_TYP_CD,
-
                                     CHRG_AMT,
-
                                     COALESCE(TOT_PYMT_CRD_AMT,0) as PYMT_AMT,
-
                                     COALESCE(BILL_CR_AMT,0) as BILL_CR_AMT,
-
                                     COALESCE(BILL_DISC_AMT,0) as BILL_DISC_AMT,
-
                                     COALESCE(TOT_GEN_CRD_AMT,0) as TOT_GEN_CRD_AMT,
-
                                     COALESCE(ADJ_AMT,0) as ADJ_AMT,
-
                                     COALESCE(INVC_ADJ_AMT,0) as INVC_ADJ_AMT,
-
                                     (CHRG_AMT-(COALESCE(TOT_PYMT_CRD_AMT,0)+COALESCE(BILL_CR_AMT,0)+COALESCE(BILL_DISC_AMT,0)+COALESCE(TOT_GEN_CRD_AMT,0)+COALESCE(ADJ_AMT,0)+COALESCE(INVC_ADJ_AMT,0))) as DUE_AMOUNT,
-
                                     INVC_DUE_DT
-
                              FROM
-
                                     CDW_FADS_DB_PPD.FADS_PUBLIC_V.F_POSTPAID_INVOICE INV
-
                              WHERE  
-
                                     INVC_TYP_CD IN(:INV_TYP) AND 
-
                                     EIP_LIN_LVL_PLAN_ID is NOT null AND 
-
-                                    
-
                                     CAST(:AS_OF_DATE||' 23:59:59'AS TIMESTAMP_TZ)BETWEEN EFF_START_DTTM AND 
-
-                                    
-
                                     EFF_END_DTTM AND 
-
                                     CAST(INV.INVC_CRTN_DT AS DATE)>='2014-01-01' /*--and cast(EFF_START_DTTM as date) between (CAST(:AS_OF_DATE AS DATE) - EXTRACT(DAY FROM CAST(:AS_OF_DATE AS DATE) ) + 1) and CAST(:AS_OF_DATE AS DATE)*/) SCS
-
                              GROUP BY
-
                                     1,
-
                                     2,
-
                                     3,
-
                                     4,
-
                                     5);
-
                              /***--sel (CAST(:AS_OF_DATE AS DATE) - EXTRACT(DAY FROM CAST(:AS_OF_DATE AS DATE) ) + 1);***/
-
 CREATE local Temporary  TABLE
-
                                     INV_PM
-
                              AS
-
                              (
-
                              SELECT
-
                                     *
-
                              FROM
-
                                     BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE INV
-
                              WHERE  
-
-                                    
-
                                     as_of_date<:AS_OF_DATE QUALIFY
-
-                                    
-
                                     ROW_NUMBER()OVER(PARTITION BY ACCT_ID,EIP_PLAN_ID,EIP_EQUIP_ID ORDER BY CAST(as_of_date AS DATE)DESC)=1);
-
 INSERT INTO
-
                                     BDM_EIP_DB_PPD.EIP_T.A_TE1_BALANCE_INVOICE
-
                              SELECT
-
                                     :AS_OF_DATE as as_of_date,
-
                                     INV_N.ACCT_ID,
-
                                     INV_N.EIP_PLAN_ID,
-
                                     INV_N.EIP_EQUIP_ID,
-
                                     INV_N.INVC_TYP_CD,
-
                                     CHRG_AMT as Q_CHRG_AMT,
-
                                     PYMT_AMT as Q_PYMT_AMT,
-
                                     BILL_CR_AMT as Q_BILL_CR_AMT,
-
                                     BILL_DISC_AMT as Q_BILL_DISC_AMT,
-
                                     TOT_GEN_CRD_AMT as Q_TOT_GEN_CRD_AMT,
-
                                     ADJ_AMT as Q_ADJ_AMT,
-
                                     INVC_ADJ_AMT as Q_INVC_ADJ_AMT,
-
                                     INV_AR as Q_INV_AR,
-
                                     (CHRG_AMT-COALESCE(Q_CHRG_AMT,0)) as CM_CHRG_AMT,
-
                                     (PYMT_AMT-COALESCE(Q_PYMT_AMT,0)) as CM_PYMT_AMT,
-
                                     (BILL_CR_AMT-COALESCE(Q_BILL_CR_AMT,0)) as CM_BILL_CR_AMT,
-
                                     (BILL_DISC_AMT-COALESCE(Q_BILL_DISC_AMT,0)) as CM_BILL_DISC_AMT,
-
                                     (TOT_GEN_CRD_AMT-COALESCE(Q_TOT_GEN_CRD_AMT,0)) as CM_TOT_GEN_CRD_AMT,
-
                                     (ADJ_AMT-COALESCE(Q_ADJ_AMT,0)) as CM_ADJ_AMT,
-
                                     (INVC_ADJ_AMT-COALESCE(Q_INVC_ADJ_AMT,0)) as CM_INVC_ADJ_AMT,
-
                                     (INV_AR-COALESCE(Q_INV_AR,0)) as CM_INV_AR,
-
                                     (INV_N.CURRENT_CHARGE_AMT) as CURRENT_CHARGE_AMT,
-
                                     (INV_N.AGE_BCKT_1_30_AMT) as AGE_BCKT_1_30_AMT,
-
                                     (INV_N.AGE_BCKT_31_60_AMT) as AGE_BCKT_31_60_AMT,
-
                                     (INV_N.AGE_BCKT_61_90_AMT) as AGE_BCKT_61_90_AMT,
-
                                     (INV_N.AGE_BCKT_91_PLUS_AMT) as AGE_BCKT_91_PLUS_AMT
-
                              FROM
-
                                     INV_BAL_AD INV_N
-
                              LEFT JOIN
-
                                  INV_PM INV
-
                                ON
-
                                     INV_N.ACCT_ID=INV.ACCT_ID AND
-
                                     INV_N.EIP_PLAN_ID=INV.EIP_PLAN_ID AND
-
                                     INV_N.EIP_EQUIP_ID=INV.EIP_EQUIP_ID
-
                              WHERE  
-
-                                    
-
                                     CHRG_AMT<>COALESCE(Q_CHRG_AMT,0) OR 
-
                                     INV_AR<>COALESCE(Q_INV_AR,0);
-
               END;
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 -----------------------------------------------2 A_PA1_COVID_MEDHOLD
-
- 
-
- 
-
- 
-
- 
-
- 
-
 create or replace procedure BDM_EIP_DB_PPD.EIP_T.A_PA1_COVID_MEDHOLD()
-
 returns varchar
-
 language sql
-
 as
-
 $$
-
- 
-
- 
-
- 
-
               /**-- Audit Trail:**/
-
- 
-
               /**-- Murali 08/7/20: Created the store procedure for COVID MedHold  (to use in RAIL)**/
-
               BEGIN
-
-             
-
                              /***-- Need to include this declaration section so FS_RNP_INFO is populated***/
-
                              let run_time TIMESTAMP_TZ;
-
                              let category_nm VARCHAR  := 'RAIL';
-
                              let application_nm VARCHAR  := 'SQL';
-
                              let program_nm VARCHAR  := 'RAIL_MASTER';
-
                              let process_nm VARCHAR  := 'A_PA1_COVID_MEDHOLD';
-
                              /*Replace PROCDEURE_NAME with actual proc name */
-
                              let object_nm VARCHAR;
-
                              let as_of_date TIMESTAMP_TZ;
-
                              /* Starts main Billing program from here */
-
-                            
-
                              /***-- Call this every time you need to track a process with by calling Rnp Info Start and Log procedures***/
-
                              run_time:=CURRENT_TIMESTAMP(0);-----------------
-
                              /***-- Need to include this line***/
-
                              object_nm:='A_TA1_COVID_MEDHOLD_BAN_BASE';
-
                              as_of_date:=CURRENT_TIMESTAMP(0) - interval '1 day';
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_rnp_info_start(run_time,category_nm,application_nm,program_nm,process_nm,object_nm,as_of_date);
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_log(process_nm,CURRENT_TIMESTAMP(0),'Step-1 started running for tbale A_TA1_COVID_MEDHOLD_BAN_BASE');
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_11');
-
- 
-
- 
-
 CREATE TABLE
-
                                     BDM_EIP_DB_PPD.EIP_T.COVID_11
-
                              AS
-
                              (
-
                              SELECT
-
                                     SUB1.BAN,
-
                                     MIN(CASE WHEN CLCTN_WAIVR_RSN_CD IN('WEATHR','MEDHLD')THEN ENTRPRS_SQNC_NBR end) as medhold_ENTRPRS_SQNC_NBR,
-
                                     MIN(CASE WHEN CLCTN_WAIVR_RSN_CD IN('WEATHR','MEDHLD')THEN CLCTN_ACTVY_DTTM end) as medhold_initial_date,
-
                                     MIN(CASE WHEN CLCTN_WAIVR_RSN_CD IN('MEDHD2')THEN ENTRPRS_SQNC_NBR end) as medhold2_ENTRPRS_SQNC_NBR,
-
                                     MIN(CASE WHEN CLCTN_WAIVR_RSN_CD IN('MEDHD2')THEN CLCTN_ACTVY_DTTM end) as medhold2_initial_date,
-
                                     MAX(CASE WHEN CLCTN_WAIVR_RSN_CD IN('WEATHR','MEDHLD')THEN ENTRPRS_SQNC_NBR end) as medhold_ENTRPRS_SQNC_NBR_ht_max,
-
                                     MAX(CASE WHEN CLCTN_WAIVR_RSN_CD IN('MEDHD2')THEN ENTRPRS_SQNC_NBR end) as medhold2_ENTRPRS_SQNC_NBR_ht_max,
-
                                     MAX(CASE WHEN CLCTN_WAIVR_RSN_CD IN('WEATHR','MEDHLD')THEN CLCTN_WAIVR_EXPR_DTTM end) as medhold_CLCTN_WAIVR_EXPR_DTTM_max,
-
                                     MAX(CASE WHEN CLCTN_WAIVR_RSN_CD IN('MEDHD2')THEN CLCTN_WAIVR_EXPR_DTTM end) as medhold2_CLCTN_WAIVR_EXPR_DTTM_max,
-
                                     MAX(CASE WHEN CLCTN_WAIVR_RSN_CD IN('WEATHR','MEDHLD')THEN CLCTN_AMT end) as medhold_CLCTN_AMT,
-
                                     MAX(CASE WHEN CLCTN_WAIVR_RSN_CD IN('MEDHD2')THEN CLCTN_AMT end) as medhold2_CLCTN_AMT
-
                              FROM
-
                              (SELECT /*+parallel(8)*/
-
                                     ACCT_ID as BAN,
-
                                     ENTRPRS_SQNC_NBR,
-
                                     EFF_START_DTTM,
-
                                     CLCTN_ACTVY_DTTM,
-
                                     CLCTN_ACTVY_CD,
-
                                     CLCTN_WAIVR_RSN_CD,
-
                                     CLCTN_WAIVR_EXPR_DTTM,
-
                                     CLCTN_AMT
-
                              FROM
-
                                     CDW_FADS_DB_PPD.FADS_PUBLIC_V.F_COLLECTION
-
                              WHERE  
-
                                     CURR_IND='Y' /*--and ACCT_ID in (110259004,110222307,110207659,318622981,110140740,110736579,110207659)*/ AND 
-
                                     (CLCTN_ACTVY_CD='HT'AND CAST(CLCTN_ACTVY_DTTM AS DATE)>CAST('2020-03-01'AS DATE)AND CLCTN_WAIVR_RSN_CD IN('MEDHLD','MEDHD2'))OR(CLCTN_ACTVY_CD='HT'AND CAST(CLCTN_ACTVY_DTTM AS DATE)>CAST('2020-03-01'AS DATE)AND CAST(CLCTN_ACTVY_DTTM AS DATE)<CAST('2020-04-16'AS DATE)AND CLCTN_WAIVR_RSN_CD IN('WEATHR'))) sub1
-
                              LEFT JOIN
-
                                  BDM_EIP_DB_PPD.EIP_T.EXCLUSION_BAN_COVID sub2
-
                                ON
-
-                                   
-
                                     sub1.BAN=sub2.BAN
-
                              WHERE
-
-                                    
-
                                     (CASE WHEN SUB1.BAN=SUB2.BAN AND CAST(SUB1.CLCTN_ACTVY_DTTM AS DATE)=SUB2.HOLD_HT_DATE THEN 1 ELSE 0 END)=0
-
                              GROUP BY
-
                                     sub1.ban);
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_RT');
-
-                            
-
 CREATE TABLE BDM_EIP_DB_PPD.EIP_T.COVID_RT
-
                              AS
-
                              (
-
                              SELECT /*+parallel(8)*/
-
                                     ACCT_ID as BAN,
-
                                     ENTRPRS_SQNC_NBR,
-
                                     EFF_START_DTTM,
-
                                     CLCTN_ACTVY_DTTM,
-
                                     CLCTN_ACTVY_CD,
-
                                     CLCTN_WAIVR_RSN_CD,
-
                                     ROW_NUMBER()OVER(PARTITION BY ACCT_ID,CLCTN_WAIVR_RSN_CD ORDER BY ENTRPRS_SQNC_NBR) as rownumber
-
                              FROM
-
                                     CDW_FADS_DB_PPD.FADS_PUBLIC_V.F_COLLECTION
-
                              WHERE  
-
                                     CURR_IND='Y' AND 
-
-                                    
-
                                     (CLCTN_ACTVY_CD='RT'AND CAST(CLCTN_ACTVY_DTTM AS DATE)>CAST('2020-03-01'AS DATE)) /*--and ACCT_ID in (110259004,110222307,110207659,318622981,110140740,110736579,110207659)*/);
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_COLL');
-
 CREATE TABLE
-
                                     BDM_EIP_DB_PPD.EIP_T.COVID_COLL
-
                              AS
-
                              (
-
                              SELECT
-
                                     ACCT_ID as BAN,
-
                                     ENTRPRS_SQNC_NBR,
-
                                     CLCTN_WAIVR_RSN_CD,
-
                                     CLCTN_ACTVY_DTTM
-
                              FROM
-
                                     CDW_FADS_DB_PPD.FADS_PUBLIC_V.F_COLLECTION
-
                              WHERE  
-
-                                    
-
                                     CLCTN_ACTVY_DTTM BETWEEN CAST('2020-03-01 00:00:00.000000'AS TIMESTAMP_TZ)AND CAST(CURRENT_DATE -1 AS TIMESTAMP_TZ) AND
-
                                     CLCTN_ACTVY_CD IN('HT') AND
-
                                     CLCTN_WAIVR_RSN_CD IN('WEATHR','MEDHLD','MEDHD2') /*-- and ACCT_ID in (110259004,110222307,110207659,318622981,110140740,110736579,110207659)*/);
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.A_TA1_COVID_MEDHOLD_BAN_BASE');
-
-                            
-
 CREATE TABLE
-
                                     BDM_EIP_DB_PPD.EIP_T.A_TA1_COVID_MEDHOLD_BAN_BASE
-
                              AS
-
                              (
-
                              SELECT
-
                                     CURRENT_DATE as AS_OF_DT, /* Run date and As of Date both are same, so added just one date */
-
                                     a.*
-
                              FROM
-
                              (SELECT
-
                                     a.*,
-
                                     RC1.CLCTN_WAIVR_RSN_CD as RSN_CD1,
-
                                     RC2.CLCTN_WAIVR_RSN_CD as RSN_CD2,
-
                                     MIN(C1.CLCTN_ACTVY_DTTM) as RT_DATE_C1,
-
                                     MIN(C2.CLCTN_ACTVY_DTTM) as RT_DATE_C2, /*--,min(C1.ENTRPRS_SQNC_NBR) as ENTRPRS_SQNC_NBR_C1,min(C2.ENTRPRS_SQNC_NBR) as ENTRPRS_SQNC_NBR_C2,min(C3.ENTRPRS_SQNC_NBR) as ENTRPRS_SQNC_NBR_C3*/
-
                                     MIN(C3.CLCTN_ACTVY_DTTM) as RT_DATE_C3
-
                              FROM
-
                                     BDM_EIP_DB_PPD.EIP_T.COVID_11 a
-
                              LEFT JOIN
-
                                  BDM_EIP_DB_PPD.EIP_T.COVID_RT C1
-
                                ON
-
-                                   
-
                                     a.ban=C1.ban AND
-
-                                    
-
                                     C1.ENTRPRS_SQNC_NBR>medhold_ENTRPRS_SQNC_NBR_ht_max AND
-
-                                    
-
                                     C1.ENTRPRS_SQNC_NBR<medhold2_ENTRPRS_SQNC_NBR
-
                              LEFT JOIN
-
                                  BDM_EIP_DB_PPD.EIP_T.COVID_RT C2
-
                                ON
-
-                                   
-
                                     a.ban=C2.ban AND
-
-                                    
-
                                     C2.ENTRPRS_SQNC_NBR>medhold_ENTRPRS_SQNC_NBR_ht_max AND
-
-                                    
-
                                     medhold2_ENTRPRS_SQNC_NBR IS NULL
-
                              LEFT JOIN
-
                                  BDM_EIP_DB_PPD.EIP_T.COVID_RT C3
-
                                ON
-
-                                   
-
                                     a.ban=C3.ban AND
-
-                                    
-
                                     C3.ENTRPRS_SQNC_NBR>medhold2_ENTRPRS_SQNC_NBR_ht_max
-
                              LEFT JOIN
-
                                  BDM_EIP_DB_PPD.EIP_T.COVID_COLL RC1
-
                                ON
-
-                                   
-
                                     a.ban=RC1.ban AND
-
-                                    
-
                                     medhold_ENTRPRS_SQNC_NBR=RC1.ENTRPRS_SQNC_NBR
-
                              LEFT JOIN
-
                                  BDM_EIP_DB_PPD.EIP_T.COVID_COLL RC2
-
                                ON
-
-                                   
-
                                     a.ban=RC2.ban AND
-
-                                    
-
                                     medhold2_ENTRPRS_SQNC_NBR=RC2.ENTRPRS_SQNC_NBR
-
                              GROUP BY
-
                                     1,
-
                                     2,
-
                                     3,
-
                                     4,
-
                                     5,
-
                                     6,
-
                                     7,
-
                                     8,
-
                                     9,
-
                                     10,
-
                                     11,
-
                                     12,
-
                                     13) A
-
                              LEFT OUTER JOIN
-
                                  BDM_EIP_DB_PPD.EIP_T.EXCLUSION_BAN_COVID sub1
-
                                ON
-
-                                   
-
                                     A.BAN=sub1.BAN
-
                              WHERE  
-
-                                    
-
                                     (CASE WHEN SUB1.BAN=A.BAN AND CAST(RT_DATE_C1 AS DATE)=SUB1.HOLD_RT_DATE THEN 1 ELSE 0 END)=0 AND 
-
-                                    
-
                                     (CASE WHEN SUB1.BAN=A.BAN AND CAST(RT_DATE_C2 AS DATE)=SUB1.HOLD_RT_DATE THEN 1 ELSE 0 END)=0 AND 
-
-                                    
-
                                     (CASE WHEN SUB1.BAN=A.BAN AND CAST(RT_DATE_C3 AS DATE)=SUB1.HOLD_RT_DATE THEN 1 ELSE 0 END)=0);
-
                              /***-- Record the complete date and log***/
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_rnp_info_complete(run_time,object_nm,activity_count);
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_log(process_nm,CURRENT_TIMESTAMP(0),'Step-1 completed for table A_TA1_COVID_MEDHOLD_BAN_BASE');
-
                   CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_11');
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_COLL');
-
                              CALL BDM_EIP_DB_PPD.EIP_T.fs_p_drop_table('BDM_EIP_DB_PPD.EIP_T.COVID_RT');
-
               END;
-
-             
-
- 
-
- 
-
- 
-
 $$;
-
- 
-
 ------------------------
-
 --how to get datatype for column of view
-
 WITH q AS (
-
-   
-
     SELECT
-
         c.TABLE_SCHEMA,
-
         c.TABLE_NAME,
-
         c.ORDINAL_POSITION,
-
         c.COLUMN_NAME,
-
         c.DATA_TYPE,
-
         CASE
-
             WHEN c.DATA_TYPE IN ( N'binary', N'varbinary'                    ) THEN ( CASE c.CHARACTER_OCTET_LENGTH   WHEN -1 THEN N'(max)' ELSE CONCAT( N'(', c.CHARACTER_OCTET_LENGTH  , N')' ) END )
-
             WHEN c.DATA_TYPE IN ( N'char', N'varchar', N'nchar', N'nvarchar' ) THEN ( CASE c.CHARACTER_MAXIMUM_LENGTH WHEN -1 THEN N'(max)' ELSE CONCAT( N'(', c.CHARACTER_MAXIMUM_LENGTH, N')' ) END )
-
             WHEN c.DATA_TYPE IN ( N'datetime2', N'datetimeoffset'            ) THEN CONCAT( N'(', c.DATETIME_PRECISION, N')' )
-
             WHEN c.DATA_TYPE IN ( N'decimal', N'numeric'                     ) THEN CONCAT( N'(', c.NUMERIC_PRECISION , N',', c.NUMERIC_SCALE, N')' )
-
         END AS DATA_TYPE_PARAMETER,
-
         CASE c.IS_NULLABLE
-
             WHEN N'NO'  THEN N' NOT NULL'
-
             WHEN N'YES' THEN     N' NULL'
-
         END AS IS_NULLABLE2
-
     FROM
-
         INFORMATION_SCHEMA.COLUMNS AS c
-
 )
-
 SELECT
-
     q.TABLE_SCHEMA,
-
     q.TABLE_NAME,
-
     q.ORDINAL_POSITION,
-
     q.COLUMN_NAME,
-
     CONCAT( q.DATA_TYPE, ISNULL( q.DATA_TYPE_PARAMETER, N'' ), q.IS_NULLABLE2 ) AS FULL_DATA_TYPE
-
- 
-
 FROM
-
     q
-
 WHERE
-
     q.TABLE_SCHEMA = 'yourSchemaName' AND
-
     q.TABLE_NAME   = 'yourTableName'  AND
-
     q.COLUMN_NAME  = 'yourColumnName'
-
- 
-
 ORDER BY
-
     q.TABLE_SCHEMA,
-
     q.TABLE_NAME,
-
     q.ORDINAL_POSITION;
-
- 
-
 DM QUERIES
-
- 
-
 ---pG admin queries to update mapping
-
 --hexa decimal
-
 --A001 - running
-
 --A004 - success
-
- 
-
 select * from dataset where dataset_name ='SF_BDM_UE_WHXS_10'
-
- 
-
 select * from dataset_detail where dataset_id in ('2757')
-
- 
-
 select * from dataset_mapping where
-
 dataset_detail_id in ('2754') and status_code ='A001'
-
- 
-
 select * from execution_detail where
-
 mapping_id >='' and mapping_id <='' and last_update_date >= '2023-01-12'
-
- 
-
 update execution_detail set execution_status = 'A004' where mapping_id=''
-
- 
-
 update execution_detail set execution_status = 'A004' where mapping_id >= '' and mapping_id <= ''
-
 last_update_date >= '2023-01-03'
-
- 
-
 -----------------------------------------
-
- 
-
 --SNF copy and error queries
-
- 
-
 ----------------------------------------------------------------------137
-
- 
-
- 
-
 --52-0x07
-
 --58-0x07
-
 --47-0x02
-
 --cloud - 0x04
-
 --Mapping id :: 3001403
-
- 
-
 --01a91d1a-0101-4311-001f-cd027bab2deb
-
 -- ACCT_HOLD_LST_NM like'%'||CHR(07) --escape character
-
 DEVICE_GROUP like'%'||'O'
-
- 
-
 create or replace file format SNOWFLAKE_FileFormat_PPD_3001403 type = 'CSV' ESCAPE='0x07'  NULL_IF = () FIELD_OPTIONALLY_ENCLOSED_BY='"'FIELD_DELIMITER = '|' empty_field_as_null = true encoding='windows-1252';
-
- 
-
 create or replace stage SNF_FORMATTED_STAGE_ORC_PPD url='azure://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/'
-
 storage_integration=prdedssfmwu2blob01_TD_SF file_format=(format_name='SNOWFLAKE_FileFormat_PPD_3001403');
-
- 
-
 COPY INTO F_FDR_Bld_UnBld_Detail FROM @SNF_FORMATTED_STAGE_ORC_PPD/dlmigration/3001403/ on_error = 'CONTINUE' FORCE = TRUE;
-
- 
-
- 
-
 ---for error
-
 create or replace table save_copy_errors_F_FDR_Bld_UnBld_Detail as
-
 select * from table(validate(F_FDR_Bld_UnBld_Detail, job_id=>'01a91d1a-0101-4311-001f-cd027bab2deb'));
-
- 
-
- 
-
 select top 5 * from save_copy_errors_F_FDR_Bld_UnBld_Detail
-
- 
-
- 
-
 select distinct (column_name)  from save_copy_errors_F_FDR_Bld_UnBld_Detail
-
- 
-
 select distinct (ERROR)  from save_copy_errors_F_FDR_Bld_UnBld_Detail where column_name = '"F_FDR_BLD_UNBLD_DETAIL"["Adj_Vol":82]'
-
- 
-
 ------------------------------------
-
- 
-
- 
-
 Insert into D_ACCOUNT_SAM_SEQ (TGT_CYCL_CD) values('')
-
- 
-
 Insert into SSP_USAGE_STAGE_C (BAN)  values ('132292363'),
-
 ('971085438'),
-
 ('767038263'),
-
 ('ACC000206'),
-
 ('407555068'),
-
 ('ACC200134'),
-
 ('945167661'),
-
 ('946123847'),
-
 ('870958306'),
-
 ('ACC100026')
-
- 
-
 insert into F_SAA_SUBSCRIPTION_MPCS_TMP
-
 select * from F_SAA_SUBSCRIPTION_MPCS_TMP where SUBSCRIPTION_ID='334572237'
-
- 
-
 select SUBSCRIPTION_ID from  DL_U2CSR.F_SAA_SUBSCRIPTION_MPCS_TMP
-
 where SUBSCRIPTION_ID='35,63,69,135'
-
- 
-
 3,28,98,69,108
-
- 
-
- 
-
 delete from D_BSCS_PRODUCT_SUBSCRIPTION_BKP_07122022 where SRC_CRTN_USER_CD = 'JMelton1'
-
 ------------------------------------------------
-
- 
-
 ----------------------------------------------------------------------
-
- 
-
 Linux
-
 putty
-
- 
-
 2- cd /data/bigframe/lib
-
 ls
-
 ps -ef | grep ScriptGenerationForSnowflakeLoading.jar
-
- 
-
 kill -9 153259  --process id
-
- 
-
 --restarting
-
 java -XX:+UseG1GC -Xmx64m -Xms32m -Xss512k -XX:MaxRAM=72m -jar ScriptGenerationForSnowflakeLoading.jar
-
- 
-
 java -XX:+UseG1GC -Xmx64m -Xms32m -Xss512k -XX:MaxRAM=72m -jar ScriptGenerationForSnowflakeLoading.jar
-
- 
-
- 
-
 nohup java -XX:+UseG1GC -Xmx64m -Xms32m -Xss512k -XX:MaxRAM=72m -jar ScriptGenerationForSnowflakeLoading.jar &
-
- 
-
 3.Start BigframeExecutor service 
-
 -------------------------------
-
 sudo su -
-
 cd /data/bigframe/PyExecutorService/scheduler/
-
 sh Shutdown.sh
-
 sh Startup.sh
-
- 
-
- 
-
 DM Main
-
- 
-
- 
-
 ---pG admin queries to update mapping
-
 --hexa decimal
-
 --A001 - running
-
 --A004 - success
-
- 
-
 select * from dataset where dataset_name ='SF_BDM_UE_WHXS_10'
-
- 
-
 select * from dataset_detail where dataset_id in ('2757')
-
- 
-
 select * from dataset_mapping where
-
 dataset_detail_id in ('2754') and status_code ='A001'
-
- 
-
 select * from execution_detail where
-
 mapping_id >='' and mapping_id <='' and last_update_date >= '2023-01-12'
-
- 
-
 update execution_detail set execution_status = 'A004' where mapping_id=''
-
- 
-
 update execution_detail set execution_status = 'A004' where mapping_id >= '' and mapping_id <= ''
-
 last_update_date >= '2023-01-03'
-
- 
-
 -----------------------------------------
-
- 
-
 --SNF copy and error queries
-
- 
-
 ----------------------------------------------------------------------137
-
- 
-
- 
-
 --52-0x07
-
 --58-0x07
-
 --47-0x02
-
 --cloud - 0x04
-
 --Mapping id :: 3001403
-
- 
-
 --01a91d1a-0101-4311-001f-cd027bab2deb
-
 -- ACCT_HOLD_LST_NM like'%'||CHR(07) --escape character
-
 DEVICE_GROUP like'%'||'O'
-
- 
-
 create or replace file format SNOWFLAKE_FileFormat_PPD_3001403 type = 'CSV' ESCAPE='0x07'  NULL_IF = () FIELD_OPTIONALLY_ENCLOSED_BY='"'FIELD_DELIMITER = '|' empty_field_as_null = true encoding='windows-1252';
-
- 
-
 create or replace stage SNF_FORMATTED_STAGE_ORC_PPD url='azure://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/'
-
 storage_integration=prdedssfmwu2blob01_TD_SF file_format=(format_name='SNOWFLAKE_FileFormat_PPD_3001403');
-
- 
-
 COPY INTO F_FDR_Bld_UnBld_Detail FROM @SNF_FORMATTED_STAGE_ORC_PPD/dlmigration/3001403/ on_error = 'CONTINUE' FORCE = TRUE;
-
- 
-
- 
-
 ---for error
-
 create or replace table save_copy_errors_F_FDR_Bld_UnBld_Detail as
-
 select * from table(validate(F_FDR_Bld_UnBld_Detail, job_id=>'01aa737a-0101-6669-001f-cd03b644a6e7'));
-
- 
-
- 
-
 select top 5 * from save_copy_errors_F_FDR_Bld_UnBld_Detail
-
- 
-
- 
-
 select distinct (column_name)  from save_copy_errors_F_FDR_Bld_UnBld_Detail
-
- 
-
 select distinct (ERROR)  from save_copy_errors_F_FDR_Bld_UnBld_Detail where column_name = '"F_FDR_BLD_UNBLD_DETAIL"["Adj_Vol":82]'
-
- 
-
 ------------------------------------
-
- 
-
- 
-
 Insert into D_ACCOUNT_SAM_SEQ (TGT_CYCL_CD) values('')
-
- 
-
 Insert into SSP_USAGE_STAGE_C (BAN)  values ('132292363'),
-
 ('971085438'),
-
 ('767038263'),
-
 ('ACC000206'),
-
 ('407555068'),
-
 ('ACC200134'),
-
 ('945167661'),
-
 ('946123847'),
-
 ('870958306'),
-
 ('ACC100026')
-
- 
-
 insert into F_SAA_SUBSCRIPTION_MPCS_TMP
-
 select * from F_SAA_SUBSCRIPTION_MPCS_TMP where SUBSCRIPTION_ID='334572237'
-
- 
-
 select SUBSCRIPTION_ID from  DL_U2CSR.F_SAA_SUBSCRIPTION_MPCS_TMP
-
 where SUBSCRIPTION_ID='35,63,69,135'
-
- 
-
 3,28,98,69,108
-
- 
-
- 
-
 delete from D_BSCS_PRODUCT_SUBSCRIPTION_BKP_07122022 where SRC_CRTN_USER_CD = 'JMelton1'
-
 ------------------------------------------------
-
- 
-
 ----------------------------------------------------------------------
-
 - TO RESTART SERVICES
-
 Linux
-
 putty
-
- 
-
 2- cd /data/bigframe/lib
-
 ls
-
 ps -ef|grep ExecutedDataset.jar
-
- 
-
 kill -9 153259  --process id
-
- 
-
 --cat services.sh
-
- 
-
 --restarting
-
 java -XX:+UseG1GC -Xmx64m -Xms32m -Xss512k -XX:MaxRAM=72m -jar ScriptGenerationForSnowflakeLoading.jar
-
- 
-
 java -XX:+UseG1GC -Xmx64m -Xms32m -Xss512k -XX:MaxRAM=72m -jar ScriptGenerationForSnowflakeLoading.jar
-
- 
-
- 
-
 nohup java -XX:+UseG1GC -Xmx64m -Xms32m -Xss512k -XX:MaxRAM=72m -jar ScriptGenerationForSnowflakeLoading.jar &
-
- 
-
 3.Start BigframeExecutor service 
-
 -------------------------------
-
 sudo su -
-
 cd /data/bigframe/PyExecutorService/scheduler/
-
 sh Shutdown.sh
-
 sh Startup.sh
-
- 
-
- 
-
 ===============================================================================================================
-
- 
-
 ---to check all table record in snf
-
- 
-
 use BDM_USER_DB_PPD.information_schema;
-
 select * from tables where table_schema ='USER_T';
-
- 
-
 ---to check all table record in td
-
 SELECT TableName FROM dbc.tables WHERE tablekind='V' AND databasename='SCHEMA' order by TableName;
-
- 
-
 SELECT  DatabaseName,
-
         TableName,
-
         RowCount,
-
         LastCollectTimeStamp
-
 FROM    DBC.TableStatsV
-
 WHERE   IndexNumber = 1
-
 AND DataBaseName IN ('SAND_PAIDMEDIA')
-
 ORDER BY    RowCount DESC;
-
- 
-
- 
-
 ---------Size
-
- 
-
 SELECT
-
      A.DatabaseName
-
     ,A.tablename
-
     ,CreateTimeStamp
-
     ,CAST(SUM(CURRENTPERM) AS DECIMAL(18,2))/(1024*1024*1024) (TITLE 'Used(GB)')
-
 FROM dbc.tablesize A,DBC.TABLES B
-
 WHERE   A.TABLENAME=B.TABLENAME
-
     AND A.DatabaseName = B.DatabaseName
-
     AND A.DatabaseName = 'FADS_T'
-
     AND A.tablename  in ('ACCOUNT_STATUS_TYPE',
-
 'ACCOUNT_TYPE',
-
 'BAN_CUST_ID_LKP',
-
 'BR_ADDRESS',
-
 'BR_PARTY',
-
 'BR_PRODUCT',
-
 'BR_SUBSCRIPTION',
-
 'BSCS_SUBSCRIPTION_CHANGE_LKP',
-
 'CALENDAR_DIMENSION',
-
 'CUSTOMER_ACCOUNT_LKP')
-
 GROUP BY 1,2,3 ORDER BY 3 DESC
-
- 
-
 ======================================================================================
-
 ---TO COPY DATA Manually FROM LINUX VM VIA PUTTY
-
- 
-
 go to tpt filepath via mapping id "/data/bigframe/BigFrame/teradata_snowflake_SF/backendOffload/temp/dlmigration/506266"
-
- 
-
 ----tpt file name
-
- 
-
 vi file name
-
 insert edit esc
-
 :wq!
-
- 
-
 --create file in azure
-
 cd  /data/bigframe/BigFrame/teradata_snowflake_SF/backendOffload/data/dlmigration
-
 mkdir 506266
-
- 
-
 run tpt query by removing { }
-
- 
-
 azure copy
-
- 
-
 azcopy copy '/data/bigframe/BigFrame/teradata_snowflake_SF/backendOffload/data/dlmigration/506271/*' 'https://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/dlmigration/506271/' --include-pattern "*" –recursive
-
- 
-
 azuze to snf copy->
-
- 
-
 create or replace file format SNOWFLAKE_FileFormat_PPD_506267 type = 'CSV' ESCAPE='0x04'  NULL_IF = () FIELD_OPTIONALLY_ENCLOSED_BY='"'FIELD_DELIMITER = '|' empty_field_as_null = true encoding='windows-1252';
-
- 
-
 create or replace stage SNF_FORMATTED_STAGE_ORC_PPD url='azure://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/'
-
 storage_integration=prdedssfmwu2blob01_TD_SF file_format=(format_name='SNOWFLAKE_FileFormat_PPD_506267');
-
- 
-
 COPY INTO BDM_USER_DB_PPD.USER_T.NSG_OCT_FEB_USAGE FROM @SNF_FORMATTED_STAGE_ORC_PPD/dlmigration/506267/ExtractedData.gz
-
 on_error = 'CONTINUE' FORCE = TRUE;
-
- 
-
- 
-
- 
-
 -------error Found character '4' instead of record delimiter '\n'
-
 "yÑèÔ!+øÁEöò¼üfMyÎk"|"ËôïfäÉÇÕßÿÿ
-
 PK
 "
 msisdn  like '%' || CHR(04)
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 ====================================================numeric(8,2)
-
- 
-
 SQL's exact numeric data types consist of NUMERIC(p,s) and DECIMAL(p,s) subtypes. They are exact, and we define them by precision (p) and scale (s). Precision is an integer that represents the total number of digits allowed in this column. These digits are in a particular radix, or number base – i.e. binary (base-2) or decimal (base-10). They are usually defined with a decimal point. The scale, also an integer value, represents the number of decimal places to the right (if positive) or left (if negative; this is rarely used) of the decimal point.
-
- 
-
 Let's look at an example. Suppose that you defined a ‶balance” column as NUMERIC with a precision of 8 and a scale of 2.
-
- 
-
 The DDL would look like this:
-
- 
-
 CREATE TABLE account (
-
 accountNo integer,
-
 balance numeric(8,2)
-
 );
-
 The ‶balance” column can safely store the number 173226.62.
-
- 
-
 Numerical, decimal Data Types in SQL
-
- 
-
 Data Migration
-
- 
-
 TD->Azure SNF
-
 1 Connection
-
 conn name (prefix with warehouse), secret path , schema name
-
 2 mapping
-
 dragand drop source and target conn
-
 add
-
 target setting
-
 Historical connection -> truncate and load
-
 general ASCII
-
 =====================================================================
-
- 
-
- 
-
 TD DEV-> LINUX VM ->AZURE DATA BLOB -> SNOWFLAKE PPD
-
- 
-
- 
-
- 
-
 =================================
-
 EDM backend postgre  SQL
-
 EDM has one Database as the backend
-
 that is this PostGre SQL
-
- 
-
 We have server loading EDM information
-
 that is loaded in bigFrame tables
-
- 
-
- 
-
 ===================================
-
 TD PROD :- This is actual TD Production and this is on premise
-
 TD Dev :- This is on Premise and used for Data migration for FADS & MBYT
-
 TD 311 :- This is on Premise and used for IDW – ETL (same env was used for MBYT now it is not)
-
 REVAPP :- this is on premise and used for FADS ETL
-
 TD CLOUD :- This is on cloud and purely used for Data migration activities for IDW
-
- 
-
- 
-
- 
-
- 
-
 Thanks & Regards, 
-
 Jaivardhan Sharma
-
 Teradata to Snowflake Migration 
-
 ( +91 819 203 7163 | Jaivardhan.Sharma@cognizant.com
-
 Cognizant unveils new logo and tagline - The Hindu BusinessLineBrand & Media Assets | T‑Mobile Newsroom
-
- 
-
- 
-
-
 SJ
 Sharma, Jaivardhan (Cognizant)
