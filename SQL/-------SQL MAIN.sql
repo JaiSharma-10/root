@@ -51,17 +51,9 @@ Unique value count
 from station;*/
 select count(distinct city) from station;
 select LENGTH("jaivardhan");  -- in MySQL
+
 QUESTION-
 Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
-The STATION table is described as follows:
-where LAT_N is the northern latitude and LONG_W is the western longitude.
-Sample Input
-For example, CITY has four entries: DEF, ABC, PQRS and WXY.
-Sample Output
-ABC 3
-PQRS 4
-Explanation
-When ordered alphabetically, the CITY names are listed as ABC, DEF, PQRS, and WXY, with lengths  and . The longest name is PQRS, but there are  options for shortest named city. Choose ABC, because it comes first alphabetically.
 Solution-
 (select city,LENGTH(city)
 from station
@@ -121,6 +113,7 @@ and substring(city,length(city),length(city)) not in ('e')
 and substring(city,length(city),length(city)) not in ('i')
 and substring(city,length(city),length(city)) not in ('o')
 and substring(city,length(city),length(city)) not in ('u')
+
 Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
 solution-
 Enter your query here.
@@ -131,6 +124,7 @@ where marks>75
 order by
 substring(Name,Length(Name)-2, Length(Name)) asc
 ,ID asc
+
 Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than . Round your answer to  decimal places.
 solution-
 select round(long_w,4)
@@ -139,8 +133,8 @@ where
 truncate(lat_n,4) <= 137.2345
 order by lat_n desc
 limit 1;
-NOTE TO SELF
-ABOUT JOIN WHEN YOU DO NOT PROVIDE ANY CONDITION ON THE JOIN IT WILL CROSS JOIN IT AND WILL PROVIDE N*M RESULTS OF ROWS FOR TABLE A (N rows)JOIN TABLE B(M rows)
+
+--ABOUT JOIN WHEN YOU DO NOT PROVIDE ANY CONDITION ON THE JOIN IT WILL CROSS JOIN IT AND WILL PROVIDE N*M RESULTS OF ROWS FOR TABLE A (N rows)JOIN TABLE B(M rows)
 --Joins
 --question
 Table: Employees
@@ -200,19 +194,15 @@ The unique ID of Meir is 2.
 The unique ID of Winston is 3.
 The unique ID of Jonathan is 1.
 --solution
-# Write your MySQL query statement below
+
 select COALESCE(unique_id,0) , name --calesce when null to be replaced
 from
 Employees emp
 left outer join
 EmployeeUNI uni
 on emp.id = uni.id
-1581. Customer Who Visited but Did Not Make Any Transactions
-Easy
-Topics
-Companies
-SQL Schema
-Pandas Schema
+
+--1581. Customer Who Visited but Did Not Make Any Transactions
 Table: Visits
 +-------------+---------+
 | Column Name | Type    |
@@ -232,6 +222,7 @@ Table: Transactions
 +----------------+---------+
 transaction_id is column with unique values for this table.
 This table contains information about the transactions made during the visit_id.
+
 Write a solution to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.
 Return the result table sorted in any order.
 The result format is in the following example.
