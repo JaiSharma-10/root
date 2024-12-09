@@ -978,6 +978,8 @@ CREATE TABLE
               END;
 $$;
 ------------------------
+
+
 --how to get datatype for column of view
 WITH q AS (
     SELECT
@@ -1015,11 +1017,16 @@ ORDER BY
     q.TABLE_SCHEMA,
     q.TABLE_NAME,
     q.ORDINAL_POSITION;
+
+==============================================================
+==============================================================
+
 DM QUERIES
 ---pG admin queries to update mapping
 --hexa decimal
 --A001 - running
 --A004 - success
+
 select * from dataset where dataset_name ='SF_BDM_UE_WHXS_10'
 select * from dataset_detail where dataset_id in ('2757')
 select * from dataset_mapping where
@@ -1040,16 +1047,21 @@ last_update_date >= '2023-01-03'
 --01a91d1a-0101-4311-001f-cd027bab2deb
 -- ACCT_HOLD_LST_NM like'%'||CHR(07) --escape character
 DEVICE_GROUP like'%'||'O'
+
 create or replace file format SNOWFLAKE_FileFormat_PPD_3001403 type = 'CSV' ESCAPE='0x07'  NULL_IF = () FIELD_OPTIONALLY_ENCLOSED_BY='"'FIELD_DELIMITER = '|' empty_field_as_null = true encoding='windows-1252';
+
 create or replace stage SNF_FORMATTED_STAGE_ORC_PPD url='azure://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/'
 storage_integration=prdedssfmwu2blob01_TD_SF file_format=(format_name='SNOWFLAKE_FileFormat_PPD_3001403');
+
 COPY INTO F_FDR_Bld_UnBld_Detail FROM @SNF_FORMATTED_STAGE_ORC_PPD/dlmigration/3001403/ on_error = 'CONTINUE' FORCE = TRUE;
+
 ---for error
 create or replace table save_copy_errors_F_FDR_Bld_UnBld_Detail as
 select * from table(validate(F_FDR_Bld_UnBld_Detail, job_id=>'01a91d1a-0101-4311-001f-cd027bab2deb'));
 select top 5 * from save_copy_errors_F_FDR_Bld_UnBld_Detail
 select distinct (column_name)  from save_copy_errors_F_FDR_Bld_UnBld_Detail
 select distinct (ERROR)  from save_copy_errors_F_FDR_Bld_UnBld_Detail where column_name = '"F_FDR_BLD_UNBLD_DETAIL"["Adj_Vol":82]'
+
 ------------------------------------
 Insert into D_ACCOUNT_SAM_SEQ (TGT_CYCL_CD) values('')
 Insert into SSP_USAGE_STAGE_C (BAN)  values ('132292363'),
@@ -1111,10 +1123,14 @@ last_update_date >= '2023-01-03'
 --01a91d1a-0101-4311-001f-cd027bab2deb
 -- ACCT_HOLD_LST_NM like'%'||CHR(07) --escape character
 DEVICE_GROUP like'%'||'O'
+
 create or replace file format SNOWFLAKE_FileFormat_PPD_3001403 type = 'CSV' ESCAPE='0x07'  NULL_IF = () FIELD_OPTIONALLY_ENCLOSED_BY='"'FIELD_DELIMITER = '|' empty_field_as_null = true encoding='windows-1252';
+
 create or replace stage SNF_FORMATTED_STAGE_ORC_PPD url='azure://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/'
 storage_integration=prdedssfmwu2blob01_TD_SF file_format=(format_name='SNOWFLAKE_FileFormat_PPD_3001403');
+
 COPY INTO F_FDR_Bld_UnBld_Detail FROM @SNF_FORMATTED_STAGE_ORC_PPD/dlmigration/3001403/ on_error = 'CONTINUE' FORCE = TRUE;
+
 ---for error
 create or replace table save_copy_errors_F_FDR_Bld_UnBld_Detail as
 select * from table(validate(F_FDR_Bld_UnBld_Detail, job_id=>'01aa737a-0101-6669-001f-cd03b644a6e7'));
@@ -1122,6 +1138,7 @@ select top 5 * from save_copy_errors_F_FDR_Bld_UnBld_Detail
 select distinct (column_name)  from save_copy_errors_F_FDR_Bld_UnBld_Detail
 select distinct (ERROR)  from save_copy_errors_F_FDR_Bld_UnBld_Detail where column_name = '"F_FDR_BLD_UNBLD_DETAIL"["Adj_Vol":82]'
 ------------------------------------
+
 Insert into D_ACCOUNT_SAM_SEQ (TGT_CYCL_CD) values('')
 Insert into SSP_USAGE_STAGE_C (BAN)  values ('132292363'),
 ('971085438'),
@@ -1139,7 +1156,7 @@ select SUBSCRIPTION_ID from  DL_U2CSR.F_SAA_SUBSCRIPTION_MPCS_TMP
 where SUBSCRIPTION_ID='35,63,69,135'
 3,28,98,69,108
 delete from D_BSCS_PRODUCT_SUBSCRIPTION_BKP_07122022 where SRC_CRTN_USER_CD = 'JMelton1'
-------------------------------------------------
+
 ----------------------------------------------------------------------
 - TO RESTART SERVICES
 Linux
@@ -1173,7 +1190,9 @@ FROM    DBC.TableStatsV
 WHERE   IndexNumber = 1
 AND DataBaseName IN ('SAND_PAIDMEDIA')
 ORDER BY    RowCount DESC;
+
 ---------Size
+
 SELECT
      A.DatabaseName
     ,A.tablename
@@ -1194,9 +1213,13 @@ WHERE   A.TABLENAME=B.TABLENAME
 'CALENDAR_DIMENSION',
 'CUSTOMER_ACCOUNT_LKP')
 GROUP BY 1,2,3 ORDER BY 3 DESC
+
 ======================================================================================
+
 ---TO COPY DATA Manually FROM LINUX VM VIA PUTTY
+
 go to tpt filepath via mapping id "/data/bigframe/BigFrame/teradata_snowflake_SF/backendOffload/temp/dlmigration/506266"
+
 ----tpt file name
 vi file name
 insert edit esc
@@ -1207,27 +1230,37 @@ mkdir 506266
 run tpt query by removing { }
 azure copy
 azcopy copy '/data/bigframe/BigFrame/teradata_snowflake_SF/backendOffload/data/dlmigration/506271/*' 'https://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/dlmigration/506271/' --include-pattern "*" –recursive
+
 azuze to snf copy->
+
 create or replace file format SNOWFLAKE_FileFormat_PPD_506267 type = 'CSV' ESCAPE='0x04'  NULL_IF = () FIELD_OPTIONALLY_ENCLOSED_BY='"'FIELD_DELIMITER = '|' empty_field_as_null = true encoding='windows-1252';
+
 create or replace stage SNF_FORMATTED_STAGE_ORC_PPD url='azure://prdedssfmwu2blob01.blob.core.windows.net/bigframecontainer/'
 storage_integration=prdedssfmwu2blob01_TD_SF file_format=(format_name='SNOWFLAKE_FileFormat_PPD_506267');
+
 COPY INTO BDM_USER_DB_PPD.USER_T.NSG_OCT_FEB_USAGE FROM @SNF_FORMATTED_STAGE_ORC_PPD/dlmigration/506267/ExtractedData.gz
 on_error = 'CONTINUE' FORCE = TRUE;
+
 -------error Found character '4' instead of record delimiter '\n'
 "yÑèÔ!+øÁEöò¼üfMyÎk"|"ËôïfäÉÇÕßÿÿ
 PK
 "
 msisdn  like '%' || CHR(04)
+
 ====================================================numeric(8,2)
 SQL's exact numeric data types consist of NUMERIC(p,s) and DECIMAL(p,s) subtypes. They are exact, and we define them by precision (p) and scale (s). Precision is an integer that represents the total number of digits allowed in this column. These digits are in a particular radix, or number base – i.e. binary (base-2) or decimal (base-10). They are usually defined with a decimal point. The scale, also an integer value, represents the number of decimal places to the right (if positive) or left (if negative; this is rarely used) of the decimal point.
 Let's look at an example. Suppose that you defined a ‶balance” column as NUMERIC with a precision of 8 and a scale of 2.
 The DDL would look like this:
+
 CREATE TABLE account (
 accountNo integer,
 balance numeric(8,2)
 );
+
 The ‶balance” column can safely store the number 173226.62.
 Numerical, decimal Data Types in SQL
+
+
 Data Migration
 TD->Azure SNF
 1 Connection
@@ -1238,9 +1271,10 @@ add
 target setting
 Historical connection -> truncate and load
 general ASCII
+
 =====================================================================
 TD DEV-> LINUX VM ->AZURE DATA BLOB -> SNOWFLAKE PPD
-=================================
+=====================================================================
 EDM backend postgre  SQL
 EDM has one Database as the backend
 that is this PostGre SQL
@@ -1252,6 +1286,7 @@ TD Dev :- This is on Premise and used for Data migration for FADS & MBYT
 TD 311 :- This is on Premise and used for IDW – ETL (same env was used for MBYT now it is not)
 REVAPP :- this is on premise and used for FADS ETL
 TD CLOUD :- This is on cloud and purely used for Data migration activities for IDW
+
 Thanks & Regards, 
 Jaivardhan Sharma
 Teradata to Snowflake Migration 
