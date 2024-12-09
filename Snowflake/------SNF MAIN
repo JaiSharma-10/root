@@ -1991,3 +1991,26 @@ WHERE table_schema = 'RCM' ;
 
 
 Both of these will list all objects that your current role has access to. If run as ACCOUNTADMIN, they will return everything.
+
+-------------------------Difference between Function and stored procedure 
+
+Key Differences
+A function must return a single value, whereas a stored procedure can return a single value, multiple values, or no value at all. Functions are designed to encapsulate calculations or 
+transformations and return the result, while procedures are focused on data manipulation and processing.
+
+Functions and stored procedures are both database objects that use SQL statements to perform tasks, but they have several differences: 
+Purpose
+Functions are used for computations and data retrieval, while stored procedures are used for data manipulation and processing. 
+Return value
+Functions return a single value, while stored procedures can return a single value, multiple values, or no value. 
+Parameters
+Functions can only accept input values, while stored procedures can accept input values, output values, or both. 
+Execution
+Functions run concurrently in the computer's memory, while stored procedures run as a unit. 
+Invocation
+Functions can be invoked from various contexts, while stored procedures can only be invoked using the CALL statement. 
+Creation syntax
+Functions are created using the CREATE FUNCTION statement, while stored procedures are created using the CREATE PROCEDURE statement. 
+Deterministic behavior
+When creating a function, you must specify whether it is DETERMINISTIC or not. 
+Understanding the differences between functions and stored procedures is important for creating databases efficiently. 
