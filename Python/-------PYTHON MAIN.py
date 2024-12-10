@@ -2473,7 +2473,7 @@ credentials = {
     'authanticator' :'externalbrowser'
     }
  
-    with snowflake.connector.connect(**credentials) as cnx:
+    with snowflake.connector.connect(**credentials) as cnx: #**kwargs in function definitions in Python is used to pass a keyworded
     cur  = cnx.cursor()
     cur.execute('''             
         select distinct
