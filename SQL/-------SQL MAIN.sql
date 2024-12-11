@@ -5268,3 +5268,20 @@ end catch
 Go
 -------------------------
 go will separte batch
+
+-------------------------------------------------------------------having to filter out by aggregate function having sum(Totalcharges) >0 , having max(rxn) > 0
+
+use tranHEIL;
+
+------Charges
+
+Select left(db_name(),4) DataSource,right (db_name(),4)Facilitycode,Count(Encounterid) accounts,sum(Totalcharges) 
+amnt,cast (chargepostingdate as date) Date from charges (nolock)
+where 
+(chargepostingdate between '2024-01-01' and GETDATE())
+group by chargepostingdate
+having sum(Totalcharges) >0
+order by chargepostingdate
+
+
+
