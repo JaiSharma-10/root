@@ -32,3 +32,20 @@ Durability) transactions.
 
 Databricks provides a comprehensive platform for managing and analyzing data, making it a powerful tool for enterprises looking to leverage big data and machine learning.
 
+--------------------What is Cluster in databricks? --set of VM to perform ETL
+A cluster in Databricks is a virtual environment that provides a set of resources and configurations for running jobs and notebooks: 
+Purpose
+Databricks clusters are used to run data processing workloads, such as ETL pipelines, streaming analytics, and machine learning tasks. 
+Isolation
+Each cluster is an isolated environment that allows multiple workloads to run in parallel without interference. 
+Languages
+Clusters can execute code written in various languages, including Python, SQL, Scala, and R. 
+Types
+There are two types of clusters: all-purpose and job. All-purpose clusters are used for collaborative analysis, while job clusters are used for running automated jobs. 
+Components
+A cluster includes a set of virtual machines (VMs) that work together to execute tasks. The driver node preserves state information and runs the Apache Spark master. 
+Worker and driver types
+The type of VM used in a cluster impacts performance and cost. 
+Single-node clusters
+These are a cost-friendly option for smaller-scale tasks, but they have limited processing power and scalability
+
