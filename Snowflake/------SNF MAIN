@@ -2027,4 +2027,35 @@ Snowflake Standard Edition: Users can set the retention period to 0 or reset it 
 Snowflake Enterprise Edition and higher: Users can set the retention period to 0 or reset it to the default of 1 day for transient and permanent databases, schemas, and tables. For permanent objects, users can set the retention period to any value from 0 to 90 days.
 When retention time ends: When a retention period ends, historical data is moved to Snowflake Fail-safe, where it can't be queried, cloned, or restored. Snowflake Fail-safe stores data for up to seven days. 
 Retention time is a critical component of Snowflake Time Travel, which allows users to: analyze historical data, restore deleted objects, and clone objects. 
-Retention time helps organizations adhere to regulatory requirements and mitigate the risk of non-compliance penalties
+Retention time helps organizations adhere to regulatory requirements and mitigate the risk of non-compliance penalties.
+
+Understanding & using Time Travel
+Snowflake Time Travel enables accessing historical data (i.e. data that has been changed or deleted) at any point within a defined period. It serves as a powerful tool
+for performing the following tasks:
+
+Restoring data-related objects (tables, schemas, and databases) that might have been accidentally or intentionally deleted.
+
+Duplicating and backing up data from key points in the past.
+
+Analyzing data usage/manipulation over specified periods of time.
+
+Using Time Travel, you can perform the following actions within a defined period of time:
+
+Query data in the past that has since been updated or deleted.
+
+Create clones of entire tables, schemas, and databases at or before specific points in the past.
+
+Restore tables, schemas, and databases that have been dropped.
+
+Time Travel SQL extensions¶
+To support Time Travel, the following SQL extensions have been implemented:
+AT | BEFORE clause which can be specified in SELECT statements and CREATE … CLONE commands (immediately after the object name). The clause uses one of the 
+following parameters to pinpoint the exact historical data you want to access:
+
+TIMESTAMP
+
+OFFSET (time difference in seconds from the present time)
+
+STATEMENT (query ID for statement)
+
+UNDROP command for tables, schemas, and databases.
