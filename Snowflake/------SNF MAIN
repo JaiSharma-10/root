@@ -2017,3 +2017,14 @@ Functions are created using the CREATE FUNCTION statement, while stored procedur
 Deterministic behavior
 When creating a function, you must specify whether it is DETERMINISTIC or not. 
 Understanding the differences between functions and stored procedures is important for creating databases efficiently. 
+
+---------------------------------------Retention time
+
+In Snowflake, retention time is the number of days that historical data is preserved after a table is updated:
+Default: The standard retention period is 1 day for all Snowflake accounts.
+Adjusting: Users can change the retention period at the account or object level:
+Snowflake Standard Edition: Users can set the retention period to 0 or reset it to the default of 1 day.
+Snowflake Enterprise Edition and higher: Users can set the retention period to 0 or reset it to the default of 1 day for transient and permanent databases, schemas, and tables. For permanent objects, users can set the retention period to any value from 0 to 90 days.
+When retention time ends: When a retention period ends, historical data is moved to Snowflake Fail-safe, where it can't be queried, cloned, or restored. Snowflake Fail-safe stores data for up to seven days. 
+Retention time is a critical component of Snowflake Time Travel, which allows users to: analyze historical data, restore deleted objects, and clone objects. 
+Retention time helps organizations adhere to regulatory requirements and mitigate the risk of non-compliance penalties
