@@ -5284,4 +5284,12 @@ having sum(Totalcharges) >0
 order by chargepostingdate
 
 
+--------------------------one to one vs one to many
+The big difference in terms of table structure between one-to-one and one-to-many is that in one-to-one it is possible (but not necessary) to have a bidirectional 
+relationship, meaning table A can have a foreign key into table B, and table B can have a foreign key into the associated record in table A. This is not possible with a 
+one-to-many relationship.
+
+One-to-one relationships associate one record in one table with a single record in the other table. One-to-many relationships associate one record in one table with many 
+records in the other table.
+
 
