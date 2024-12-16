@@ -2,6 +2,9 @@
 #we have 3 workbook Data.xlsb --empty, Tran.xlsb, Binextgen.xlsb
 import pandas as pd
 
+# libraries
+# pip install Openpyxl
+# pip install pandas
 
 file_path_1 = 'C:\\Users\\IN10033204\\OneDrive - R1\\Documents\\Daily_data\\Data.xlsb' #xlsx excel workbook .xlsb  excel binary
 
@@ -21,8 +24,8 @@ for sheet in sheet_names_1:
 # dtype => specifying the data types
 # skiprows => skip number of rows from the top.
 
-print("File 1 data")
-print(dict_1)
+# print("File 1 data")
+# print(dict_1)
 
 #################################################################################################################
 
@@ -37,8 +40,8 @@ dict_2 = {} # to get data sheetwise in dictionary sheet wise in key - value pair
 for sheet in sheet_names_2:
     dict_2[sheet] = pd.read_excel(df_2,sheet,header=None ,usecols=[0, 1,2,3,4], names = ['Source','Facility','Accounts','Amount','Date'] ,skiprows = 1) # Load an Excel file into a DataFrame (read_excel)
 
-print("File 2 data")
-print(dict_2)
+# print("File 2 data")
+# print(dict_2)
 
 #################################################################################################################
 
@@ -53,8 +56,8 @@ dict_3 = {} # to get data sheetwise in dictionary sheet wise in key - value pair
 for sheet in sheet_names_3:
     dict_3[sheet] = pd.read_excel(df_3,sheet,header=None ,usecols=[0, 1,2,3,4], names = ['Source','Facility','Accounts','Amount','Date'] ,skiprows = 1) # Load an Excel file into a DataFrame (read_excel)
 
-print("File 3 data")
-print(dict_3)
+# print("File 3 data")
+# print(dict_3)
 ################################################################################################################
 
 # Append new data
@@ -65,15 +68,19 @@ dict_combined = {} # to combine data from 2 sheets
 for sheet in sheet_names_1:
     dict_combined[sheet] = pd.concat([dict_1[sheet] , dict_2[sheet] ,dict_3[sheet] ], ignore_index=True, axis=0) #axis = 0 for row wise concat
 
-print("File combination")
-print(dict_combined)
+#print("File combination")
+#print(dict_combined)
 
 ##################################################################################################################
 
 start_date = 45565
-end_date = 45635
+end_date = 45641
 
-with pd.ExcelWriter("Output_Combine_data_final.xlsx" ,engine="openpyxl") as writer:
+file_name_to_be_created = "Output_Data_1217.xlsx" 
+
+with pd.ExcelWriter(file_name_to_be_created,engine="openpyxl") as writer: #creating ExcelWriter object
     for sheet in sheet_names_1:
         df_filter = dict_combined[sheet].query('Date > @start_date and Date < @end_date')
         df_filter.to_excel(writer, sheet_name=sheet, index=False)
+
+print('Done! '+file_name_to_be_created+' is created in current directory')
