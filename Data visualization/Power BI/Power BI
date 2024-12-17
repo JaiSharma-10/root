@@ -1,4 +1,5 @@
-Semantic Model
+Semantic Model in Power BI
+
 "semantic model" in Power BI is a structured layer that represents a single source of truth for data, containing relationships between tables, calculated measures, and business logic, allowing users to easily build reports and visualizations based on a unified understanding of the data, essentially transforming raw data into a user-friendly format for analysis. 
 Key points about semantic models in Power BI:
 Function:
@@ -11,3 +12,18 @@ Ease of use: By providing a clear, business-oriented view of the data, it simpli
 Flexibility: Users can easily add new calculations and insights to the model based on business needs. 
 Creation:
 Semantic models are built within Power BI Desktop by defining data connections, transformations, relationships, and calculations.
+
+
+METRIC vs ATTRIBUTE (FACT VS DIMENSION)
+
+In a database context, a "metric" refers to a quantifiable value that measures a specific aspect of data, like sales revenue or website traffic, while an "attribute" is a descriptive characteristic that provides context to the data, like customer location or product category, which cannot be directly measured but can be used to segment and analyze metrics; essentially, metrics are the "what" you are measuring, and attributes are the "how" you categorize that data. 
+Key Differences:
+Measurability:
+Metrics are always numerical values that can be calculated and compared, while attributes are qualitative descriptions that cannot be directly measured. 
+Function:
+Metrics are used to track performance and progress, while attributes are used to organize and filter data by specific categories. 
+Example:
+Metric: "Total sales amount"
+Attribute: "Sales region" 
+How they work together:
+You can use attributes to slice and dice metrics in a report, for example, analyzing "total sales amount" by "sales region" to see which region generated the most revenue
