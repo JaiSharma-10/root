@@ -1,0 +1,13 @@
+Semantic Model
+"semantic model" in Power BI is a structured layer that represents a single source of truth for data, containing relationships between tables, calculated measures, and business logic, allowing users to easily build reports and visualizations based on a unified understanding of the data, essentially transforming raw data into a user-friendly format for analysis. 
+Key points about semantic models in Power BI:
+Function:
+It acts as a logical layer that organizes data from various sources into a coherent structure, making it accessible for reporting and analysis. 
+Components:
+A semantic model includes tables, columns, relationships between tables, calculated measures, and other business-specific calculations. 
+Benefits:
+Consistency: Multiple reports can be built on the same semantic model, ensuring data consistency across the organization. 
+Ease of use: By providing a clear, business-oriented view of the data, it simplifies analysis for non-technical users. 
+Flexibility: Users can easily add new calculations and insights to the model based on business needs. 
+Creation:
+Semantic models are built within Power BI Desktop by defining data connections, transformations, relationships, and calculations.
