@@ -30,7 +30,7 @@ df_Adjustment_Total = pd.read_excel(df,sheet_name = 'Other',header=None ,usecols
 
 df_Adjustment_Valid = pd.read_excel(df,sheet_name = 'Other',header=None ,usecols=[1,2,3,10,12] , names = ['Source','Facility','Accounts','Amount','Date'] ,skiprows = 1) # Load an Excel file into a DataFrame (read_excel)
 
-file_name_to_be_created = "Output_Recon_1217.xlsx"
+file_name_to_be_created = "Output_Recon_1219.xlsx"
 
 with pd.ExcelWriter(file_name_to_be_created ,engine="openpyxl") as writer:
     df_AR_Total.to_excel(writer, sheet_name='AR_Total', index=False)
@@ -52,4 +52,8 @@ with pd.ExcelWriter(file_name_to_be_created ,engine="openpyxl") as writer:
 # print(df_Adjustment_Valid)
 
 
+print("")
+
 print('Done! '+file_name_to_be_created+' is created in current directory')
+
+print("Good Bye")
