@@ -1,6 +1,6 @@
 #this script can get data from MS SQL with no username and password
 
-# note this the errro in two server this script is working fine
+# Note there is errror in two server apart from that this script is working fine
 
 #AHS-STAGE04
 #ALPSTAGE11
@@ -13,9 +13,9 @@ import pandas as pd #data manipulation and analysis.
 try:
     
     df_combined = pd.DataFrame() #df to hold combined data
-    df_Recon07 = pd.DataFrame() 
-    df_Recon06 = pd.DataFrame() 
-    df_Recon04 = pd.DataFrame() 
+    df_Recon07 = pd.DataFrame()
+    df_Recon06 = pd.DataFrame()
+    df_Recon04 = pd.DataFrame()
     
     #Recon07
     ######################################################################
@@ -227,7 +227,13 @@ try:
     
     df_combined = pd.concat([df,df_Recon04],ignore_index=True, axis=0)
 
-    df_combined.to_excel('Test_Tran_AR_09.xlsx', sheet_name='sheet', index=False)
+    file_name_to_be_created = 'Tran_AR_Data_1218.xlsx'
+
+    df_combined.to_excel(file_name_to_be_created, sheet_name='sheet', index=False)
+
+    print('All Done! '+file_name_to_be_created+' is created in current directory')
+
+    print("Good Bye")
     
 
 except pyodbc.Error as e:
