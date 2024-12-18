@@ -1,7 +1,5 @@
-# Below code should combine data from multiple excel workbook having multiple sheets and filter by date into new workbook
-# we have Tran and BING file it will combine and filter by date 
-# script can be extend for multiple source
-# we have 3 workbook Data.xlsb --empty, Tran.xlsb, Binextgen.xlsb
+# below code should combine data from multiple excel workbook having multiple sheets and filter by date into new workbook
+#we have 3 workbook Data.xlsb --empty, Tran.xlsb, Binextgen.xlsb
 import pandas as pd
 
 # libraries
@@ -78,13 +76,17 @@ for sheet in sheet_names_1:
 #change filter dates according to general formatting in excel
 
 start_date = 45565
-end_date = 45641
+end_date = 45643
 
-file_name_to_be_created = "Output_Data_1217_1.xlsx" 
+file_name_to_be_created = "Output_Data_1219.xlsx" 
 
 with pd.ExcelWriter(file_name_to_be_created,engine="openpyxl") as writer: #creating ExcelWriter object
     for sheet in sheet_names_1:
         df_filter = dict_combined[sheet].query('Date > @start_date and Date < @end_date')
         df_filter.to_excel(writer, sheet_name=sheet, index=False)
 
+print("")
+
 print('Done! '+file_name_to_be_created+' is created in current directory')
+
+print("Good Bye")
