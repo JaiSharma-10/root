@@ -231,6 +231,8 @@ try:
 
     df_combined.to_excel(file_name_to_be_created, sheet_name='sheet', index=False)
 
+    print("")
+
     print('All Done! '+file_name_to_be_created+' is created in current directory')
 
     print("Good Bye")
