@@ -1,9 +1,20 @@
 #this script can get data from MS SQL with no username and password
 
-# note this the errro in two server this script is working fine
-
+# Note there is errror in two server apart from that this script is working fine
 #AHS-STAGE04
 #ALPSTAGE11
+# df = pd.read_sql(query, cnxn) 
+# Issue-> read_sql in pandas doesn't directly iterate through null values
+# TypeError: 'NoneType' object is not iterable
+
+# got solution
+
+#ignoring/disregarding warning messages in SSMS, which, I believe, results in cursor not being a query and pyodbc throwing ProgrammingError "No results. Previous SQL was not a query."
+# The warning:
+# Warning: Null value is eliminated by an aggregate or other SET operation.
+# SET ANSI_WARNINGS OFF solved the issue.
+# Inserting "SET ANSI_WARNINGS OFF" at the beginning of SQL query worked.
+
 
 import pyodbc #This library is used to connect to databases using ODBC.
 #from sqlalchemy import create_engine
@@ -13,15 +24,14 @@ import pandas as pd #data manipulation and analysis.
 try:
     
     df_combined = pd.DataFrame() #df to hold combined data
-    df_Recon07 = pd.DataFrame()
-    df_Recon06 = pd.DataFrame()
-    df_Recon04 = pd.DataFrame()
+    df_Recon07 = pd.DataFrame() #df to hold Recon07 data
+    df_Recon06 = pd.DataFrame() #df to hold Recon06 data
+    df_Recon04 = pd.DataFrame() #df to hold Recon04 data
     
     #Recon07
     ######################################################################
-    #'AHS-STAGE04.accretivehealth.local'
-    list = ['AHS-STAGE04.accretivehealth.local','ALPSTAGE11.accretivehealth.local']
-
+    list = ['ALPSTAGE13.accretivehealth.local','ALPSTAGE14.accretivehealth.local','ALPSTAGE15.accretivehealth.local','AHV-A2ASTG18.EXTAPP.LOCAL','AHS-STAGE02.accretivehealth.local','AHS-STAGE03.accretivehealth.local','AHS-STAGE04.accretivehealth.local','AHS-Stage05.accretivehealth.local','ALPSTAGE09.accretivehealth.local','ALPSTAGE10.accretivehealth.local','ALPSTAGE12.accretivehealth.local']
+        
     for element in list:
         
         cnxn = pyodbc.connect(
@@ -38,7 +48,7 @@ try:
         print("Connection established.")
         
         query = """
-            SET ANSI_WARNINGS OFF
+        SET ANSI_WARNINGS OFF
             IF
                 object_id('tempdb..#temp') IS NOT NULL
                 DROP TABLE #temp
@@ -74,28 +84,159 @@ try:
             
         df = pd.read_sql(query, cnxn) #get data from sql to dataframe
 
-        print(len(df))
-
-       # df = pd.read_sql(query, cnxn) 
-       # Issue-> read_sql in pandas doesn't directly iterate through null values
        # TypeError: 'NoneType' object is not iterable
 
-       # got solution
+        print("Got data for "+element+" from sql to dataframe")
+        
+        print(len(df))
 
-       #ignoring/disregarding warning messages in SSMS, which, I believe, results in cursor not being a query and pyodbc throwing ProgrammingError "No results. Previous SQL was not a query."
-        # The warning:
-        # Warning: Null value is eliminated by an aggregate or other SET operation.
-        # SET ANSI_WARNINGS OFF solved the issue.
-        # Inserting "SET ANSI_WARNINGS OFF" at the beginning of SQL query worked.
+        df_Recon07 = pd.concat([df,df_Recon07],ignore_index=True, axis=0) #it combines data from various servers in list
 
+    #Recon06
+    ######################################################################
+   
+    list = ['ALPSTAGE10.accretivehealth.local','ALPSTAGE11.accretivehealth.local','ALPSTAGE12.accretivehealth.local','ALPSTAGE13.accretivehealth.local']
+    
+    for element in list:
+        
+        cnxn = pyodbc.connect(
+                r'Driver={SQL Server};'
+                r'Server='+element+',1433;'  # element will have server name
+                #r'Database=;'
+                r'Trusted_Connection=yes;' # Trusted_Connection=yes, which typically means it uses the Windows credentials of the user running the script.
+            )
+    
+        print("server-> "+element)
 
+        cursor = cnxn.cursor()
+            
+        print("Connection established.")
+        
+        query = """
+        SET ANSI_WARNINGS OFF
+            IF
+                object_id('tempdb..#temp') IS NOT NULL
+                DROP TABLE #temp
+                SET
+                        QUOTED_IDENTIFIER ON
+                CREATE TABLE #temp
+                        (
+                                Facilitycode         VARCHAR(5) NULL  ,
+                                PatientAccountNbr    VARCHAR(50) NULL ,
+                                EncounterOpenBalance MONEY            ,
+                                fileDate             DATE
+                        )
+                EXEC sp_MSforeachdb 'IF left(''?'',5) =''Stage''
+            BEGIN
+            use ?
+            Set QUOTED_IDENTIFIER On
+            insert into #temp
+            Select right (db_name(),4)Facilitycode,Count(PatientAccountNbr) accounts,SUM(TRY_CAST(EncounterOpenBalance as money))
+            OpenBalance,cast (fileDate as date) Date from RETRO06D (nolock)
+            Where
+            TRY_CAST(EncounterOpenBalance as money) IS NOT NULL
+            AND
+            TRY_CAST(EncounterOpenBalance as money) > 0
+            and FacilityCode <>''TRAILER''
+            and fileDate > ''2024-10-01''
+            and AccountStatus <>''OFC''
+            group by fileDate order by 1 desc
+            end'
+                SELECT
+                        *
+                FROM
+                        #temp"""
+            
+        df = pd.read_sql(query, cnxn) #get data from sql to dataframe
+
+        print(len(df))
 
         print("Got data for "+element+" from sql to dataframe")
+
+        # TypeError: 'NoneType' object is not iterable
+
+        df_Recon06 = pd.concat([df,df_Recon06],ignore_index=True, axis=0) #it combines data from various servers in list
+
+
+    #Recon04
+    ######################################################################
+   
+    list = ['ALPSTAGE08.accretivehealth.local']
+    for element in list:
+        
+        cnxn = pyodbc.connect(
+                r'Driver={SQL Server};'
+                r'Server='+element+',1433;'  # element will have server name
+                #r'Database=;'
+                r'Trusted_Connection=yes;' # Trusted_Connection=yes, which typically means it uses the Windows credentials of the user running the script.
+            )
     
-        df_combined = pd.concat([df,df_combined],ignore_index=True, axis=0)
+        print("server-> "+element)
 
+        cursor = cnxn.cursor()
+            
+        print("Connection established.")
+        
+        query = """
+        SET ANSI_WARNINGS OFF
+            IF
+                object_id('tempdb..#temp') IS NOT NULL
+                DROP TABLE #temp
+                SET
+                        QUOTED_IDENTIFIER ON
+                CREATE TABLE #temp
+                        (
+                                Facilitycode         VARCHAR(5) NULL  ,
+                                PatientAccountNbr    VARCHAR(50) NULL ,
+                                EncounterOpenBalance MONEY            ,
+                                fileDate             DATE
+                        )
+                EXEC sp_MSforeachdb 'IF left(''?'',5) =''Stage''
+            BEGIN
+            use ?
+            Set QUOTED_IDENTIFIER On
+            insert into #temp
+            Select right (db_name(),4)Facilitycode,Count(PatientAccountNbr) accounts,SUM(TRY_CAST(EncounterOpenBalance as money))
+            OpenBalance,cast (fileDate as date) Date from RETRO04D (nolock)
+            Where
+            TRY_CAST(EncounterOpenBalance as money) IS NOT NULL
+            AND
+            TRY_CAST(EncounterOpenBalance as money) > 0
+            and FacilityCode <>''TRAILER''
+            and fileDate > ''2024-10-01''
+            and AccountStatus <>''OFC''
+            group by fileDate order by 1 desc
+            end'
+                SELECT
+                        *
+                FROM
+                        #temp"""
+            
+        df = pd.read_sql(query, cnxn) #get data from sql to dataframe
 
-    df_combined.to_excel('Test_Tran_AR_01.xlsx', sheet_name='sheet', index=False)
+        print(len(df))
+
+        # TypeError: 'NoneType' object is not iterable
+
+        print("Got data for "+element+" from sql to dataframe")
+
+        df_Recon04= pd.concat([df,df_Recon04],ignore_index=True, axis=0)
+
+    ####################################################################################################################
+
+    df_combined = pd.concat([df_Recon07,df_Recon06,df_Recon04],ignore_index=True, axis=0) #it combines data from various servers in list
+        
+    #####################################################################################################################
+
+    file_name_to_be_created = 'TEST_Tran_AR_Data_01.xlsx'
+
+    df_combined.to_excel(file_name_to_be_created, sheet_name='sheet', index=False)
+
+    print("")
+
+    print('All Done! '+file_name_to_be_created+' is created in current directory')
+
+    print("Good Bye")
     
 
 except pyodbc.Error as e:
