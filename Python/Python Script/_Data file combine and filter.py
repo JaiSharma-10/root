@@ -1,3 +1,8 @@
+# libraries required
+# pip install Openpyxl
+# pip install pandas
+# pip install xlrd
+
 # below code should combine data from multiple excel workbook having multiple sheets and filter by date into new workbook
 #we have 3 workbook Data.xlsb --empty, Tran.xlsb, Binextgen.xlsb
 import pandas as pd
@@ -76,9 +81,9 @@ for sheet in sheet_names_1:
 #change filter dates according to general formatting in excel
 
 start_date = 45565
-end_date = 45643
+end_date = 45644
 
-file_name_to_be_created = "Output_Data_1219.xlsx" 
+file_name_to_be_created = "Output_Data_1220.xlsx" 
 
 with pd.ExcelWriter(file_name_to_be_created,engine="openpyxl") as writer: #creating ExcelWriter object
     for sheet in sheet_names_1:
