@@ -1,10 +1,13 @@
-# below code should combine pick and choose coulmn from excel file multiple sheets and filter by date into new workbook
-#we have 1 workbook Recon.xlsb 
-import pandas as pd
-
-# libraries
+# libraries required
 # pip install Openpyxl
 # pip install pandas
+# pip install xlrd
+
+# Below code should combine pick and choose coulmn from excel file multiple sheets and filter by date into new workbook
+# we have 1 workbook Recon.xlsb 
+
+import pandas as pd
+
 
 file_path = 'C:\\Users\\IN10033204\\OneDrive - R1\\Documents\\Daily_data\\Recon.xlsx' #recon file
 
@@ -30,7 +33,7 @@ df_Adjustment_Total = pd.read_excel(df,sheet_name = 'Other',header=None ,usecols
 
 df_Adjustment_Valid = pd.read_excel(df,sheet_name = 'Other',header=None ,usecols=[1,2,3,10,12] , names = ['Source','Facility','Accounts','Amount','Date'] ,skiprows = 1) # Load an Excel file into a DataFrame (read_excel)
 
-file_name_to_be_created = "Output_Recon_1219.xlsx"
+file_name_to_be_created = "Output_Recon_1220.xlsx"
 
 with pd.ExcelWriter(file_name_to_be_created ,engine="openpyxl") as writer:
     df_AR_Total.to_excel(writer, sheet_name='AR_Total', index=False)
