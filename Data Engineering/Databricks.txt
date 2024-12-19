@@ -49,3 +49,19 @@ The type of VM used in a cluster impacts performance and cost.
 Single-node clusters
 These are a cost-friendly option for smaller-scale tasks, but they have limited processing power and scalability
 
+--------------------------------------------what is azure databricks
+Azure Databricks is a fully managed, unified analytics platform designed to help you build, deploy, share, and maintain enterprise-grade data, analytics, and AI solutions at scale. Here are some key features:
+
+Unified Interface: Provides tools for data processing, scheduling, management, security, governance, and disaster recovery.
+
+Data Processing: Supports ETL (Extract, Transform, Load) operations, data discovery, annotation, and exploration.
+
+Machine Learning: Facilitates ML modeling, tracking, and model serving.
+
+Generative AI Solutions: Integrates with APIs like OpenAI for building generative AI applications.
+
+Open Source Integration: Manages updates for open-source integrations like Delta Lake, MLflow, Apache Spark, and Structured Streaming.
+
+Cloud Integration: Seamlessly integrates with cloud storage, security, and other Azure services.
+
+Azure Databricks is ideal for data engineers, data scientists, and machine learning engineers who need a robust platform for their analytics and AI projects.
