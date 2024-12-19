@@ -1,3 +1,8 @@
+# libraries required
+# pip install Openpyxl
+# pip install pandas
+# pip install xlrd
+
 #this script can get data from MS SQL with no username and password
 
 # Note there is errror in two server apart from that this script is working fine
@@ -228,7 +233,7 @@ try:
         
     #####################################################################################################################
 
-    file_name_to_be_created = 'TEST_Tran_AR_Data_01.xlsx'
+    file_name_to_be_created = 'Output_Tran_AR_Data_1219.xlsx'
 
     df_combined.to_excel(file_name_to_be_created, sheet_name='sheet', index=False)
 
