@@ -1,9 +1,20 @@
 #this script can get data from MS SQL with no username and password
 
 # Note there is errror in two server apart from that this script is working fine
-
 #AHS-STAGE04
 #ALPSTAGE11
+# df = pd.read_sql(query, cnxn) 
+# Issue-> read_sql in pandas doesn't directly iterate through null values
+# TypeError: 'NoneType' object is not iterable
+
+# got solution
+
+#ignoring/disregarding warning messages in SSMS, which, I believe, results in cursor not being a query and pyodbc throwing ProgrammingError "No results. Previous SQL was not a query."
+# The warning:
+# Warning: Null value is eliminated by an aggregate or other SET operation.
+# SET ANSI_WARNINGS OFF solved the issue.
+# Inserting "SET ANSI_WARNINGS OFF" at the beginning of SQL query worked.
+
 
 import pyodbc #This library is used to connect to databases using ODBC.
 #from sqlalchemy import create_engine
@@ -42,6 +53,7 @@ try:
         print("Connection established.")
         
         query = """
+        SET ANSI_WARNINGS OFF
             IF
                 object_id('tempdb..#temp') IS NOT NULL
                 DROP TABLE #temp
@@ -77,8 +89,6 @@ try:
             
         df = pd.read_sql(query, cnxn) #get data from sql to dataframe
 
-       # df = pd.read_sql(query, cnxn) 
-       # Issue-> read_sql in pandas doesn't directly iterate through null values
        # TypeError: 'NoneType' object is not iterable
 
         print("Got data for "+element+" from sql to dataframe")
@@ -111,6 +121,7 @@ try:
         print("Connection established.")
         
         query = """
+        SET ANSI_WARNINGS OFF
             IF
                 object_id('tempdb..#temp') IS NOT NULL
                 DROP TABLE #temp
@@ -178,6 +189,7 @@ try:
         print("Connection established.")
         
         query = """
+        SET ANSI_WARNINGS OFF
             IF
                 object_id('tempdb..#temp') IS NOT NULL
                 DROP TABLE #temp
@@ -227,7 +239,7 @@ try:
     
     df_combined = pd.concat([df,df_Recon04],ignore_index=True, axis=0)
 
-    file_name_to_be_created = 'Tran_AR_Data_1218.xlsx'
+    file_name_to_be_created = 'Tran_AR_Data_1220.xlsx'
 
     df_combined.to_excel(file_name_to_be_created, sheet_name='sheet', index=False)
 
