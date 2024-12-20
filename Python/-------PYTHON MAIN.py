@@ -2656,3 +2656,9 @@ print(dict_combined)
 with pd.ExcelWriter("Output_Combine_data_final.xlsx" ,engine="openpyxl") as writer:
     for sheet in sheet_names_1:
         dict_combined[sheet].to_excel(writer, sheet_name=sheet, index=False)
+
+##################################################################################################################
+What is a cursor?
+A cursor is a database object that allows you to interact with the database.
+It acts like a pointer to a specific row in the result set of a query.
+You can use the cursor to execute SQL queries, fetch data from the database, and manipulate the data.
