@@ -11,7 +11,7 @@ if not (file_name_to_be_created.endswith(".xlsx" or ".xlsb")):
     
     def get_data_tran_open_ar(file_name_to_be_created):
         
-        print(r"Running script '_Tran Open AR-Getdata from multiple sql server' now")
+        print(r"Running script '_Tran_AR_Getdata_multiple_sql' now")
     
         #this script can get data from MS SQL with no username and password
         
