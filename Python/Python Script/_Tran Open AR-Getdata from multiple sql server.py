@@ -54,6 +54,7 @@ try:
         
         query = """
         SET ANSI_WARNINGS OFF
+        set nocount on
             IF
                 object_id('tempdb..#temp') IS NOT NULL
                 DROP TABLE #temp
@@ -85,7 +86,7 @@ try:
                 SELECT
                         *
                 FROM
-                        #temp"""
+                #temp"""
             
         df = pd.read_sql(query, cnxn) #get data from sql to dataframe
 
@@ -119,6 +120,7 @@ try:
         
         query = """
         SET ANSI_WARNINGS OFF
+        set nocount on
             IF
                 object_id('tempdb..#temp') IS NOT NULL
                 DROP TABLE #temp
@@ -184,6 +186,7 @@ try:
         
         query = """
         SET ANSI_WARNINGS OFF
+        set nocount on
             IF
                 object_id('tempdb..#temp') IS NOT NULL
                 DROP TABLE #temp
@@ -233,13 +236,15 @@ try:
         
     #####################################################################################################################
 
-    file_name_to_be_created = 'Output_Tran_AR_Data_1219.xlsx'
+    file_name_to_be_created = 'Output_Tran_AR_Data_.xlsx'
 
     df_combined.to_excel(file_name_to_be_created, sheet_name='sheet', index=False)
 
     print("")
 
     print('All Done! '+file_name_to_be_created+' is created in current directory')
+
+    print('Total records'+len(df_combined))
 
     print("Good Bye")
     
