@@ -101,7 +101,7 @@ if not (file_name_to_be_created.endswith(".xlsx" or ".xlsb")):
         
         filtered_df_insert_date['INSERT_DATE_0']= pd.to_datetime(df['INSERT_DATE_']).dt.date  #convert datetime into date
         
-        filtered_df_post_date = df.loc[(df['post_DATE_'] >= initial_date) & (df['post_DATE_'] < final_date)] #filtering
+        filtered_df_post_date = df.loc[(df['post_DATE_'] >= initial_date) & (df['post_DATE_'] <= final_date)] #filtering
         
         filtered_df_post_date['post_DATE_0']= pd.to_datetime(df['post_DATE_']).dt.date  #convert datetime into date
         
