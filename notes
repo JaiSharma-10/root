@@ -8,13 +8,21 @@ DATABRICKS - Udemy
 PROBLEM STATEMENT
 
 CREATE PYTHON SCRIPT 
-To get data from all server to from queries AKA sys.databases
-To compile all results from SQL
-To filter date according to Column and date
-To explore Snowflake to find specific column in table aka INFORMATION_SCHEMA
 
-Subtasks
-1-concatenating all sheets --done
-2-filtering out sheets by column value --done
-3-To get data from sql to excel file (try to use Ms SQL extension)
+Complete automation of DATA validation which includes 
+    get_data from SQL(TRAN, BiNEextGen, Recon), Snowflake , Power BI
+    format_data cleaning filtering by facility_code and date
+    get_report from tranformed data
+
+1.Create parametrized functions for these scripts
+_Tran Open AR-Getdata from multiple sql server
+_Recon_to rearrage _col in new sheet
+_Data file combine and filter
+
+2.Create single script to run multiple functions (scripts)
+
+-DONE  Python/Python Script/_Tran Open AR-Getdata from multiple sql server.py->  To get data from all server to from queries 
+-DONE  Python/Python Script/_Tran Open AR-Getdata from multiple sql server.py->  To compile all results from SQL 
+-DONE  Python/Python Script/_Data file combine and filter.py->  To filter date according to Column and date  
+
 
